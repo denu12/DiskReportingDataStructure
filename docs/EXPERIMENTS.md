@@ -4,7 +4,7 @@ A campaign groups a scientific question; suites vary workload families. A case f
 
 Static suites vary size, distribution and circle radius independently. Uniform coordinates span the uint32 grid; normal points are clipped at the boundary; skew inputs use an exponential second coordinate. Radius is a fraction of grid width, not an expected answer count. Seeds 1–5 define separate cases; final repetitions reuse those cases.
 
-Dynamic inputs begin with uniform points. Phased cases execute updates before queries; interleaved cases shuffle operation types while generating valid deletions. Deletion removes one occurrence. Update fractions are 0.1, 0.5 and 0.9. ESA dynamic entries instead build incrementally and then execute a fixed query batch.
+Dynamic inputs begin with uniform points. Phased cases execute updates before queries; interleaved cases shuffle operation types while generating valid deletions. Deletion removes one occurrence. Update fractions are 0.1, 0.5 and 0.9. ESA compares static implementations only.
 
 Construction includes representation conversion and index building. Update calls, result allocation/reporting and adapter filtering are timed. Input loading is outside build/query/update measurements but inside the whole-job limit. Preparation and oracle verification are not algorithm timings.
 

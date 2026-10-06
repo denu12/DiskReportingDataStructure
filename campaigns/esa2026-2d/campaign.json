@@ -10,5 +10,6 @@
   "data": "https://zenodo.org/records/21243483",
   "schema": 1,
   "name": "esa2026-2d",
-  "execution_policy": "campaigns/execution.json"
+  "execution_policy": "campaigns/execution.json",
+  "implementation_mode": "static"
 }

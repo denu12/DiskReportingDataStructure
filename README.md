@@ -14,7 +14,7 @@ We call a collection of related experiments a **campaign**. There are three:
 |---|---|---|
 | `static-circles` | Querying a fixed point set: vary the number of points, their distribution, and the circle radius. | 29 static entries |
 | `dynamic-circles` | Querying points while inserting and deleting them, with different amounts and orders of updates. | 12 dynamic entries |
-| `esa2026-2d` | Running our comparison on the two-dimensional datasets used in the ESA 2026 study. | All 41 entries |
+| `esa2026-2d` | Running our comparison on the two-dimensional datasets used in the ESA 2026 study. | 29 static entries |
 
 These counts include seven of our variants. Some entries are different configurations of the same data structure, rather than separate algorithms. The [competitor list](third_party/README.md) explains which implementation each entry uses and credits its source.
 
@@ -155,7 +155,7 @@ Container and native memory limits work differently: the container limits each w
 
 Our implementations check circle membership during their search. Competitors that only support rectangular queries first report points in a surrounding rectangle, then discard those outside the circle. That extra work is included in their query time.
 
-The ESA datasets originally use floating-point coordinates. We convert them to one common integer grid for every implementation. This can change which points fall exactly on a query boundary, so these experiments are an adapted comparison, not an exact reproduction of the paper's original measurements. In this campaign, dynamic structures insert the dataset and then answer queries; the separate dynamic campaign exercises ongoing insertions and deletions. See the [ESA campaign notes](campaigns/esa2026-2d/README.md).
+The ESA datasets originally use floating-point coordinates. We convert them to one common integer grid for every implementation. This can change which points fall exactly on a query boundary, so these experiments are an adapted comparison, not an exact reproduction of the paper's original measurements. The ESA campaign compares static implementations only. Insertions and deletions are evaluated in the separate dynamic campaign. See the [ESA campaign notes](campaigns/esa2026-2d/README.md).
 
 Some competitors have been adapted to fit the comparison. In particular, `chan_sss_dyn_ADAPTED_DYNAMIC` is our local dynamic adaptation of Chan's technique. The [credits and modification notes](third_party/README.md) distinguish adaptations from upstream implementations.
 

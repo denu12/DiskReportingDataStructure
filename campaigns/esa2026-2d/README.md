@@ -16,11 +16,9 @@ and 7 point-of-interest/query pairs at 4 radii: 50 distinct workload cases.
 No high-dimensional dataset is projected to 2D. Tables/figures sharing input
 files are not counted as independent workloads.
 
-Roster: all 29 static entries and all 12 dynamic entries from our suite.
-Dynamic entries perform native incremental insertion of the input points and
-then the ESA query batch. This is labelled incremental_build_then_static_queries;
-it is not an insert/delete/interleaved update experiment. Chan's authored
-dynamization retains ADAPTED_DYNAMIC in its name.
+Roster: all 29 static entries. Dynamic implementations are evaluated only in
+the separate dynamic-circles campaign. Correctness exclusions are applied
+before timing; the current static eligibility count is 25.
 
 Common coordinate policy:
 - Parse source point coordinates as f32, matching upstream, then promote to f64.
@@ -64,7 +62,7 @@ correctness: independent brute-force exact multiset checks on random points,
 duplicates, extreme coordinates, boundary/zero-radius circles, empty input and
 collinear input. A mismatch, unsupported case, crash or other failure excludes
 the entry from subsequent timing; logs and the exact input are preserved.
-screen: up to 2,050 jobs before exclusions; 60 seconds for the whole job.
+screen: up to 1,450 jobs before exclusions; 60 seconds for the whole job.
 final: only successful screening cases, three repetitions (same source data;
 not fabricated independent ESA dataset seeds).
 Each stage: at most four jobs, physical CPUs 1/2/3/4, 16 GiB per job, 72 GiB

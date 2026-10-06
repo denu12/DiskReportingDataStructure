@@ -89,13 +89,13 @@ def main():
    print(case_id,info['n'],flush=True)
  algorithms=[dict(name=a,mode='static' if a in STATIC else 'incremental_build_then_static_queries',
    provenance='Local dynamic adaptation' if 'ADAPTED_DYNAMIC' in a else 'existing suite implementation and adapter',
-   binary='esa_runner_pargeo' if a=='pargeo' else 'esa_runner') for a in STATIC+DYNAMIC]
+   binary='esa_runner_pargeo' if a=='pargeo' else 'esa_runner') for a in STATIC]
  manifest=dict(schema=1,name='esa-2026-2d-integer-grid',status='prepared_not_started',upstream_commit=UPSTREAM,
   upstream_url='https://github.com/wembed-pdf/rembed',zenodo_record=21243483,geometry='closed Euclidean circles on common integer grid',
   policy=json.loads((Path(__file__).resolve().parents[1]/'campaigns/execution.json').read_text()),
   radius_hint_policy='existing adapters: fixed defaults, no test-query tuning; differs from upstream set_radius_hint(mean radius)',
   algorithms=algorithms,cases=cases,correctness=fixtures(root))
  (root/'campaign.json').write_text(json.dumps(manifest,indent=2))
- print(json.dumps({'cases':len(cases),'static_entries':len(STATIC),'dynamic_entries':len(DYNAMIC),'screen_jobs':len(cases)*len(algorithms)}))
+ print(json.dumps({'cases':len(cases),'static_entries':len(STATIC),'dynamic_entries':0,'screen_jobs':len(cases)*len(algorithms)}))
 
 if __name__=='__main__':main()
