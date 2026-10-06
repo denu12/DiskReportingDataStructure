@@ -1,0 +1,34 @@
+Connor-Kumar / STANN exact box-reporting adaptation, 2026-10-06.
+Benchmark ID: stann_fr (serial CPU only).
+Paper: Parallel Construction of k-Nearest Neighbor Graphs for Point Clouds,
+Eurographics 2008; expanded as Fast Construction..., IEEE TVCG 2010.
+https://diglib.eg.org/items/0ea3bf97-e242-4698-b287-00d7281568b2
+
+Recovered STANN headers from the third-party Python wrapper mirror:
+https://github.com/charlesmcclendon/stann-for-python
+Commit bec41d66ce75a12cf696d018f640905fc50ad00d
+The mirror README says its STANN headers are unmodified; sfcnn.hpp identifies
+STANN 0.74 (2010-11-15), copyright Michael Connor and Piyush Kumar, 2007/2008.
+Original files are retained under upstream/. Copyright notices are preserved.
+No explicit license file was present in this mirror; no new license is asserted.
+Google Sites original and Google Code archive could not be retrieved.
+
+Changes to include/sfcnn.hpp: added init_reporting, box_report, report_recurse.
+Reuses upstream point/index arrays, paired serial std::sort, uint32 Z-order
+comparator, center-first recursion and n<4 scans. No random shift is added.
+The kNN queue/shrinking radius and initial k-neighbor scan are replaced by an
+output callback and fixed inclusive rectangle. Query center rounded downward
+only determines traversal order; exact rectangle endpoints determine answers.
+Cell distance is replaced by exact intersection using uint64/bit_width to avoid
+upstream float frexp and signed/full-width shifts on full uint32 coordinates.
+Strict Morton pruning inequalities become inclusive to retain boundary duplicates.
+Empty inputs are supported. The nearest-neighbor entry points remain unmodified
+and are not used. This is our adaptation, not an upstream radius-query API.
+
+No OpenMP or parallel sorting is enabled. The benchmark runner additionally uses
+OMP_NUM_THREADS=1, OMP_THREAD_LIMIT=1 and taskset on one logical CPU; child
+workers inherit affinity. Existing competitors were not rerun under that affinity.
+GPU work is excluded from the comparison.
+
+Modern C++ compatibility: dpoint.hpp prints static_cast<bool>(is) instead of
+streaming an istream object in a parse-error diagnostic; no geometric behavior changes.

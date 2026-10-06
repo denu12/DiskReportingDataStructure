@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "workers": 4,
+  "cpus": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "memory_gib": 16,
+  "aggregate_memory_gib": 72,
+  "repetitions": 3,
+  "stages": {
+    "correctness": {
+      "timeout_seconds": 60,
+      "workers": 4,
+      "budget_seconds": 1800
+    },
+    "screen": {
+      "timeout_seconds": 60,
+      "workers": 4,
+      "budget_seconds": 28800
+    },
+    "final": {
+      "timeout_seconds": 180,
+      "workers": 4,
+      "budget_seconds": 86400
+    },
+    "followup": {
+      "timeout_seconds": 300,
+      "workers": 1,
+      "budget_seconds": 7200
+    },
+    "contention": {
+      "timeout_seconds": 180,
+      "workers": 1,
+      "budget_seconds": 7200,
+      "budget_pool": "followup"
+    }
+  }
+}

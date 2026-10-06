@@ -1,0 +1,29 @@
+Upstream author: Timothy M. Chan
+Unmodified source: sss-original.cc, downloaded 6 October 2026 from
+https://tmc.web.engr.illinois.edu/sss.cc
+Paper: A Minimalist's Implementation of an Approximate Nearest Neighbor
+Algorithm in Fixed Dimensions, May 9, 2006.
+https://tmc.web.engr.illinois.edu/sss.pdf
+Earlier paper: Closest-point problems simplified on the RAM, SODA 2002.
+https://tmc.web.engr.illinois.edu/ram_soda.pdf
+
+The downloaded file carries an author/date comment but no explicit license.
+No new license is asserted for upstream code.
+
+Our competitor chan_sss is an adaptation for exact inclusive axis-aligned
+rectangle reporting in 2D, matching the existing benchmark's square queries.
+It is not the original approximate nearest-neighbor implementation and its
+timings must not be attributed to the original implementation unchanged.
+
+Retained ideas: one common random coordinate shift, implicit Morton/shuffle
+comparison using XOR and less_msb, a sorted array, median recursion, common
+endpoint quadtree-cell pruning, and Morton bounds from query corners.
+Changes: enumerate all matching points rather than shrink a nearest-neighbor
+radius; prune only geometrically disjoint cells; include boundary duplicates;
+use uint64 intermediates for full uint32 input plus shift; std::sort and a
+contiguous point vector replace qsort and individually allocated points;
+per-object state replaces globals. No explicit spatial tree or extra index.
+The shift is reproducible using mt19937_64 seed 12121 by default, independent
+of the point/query seed. Tests vary that shift seed. No ANN time guarantee is
+claimed for exact range reporting. No Euclidean-radius filtering is added,
+because the common benchmark API reports inclusive boxes.

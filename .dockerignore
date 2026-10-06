@@ -1,0 +1,12 @@
+.git
+data
+results
+bin
+build
+.venv
+**/target
+**/target-native
+**/bazel-*
+**/__pycache__
+
+third_party/esa2026-workloads/benchmark/snn_datasets/csv_output/

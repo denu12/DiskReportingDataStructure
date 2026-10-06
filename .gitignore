@@ -1,0 +1,15 @@
+/data/
+/results/
+/bin/
+/build/
+/.venv/
+**/target/
+**/target-native/
+**/bazel-*/
+**/__pycache__/
+*.pyc
+*.log
+*.core
+core
+
+third_party/esa2026-workloads/benchmark/snn_datasets/csv_output/
