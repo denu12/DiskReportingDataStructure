@@ -7,13 +7,22 @@
 namespace diskreport::sfc::app::algorithms::sfc {
 template <template <typename> typename IDX, typename Input_t, typename Key_t = Input_t>
 struct Boost {
+  static constexpr bool reports_exact_circle = true;
   using IDXT = Input_t;
   using PointType = boost::geometry::model::d2::point_xy<Input_t>;
   using QueryType = boost::geometry::model::box<PointType>;
   IDX<PointType> index;
   Boost(const std::vector<PointType>& points) : index(points.begin(), points.end()) {}
   void query(const QueryType& q, auto&& out) {
-    index.query(boost::geometry::index::covered_by(q), out);
+    namespace bgi = boost::geometry::index;
+    if (const auto* circle = ::esa_campaign::active_circle) {
+      // Keep native rectangle pruning; test the exact disk before output.
+      index.query(bgi::covered_by(q) && bgi::satisfies([circle](const PointType& p) {
+        return circle->contains(p.x(), p.y());
+      }), out);
+    } else {
+      index.query(bgi::covered_by(q), out);
+    }
   }
 };
 template <typename PT>

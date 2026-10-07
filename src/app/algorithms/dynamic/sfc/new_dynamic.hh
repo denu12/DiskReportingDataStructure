@@ -12,6 +12,7 @@
 #include <stdexcept>
 #include <unordered_map>
 #include <vector>
+#include "sfc/circle.hh"
 #include "third_party/esa2026/nanoflann.hpp"
 #include "THST/QuadTree.h"
 #include "THST/RTree.h"
@@ -61,24 +62,31 @@ class Nanoflann {
  using Tree=nanoflann::KDTreeSingleIndexDynamicAdaptor<nanoflann::L2_Simple_Adaptor<double,Cloud>,Cloud,2>;
  Tree tree{2,cloud,nanoflann::KDTreeSingleIndexAdaptorParams(10)};
  std::unordered_map<uint64_t,size_t> ids;
+ mutable std::vector<nanoflann::ResultItem<unsigned,double>> hits;
  public:void insert(Point p){size_t i=cloud.p.size();cloud.p.push_back(p);ids.emplace(key(p),i);tree.addPoints(i,i);}
  void erase(Point p){auto it=ids.find(key(p));tree.removePoint(it->second);ids.erase(it);}
  void query(const Box&q,std::vector<Point>&out)const{
   double c[2]={(double(q.first.x)+q.second.x)/8589934592.0,(double(q.first.y)+q.second.y)/8589934592.0};
   double dx=(double(q.second.x)-q.first.x)/8589934592.0,dy=(double(q.second.y)-q.first.y)/8589934592.0;
-  std::vector<nanoflann::ResultItem<unsigned,double>>hits;nanoflann::RadiusResultSet<double,unsigned>result(dx*dx+dy*dy+64*std::numeric_limits<double>::epsilon(),hits);
-  tree.findNeighbors(result,c,nanoflann::SearchParameters(0,false));for(auto h:hits){auto p=cloud.p[h.first];if(inside(p,q))out.push_back(p);}
+  double radius2=dx*dx+dy*dy;
+  if(auto circle=esa_campaign::active_circle){c[0]=double(circle->x)/4294967296.0;c[1]=double(circle->y)/4294967296.0;radius2=double(circle->radius2())/18446744073709551616.0;}
+  hits.clear();nanoflann::RadiusResultSet<double,unsigned>result(radius2+64*std::numeric_limits<double>::epsilon(),hits);
+  tree.findNeighbors(result,c,nanoflann::SearchParameters(0,false));for(auto h:hits){auto p=cloud.p[h.first];if(esa_campaign::active_circle||inside(p,q))out.push_back(p);}
  }
 };
 
 class Kiddo {
  struct Api{
+  size_t(*circle_query)(void*,uint32_t,uint32_t,double,const uint32_t**);
   void*lib;void*(*create)();void(*destroy)(void*);void(*insert)(void*,uint32_t,uint32_t);void(*erase)(void*,uint32_t,uint32_t);size_t(*query)(void*,uint32_t,uint32_t,uint32_t,uint32_t,const uint32_t**);
   Api(){const char*p=std::getenv("SFC_DYNAMIC_LIBRARY");lib=dlopen(p?p:"libsfc_dynamic.so",RTLD_NOW|RTLD_LOCAL);if(!lib)throw std::runtime_error(dlerror());
-   create=(decltype(create))dlsym(lib,"kiddo_dyn_create");destroy=(decltype(destroy))dlsym(lib,"kiddo_dyn_destroy");insert=(decltype(insert))dlsym(lib,"kiddo_dyn_insert");erase=(decltype(erase))dlsym(lib,"kiddo_dyn_erase");query=(decltype(query))dlsym(lib,"kiddo_dyn_query");if(!create||!destroy||!insert||!erase||!query)throw std::runtime_error("Invalid dynamic Kiddo ABI");}
+   create=(decltype(create))dlsym(lib,"kiddo_dyn_create");destroy=(decltype(destroy))dlsym(lib,"kiddo_dyn_destroy");insert=(decltype(insert))dlsym(lib,"kiddo_dyn_insert");erase=(decltype(erase))dlsym(lib,"kiddo_dyn_erase");query=(decltype(query))dlsym(lib,"kiddo_dyn_query");circle_query=(decltype(circle_query))dlsym(lib,"kiddo_dyn_circle_query");if(!create||!destroy||!insert||!erase||!query||!circle_query)throw std::runtime_error("Invalid dynamic Kiddo ABI");}
  };
  static Api&api(){static Api a;return a;}void*index=api().create();
- public:~Kiddo(){api().destroy(index);}void insert(Point p){api().insert(index,p.x,p.y);}void erase(Point p){api().erase(index,p.x,p.y);}void query(const Box&q,std::vector<Point>&out)const{const uint32_t*p;size_t n=api().query(index,q.first.x,q.first.y,q.second.x,q.second.y,&p);for(size_t i=0;i<n;++i)out.emplace_back(p[2*i],p[2*i+1]);}
+ public:~Kiddo(){api().destroy(index);}void insert(Point p){api().insert(index,p.x,p.y);}void erase(Point p){api().erase(index,p.x,p.y);}void query(const Box&q,std::vector<Point>&out)const{const uint32_t*p;size_t n;
+  if(auto c=esa_campaign::active_circle)n=api().circle_query(index,c->x,c->y,double(c->radius2())/18446744073709551616.0+64*std::numeric_limits<double>::epsilon(),&p);
+  else n=api().query(index,q.first.x,q.first.y,q.second.x,q.second.y,&p);
+  for(size_t i=0;i<n;++i)out.emplace_back(p[2*i],p[2*i+1]);}
 };
 
 class Pkd {
@@ -101,10 +109,9 @@ class ThstQuad {
 // coordinates; multiplicities are expanded into actual reported output.
 // This avoids upstream disagreement about removing all vs one duplicate.
 template<class Backend>class Multiset {
- Backend tree;std::unordered_map<uint64_t,size_t> counts;
- public:void insert(Point p){auto&n=counts[key(p)];if(n++==0)tree.insert(p);}
- void erase(Point p){auto i=counts.find(key(p));if(i==counts.end())throw std::runtime_error("Absent point deletion");if(--i->second==0){tree.erase(p);counts.erase(i);}}
- void query(const Box&q,std::vector<Point>&out)const{if(q.first.x>q.second.x||q.first.y>q.second.y)return;std::vector<Point>distinct;tree.query(q,distinct);for(auto p:distinct){auto i=counts.find(key(p));if(i==counts.end())throw std::runtime_error("Deleted point reported");out.insert(out.end(),i->second,p);}}
+ Backend tree;std::unordered_map<uint64_t,size_t> counts;size_t duplicate_keys=0;
+ public:void insert(Point p){auto&n=counts[key(p)];if(n==1)++duplicate_keys;if(n++==0)tree.insert(p);}
+ void erase(Point p){auto i=counts.find(key(p));if(i==counts.end())throw std::runtime_error("Absent point deletion");if(i->second==2)--duplicate_keys;if(--i->second==0){tree.erase(p);counts.erase(i);}}
+ void query(const Box&q,std::vector<Point>&out)const{if(q.first.x>q.second.x||q.first.y>q.second.y)return;auto begin=out.size();tree.query(q,out);if(!duplicate_keys)return;auto end=out.size();for(size_t j=begin;j<end;++j){auto p=out[j];auto i=counts.find(key(p));if(i==counts.end())throw std::runtime_error("Deleted point reported");out.insert(out.end(),i->second-1,p);}}
 };
 }
-

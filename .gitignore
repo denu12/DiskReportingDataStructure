@@ -13,3 +13,6 @@
 core
 
 third_party/esa2026-workloads/benchmark/snn_datasets/csv_output/
+
+# Retired local research must never enter the publication tree.
+/deprecated/

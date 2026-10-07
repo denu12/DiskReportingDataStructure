@@ -1,4 +1,21 @@
+# Publication validation — 7 October 2026
+
+The publication tree contains exactly three project algorithms: `Morton`, `MortonSIMD` and `MoronSIMDearly`, each in one C++ source file. Retired static, dynamic, dimensional and Hilbert implementations are excluded. The competitor and control rosters contain 29 static entries (including the three Morton versions), nine dynamic entries and 20 dimensional entries.
+
+Both native Arch runner configurations and the dimensional Chan/STANN adapter executable built successfully. The union of the native registries exactly matches the declared 29 static and nine dynamic entries, with no retired names. All 27 ordinary Morton validation runs passed, including full uint32 coordinates and million-point construction. The dimensional Chan/STANN adapters passed four additional ordinary checks across dimensions 2 and 3 after removing their dependency on the retired Morton header. This does not assert correctness of every competitor; existing ordinary-workload admission rules remain in force.
+
+The scaling/static split preserves the original 50 workload definitions (20 plus 30); smoke preparation passed for both. The publication index passes the Git whitespace check and excludes generated datasets, results, binaries and retired research archives. No new regression-test suite was added. Docker was not rebuilt during this cleanup; the native Arch builds were verified.
+
+Validation evidence is retained locally in `results/publication-20261007/`; binaries and hashes are under `bin/publication-20261007/`. Earlier performance results retain their original names and binaries.
+
+---
+
 # Publication validation — 6 October 2026
+
+This is a historical validation record from before Hilbert was retired on
+7 October 2026. Its variant names describe that earlier build, not the current
+research roster. Retired research snapshots are kept outside the publication
+repository; current builds and campaigns exclude them.
 
 Both native Arch runners and the Rust bridge build successfully. The Arch-based container also builds from its pinned base image and fetched dependencies. Validation uses the scientific correctness protocol; no new regression-test suite was added.
 

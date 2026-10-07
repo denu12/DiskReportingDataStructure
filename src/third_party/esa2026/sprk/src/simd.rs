@@ -36,7 +36,7 @@ where
 {
     squared_half: [F; W],
     lanes: [[F; W]; D],
-    ids: [I; W],
+    pub(crate) ids: [I; W],
 }
 
 /// Core methods — available for all supported lane counts.

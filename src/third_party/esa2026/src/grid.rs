@@ -20,13 +20,14 @@ struct GridCellInner {
 }
 
 impl<'a, const D: usize> Grid<'a, D> {
-    pub fn new(embedding: Embedding<'a, D>) -> Self {
+    pub fn new(embedding: Embedding<'a, D>) -> Self { Self::new_with_radius(embedding,0.001) }
+    pub fn new_with_radius(embedding: Embedding<'a, D>, radius: f64) -> Self {
         let mut tree = Self {
             positions: Vec::new(),
             graph: embedding.graph,
             cells: Vec::new(),
             cell_positions: Vec::new(),
-            grid_size: 0.001,
+            grid_size: if radius.is_finite() && radius>0.0 {radius}else{0.001},
             min: [0.0; D],
             extents: [1; D],
         };

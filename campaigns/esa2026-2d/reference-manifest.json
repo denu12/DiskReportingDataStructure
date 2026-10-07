@@ -50,27 +50,21 @@
   "radius_hint_policy": "existing adapters: fixed defaults, no test-query tuning; differs from upstream set_radius_hint(mean radius)",
   "algorithms": [
     {
-      "name": "hcds:best",
+      "name": "Morton",
       "mode": "static",
-      "provenance": "existing suite implementation and adapter",
+      "provenance": "single-file Morton implementation",
       "binary": "esa_runner"
     },
     {
-      "name": "hcds_hilbert:best",
+      "name": "MortonSIMD",
       "mode": "static",
-      "provenance": "existing suite implementation and adapter",
+      "provenance": "single-file Morton implementation",
       "binary": "esa_runner"
     },
     {
-      "name": "ehcds:best",
+      "name": "MoronSIMDearly",
       "mode": "static",
-      "provenance": "existing suite implementation and adapter",
-      "binary": "esa_runner"
-    },
-    {
-      "name": "ehcds_hilbert:best",
-      "mode": "static",
-      "provenance": "existing suite implementation and adapter",
+      "provenance": "single-file Morton implementation",
       "binary": "esa_runner"
     },
     {

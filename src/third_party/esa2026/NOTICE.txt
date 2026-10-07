@@ -1,6 +1,29 @@
 ESA 2026 competitor bridge. Upstream rembed a81b216a2a63bde3d4447e4053b4ca31081fe286
 SNN ea7a2db86ce1c5353998fa8f7f68e6f4d8dc6945
-Adaptations: selected Rust wrappers converted f32 to f64; normalized uint32 coordinates exactly by 2^-32. Circle enclosure with outward numerical margin, followed by exact integer rectangle filtering. Nabo self matches enabled. Neighbourhood representative indices repaired for duplicates. Grid out-of-bounds query guard and raw Vec spare-capacity write repaired. Grid width fixed at .001 normalized units; unlike upstream workload-specific radius hint, the SFC constructor has no query access. All timing includes bridge and filtering. Parallel features disabled; pin runs to one CPU. Python SNN uses original implementation with float64 inputs.
+Adaptations: selected Rust wrappers converted f32 to f64; normalized uint32 coordinates exactly by 2^-32. Circle enclosure with outward numerical margin, followed by exact integer membership filtering. Nabo self matches enabled. Neighbourhood representative indices repaired for duplicates. Grid out-of-bounds query guard and raw Vec spare-capacity write repaired. Static 2D Grid width uses the arithmetic mean query radius, available as declared workload metadata before construction; .001 is retained as fallback for empty/zero-radius workloads. This is not timing-based tuning. All timing includes bridge and filtering. Parallel features disabled; pin runs to one CPU. Python SNN uses original implementation with float64 inputs.
 SPRK vendored revision 4c08d8590ff901bb599a283481053e3232860adb (0.2.0); not a claim to reproduce the paper's binaries. Main comparison covers Table 2, not ablation variants. SNN is py_snn, as confirmed by upstream plotting scripts.
 Kiddo 5.0.3 is vendored with one bug fix in src/float_leaf_slice/leaf_slice.rs: nearest_n_within remainder result item uses remainder_items[idx] instead of self.content_items[idx]. Otherwise leaf tails report IDs from the start of the leaf. Discovered by exact point-multiset regression tests.
 Build uses Rust 1.99.0 release optimization and -Ctarget-cpu=native. Python package versions recorded in python-requirements.txt.
+Separate manual reporting variant: esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS.
+Based on SPRK 0.2.0 by Dennis Kobert and Tobias Kempf (MIT), retaining the
+upstream tree construction, pruning and floating candidate-distance code.
+sprk/src/integer_reporting.rs adds original uint32 coordinates aligned with
+leaf SIMD blocks, explicit exact integer membership and coordinate output.
+The original esa_sprk reporting implementation remains available. New payload
+allocation is charged to construction and memory; all reporting and the final
+bridge copy into the benchmark point vector are charged to query time.
+The adaptation is 2D/static only, not a d-dimensional or dynamic entry.
+Dynamic reporting adapter revision (2026-10-07): direct radius requests to
+mutable Kiddo via its native unsorted iterator; output packed IDs decoded to
+original integer points, followed by one common exact circle filter. No changes
+to the upstream index implementation in this revision.
+
+Static reporting adapter revision (2026-10-07): Neighbourhood coordinates are
+converted directly back to uint32 without a coordinate-to-ID hash lookup.
+Python query arrays are reused and returned NumPy IDs are read through the
+buffer protocol, avoiding tolist and repeated query-array allocation.
+VP-tree uses acap's public fixed-radius Neighborhood visitor with the original
+search traversal, avoiding kNN heap maintenance and sorting. This shared
+wrapper also serves the d-dimensional campaign. Immutable Kiddo retains its
+native result-vector API; Nabo retains its native unsorted kNN-with-radius API.
+No upstream search predicates or correctness failures are repaired here.

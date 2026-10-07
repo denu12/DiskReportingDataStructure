@@ -1,5 +1,12 @@
 {
   "schema": 1,
+  "correctness_case_policy": "smallest_ordinary_workload_per_suite",
+  "informational_only_findings": {
+    "cgal_rt": "Reinstated: prior boundary/duplicate fixture failure is not exclusion-worthy.",
+    "pam": "Reinstated: prior boundary/duplicate fixture failure is not exclusion-worthy.",
+    "pkd": "Reinstated: prior boundary/duplicate fixture failure is not exclusion-worthy.",
+    "pkd_dyn_UPSTREAM": "Reinstated: prior crash in the boundary/duplicate fixture is informational."
+  },
   "workers": 4,
   "cpus": [
     1,

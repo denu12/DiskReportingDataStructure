@@ -2,6 +2,7 @@
 #include "app/algorithms/sfc/sfc.hh"
 namespace diskreport::sfc::app::algorithms::sfc {
 using Esa0Algo=Algo<Esa2026<0>>; REGISTER_IMPL_NAMED(Esa0Algo,"esa_sprk");
+using EsaIntegerAlgo=Algo<Esa2026<10>>; REGISTER_IMPL_NAMED(EsaIntegerAlgo,"esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS");
 using Esa1Algo=Algo<Esa2026<1>>; REGISTER_IMPL_NAMED(Esa1Algo,"esa_kiddo");
 using Esa2Algo=Algo<Esa2026<2>>; REGISTER_IMPL_NAMED(Esa2Algo,"esa_nabo");
 using Esa3Algo=Algo<Esa2026<3>>; REGISTER_IMPL_NAMED(Esa3Algo,"esa_neighbourhood");

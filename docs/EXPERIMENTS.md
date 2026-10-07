@@ -25,23 +25,23 @@ After screening all campaigns under one run label:
 python tools/plan.py --run paper
 ```
 
-The planner projects the observed whole-job screening times onto three final repetitions, includes a 25% margin and estimates scheduling on four workers. This is an estimate, not a worst-case guarantee. Only successful screened pairs are included. The final runner requires a matching plan that fits the budget. For a deliberately smaller study, pass `--campaigns static-circles` (or the other campaign names) explicitly.
+The planner projects the observed whole-job screening times onto three final repetitions, includes a 25% margin and estimates scheduling on four workers. This is an estimate, not a worst-case guarantee. Only successful screened pairs are included. The final runner requires a matching plan that fits the budget. For a deliberately smaller study, pass `--campaigns scaling` (or the other campaign names) explicitly.
 
 If the estimate is too large, select fewer workloads uniformly across algorithms. A JSON selection file maps each included campaign to its case IDs, for example:
 
 ```json
-{"static-circles": ["scaling/uniform-n10000-r0.01-s1"]}
+{"scaling": ["scaling/uniform-n10000-r0.01-s1"]}
 ```
 
-Then run `python tools/plan.py --run paper --campaigns static-circles --matrix selection.json`. Use IDs from the generated manifest. For all three campaigns, list all three in the selection file. The selected workload list is common to every algorithm; pair-specific correctness or screening failures still exclude the affected pair. Once final results exist, the plan cannot be changed within that cycle.
+Then run `python tools/plan.py --run paper --campaigns scaling --matrix selection.json`. Use IDs from the generated manifest. List exactly the campaigns selected with `--campaigns` in the selection file. The fixed-size `static` campaign is planned separately from `scaling`. The selected workload list is common to every algorithm; pair-specific correctness or screening failures still exclude the affected pair. Once final results exist, the plan cannot be changed within that cycle.
 
 ## Optional bounded follow-ups
 
 These require explicit algorithm and case selections:
 
 ```sh
-python tools/run.py followup --campaign static-circles --run paper --algorithms ALGORITHM --cases CASE_ID
-python tools/run.py contention --campaign static-circles --run paper --algorithms ALGORITHM --cases CASE_ID
+python tools/run.py followup --campaign scaling --run paper --algorithms ALGORITHM --cases CASE_ID
+python tools/run.py contention --campaign scaling --run paper --algorithms ALGORITHM --cases CASE_ID
 ```
 
 `followup` retries only pairs that timed out during screening or final measurement, once each, with 300 seconds and one worker. It never overrides a correctness exclusion. `contention` repeats selected pairs that succeeded in final measurement, three times, with 180 seconds and one worker. Choose representative cases before inspecting the serial results. Compare their build/query/update times with the corresponding concurrent final measurements; keep the two result sets separate. These stages share a two-hour allowance and retain the same memory limits. CPU selection must match the correctness gate; recorded rows include the actual assigned CPU.

@@ -16,7 +16,7 @@ def points(rng,n,distribution):
  else:a=np.column_stack((rng.random(n),np.minimum(rng.exponential(.1,n),1)))
  return np.rint(a*MAX).astype(np.uint32)
 def main():
- p=argparse.ArgumentParser();p.add_argument('--campaign',choices=['static-circles','dynamic-circles'],required=True);p.add_argument('--smoke',action='store_true',help='Small validation workload, recorded in manifest');args=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--campaign',choices=['scaling','static','dynamic-circles'],required=True);p.add_argument('--smoke',action='store_true',help='Small validation workload, recorded in manifest');args=p.parse_args()
  config=json.loads((BASE/'campaigns'/args.campaign/'campaign.json').read_text());root=BASE/'data'/args.campaign
  if (root/'campaign.json').exists():raise RuntimeError('Prepared campaign exists; archive it before replacing inputs')
  root.mkdir(parents=True,exist_ok=True);cases=[]
@@ -25,7 +25,7 @@ def main():
  for suite,spec in config['suites'].items():
   for n in ([256] if args.smoke else spec['sizes']):
    for seed in seeds:
-    if args.campaign=='static-circles':
+    if args.campaign in ('scaling','static'):
      for dist in spec['distributions']:
       for radius in spec['radii']:
        rng=np.random.default_rng(seed);pts=points(rng,n,dist);q=points(rng,16 if args.smoke else config['queries'],'uniform');r2=int(radius*MAX)**2
@@ -48,8 +48,8 @@ def main():
   for x,y in initial:events.extend([(1,x,y,0),(2,100,100,MAX_DISTANCE2)])
   events.extend([(0,7,9,0),(2,7,9,0),(1,7,9,0),(2,7,9,0)])
   path=root/'correctness/dynamic-updates.bin';dynamic_data(path,initial,events);correct.append(dict(id='dynamic-updates',path=path.relative_to(root).as_posix(),sha256=sha(path),n=len(initial)))
- roster=STATIC if args.campaign=='static-circles' else DYNAMIC
- algorithms=[dict(name=a,mode='static' if a in STATIC else 'dynamic_updates',provenance='local dynamic adaptation' if 'ADAPTED_DYNAMIC' in a else 'implementation and adapter',binary='esa_runner_pargeo' if a=='pargeo' else 'esa_runner') for a in roster]
+ roster=STATIC if args.campaign in ('scaling','static') else DYNAMIC
+ algorithms=[dict(name=a,mode='static' if a in STATIC else 'dynamic_updates',provenance='manual integer-point reporting adaptation' if 'MANUALLY_ADAPTED_INTEGER_POINTS' in a else 'local dynamic adaptation' if 'ADAPTED_DYNAMIC' in a else 'implementation and adapter',binary='esa_runner_pargeo' if a=='pargeo' else 'esa_runner') for a in roster]
  manifest=dict(schema=1,name=args.campaign,smoke=args.smoke,policy=json.loads((BASE/'campaigns/execution.json').read_text()),geometry='closed circles on uint32 grid',algorithms=algorithms,cases=cases,correctness=correct)
  (root/'campaign.json').write_text(json.dumps(manifest,indent=2)+'\n');print(len(cases),'cases prepared; no benchmarks started')
 if __name__=='__main__':main()

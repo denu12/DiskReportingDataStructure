@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <fstream>
 #include <functional>
+#include <iterator>
 #include <map>
 #include <stdexcept>
 #include <string>
@@ -19,10 +20,10 @@ struct Result { double build_seconds=0, query_seconds=0, update_seconds=0; uint6
 using Runner = std::function<Result(const Dataset&, bool)>;
 inline std::map<std::string, Runner>& registry() { static std::map<std::string, Runner> r; return r; }
 inline bool selected(const std::string& name) {
-  static const std::vector<std::string> names={"hcds:best","hcds_hilbert:best","ehcds:best","ehcds_hilbert:best","boost_lin","boost_quad","boost_star","cgal_rt","cgal_kd","thst_quad","thst_rtree","pargeo","pam","pkd","naive","chan_sss","ann_fr","stann_fr","esa_sprk","esa_kiddo","esa_nabo","esa_neighbourhood","esa_vptree","esa_orthtree","esa_grid","esa_sklearn_kd","esa_sklearn_ball","esa_snn","esa_nanoflann","hcds_dyn","hcds_hilbert_dyn","hcds_dyn_std","boost_lin_dyn","boost_quad_dyn","boost_star_dyn","chan_sss_dyn_ADAPTED_DYNAMIC","kiddo_mutable_dyn_UPSTREAM","nanoflann_dyn_UPSTREAM","pkd_dyn_UPSTREAM","thst_rtree_dyn_UPSTREAM","thst_quad_dyn_UPSTREAM"};
+  static const std::vector<std::string> names={"Morton","MortonSIMD","MoronSIMDearly","boost_lin","boost_quad","boost_star","cgal_rt","cgal_kd","thst_quad","thst_rtree","pargeo","pam","pkd","naive","chan_sss","ann_fr","stann_fr","esa_sprk","esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS","esa_kiddo","esa_nabo","esa_neighbourhood","esa_vptree","esa_orthtree","esa_grid","esa_sklearn_kd","esa_sklearn_ball","esa_snn","esa_nanoflann","boost_lin_dyn","boost_quad_dyn","boost_star_dyn","chan_sss_dyn_ADAPTED_DYNAMIC","kiddo_mutable_dyn_UPSTREAM","nanoflann_dyn_UPSTREAM","pkd_dyn_UPSTREAM","thst_rtree_dyn_UPSTREAM","thst_quad_dyn_UPSTREAM"};
   return std::find(names.begin(),names.end(),name)!=names.end();
 }
-inline bool ours(const std::string& n) { return n.starts_with("hcds") || n.starts_with("ehcds"); }
+inline bool ours(const std::string& n) { return n == "Morton" || n == "MortonSIMD" || n == "MoronSIMDearly"; }
 inline Dataset load(const std::string& path) {
   std::ifstream f(path,std::ios::binary);
   char magic[8]; uint64_t n=0,q=0;
@@ -59,8 +60,16 @@ inline std::vector<uint64_t> truth(const Dataset& d,const Circle& c) {
     if(static_cast<unsigned __int128>(dx*dx+dy*dy)<=c.radius2())out.push_back(key(p.x,p.y));}
   std::sort(out.begin(),out.end());return out;
 }
-template<class P,class Query> Result queries(const Dataset& d,bool verify,bool integrated,Query query,Result r) {
-  std::vector<P> output;
+// Output iterator: only accepted integer points enter the materialized result.
+template<class P> struct CircleOutput {
+ using iterator_category=std::output_iterator_tag;using difference_type=std::ptrdiff_t;using value_type=void;using pointer=void;using reference=void;
+ std::vector<P>* output;const Circle* circle;
+ CircleOutput& operator*(){return *this;}CircleOutput& operator++(){return *this;}CircleOutput operator++(int){return *this;}
+ CircleOutput& operator=(const P& p){auto a=xy(p);if(circle->contains(a.x,a.y))output->push_back(p);return *this;}
+};
+
+template<class P,class Query> Result queries(const Dataset& d,bool verify,bool integrated,Query query,Result r,std::vector<P>* reusable=nullptr) {
+  std::vector<P> local_output;auto& output=reusable?*reusable:local_output;
   for(size_t i=0;i<d.queries.size();++i){const auto& c=d.queries[i];auto [lo,hi]=bounds(c);
     auto start=std::chrono::steady_clock::now();
     active_circle=&c;
@@ -77,12 +86,13 @@ template<class P,class Query> Result queries(const Dataset& d,bool verify,bool i
 template<class P,class Index,class Convert> Result dynamic_queries(const Dataset& d,bool verify,bool integrated,Index& index,Convert point,Result r) {
   if(d.events.empty())return queries<P>(d,verify,integrated,[&](auto lo,auto hi,auto& out){index.esa_query(point(lo),point(hi),out);},r);
   Dataset live;if(verify)live.points=d.points;
+  std::vector<P> output;
   size_t query_number=0;
   for(const auto& e:d.events){
     XY p{e.value.x,e.value.y};
     if(e.kind==2){
       live.queries.assign(1,e.value);
-      r=queries<P>(live,verify,integrated,[&](auto lo,auto hi,auto& out){index.esa_query(point(lo),point(hi),out);},r);
+      r=queries<P>(live,verify,integrated,[&](auto lo,auto hi,auto& out){index.esa_query(point(lo),point(hi),out);},r,&output);
       if(!r.correct){r.failed_query=query_number;return r;}
       ++query_number;
     }else{

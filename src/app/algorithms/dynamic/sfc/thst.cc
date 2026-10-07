@@ -5,7 +5,6 @@
 #include "THST/RTree.h"
 #include "absl/container/btree_set.h"
 #include "app/algorithms/dynamic/sfc/sfc.hh"
-#include "sfc/HCDS_dynamic.hpp"
 #include "sfc/common.hh"
 namespace diskreport::app::algorithms::dynamic::sfc {
 template <typename Input_t>

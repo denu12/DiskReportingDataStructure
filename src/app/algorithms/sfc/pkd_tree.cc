@@ -16,13 +16,13 @@ struct Pkd {
   using tree = cpdd::ParallelKDtree<PointType>;
   tree index;
   size_t pnts;
+  parlay::sequence<PointType> outs;
   Pkd(std::vector<PointType>& points) {
     auto slice = parlay::make_slice(points.data(), points.data() + points.size());
     index.build(slice, 2);
     pnts = points.size();
   }
   void query(const QueryType& q, auto&& out) {
-    parlay::sequence<PointType> outs;
     size_t i, k;
     auto siz = index.range_count(q, i, k);  // TODO discuss
     outs.resize(siz);

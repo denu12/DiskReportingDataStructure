@@ -1,0 +1,42 @@
+{
+  "description": "Static circle reporting at a fixed point count",
+  "suites": {
+    "distributions": {
+      "sizes": [
+        1000000
+      ],
+      "distributions": [
+        "uniform",
+        "normal",
+        "skew"
+      ],
+      "radii": [
+        0.01
+      ]
+    },
+    "selectivity": {
+      "sizes": [
+        1000000
+      ],
+      "distributions": [
+        "uniform"
+      ],
+      "radii": [
+        0.001,
+        0.01,
+        0.1
+      ]
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "queries": 1000,
+  "schema": 1,
+  "name": "static",
+  "execution_policy": "campaigns/execution.json"
+}

@@ -26,13 +26,17 @@ struct PAM {
   using QueryType = Query;
   IDX index;
   size_t pnts;
+  std::vector<typename IDX::point_y> report_buffer;
   PAM(parlay::sequence<PointType> slice) : index(slice) {}
   PAM(std::vector<PointType>& points)
       : PAM(parlay::sequence<PointType>(points.begin(), points.end())) {}
 
   void query(const QueryType& q, auto&& out) {
-    auto out2 = index.query_range(q.p.x, q.p.y, q.q.x, q.q.y);
-    for (auto& [y, x] : out2) {
+    // Use the public range accumulator, retaining the native count/report semantics.
+    report_buffer.resize(index.query_count(q.p.x, q.p.y, q.q.x, q.q.y));
+    typename IDX::range_t report({q.p.y, q.p.x}, {q.q.y, q.q.x}, report_buffer.data());
+    index.range_tree.range_sum({q.p.x, q.p.y}, {q.q.x, q.q.y}, report);
+    for (auto& [y, x] : report_buffer) {
       *out = PointType(y, x, 1.0);
     }
   }

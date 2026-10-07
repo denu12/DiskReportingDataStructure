@@ -4,8 +4,6 @@ cc_library(
         "boost.cc",
         "new_dynamic.cc",
         "new_dynamic.hh",
-        "hcds.cc",
-        "naive.cc",
         "sfc.hh",
         "thst.cc",
     ],

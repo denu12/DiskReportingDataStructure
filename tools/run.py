@@ -54,6 +54,14 @@ class Campaign:
   self.root=args.root.resolve();self.base=args.base.resolve();self.bindir=self.base/'bin/esa2d'
   self.manifest=json.loads((self.root/'campaign.json').read_text());self.args=args
   self.manifest['policy']=policy(self.base)
+  # Admission is based on ordinary workloads, not synthetic edge fixtures.
+  # Preserve the original manifest and historical findings on disk.
+  if self.manifest['policy'].get('correctness_case_policy')=='smallest_ordinary_workload_per_suite':
+   ordinary={}
+   for case in sorted(self.manifest['cases'],key=lambda c:(c['n'],c['id'])):
+    ordinary.setdefault(case['suite'],case)
+   if not ordinary:raise RuntimeError('No ordinary workloads available for correctness screening')
+   self.manifest['correctness']=list(ordinary.values())
   self.stage=self.manifest['policy']['stages'][args.phase]
   self.timeout=self.stage['timeout_seconds']
   self.runroot=self.base/'results'/args.campaign/args.run;self.out=self.runroot/args.phase
@@ -186,7 +194,7 @@ class Campaign:
 def main():
  p=argparse.ArgumentParser(description='Explicit correctness, screen and final campaign stages; no automatic queue.')
  p.add_argument('phase',choices=['correctness','screen','final','followup','contention','stop'])
- p.add_argument('--campaign',choices=['static-circles','dynamic-circles','esa2026-2d'],required=True)
+ p.add_argument('--campaign',choices=['scaling','static','dynamic-circles','static-circles','esa2026-2d'],required=True)
  p.add_argument('--run',default='default');p.add_argument('--root',type=Path)
  p.add_argument('--base',type=Path,default=Path(__file__).resolve().parents[1])
  p.add_argument('--backend',choices=['systemd','process'],default=os.environ.get('DRR_BACKEND','systemd'))

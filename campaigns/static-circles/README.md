@@ -1,3 +1,3 @@
-# static-circles
+# static-circles — historical combined campaign
 
-See campaign.json for suites and parameters, and the root README for preparation and execution. --smoke creates small, labelled validation workloads. The correctness gate must pass before screening.
+This definition is retained to interpret previous inputs and results. New experiments use `scaling` (20 cases varying point count) and `static` (30 fixed-size distribution/selectivity cases). Prepare those campaigns separately; do not relabel historical results.

@@ -1,0 +1,798 @@
+{
+  "schema": 1,
+  "name": "2D_ESA_graph_embeddings",
+  "family": "graph_embeddings",
+  "upstream": {
+    "repository": "https://github.com/wembed-pdf/rembed",
+    "revision": "a81b216a2a63bde3d4447e4053b4ca31081fe286",
+    "zenodo_record": 21243483,
+    "files": {
+      "src/main.rs": "dea9e2157a5a1fe057214617ab6b06e4b9786ab62361f64ba799a6ee018a900d",
+      "src/benchmark/distribution_bench.rs": "c3502ac4debdd07362e5a15856b49a2602a532a464792af437a90d62c9602520",
+      "src/benchmark/runner.rs": "60d3a9a270ba7440bbb74035ecdb52593bfe58dfd3fae58970e726653a450056",
+      "data/download_scripts/download_clustering.py": "864543ae1886380fbd3cfdac114d0701829d5b1155d63d49af608d908b773408",
+      "data/download_scripts/nn_download_to_csv.py": "b850d07c90640f2afc20e5a3e292accae4bf3aaaadb68d5319b7e4782eed76e0",
+      "data/download_scripts/download_nn.sh": "a57536f8135a1adfbea8c89814502f86feb9a09d4a19aceacb396d063b6d709d"
+    }
+  },
+  "parent": "ESA_graph_embeddings",
+  "selection": "native dimension == 2, no projection",
+  "input_format": "ESA2D01",
+  "algorithms": [
+    "Morton",
+    "MortonSIMD",
+    "MoronSIMDearly",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "cgal_rt",
+    "cgal_kd",
+    "thst_quad",
+    "thst_rtree",
+    "pargeo",
+    "pam",
+    "pkd",
+    "naive",
+    "chan_sss",
+    "ann_fr",
+    "stann_fr",
+    "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
+    "esa_sprk",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_nanoflann"
+  ],
+  "comparison_contract": {
+    "coordinates": "common uint32 grid",
+    "output": "explicit original integer coordinates",
+    "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
+    "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction"
+  },
+  "dimensions": [
+    2
+  ],
+  "cases": [
+    {
+      "id": "embedding_result_4074@410_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_4074@410_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4074@410_dim-2_train.csv",
+          "bytes": 191509,
+          "crc32": 378789414
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_4074@410_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4074@410_dim-2_query_points.csv",
+          "bytes": 191509,
+          "crc32": 378789414
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_4074@410_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4074@410_dim-2_query_radii.csv",
+          "bytes": 190716,
+          "crc32": 1258429648
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "4074",
+        "iteration": "410",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "10000",
+        "node_count": "9994",
+        "deg": "15",
+        "processed_avg_degree": "30.26736041624975",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "12",
+        "pseed": "130",
+        "sseed": "1400",
+        "intrinsic_dimension": "2.5900233004772146",
+        "export_prefix": "embedding_result_4074@410_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_4146@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_4146@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4146@310_dim-2_train.csv",
+          "bytes": 584325,
+          "crc32": 2922136036
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_4146@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4146@310_dim-2_query_points.csv",
+          "bytes": 194800,
+          "crc32": 3895927899
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_4146@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4146@310_dim-2_query_radii.csv",
+          "bytes": 201291,
+          "crc32": 790127618
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "4146",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "31623",
+        "node_count": "31576",
+        "deg": "15",
+        "processed_avg_degree": "30.050544717506966",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "12",
+        "pseed": "130",
+        "sseed": "1400",
+        "intrinsic_dimension": "2.866831525598609",
+        "export_prefix": "embedding_result_4146@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_4230@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_4230@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4230@310_dim-2_train.csv",
+          "bytes": 1964126,
+          "crc32": 2359134036
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_4230@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4230@310_dim-2_query_points.csv",
+          "bytes": 218299,
+          "crc32": 3534037226
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_4230@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_4230@310_dim-2_query_radii.csv",
+          "bytes": 210300,
+          "crc32": 824462259
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "4230",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "100000",
+        "node_count": "99901",
+        "deg": "15",
+        "processed_avg_degree": "30.070169467773095",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "12",
+        "pseed": "130",
+        "sseed": "1400",
+        "intrinsic_dimension": "2.927548002091134",
+        "export_prefix": "embedding_result_4230@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_5289@410_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_5289@410_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5289@410_dim-2_train.csv",
+          "bytes": 191421,
+          "crc32": 2042590858
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_5289@410_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5289@410_dim-2_query_points.csv",
+          "bytes": 191421,
+          "crc32": 2042590858
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_5289@410_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5289@410_dim-2_query_radii.csv",
+          "bytes": 189947,
+          "crc32": 3647117772
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "5289",
+        "iteration": "410",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "10000",
+        "node_count": "9988",
+        "deg": "15",
+        "processed_avg_degree": "29.94032839407289",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "13",
+        "pseed": "131",
+        "sseed": "1401",
+        "intrinsic_dimension": "2.6404582028305588",
+        "export_prefix": "embedding_result_5289@410_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_5369@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_5369@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5369@310_dim-2_train.csv",
+          "bytes": 584572,
+          "crc32": 657560927
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_5369@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5369@310_dim-2_query_points.csv",
+          "bytes": 194970,
+          "crc32": 2791678592
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_5369@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5369@310_dim-2_query_radii.csv",
+          "bytes": 197523,
+          "crc32": 1358181388
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "5369",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "31623",
+        "node_count": "31577",
+        "deg": "15",
+        "processed_avg_degree": "30.01969788136935",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "13",
+        "pseed": "131",
+        "sseed": "1401",
+        "intrinsic_dimension": "2.8664452280011803",
+        "export_prefix": "embedding_result_5369@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_5453@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_5453@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5453@310_dim-2_train.csv",
+          "bytes": 1963796,
+          "crc32": 2382469900
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_5453@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5453@310_dim-2_query_points.csv",
+          "bytes": 218197,
+          "crc32": 1953849741
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_5453@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_5453@310_dim-2_query_radii.csv",
+          "bytes": 208575,
+          "crc32": 2368326618
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "5453",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "100000",
+        "node_count": "99862",
+        "deg": "15",
+        "processed_avg_degree": "30.089403376659792",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "13",
+        "pseed": "131",
+        "sseed": "1401",
+        "intrinsic_dimension": "2.9394541900532336",
+        "export_prefix": "embedding_result_5453@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_6194@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_6194@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6194@310_dim-2_train.csv",
+          "bytes": 584745,
+          "crc32": 2471880616
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_6194@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6194@310_dim-2_query_points.csv",
+          "bytes": 194999,
+          "crc32": 3869510211
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_6194@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6194@310_dim-2_query_radii.csv",
+          "bytes": 201015,
+          "crc32": 151316084
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "6194",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "31623",
+        "node_count": "31582",
+        "deg": "15",
+        "processed_avg_degree": "29.983408270533847",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "14",
+        "pseed": "132",
+        "sseed": "1402",
+        "intrinsic_dimension": "2.8820818357349065",
+        "export_prefix": "embedding_result_6194@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_6575@410_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_6575@410_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6575@410_dim-2_train.csv",
+          "bytes": 191356,
+          "crc32": 2980828471
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_6575@410_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6575@410_dim-2_query_points.csv",
+          "bytes": 191356,
+          "crc32": 2980828471
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_6575@410_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6575@410_dim-2_query_radii.csv",
+          "bytes": 189371,
+          "crc32": 2727369281
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "6575",
+        "iteration": "410",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "10000",
+        "node_count": "9990",
+        "deg": "15",
+        "processed_avg_degree": "29.802202202202203",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "14",
+        "pseed": "132",
+        "sseed": "1402",
+        "intrinsic_dimension": "2.622708207598563",
+        "export_prefix": "embedding_result_6575@410_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_6649@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_6649@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6649@310_dim-2_train.csv",
+          "bytes": 1963287,
+          "crc32": 4282056842
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_6649@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6649@310_dim-2_query_points.csv",
+          "bytes": 218086,
+          "crc32": 1393594227
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_6649@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_6649@310_dim-2_query_radii.csv",
+          "bytes": 210815,
+          "crc32": 772267252
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "6649",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "100000",
+        "node_count": "99863",
+        "deg": "15",
+        "processed_avg_degree": "30.053212901675295",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "14",
+        "pseed": "132",
+        "sseed": "1402",
+        "intrinsic_dimension": "2.910270683270313",
+        "export_prefix": "embedding_result_6649@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_8716@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_8716@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8716@310_dim-2_train.csv",
+          "bytes": 6112420,
+          "crc32": 819309983
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_8716@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8716@310_dim-2_query_points.csv",
+          "bytes": 197236,
+          "crc32": 2514400609
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_8716@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8716@310_dim-2_query_radii.csv",
+          "bytes": 194307,
+          "crc32": 1166827966
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "8716",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "316228",
+        "node_count": "315773",
+        "deg": "15",
+        "processed_avg_degree": "30.083167338562827",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "12",
+        "pseed": "130",
+        "sseed": "1400",
+        "intrinsic_dimension": "2.9373839840313494",
+        "export_prefix": "embedding_result_8716@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_8722@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_8722@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8722@310_dim-2_train.csv",
+          "bytes": 6109206,
+          "crc32": 1713032837
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_8722@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8722@310_dim-2_query_points.csv",
+          "bytes": 197165,
+          "crc32": 1609905770
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_8722@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8722@310_dim-2_query_radii.csv",
+          "bytes": 190560,
+          "crc32": 3176198934
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "8722",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "316228",
+        "node_count": "315743",
+        "deg": "15",
+        "processed_avg_degree": "30.109551122273494",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "13",
+        "pseed": "131",
+        "sseed": "1401",
+        "intrinsic_dimension": "",
+        "export_prefix": "embedding_result_8722@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_8728@210_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_8728@210_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8728@210_dim-2_train.csv",
+          "bytes": 19069792,
+          "crc32": 1381504272
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_8728@210_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8728@210_dim-2_query_points.csv",
+          "bytes": 192519,
+          "crc32": 1861815714
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_8728@210_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8728@210_dim-2_query_radii.csv",
+          "bytes": 193599,
+          "crc32": 170164495
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "8728",
+        "iteration": "210",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "1000000",
+        "node_count": "998525",
+        "deg": "15",
+        "processed_avg_degree": "30.02794321624396",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "12",
+        "pseed": "130",
+        "sseed": "1400",
+        "intrinsic_dimension": "",
+        "export_prefix": "embedding_result_8728@210_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_8731@210_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_8731@210_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8731@210_dim-2_train.csv",
+          "bytes": 19067154,
+          "crc32": 1823325032
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_8731@210_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8731@210_dim-2_query_points.csv",
+          "bytes": 192444,
+          "crc32": 1478110695
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_8731@210_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8731@210_dim-2_query_radii.csv",
+          "bytes": 193002,
+          "crc32": 3877321539
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "8731",
+        "iteration": "210",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "1000000",
+        "node_count": "998462",
+        "deg": "15",
+        "processed_avg_degree": "30.019586123457877",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "13",
+        "pseed": "131",
+        "sseed": "1401",
+        "intrinsic_dimension": "",
+        "export_prefix": "embedding_result_8731@210_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_8755@310_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_8755@310_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8755@310_dim-2_train.csv",
+          "bytes": 6111513,
+          "crc32": 3548402823
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_8755@310_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8755@310_dim-2_query_points.csv",
+          "bytes": 197095,
+          "crc32": 2782216462
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_8755@310_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8755@310_dim-2_query_radii.csv",
+          "bytes": 194450,
+          "crc32": 845525502
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "8755",
+        "iteration": "310",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "316228",
+        "node_count": "315751",
+        "deg": "15",
+        "processed_avg_degree": "30.010495612048736",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "14",
+        "pseed": "132",
+        "sseed": "1402",
+        "intrinsic_dimension": "2.924588226329606",
+        "export_prefix": "embedding_result_8755@310_dim-2"
+      }
+    },
+    {
+      "id": "embedding_result_8768@210_dim-2",
+      "suite": "graph_embeddings",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "graph_embeddings/embedding_result_8768@210_dim-2_train.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8768@210_dim-2_train.csv",
+          "bytes": 19071169,
+          "crc32": 3636126462
+        },
+        "query": {
+          "path": "graph_embeddings/embedding_result_8768@210_dim-2_query_points.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8768@210_dim-2_query_points.csv",
+          "bytes": 192609,
+          "crc32": 324575912
+        },
+        "radii": {
+          "path": "graph_embeddings/embedding_result_8768@210_dim-2_query_radii.csv",
+          "archive": "embedding_data.zip",
+          "member": "embedding_export/embedding_result_8768@210_dim-2_query_radii.csv",
+          "bytes": 193842,
+          "crc32": 347313495
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query",
+      "upstream_metadata": {
+        "result_id": "8768",
+        "iteration": "210",
+        "embedding_dim": "2",
+        "dim_hint": "2",
+        "pos_seed": "42",
+        "n": "1000000",
+        "node_count": "998364",
+        "deg": "15",
+        "processed_avg_degree": "30.045754854942686",
+        "ple": "2.5",
+        "latent_dim": "4",
+        "alpha": "Infinity",
+        "wseed": "14",
+        "pseed": "132",
+        "sseed": "1402",
+        "intrinsic_dimension": "2.9054966646539633",
+        "export_prefix": "embedding_result_8768@210_dim-2"
+      }
+    }
+  ]
+}

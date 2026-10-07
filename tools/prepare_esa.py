@@ -9,11 +9,11 @@ import random
 import struct
 import numpy as np
 
-STATIC = ['hcds:best','hcds_hilbert:best','ehcds:best','ehcds_hilbert:best',
+STATIC = ['Morton','MortonSIMD','MoronSIMDearly',
  'boost_lin','boost_quad','boost_star','cgal_rt','cgal_kd','thst_quad','thst_rtree',
- 'pargeo','pam','pkd','naive','chan_sss','ann_fr','stann_fr'] + ['esa_'+n for n in
+ 'pargeo','pam','pkd','naive','chan_sss','ann_fr','stann_fr','esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS'] + ['esa_'+n for n in
  ['sprk','kiddo','nabo','neighbourhood','vptree','orthtree','grid','sklearn_kd','sklearn_ball','snn','nanoflann']]
-DYNAMIC = ['hcds_dyn','hcds_hilbert_dyn','hcds_dyn_std','boost_lin_dyn','boost_quad_dyn','boost_star_dyn',
+DYNAMIC = ['boost_lin_dyn','boost_quad_dyn','boost_star_dyn',
  'chan_sss_dyn_ADAPTED_DYNAMIC','kiddo_mutable_dyn_UPSTREAM','nanoflann_dyn_UPSTREAM',
  'pkd_dyn_UPSTREAM','thst_rtree_dyn_UPSTREAM','thst_quad_dyn_UPSTREAM']
 MAX = 2**32-1
@@ -88,7 +88,7 @@ def main():
    cases.append(dict(id=case_id,suite='poi',path=output.relative_to(root).as_posix(),conversion=info,n=info['n'],queries=info['queries'],radius_original=radius))
    print(case_id,info['n'],flush=True)
  algorithms=[dict(name=a,mode='static' if a in STATIC else 'incremental_build_then_static_queries',
-   provenance='Local dynamic adaptation' if 'ADAPTED_DYNAMIC' in a else 'existing suite implementation and adapter',
+   provenance='Manual integer-point reporting adaptation' if 'MANUALLY_ADAPTED_INTEGER_POINTS' in a else 'Local dynamic adaptation' if 'ADAPTED_DYNAMIC' in a else 'existing suite implementation and adapter',
    binary='esa_runner_pargeo' if a=='pargeo' else 'esa_runner') for a in STATIC]
  manifest=dict(schema=1,name='esa-2026-2d-integer-grid',status='prepared_not_started',upstream_commit=UPSTREAM,
   upstream_url='https://github.com/wembed-pdf/rembed',zenodo_record=21243483,geometry='closed Euclidean circles on common integer grid',

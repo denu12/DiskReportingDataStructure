@@ -108,12 +108,32 @@ struct Algo : public ::diskreport::app::algorithms::TwoPhaseAlgorithmImpl<
         auto start=std::chrono::steady_clock::now();
         std::vector<typename DataStructure::PointType> points;points.reserve(d.points.size());
         for(auto p:d.points)points.push_back(adapter.point_constructor(p.x,p.y));
-        DataStructure index(points);
+        auto index=[&] {
+          if constexpr([] {
+              if constexpr(requires { DataStructure::uses_radius_hint; })return DataStructure::uses_radius_hint;
+              else return false;
+            }()) {
+            long double sum=0;for(const auto& c:d.queries)sum+=std::sqrt(static_cast<long double>(c.radius2()));
+            return DataStructure(points,d.queries.empty()?0.0:double(sum/d.queries.size()));
+          } else return DataStructure(points);
+        }();
         ::esa_campaign::Result r;r.build_seconds=::esa_campaign::elapsed(start);
-        return ::esa_campaign::queries<typename DataStructure::PointType>(d,verify,::esa_campaign::ours(name),
+        constexpr bool exact_circle=[] {
+          if constexpr(requires { DataStructure::reports_exact_circle; })return DataStructure::reports_exact_circle;
+          else return false;
+        }();
+        const bool direct=::esa_campaign::ours(name)||exact_circle;
+        const bool keep_original=name=="cgal_kd"||name=="cgal_rt"||name=="boost_lin"||name=="boost_quad"||name=="boost_star";
+        return ::esa_campaign::queries<typename DataStructure::PointType>(d,verify,direct||!keep_original,
           [&](auto lo,auto hi,auto& out){
             auto l=adapter.point_constructor(lo.x,lo.y),h=adapter.point_constructor(hi.x,hi.y);
-            index.query(typename DataStructure::QueryType(l,h),std::back_inserter(out));
+            // Native circle adapters report directly; CGAL requires a concrete back-insert iterator.
+            if constexpr(exact_circle || requires(typename DataStructure::PointType p) { p.x(); p.y(); }) {
+              index.query(typename DataStructure::QueryType(l,h),std::back_inserter(out));
+            } else {
+              if(direct)index.query(typename DataStructure::QueryType(l,h),std::back_inserter(out));
+              else index.query(typename DataStructure::QueryType(l,h),::esa_campaign::CircleOutput<typename DataStructure::PointType>{&out,::esa_campaign::active_circle});
+            }
           },r);
       };
     }

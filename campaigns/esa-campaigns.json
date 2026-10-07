@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "upstream": {
+    "repository": "https://github.com/wembed-pdf/rembed",
+    "revision": "a81b216a2a63bde3d4447e4053b4ca31081fe286",
+    "zenodo_record": 21243483,
+    "files": {
+      "src/main.rs": "dea9e2157a5a1fe057214617ab6b06e4b9786ab62361f64ba799a6ee018a900d",
+      "src/benchmark/distribution_bench.rs": "c3502ac4debdd07362e5a15856b49a2602a532a464792af437a90d62c9602520",
+      "src/benchmark/runner.rs": "60d3a9a270ba7440bbb74035ecdb52593bfe58dfd3fae58970e726653a450056",
+      "data/download_scripts/download_clustering.py": "864543ae1886380fbd3cfdac114d0701829d5b1155d63d49af608d908b773408",
+      "data/download_scripts/nn_download_to_csv.py": "b850d07c90640f2afc20e5a3e292accae4bf3aaaadb68d5319b7e4782eed76e0",
+      "data/download_scripts/download_nn.sh": "a57536f8135a1adfbea8c89814502f86feb9a09d4a19aceacb396d063b6d709d"
+    }
+  },
+  "full": [
+    {
+      "name": "ESA_graph_embeddings",
+      "cases": 225,
+      "dimensions": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "name": "ESA_uniform_points",
+      "cases": 21,
+      "dimensions": [
+        2,
+        8,
+        32
+      ]
+    },
+    {
+      "name": "ESA_high_dimensional",
+      "cases": 30,
+      "dimensions": [
+        96,
+        100,
+        128,
+        784,
+        960
+      ]
+    },
+    {
+      "name": "ESA_clustering",
+      "cases": 25,
+      "dimensions": [
+        4,
+        5,
+        7,
+        13,
+        34
+      ]
+    },
+    {
+      "name": "ESA_geographical",
+      "cases": 28,
+      "dimensions": [
+        2
+      ]
+    }
+  ],
+  "native_2d": [
+    {
+      "name": "2D_ESA_graph_embeddings",
+      "cases": 15,
+      "dimensions": [
+        2
+      ]
+    },
+    {
+      "name": "2D_ESA_uniform_points",
+      "cases": 7,
+      "dimensions": [
+        2
+      ]
+    },
+    {
+      "name": "2D_ESA_geographical",
+      "cases": 28,
+      "dimensions": [
+        2
+      ]
+    }
+  ],
+  "omitted_empty_2d": [
+    "2D_ESA_high_dimensional",
+    "2D_ESA_clustering"
+  ],
+  "unique_workloads": 329
+}

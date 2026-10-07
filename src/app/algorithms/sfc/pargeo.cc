@@ -14,8 +14,8 @@
 
 namespace diskreport::sfc::app::algorithms::sfc {
 namespace {
-template <int dim, typename nodeT, typename objT>
-void rangeHelper(nodeT* tree, objT qMin, objT qMax, parlay::sequence<size_t>& out, objT* A) {
+template <int dim, typename nodeT, typename objT, typename Output>
+void rangeHelper(nodeT* tree, objT qMin, objT qMax, Output& out, objT* A) {
   int relation = tree->boxCompare(qMin, qMax, tree->getMin(), tree->getMax());
 
   if (relation == tree->boxExclude) {
@@ -23,7 +23,7 @@ void rangeHelper(nodeT* tree, objT qMin, objT qMax, parlay::sequence<size_t>& ou
   } else if (relation == tree->boxInclude) {
     for (size_t i = 0; i < tree->size(); ++i) {
       objT* p = tree->getItem(i);
-      out.push_back(p - A);
+      *out++ = *p;
     }
   } else {  // intersect
     if (tree->isLeaf()) {
@@ -32,7 +32,7 @@ void rangeHelper(nodeT* tree, objT qMin, objT qMax, parlay::sequence<size_t>& ou
 
         if (qMin.x[0] <= p->x[0] && qMin.x[1] <= p->x[1] && qMax.x[0] >= p->x[0] &&
             qMax.x[1] >= p->x[1])
-          out.push_back(p - A);
+          *out++ = *p;
       }
     } else {
       rangeHelper<dim, nodeT, objT>(tree->L(), qMin, qMax, out, A);
@@ -62,12 +62,9 @@ struct Pargeo {
       : Pargeo(parlay::sequence<PointType>(points2.begin(), points2.end())) {}
 
   void query(const QueryType& q, auto&& out) {
-    auto out2 = parlay::sequence<size_t>();
 
-    rangeHelper<2, pargeo::kdNode<2, PointType>, PointType>(index, q.p, q.q, out2, points.data());
-    for (auto s : out2) {
-      out = points[s];
-    }
+
+    rangeHelper<2, pargeo::kdNode<2, PointType>, PointType>(index, q.p, q.q, out, points.data());
   }
 };
 template <typename Tp>

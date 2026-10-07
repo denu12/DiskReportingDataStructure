@@ -1,18 +1,15 @@
 cc_library(
     name = "sfc",
     srcs = [
+        "MortonSIMD.cc",
+        "MoronSIMDearly.cc",
         "esa2026.cc",
         "stann_fr.cc",
         "ann_fr.cc",
         "boost.cc",
         "cgal.cc",
         "chan_sss.cc",
-        "dhcds.cc",
-        "ehcds.cc",
-        "hcds.cc",
-        "hcds_wo_tree.cc",
         "naive.cc",
-        "ohcds.cc",
         "thst.cc",
     ],
     hdrs = [
@@ -32,9 +29,9 @@ cc_library(
             "//app/algorithms:algorithm_base_impl_lib",
             "//third_party/stann:stann_reporting",
             "//third_party/esa2026:nanoflann",
-            "//third_party/ann:ann_linf",
+            "//third_party/ann:ann_euclidean",
             "//sfc",
-            "//static_btree",
+            ":morton_scalar",
             "@CGAL",
             "@boost.foreach",
             "@boost.geometry",
@@ -87,7 +84,7 @@ cc_library(
 cc_test(
     name = "ann_fr_test",
     srcs = ["ann_fr_test.cc", "ann_fr.hh"],
-    deps = ["//sfc", "//third_party/ann:ann_linf"],
+    deps = ["//sfc", "//third_party/ann:ann_euclidean"],
 )
 
 cc_test(
@@ -97,3 +94,13 @@ cc_test(
 )
 
 cc_test(name="esa2026_test", srcs=["esa2026_test.cc","esa2026.hh"], deps=["//sfc","//third_party/esa2026:nanoflann"], linkopts=["-ldl"])
+
+# Separate translation unit: do not auto-vectorize the scalar baseline.
+cc_library(
+    name = "morton_scalar",
+    srcs = ["Morton.cc"],
+    hdrs = ["sfc.hh"],
+    copts = ["-fno-tree-vectorize", "-fno-tree-slp-vectorize"],
+    deps = ["//app/algorithms:algorithm_base_impl_lib", "//sfc"],
+    alwayslink = 1,
+)

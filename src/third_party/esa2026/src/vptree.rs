@@ -1,4 +1,4 @@
-use acap::{NearestNeighbors, vp::FlatVpTree};
+use acap::{NearestNeighbors, Proximity, knn::Neighborhood, vp::FlatVpTree};
 
 use crate::{
     Embedding, NodeId, Query,
@@ -17,6 +17,22 @@ impl<const D: usize> acap::Proximity for DataPoint<D> {
 
     fn distance(&self, other: &Self) -> Self::Distance {
         self.position.distance(&other.position)
+    }
+}
+
+struct RadiusOutput<'q, 'o, const D: usize> {
+    target: &'q DataPoint<D>,
+    radius: f64,
+    results: &'o mut Vec<NodeId>,
+}
+impl<'q, 'o, 'v, const D: usize> Neighborhood<&'q DataPoint<D>, &'v DataPoint<D>>
+    for RadiusOutput<'q, 'o, D> {
+    fn target(&self) -> &'q DataPoint<D> { self.target }
+    fn contains<T: PartialOrd<f64>>(&self, distance: T) -> bool { distance <= self.radius }
+    fn consider(&mut self, item: &'v DataPoint<D>) -> f64 {
+        let distance = self.target.distance(item);
+        if distance <= self.radius { self.results.push(item.index); }
+        distance
     }
 }
 
@@ -113,12 +129,10 @@ impl<'a, const D: usize> Query<D> for VPTree<'a, D> {
             position: pos,
         };
 
-        self.vptree
-            .k_nearest_within(&query_point, self.positions.len(), radius as f64)
-            .into_iter()
-            .for_each(|nn| {
-                results.push(nn.item.index);
-            });
+        // Public visitor API: fixed-radius reporting needs no kNN heap or sort.
+        self.vptree.search(RadiusOutput {
+            target: &query_point, radius, results,
+        });
     }
 }
 

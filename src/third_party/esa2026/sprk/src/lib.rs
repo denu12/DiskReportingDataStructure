@@ -69,6 +69,9 @@ mod query;
 mod tree;
 mod vec_writer;
 
+/// Manually adapted 2D integer-point reporting; separate from upstream SPRK.
+pub mod integer_reporting;
+
 pub use dynamic::DynSprk;
 pub use output::{IdDist, QueryOutput};
 pub use scalar::{IdStorage, Scalar};

@@ -16,9 +16,9 @@ and 7 point-of-interest/query pairs at 4 radii: 50 distinct workload cases.
 No high-dimensional dataset is projected to 2D. Tables/figures sharing input
 files are not counted as independent workloads.
 
-Roster: all 29 static entries. Dynamic implementations are evaluated only in
+Roster: all 30 static entries. Dynamic implementations are evaluated only in
 the separate dynamic-circles campaign. Correctness exclusions are applied
-before timing; the current static eligibility count is 25.
+before timing; eligibility is determined independently for each run.
 
 Common coordinate policy:
 - Parse source point coordinates as f32, matching upstream, then promote to f64.
@@ -32,7 +32,7 @@ Common coordinate policy:
   problem. Correctness is defined on the common converted data, not the CSVs.
 - campaign.json records origin, scale, rounding, counts and hashes per case.
 
-Our HCDS/EHCDS static and HCDS dynamic variants perform the circle predicate at
+Our three static Morton variants perform the circle predicate at
 the existing candidate-membership check. No post-report circle filter is used
 for our variants. Conservative bounding rectangles select candidate ranges.
 ESA static radius backends receive native circle queries with a conservative
@@ -45,6 +45,14 @@ reporting and circle filtering are charged. Dataset loading is outside the
 reported build/query times, but inside the whole-job resource limit. The common
 integer conversion is preprocessing and not timed as algorithm construction.
 The scan-based correctness reference is outside performance timings.
+
+Reporting adapter revision (2026-10-07): SPRK writes into the reusable internal
+ID buffer; the C++ bridge explicitly materializes original integer coordinates
+into the final output vector. No intermediate coordinate vector is required
+for circle queries. ESA circle adapters and nanoflann declare their exact
+circle predicate so the shared harness does not repeat it. All enumeration,
+coordinate lookup and required filtering remain timed. Earlier timing results
+retain the old adapter costs and must not be pooled with this revision.
 
 Differences from upstream beyond integer coordinates:
 - Existing adapter tuning is retained (including grid cell width .001 after
@@ -77,3 +85,15 @@ Preparation and execution
 -------------------------
 Use the shared commands in the root README. Raw CSV files belong in data/esa2026-2d/data; prepared inputs and generated manifest belong in data/esa2026-2d. Results belong in results/esa2026-2d/<run>.
 The reference-manifest.json records the original imported workload mapping and hashes; the generated manifest is authoritative for a run.
+
+Manual point-reporting variant
+------------------------------
+esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS stores integer points alongside SPRK's
+reordered leaf blocks, with lane validity flags for padding. Its leaf scan
+emits exact integer coordinates directly, without fetching reported IDs from
+the original point array. The bridge copies the explicit coordinate list to
+the final benchmark vector; that copy is timed. Payload storage and creation
+are charged to memory and construction. Candidate distances and pruning retain
+the existing normalized-double implementation. The original esa_sprk entry
+remains in the roster. This variant is also included in static-circles; existing
+saved input/result manifests are historical and are not rewritten.

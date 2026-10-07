@@ -14,8 +14,8 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--base', type=Path, default=Path(__file__).resolve().parents[1])
     p.add_argument('--run', default='default')
-    p.add_argument('--campaigns', nargs='+', default=['static-circles', 'dynamic-circles', 'esa2026-2d'],
-                   choices=['static-circles', 'dynamic-circles', 'esa2026-2d'])
+    p.add_argument('--campaigns', nargs='+', default=['scaling', 'static', 'dynamic-circles', 'esa2026-2d'],
+                   choices=['scaling', 'static', 'dynamic-circles', 'static-circles', 'esa2026-2d'])
     p.add_argument('--matrix', type=Path, help='JSON mapping each campaign to case IDs; same cases for every algorithm')
     args = p.parse_args()
     if Path(args.run).name != args.run or args.run in ('', '.', '..'):
@@ -28,7 +28,7 @@ def main():
               'budget_seconds': config['stages']['final']['budget_seconds'],
               'estimation': 'screen wall times, three repetitions, 25% margin; estimate, not a guarantee'}
     if any((args.base / 'results' / name / args.run / 'final/state.json').exists()
-           for name in ['static-circles', 'dynamic-circles', 'esa2026-2d']):
+           for name in ['scaling', 'static', 'dynamic-circles', 'static-circles', 'esa2026-2d']):
         raise RuntimeError('Final measurements already exist; their workload plan cannot be changed')
     for name in args.campaigns:
         path = args.base / 'results' / name / args.run / 'screen/state.json'
