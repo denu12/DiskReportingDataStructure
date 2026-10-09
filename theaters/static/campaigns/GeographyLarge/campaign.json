@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "name": "GeographyLarge",
+  "description": "Large real OSM POI workloads extracted with the unchanged ESA POI extractor",
+  "source": {
+    "url": "https://download.geofabrik.de/europe-260930.osm.pbf",
+    "bytes": 35088430426,
+    "md5": "dcefd0cc31e6357f1e1f1c19e5da8d36",
+    "region": "Europe",
+    "attribution": "OpenStreetMap contributors; ODbL 1.0",
+    "extractor_repository": "https://github.com/wembed-pdf/rembed",
+    "extractor_revision": "a81b216a2a63bde3d4447e4053b4ca31081fe286",
+    "extractor_files": {
+      ".gitignore": "8e342cc6ea7701874e0fc8f3fbe134647c2be69c87dfba481536d624ff8a517f",
+      "Cargo.toml": "651daddc0bd1ad2a80bc6bb8e673b11fc45404a0d49aa1a53cd3f7264291d2f6",
+      "src/category.rs": "969e1422f68070abfc33d0593e4540bc9c90fff644aac255f81121ede9f1bbe4",
+      "src/classify.rs": "420d09545a39a6b868bc37053040cda701522a4defc8bb571b437d6113252115",
+      "src/extract.rs": "032ebd7c1f597201c00c984ebc463a37b53c0bf34c6e6dc95657ae4929278826",
+      "src/main.rs": "1eda5373d787c6c7b613410893f1372a6d44de656020f355d5d2a3d83967b2a2",
+      "src/poi.rs": "4dda5d10d076f4d33b66ee6ec85ac638827f5ac9596e00aee3b533efb2887574",
+      "src/project.rs": "8e4e7591a5205ee2ad7037570b1300152edb56e3f9e5fb68819cc60e8e84c8e0"
+    }
+  },
+  "sizes": [
+    1000000,
+    2000000,
+    3000000,
+    4000000,
+    5000000
+  ],
+  "queries": 1000,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "radii": [
+    500,
+    1000,
+    2000,
+    5000
+  ],
+  "sampling": "Pool all classified POIs; sample source rows without replacement; nested index sets; held-out real POI queries; no fabricated or replicated points",
+  "geometry": "Upstream centroid equirectangular projection, then one common uint32 grid; disk radii in projected metres, not geodesic distances",
+  "projection_limitation": "Upstream projection is regional; European extent has geographical distortion. This campaign benchmarks the projected Euclidean coordinates, not distance accuracy.",
+  "expected_instances": 100,
+  "input_format": "ESA2D01",
+  "execution_policy": "config/execution.json",
+  "prefilter": "pyosmium tag filter retaining all potentially classified objects and referenced nodes/ways; upstream extractor source unchanged",
+  "algorithms": [
+    "Morton",
+    "MortonSIMD",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "cgal_rt",
+    "cgal_kd",
+    "thst_quad",
+    "thst_rtree",
+    "pargeo",
+    "pam",
+    "pkd",
+    "naive",
+    "chan_sss",
+    "ann_fr",
+    "stann_fr",
+    "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
+    "esa_sprk_CHEATING_IDS_ONLY",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_nanoflann"
+  ]
+}

@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.20)
+project(diskreport_ddim LANGUAGES CXX)
+add_library(diskreport_ddim INTERFACE)
+target_include_directories(diskreport_ddim INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+target_compile_features(diskreport_ddim INTERFACE cxx_std_20)
+add_executable(ddim_check check_campaign.cpp)
+target_link_libraries(ddim_check PRIVATE diskreport_ddim)
+target_include_directories(ddim_check SYSTEM PRIVATE ../../third_party/stann/include)
+
+add_executable(morton_ddim_check morton_campaign.cpp)
+target_link_libraries(morton_ddim_check PRIVATE diskreport_ddim)
+target_compile_options(morton_ddim_check PRIVATE -O3 -mavx2)
+
+add_executable(morton_3d_check morton_3d_campaign.cpp)
+target_link_libraries(morton_3d_check PRIVATE diskreport_ddim)
+target_compile_options(morton_3d_check PRIVATE -O3 -mavx2)

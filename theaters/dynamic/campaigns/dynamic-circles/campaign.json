@@ -1,0 +1,41 @@
+{
+  "description": "Circle reporting under insertions and deletions",
+  "suites": {
+    "phased": {
+      "sizes": [
+        10000,
+        100000,
+        1000000
+      ],
+      "update_ratios": [
+        0.1,
+        0.5,
+        0.9
+      ]
+    },
+    "interleaved": {
+      "sizes": [
+        10000,
+        100000,
+        1000000
+      ],
+      "update_ratios": [
+        0.1,
+        0.5,
+        0.9
+      ]
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "operations": 10000,
+  "radius": 0.01,
+  "schema": 1,
+  "name": "dynamic-circles",
+  "execution_policy": "config/execution.json"
+}

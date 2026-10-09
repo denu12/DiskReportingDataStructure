@@ -1,0 +1,74 @@
+{
+  "description": "Static 3D sphere reporting as the point count increases",
+  "suites": {
+    "scaling": {
+      "sizes": [
+        10000,
+        100000,
+        2000000,
+        4000000,
+        6000000,
+        8000000,
+        10000000,
+        12000000
+      ],
+      "distributions": [
+        "uniform"
+      ],
+      "radii": [
+        0.01
+      ]
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "queries": 1000,
+  "schema": 1,
+  "name": "Scaling3D",
+  "execution_policy": "config/execution.json",
+  "dimension": 3,
+  "dimensions": [
+    3
+  ],
+  "input_format": "ddim-u32",
+  "algorithms": [
+    "Morton3D",
+    "chan_sss_ddim_MANUALLY_ADAPTED",
+    "stann_fr_ddim_MANUALLY_ADAPTED",
+    "ann_fr",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "esa_sprk",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_snn_rust",
+    "esa_nanoflann",
+    "cgal_kd",
+    "esa_sprk_CHEATING_IDS_ONLY"
+  ],
+  "source_campaign": "scaling",
+  "geometry": "closed Euclidean spheres on uint32 grid",
+  "coordinate_generation": "uniform per axis; normal mean 0.5 standard deviation 0.125 clipped to [0,1]; skew has uniform x and independent exponential y,z with mean 0.1 clipped to [0,1]; nearest uint32 integer",
+  "radius_policy": "same fraction of coordinate-domain width as 2D; no equal-answer-count adjustment",
+  "comparison_contract": {
+    "coordinates": "uint32 grid",
+    "output": "explicit original integer coordinates",
+    "measurement": "single-core jobs; existing shared budgets and timeouts; three final repetitions",
+    "exceptions": {
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (cheating): materialized IDs only; coordinate gathering and exact oracle outside query timing"
+    }
+  }
+}

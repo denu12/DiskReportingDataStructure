@@ -1,0 +1,474 @@
+{
+  "schema": 1,
+  "name": "ESA_uniform_points",
+  "family": "uniform_points",
+  "upstream": {
+    "repository": "https://github.com/wembed-pdf/rembed",
+    "revision": "a81b216a2a63bde3d4447e4053b4ca31081fe286",
+    "zenodo_record": 21243483,
+    "files": {
+      "src/main.rs": "dea9e2157a5a1fe057214617ab6b06e4b9786ab62361f64ba799a6ee018a900d",
+      "src/benchmark/distribution_bench.rs": "c3502ac4debdd07362e5a15856b49a2602a532a464792af437a90d62c9602520",
+      "src/benchmark/runner.rs": "60d3a9a270ba7440bbb74035ecdb52593bfe58dfd3fae58970e726653a450056",
+      "data/download_scripts/download_clustering.py": "864543ae1886380fbd3cfdac114d0701829d5b1155d63d49af608d908b773408",
+      "data/download_scripts/nn_download_to_csv.py": "b850d07c90640f2afc20e5a3e292accae4bf3aaaadb68d5319b7e4782eed76e0",
+      "data/download_scripts/download_nn.sh": "a57536f8135a1adfbea8c89814502f86feb9a09d4a19aceacb396d063b6d709d"
+    }
+  },
+  "parent": null,
+  "selection": "upstream workload family restricted to dimension > 2; native 2D cases belong to the small theater",
+  "input_format": "ddim-u32",
+  "algorithms": [
+    "chan_sss_ddim_MANUALLY_ADAPTED",
+    "stann_fr_ddim_MANUALLY_ADAPTED",
+    "ann_fr",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "esa_sprk",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_snn_rust",
+    "esa_nanoflann",
+    "cgal_kd"
+  ],
+  "comparison_contract": {
+    "coordinates": "common uint32 grid",
+    "output": "explicit original integer coordinates",
+    "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
+    "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction"
+  },
+  "dimensions": [
+    8,
+    32
+  ],
+  "cases": [
+    {
+      "id": "dist_uniform_d32_n10000000_r0.968",
+      "suite": "uniform_points",
+      "dimension": 32,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d32_n10000000_r0.968_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n10000000_r0.968_train.csv",
+          "bytes": 3400956644,
+          "crc32": 655850230
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d32_n10000000_r0.968_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n10000000_r0.968_query_points.csv",
+          "bytes": 336192,
+          "crc32": 2292816539
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d32_n10000000_r0.968_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n10000000_r0.968_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 495151292
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d32_n1000000_r1.040",
+      "suite": "uniform_points",
+      "dimension": 32,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d32_n1000000_r1.040_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n1000000_r1.040_train.csv",
+          "bytes": 340088577,
+          "crc32": 3608500071
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d32_n1000000_r1.040_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n1000000_r1.040_query_points.csv",
+          "bytes": 336192,
+          "crc32": 2292816539
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d32_n1000000_r1.040_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n1000000_r1.040_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 4271456458
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d32_n100000_r1.117",
+      "suite": "uniform_points",
+      "dimension": 32,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d32_n100000_r1.117_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n100000_r1.117_train.csv",
+          "bytes": 34008506,
+          "crc32": 4047924373
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d32_n100000_r1.117_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n100000_r1.117_query_points.csv",
+          "bytes": 336192,
+          "crc32": 2292816539
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d32_n100000_r1.117_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n100000_r1.117_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 3373578344
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d32_n10000_r1.201",
+      "suite": "uniform_points",
+      "dimension": 32,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d32_n10000_r1.201_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n10000_r1.201_train.csv",
+          "bytes": 3400895,
+          "crc32": 3253083083
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d32_n10000_r1.201_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n10000_r1.201_query_points.csv",
+          "bytes": 336192,
+          "crc32": 2292816539
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d32_n10000_r1.201_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n10000_r1.201_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 1786564360
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d32_n3162280_r1.003",
+      "suite": "uniform_points",
+      "dimension": 32,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d32_n3162280_r1.003_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n3162280_r1.003_train.csv",
+          "bytes": 1075478089,
+          "crc32": 2507155668
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d32_n3162280_r1.003_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n3162280_r1.003_query_points.csv",
+          "bytes": 336192,
+          "crc32": 2292816539
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d32_n3162280_r1.003_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n3162280_r1.003_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 3123246543
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d32_n316228_r1.078",
+      "suite": "uniform_points",
+      "dimension": 32,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d32_n316228_r1.078_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n316228_r1.078_train.csv",
+          "bytes": 107545795,
+          "crc32": 2781143945
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d32_n316228_r1.078_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n316228_r1.078_query_points.csv",
+          "bytes": 336192,
+          "crc32": 2292816539
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d32_n316228_r1.078_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n316228_r1.078_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 267434544
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d32_n31623_r1.158",
+      "suite": "uniform_points",
+      "dimension": 32,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d32_n31623_r1.158_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n31623_r1.158_train.csv",
+          "bytes": 10753483,
+          "crc32": 1414223810
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d32_n31623_r1.158_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n31623_r1.158_query_points.csv",
+          "bytes": 336192,
+          "crc32": 2292816539
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d32_n31623_r1.158_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d32_n31623_r1.158_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 3123008509
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d8_n10000000_r0.157",
+      "suite": "uniform_points",
+      "dimension": 8,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d8_n10000000_r0.157_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n10000000_r0.157_train.csv",
+          "bytes": 850236659,
+          "crc32": 723778272
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d8_n10000000_r0.157_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n10000000_r0.157_query_points.csv",
+          "bytes": 84187,
+          "crc32": 1801119271
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d8_n10000000_r0.157_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n10000000_r0.157_query_radii.csv",
+          "bytes": 20000,
+          "crc32": 1198559595
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d8_n1000000_r0.209",
+      "suite": "uniform_points",
+      "dimension": 8,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d8_n1000000_r0.209_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n1000000_r0.209_train.csv",
+          "bytes": 85023347,
+          "crc32": 482447659
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d8_n1000000_r0.209_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n1000000_r0.209_query_points.csv",
+          "bytes": 84159,
+          "crc32": 2687498746
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d8_n1000000_r0.209_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n1000000_r0.209_query_radii.csv",
+          "bytes": 18000,
+          "crc32": 1053715878
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d8_n100000_r0.279",
+      "suite": "uniform_points",
+      "dimension": 8,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d8_n100000_r0.279_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n100000_r0.279_train.csv",
+          "bytes": 8501221,
+          "crc32": 3450322370
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d8_n100000_r0.279_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n100000_r0.279_query_points.csv",
+          "bytes": 83994,
+          "crc32": 2264425656
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d8_n100000_r0.279_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n100000_r0.279_query_radii.csv",
+          "bytes": 20000,
+          "crc32": 2279183639
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d8_n10000_r0.372",
+      "suite": "uniform_points",
+      "dimension": 8,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d8_n10000_r0.372_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n10000_r0.372_train.csv",
+          "bytes": 850091,
+          "crc32": 404878484
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d8_n10000_r0.372_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n10000_r0.372_query_points.csv",
+          "bytes": 83946,
+          "crc32": 3396801976
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d8_n10000_r0.372_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n10000_r0.372_query_radii.csv",
+          "bytes": 19000,
+          "crc32": 3833894240
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d8_n3162280_r0.181",
+      "suite": "uniform_points",
+      "dimension": 8,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d8_n3162280_r0.181_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n3162280_r0.181_train.csv",
+          "bytes": 268863619,
+          "crc32": 2355172677
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d8_n3162280_r0.181_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n3162280_r0.181_query_points.csv",
+          "bytes": 84096,
+          "crc32": 3172102974
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d8_n3162280_r0.181_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n3162280_r0.181_query_radii.csv",
+          "bytes": 20000,
+          "crc32": 4250635232
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d8_n316228_r0.242",
+      "suite": "uniform_points",
+      "dimension": 8,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d8_n316228_r0.242_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n316228_r0.242_train.csv",
+          "bytes": 26885846,
+          "crc32": 3147122178
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d8_n316228_r0.242_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n316228_r0.242_query_points.csv",
+          "bytes": 84068,
+          "crc32": 4029844726
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d8_n316228_r0.242_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n316228_r0.242_query_radii.csv",
+          "bytes": 20000,
+          "crc32": 1849617849
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    },
+    {
+      "id": "dist_uniform_d8_n31623_r0.322",
+      "suite": "uniform_points",
+      "dimension": 8,
+      "files": {
+        "train": {
+          "path": "uniform_points/dist_uniform_d8_n31623_r0.322_train.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n31623_r0.322_train.csv",
+          "bytes": 2688592,
+          "crc32": 11632865
+        },
+        "query": {
+          "path": "uniform_points/dist_uniform_d8_n31623_r0.322_query_points.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n31623_r0.322_query_points.csv",
+          "bytes": 84042,
+          "crc32": 3452079682
+        },
+        "radii": {
+          "path": "uniform_points/dist_uniform_d8_n31623_r0.322_query_radii.csv",
+          "archive": "distributions.zip",
+          "member": "distribution_data/dist_uniform_d8_n31623_r0.322_query_radii.csv",
+          "bytes": 18000,
+          "crc32": 929380707
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "source_radius_per_query"
+    }
+  ]
+}

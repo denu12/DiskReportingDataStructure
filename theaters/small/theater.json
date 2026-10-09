@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "kind": "theater",
+  "name": "small",
+  "title": "Small 2D ESA",
+  "campaigns": [
+    "2D_ESA_graph_embeddings",
+    "2D_ESA_uniform_points",
+    "2D_ESA_geographical"
+  ],
+  "execution_policy": "config/execution.json",
+  "data_layout": "data/<campaign>",
+  "results_layout": "results/<campaign>/<run>"
+}

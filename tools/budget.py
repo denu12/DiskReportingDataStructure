@@ -6,8 +6,13 @@ from pathlib import Path
 import time
 
 
+def policy_path(base):
+    """A theater run can use a recorded policy without editing repository defaults."""
+    return Path(os.environ.get('DRR_EXECUTION_POLICY', base / 'config/execution.json'))
+
+
 def policy(base):
-    return json.loads((base / 'campaigns/execution.json').read_text())
+    return json.loads(policy_path(base).read_text(encoding='utf-8-sig'))
 
 
 def save(path, value):

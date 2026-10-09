@@ -18,9 +18,10 @@ import zipfile
 import zlib
 import numpy as np
 from catalog import ROOT, save, sha
+from campaign_paths import campaign_directory
+from algorithm_labels import metadata
 
 MAX = 2**32-1
-ALIASES = {'graph_embeddings': 'embedding', 'uniform_points': 'distributions', 'geographical': 'poi'}
 
 
 def chunks(path, dimension):
@@ -35,13 +36,6 @@ def chunks(path, dimension):
 def source_file(desc, source, archives):
     target = source/desc['path']
     if not target.exists():
-        family, basename = desc['path'].split('/', 1)
-        alias = ALIASES.get(family)
-        if alias:
-            for candidate in [ROOT/'data/esa2026-2d/data'/alias/basename,
-                              ROOT/'data/esa2026-ddim/source'/alias/basename]:
-                if candidate.exists():
-                    return candidate
         archive = archives/desc.get('archive', '__missing__')
         if archive.is_file():
             with zipfile.ZipFile(archive) as z:
@@ -134,18 +128,10 @@ def convert(case, files, output, format2d):
         mean_radius_original=total_radius/q, mean_radius_grid=(total_radius/q)*scale))
 
 
-def legacy_case(case, legacy):
-    alias = ALIASES.get(case['suite'])
-    return next((c for c in legacy.get('cases', []) if c['id'] == alias+'/'+case['id']), None) if alias else None
-
-
 def prepare(name, source, archives):
-    specification = ROOT/'campaigns'/name/'campaign.json'
+    specification = campaign_directory(ROOT,name)/'campaign.json'
     spec = json.loads(specification.read_text()); root = ROOT/'data'/name
     root.mkdir(parents=True, exist_ok=True)
-    legacy_root = ROOT/'data/esa2026-2d'
-    legacy_path = legacy_root/'campaign.json'
-    legacy = json.loads(legacy_path.read_text()) if legacy_path.exists() else {}
     rows = []
     for case in spec['cases']:
         metadata = root/'metadata'/(case['id']+'.json')
@@ -155,37 +141,19 @@ def prepare(name, source, archives):
             if row.get('spec_sha256') == fingerprint and sha(root/row['path']) == row['sha256']:
                 rows.append(row); continue
         row = dict(case, spec_sha256=fingerprint)
-        old = legacy_case(case, legacy) if case['dimension'] == 2 else None
-        if old is not None:
-            old_file = legacy_root/old['path']
-            expected = old.get('sha256', old.get('conversion', {}).get('sha256'))
-            if not expected or sha(old_file) != expected:
-                raise ValueError('Legacy input checksum mismatch: '+str(old_file))
-            if spec['input_format'] == 'ESA2D01':
-                output = old_file
-            else:
-                output = root/'prepared'/(case['id']+'.bin'); output.parent.mkdir(parents=True, exist_ok=True)
-                tmp = output.with_suffix('.partial')
-                with old_file.open('rb') as src, tmp.open('wb') as dst:
-                    magic, n, q = struct.unpack('<8sQQ', src.read(24))
-                    if magic != b'ESA2D01\0': raise ValueError('Bad old input format')
-                    dst.write(struct.pack('<IQQ', 2, n, q)); shutil.copyfileobj(src, dst, 1024*1024)
-                tmp.replace(output)
-            row.update(n=old['n'], points=old['n'], queries=old['queries'], conversion=old['conversion'],
-                       source_reference=dict(manifest='data/esa2026-2d/campaign.json', case=old['id'], input_sha256=expected))
-        else:
-            files = {k: source_file(v, source, archives) for k, v in case['files'].items()}
-            if not all(files.values()):
-                row.update(status='missing_source', missing=[case['files'][k]['path'] for k, v in files.items() if v is None])
-                rows.append(row); continue
-            row['source_sha256'] = {k: validate_source(p, case['files'][k]) for k, p in files.items()}
-            output = root/'prepared'/(case['id']+'.bin')
-            row.update(convert(case, files, output, spec['input_format'] == 'ESA2D01'))
+        files = {k: source_file(v, source, archives) for k, v in case['files'].items()}
+        if not all(files.values()):
+            row.update(status='missing_source', missing=[case['files'][k]['path'] for k, v in files.items() if v is None])
+            rows.append(row); continue
+        row['source_sha256'] = {k: validate_source(p, case['files'][k]) for k, p in files.items()}
+        output = root/'prepared'/(case['id']+'.bin')
+        row.update(convert(case, files, output, spec['input_format'] == 'ESA2D01'))
         row.update(status='ready', path=os.path.relpath(output, root).replace(os.sep, '/'), sha256=sha(output))
         save(metadata, row); rows.append(row)
         print(name, case['id'], 'ready', flush=True)
     manifest = dict(spec, specification_sha256=sha(specification), cases=rows,
                     status='ready' if all(c['status'] == 'ready' for c in rows) else 'awaiting_data')
+    manifest['algorithm_metadata'] = {a: metadata(a) for a in manifest['algorithms']}
     save(root/'campaign.json', manifest)
     return dict(name=name, ready=sum(c['status'] == 'ready' for c in rows), total=len(rows), status=manifest['status'])
 
@@ -197,7 +165,7 @@ def main():
     ap.add_argument('--archives', type=Path, default=ROOT/'data/ESA/archives')
     ap.add_argument('--existing-only', action='store_true', help='Allow an inventory with explicitly missing cases')
     args = ap.parse_args()
-    index = json.loads((ROOT/'campaigns/esa-campaigns.json').read_text())
+    index = json.loads((ROOT/'config/esa-workloads.json').read_text())
     known = [r['name'] for r in index['full']+index['native_2d']]
     names = known if args.campaign == ['all'] else args.campaign
     if not set(names) <= set(known): ap.error('Unknown ESA campaign')
@@ -205,7 +173,7 @@ def main():
     save(ROOT/'data/ESA/preparation-status.json', summaries)
     print(json.dumps(summaries, indent=2))
     if not args.existing_only and any(s['status'] != 'ready' for s in summaries):
-        raise SystemExit('Source data missing; see manifests and campaigns/ESA.md. No partial campaign is runnable.')
+        raise SystemExit('Source data missing; see manifests and docs/ESA-WORKLOADS.md. No partial campaign is runnable.')
 
 
 if __name__ == '__main__':

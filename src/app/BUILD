@@ -8,14 +8,10 @@ cc_binary(
         "app.cc",
         "//:build-info.h",
     ],
-    malloc = select({
-        "//:gperftools_tcmalloc": "@gperftools",
-        "//conditions:default": "@bazel_tools//tools/cpp:malloc",
-    }),
     deps = [
         ":app_io_cc_proto",
-        "//app/algorithms/dynamic/sfc",
-        "//app/algorithms/sfc",
+        "//app/algorithms/dynamic/reporting",
+        "//app/algorithms/static",
         "//utils:logging",
         "//utils:random_lib",
         "@abseil-cpp//absl/flags:flag",
@@ -39,6 +35,4 @@ proto_library(
     ],
 )
 
-# verifier.cc is not part of the distributed source archive.
-
-cc_binary(name="esa_runner",srcs=["esa_runner.cc"],deps=["//sfc","//app/algorithms/sfc","//app/algorithms/dynamic/sfc"],linkopts=["-ldl"])
+cc_binary(name="esa_runner",srcs=["esa_runner.cc"],deps=["//benchmark","//app/algorithms/static","//app/algorithms/dynamic/reporting"],linkopts=["-ldl"])

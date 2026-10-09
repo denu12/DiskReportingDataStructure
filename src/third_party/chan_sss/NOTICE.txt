@@ -11,7 +11,8 @@ The downloaded file carries an author/date comment but no explicit license.
 No new license is asserted for upstream code.
 
 Our competitor chan_sss is an adaptation for exact inclusive axis-aligned
-rectangle reporting in 2D, matching the existing benchmark's square queries.
+rectangle candidate reporting in 2D. The current benchmark applies its exact
+integer disk predicate in the timed reporting callback.
 It is not the original approximate nearest-neighbor implementation and its
 timings must not be attributed to the original implementation unchanged.
 
@@ -24,6 +25,6 @@ use uint64 intermediates for full uint32 input plus shift; std::sort and a
 contiguous point vector replace qsort and individually allocated points;
 per-object state replaces globals. No explicit spatial tree or extra index.
 The shift is reproducible using mt19937_64 seed 12121 by default, independent
-of the point/query seed. Tests vary that shift seed. No ANN time guarantee is
-claimed for exact range reporting. No Euclidean-radius filtering is added,
-because the common benchmark API reports inclusive boxes.
+of the point/query seed. No ANN time guarantee is claimed for exact range reporting. The rectangle
+index itself does not implement disk membership: the benchmark adapter does.
+The dimensional adaptation is recorded in src/runner/dimensional/.

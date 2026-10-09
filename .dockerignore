@@ -1,6 +1,9 @@
 .git
 data
 results
+historical_data
+toolchains
+work
 bin
 build
 .venv
@@ -9,6 +12,6 @@ build
 **/bazel-*
 **/__pycache__
 
-third_party/esa2026-workloads/benchmark/snn_datasets/csv_output/
+src/third_party/esa2026-workloads/benchmark/snn_datasets/csv_output/
 
 deprecated

@@ -27,8 +27,13 @@ and are not used. This is our adaptation, not an upstream radius-query API.
 
 No OpenMP or parallel sorting is enabled. The benchmark runner additionally uses
 OMP_NUM_THREADS=1, OMP_THREAD_LIMIT=1 and taskset on one logical CPU; child
-workers inherit affinity. Existing competitors were not rerun under that affinity.
+workers inherit affinity. Current runs use the theater execution policy.
 GPU work is excluded from the comparison.
 
 Modern C++ compatibility: dpoint.hpp prints static_cast<bool>(is) instead of
 streaming an istream object in a parse-error diagnostic; no geometric behavior changes.
+
+Current disk/ball experiments use box_report to enumerate candidates and
+apply exact integer disk/ball membership inside query timing before emitting
+accepted points. The dimensional wrapper generalizes this to D coordinates.
+See docs/ADAPTERS.md and docs/REPORTING.md for the current output contract.

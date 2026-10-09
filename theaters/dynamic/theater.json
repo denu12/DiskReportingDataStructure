@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "kind": "theater",
+  "name": "dynamic",
+  "title": "Dynamic",
+  "campaigns": [
+    "dynamic-circles"
+  ],
+  "execution_policy": "config/execution.json",
+  "data_layout": "data/<campaign>",
+  "results_layout": "results/<campaign>/<run>"
+}

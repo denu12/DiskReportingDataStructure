@@ -1,0 +1,597 @@
+{
+  "schema": 1,
+  "name": "ESA_high_dimensional",
+  "family": "high_dimensional",
+  "upstream": {
+    "repository": "https://github.com/wembed-pdf/rembed",
+    "revision": "a81b216a2a63bde3d4447e4053b4ca31081fe286",
+    "zenodo_record": 21243483,
+    "files": {
+      "src/main.rs": "dea9e2157a5a1fe057214617ab6b06e4b9786ab62361f64ba799a6ee018a900d",
+      "src/benchmark/distribution_bench.rs": "c3502ac4debdd07362e5a15856b49a2602a532a464792af437a90d62c9602520",
+      "src/benchmark/runner.rs": "60d3a9a270ba7440bbb74035ecdb52593bfe58dfd3fae58970e726653a450056",
+      "data/download_scripts/download_clustering.py": "864543ae1886380fbd3cfdac114d0701829d5b1155d63d49af608d908b773408",
+      "data/download_scripts/nn_download_to_csv.py": "b850d07c90640f2afc20e5a3e292accae4bf3aaaadb68d5319b7e4782eed76e0",
+      "data/download_scripts/download_nn.sh": "a57536f8135a1adfbea8c89814502f86feb9a09d4a19aceacb396d063b6d709d"
+    }
+  },
+  "parent": null,
+  "selection": "upstream workload family restricted to dimension > 2; native 2D cases belong to the small theater",
+  "input_format": "ddim-u32",
+  "algorithms": [
+    "chan_sss_ddim_MANUALLY_ADAPTED",
+    "stann_fr_ddim_MANUALLY_ADAPTED",
+    "ann_fr",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "esa_sprk",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_snn_rust",
+    "esa_nanoflann",
+    "cgal_kd"
+  ],
+  "comparison_contract": {
+    "coordinates": "common uint32 grid",
+    "output": "explicit original integer coordinates",
+    "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
+    "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction"
+  },
+  "dimensions": [
+    96,
+    100,
+    128,
+    784,
+    960
+  ],
+  "cases": [
+    {
+      "id": "deep_r0.69",
+      "suite": "high_dimensional",
+      "dataset": "deep",
+      "dimension": 96,
+      "files": {
+        "train": {
+          "path": "high_dimensional/deep_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/deep_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.69,
+      "radius": 0.69
+    },
+    {
+      "id": "deep_r0.75",
+      "suite": "high_dimensional",
+      "dataset": "deep",
+      "dimension": 96,
+      "files": {
+        "train": {
+          "path": "high_dimensional/deep_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/deep_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.75,
+      "radius": 0.75
+    },
+    {
+      "id": "deep_r0.82",
+      "suite": "high_dimensional",
+      "dataset": "deep",
+      "dimension": 96,
+      "files": {
+        "train": {
+          "path": "high_dimensional/deep_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/deep_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.82,
+      "radius": 0.82
+    },
+    {
+      "id": "deep_r0.88",
+      "suite": "high_dimensional",
+      "dataset": "deep",
+      "dimension": 96,
+      "files": {
+        "train": {
+          "path": "high_dimensional/deep_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/deep_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.88,
+      "radius": 0.88
+    },
+    {
+      "id": "deep_r0.94",
+      "suite": "high_dimensional",
+      "dataset": "deep",
+      "dimension": 96,
+      "files": {
+        "train": {
+          "path": "high_dimensional/deep_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/deep_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.94,
+      "radius": 0.94
+    },
+    {
+      "id": "fmn_r800",
+      "suite": "high_dimensional",
+      "dataset": "fmn",
+      "dimension": 784,
+      "files": {
+        "train": {
+          "path": "high_dimensional/fmn_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/fmn_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 800.0,
+      "radius": 800.0
+    },
+    {
+      "id": "fmn_r900",
+      "suite": "high_dimensional",
+      "dataset": "fmn",
+      "dimension": 784,
+      "files": {
+        "train": {
+          "path": "high_dimensional/fmn_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/fmn_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 900.0,
+      "radius": 900.0
+    },
+    {
+      "id": "fmn_r1000",
+      "suite": "high_dimensional",
+      "dataset": "fmn",
+      "dimension": 784,
+      "files": {
+        "train": {
+          "path": "high_dimensional/fmn_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/fmn_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 1000.0,
+      "radius": 1000.0
+    },
+    {
+      "id": "fmn_r1100",
+      "suite": "high_dimensional",
+      "dataset": "fmn",
+      "dimension": 784,
+      "files": {
+        "train": {
+          "path": "high_dimensional/fmn_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/fmn_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 1100.0,
+      "radius": 1100.0
+    },
+    {
+      "id": "fmn_r1200",
+      "suite": "high_dimensional",
+      "dataset": "fmn",
+      "dimension": 784,
+      "files": {
+        "train": {
+          "path": "high_dimensional/fmn_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/fmn_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 1200.0,
+      "radius": 1200.0
+    },
+    {
+      "id": "sift_r210",
+      "suite": "high_dimensional",
+      "dataset": "sift",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 210.0,
+      "radius": 210.0
+    },
+    {
+      "id": "sift_r230",
+      "suite": "high_dimensional",
+      "dataset": "sift",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 230.0,
+      "radius": 230.0
+    },
+    {
+      "id": "sift_r250",
+      "suite": "high_dimensional",
+      "dataset": "sift",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 250.0,
+      "radius": 250.0
+    },
+    {
+      "id": "sift_r270",
+      "suite": "high_dimensional",
+      "dataset": "sift",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 270.0,
+      "radius": 270.0
+    },
+    {
+      "id": "sift_r290",
+      "suite": "high_dimensional",
+      "dataset": "sift",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 290.0,
+      "radius": 290.0
+    },
+    {
+      "id": "sift_large_r210",
+      "suite": "high_dimensional",
+      "dataset": "sift_large",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_large_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_large_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 210.0,
+      "radius": 210.0
+    },
+    {
+      "id": "sift_large_r230",
+      "suite": "high_dimensional",
+      "dataset": "sift_large",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_large_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_large_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 230.0,
+      "radius": 230.0
+    },
+    {
+      "id": "sift_large_r250",
+      "suite": "high_dimensional",
+      "dataset": "sift_large",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_large_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_large_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 250.0,
+      "radius": 250.0
+    },
+    {
+      "id": "sift_large_r270",
+      "suite": "high_dimensional",
+      "dataset": "sift_large",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_large_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_large_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 270.0,
+      "radius": 270.0
+    },
+    {
+      "id": "sift_large_r290",
+      "suite": "high_dimensional",
+      "dataset": "sift_large",
+      "dimension": 128,
+      "files": {
+        "train": {
+          "path": "high_dimensional/sift_large_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/sift_large_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 290.0,
+      "radius": 290.0
+    },
+    {
+      "id": "gist_r0.8",
+      "suite": "high_dimensional",
+      "dataset": "gist",
+      "dimension": 960,
+      "files": {
+        "train": {
+          "path": "high_dimensional/gist_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/gist_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.8,
+      "radius": 0.8
+    },
+    {
+      "id": "gist_r0.85",
+      "suite": "high_dimensional",
+      "dataset": "gist",
+      "dimension": 960,
+      "files": {
+        "train": {
+          "path": "high_dimensional/gist_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/gist_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.85,
+      "radius": 0.85
+    },
+    {
+      "id": "gist_r0.9",
+      "suite": "high_dimensional",
+      "dataset": "gist",
+      "dimension": 960,
+      "files": {
+        "train": {
+          "path": "high_dimensional/gist_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/gist_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.9,
+      "radius": 0.9
+    },
+    {
+      "id": "gist_r0.95",
+      "suite": "high_dimensional",
+      "dataset": "gist",
+      "dimension": 960,
+      "files": {
+        "train": {
+          "path": "high_dimensional/gist_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/gist_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.95,
+      "radius": 0.95
+    },
+    {
+      "id": "gist_r1",
+      "suite": "high_dimensional",
+      "dataset": "gist",
+      "dimension": 960,
+      "files": {
+        "train": {
+          "path": "high_dimensional/gist_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/gist_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 1.0,
+      "radius": 1.0
+    },
+    {
+      "id": "glo_r0.94",
+      "suite": "high_dimensional",
+      "dataset": "glo",
+      "dimension": 100,
+      "files": {
+        "train": {
+          "path": "high_dimensional/glo_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/glo_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.94,
+      "radius": 0.94
+    },
+    {
+      "id": "glo_r0.97",
+      "suite": "high_dimensional",
+      "dataset": "glo",
+      "dimension": 100,
+      "files": {
+        "train": {
+          "path": "high_dimensional/glo_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/glo_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 0.97,
+      "radius": 0.97
+    },
+    {
+      "id": "glo_r1.01",
+      "suite": "high_dimensional",
+      "dataset": "glo",
+      "dimension": 100,
+      "files": {
+        "train": {
+          "path": "high_dimensional/glo_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/glo_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 1.01,
+      "radius": 1.01
+    },
+    {
+      "id": "glo_r1.04",
+      "suite": "high_dimensional",
+      "dataset": "glo",
+      "dimension": 100,
+      "files": {
+        "train": {
+          "path": "high_dimensional/glo_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/glo_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 1.04,
+      "radius": 1.04
+    },
+    {
+      "id": "glo_r1.07",
+      "suite": "high_dimensional",
+      "dataset": "glo",
+      "dimension": 100,
+      "files": {
+        "train": {
+          "path": "high_dimensional/glo_train.csv"
+        },
+        "query": {
+          "path": "high_dimensional/glo_query.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "nominal_radius": 1.07,
+      "radius": 1.07
+    }
+  ]
+}

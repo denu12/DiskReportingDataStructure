@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "kind": "theater",
+  "name": "d-dim",
+  "title": "D-dimensional ESA",
+  "campaigns": [
+    "ESA_graph_embeddings",
+    "ESA_uniform_points",
+    "ESA_high_dimensional",
+    "ESA_clustering"
+  ],
+  "execution_policy": "config/execution.json",
+  "data_layout": "data/<campaign>",
+  "results_layout": "results/<campaign>/<run>"
+}

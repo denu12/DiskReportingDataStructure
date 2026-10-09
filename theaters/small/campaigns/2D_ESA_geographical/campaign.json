@@ -1,0 +1,625 @@
+{
+  "schema": 1,
+  "name": "2D_ESA_geographical",
+  "family": "geographical",
+  "upstream": {
+    "repository": "https://github.com/wembed-pdf/rembed",
+    "revision": "a81b216a2a63bde3d4447e4053b4ca31081fe286",
+    "zenodo_record": 21243483,
+    "files": {
+      "src/main.rs": "dea9e2157a5a1fe057214617ab6b06e4b9786ab62361f64ba799a6ee018a900d",
+      "src/benchmark/distribution_bench.rs": "c3502ac4debdd07362e5a15856b49a2602a532a464792af437a90d62c9602520",
+      "src/benchmark/runner.rs": "60d3a9a270ba7440bbb74035ecdb52593bfe58dfd3fae58970e726653a450056",
+      "data/download_scripts/download_clustering.py": "864543ae1886380fbd3cfdac114d0701829d5b1155d63d49af608d908b773408",
+      "data/download_scripts/nn_download_to_csv.py": "b850d07c90640f2afc20e5a3e292accae4bf3aaaadb68d5319b7e4782eed76e0",
+      "data/download_scripts/download_nn.sh": "a57536f8135a1adfbea8c89814502f86feb9a09d4a19aceacb396d063b6d709d"
+    }
+  },
+  "parent": null,
+  "selection": "native dimension == 2, no projection",
+  "input_format": "ESA2D01",
+  "algorithms": [
+    "Morton",
+    "MortonSIMD",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "cgal_rt",
+    "cgal_kd",
+    "thst_quad",
+    "thst_rtree",
+    "pargeo",
+    "pam",
+    "pkd",
+    "naive",
+    "chan_sss",
+    "ann_fr",
+    "stann_fr",
+    "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
+    "esa_sprk_CHEATING_IDS_ONLY",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_nanoflann"
+  ],
+  "comparison_contract": {
+    "coordinates": "common uint32 grid",
+    "output": "explicit original integer coordinates",
+    "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
+    "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction",
+    "exceptions": {
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (cheating): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output"
+    }
+  },
+  "dimensions": [
+    2
+  ],
+  "cases": [
+    {
+      "id": "parking_hospital_r500",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/parking.csv",
+          "archive": "poi.zip",
+          "basename": "parking.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 500.0
+    },
+    {
+      "id": "parking_hospital_r1000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/parking.csv",
+          "archive": "poi.zip",
+          "basename": "parking.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 1000.0
+    },
+    {
+      "id": "parking_hospital_r2000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/parking.csv",
+          "archive": "poi.zip",
+          "basename": "parking.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 2000.0
+    },
+    {
+      "id": "parking_hospital_r5000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/parking.csv",
+          "archive": "poi.zip",
+          "basename": "parking.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 5000.0
+    },
+    {
+      "id": "restaurant_trainstation_r500",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/restaurant.csv",
+          "archive": "poi.zip",
+          "basename": "restaurant.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 500.0
+    },
+    {
+      "id": "restaurant_trainstation_r1000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/restaurant.csv",
+          "archive": "poi.zip",
+          "basename": "restaurant.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 1000.0
+    },
+    {
+      "id": "restaurant_trainstation_r2000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/restaurant.csv",
+          "archive": "poi.zip",
+          "basename": "restaurant.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 2000.0
+    },
+    {
+      "id": "restaurant_trainstation_r5000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/restaurant.csv",
+          "archive": "poi.zip",
+          "basename": "restaurant.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 5000.0
+    },
+    {
+      "id": "pharmacy_hospital_r500",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/pharmacy.csv",
+          "archive": "poi.zip",
+          "basename": "pharmacy.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 500.0
+    },
+    {
+      "id": "pharmacy_hospital_r1000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/pharmacy.csv",
+          "archive": "poi.zip",
+          "basename": "pharmacy.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 1000.0
+    },
+    {
+      "id": "pharmacy_hospital_r2000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/pharmacy.csv",
+          "archive": "poi.zip",
+          "basename": "pharmacy.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 2000.0
+    },
+    {
+      "id": "pharmacy_hospital_r5000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/pharmacy.csv",
+          "archive": "poi.zip",
+          "basename": "pharmacy.csv"
+        },
+        "query": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 5000.0
+    },
+    {
+      "id": "busstop_trainstation_r500",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/busstop.csv",
+          "archive": "poi.zip",
+          "basename": "busstop.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 500.0
+    },
+    {
+      "id": "busstop_trainstation_r1000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/busstop.csv",
+          "archive": "poi.zip",
+          "basename": "busstop.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 1000.0
+    },
+    {
+      "id": "busstop_trainstation_r2000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/busstop.csv",
+          "archive": "poi.zip",
+          "basename": "busstop.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 2000.0
+    },
+    {
+      "id": "busstop_trainstation_r5000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/busstop.csv",
+          "archive": "poi.zip",
+          "basename": "busstop.csv"
+        },
+        "query": {
+          "path": "geographical/trainstation.csv",
+          "archive": "poi.zip",
+          "basename": "trainstation.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 5000.0
+    },
+    {
+      "id": "atm_supermarket_r500",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/atm.csv",
+          "archive": "poi.zip",
+          "basename": "atm.csv"
+        },
+        "query": {
+          "path": "geographical/supermarket.csv",
+          "archive": "poi.zip",
+          "basename": "supermarket.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 500.0
+    },
+    {
+      "id": "atm_supermarket_r1000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/atm.csv",
+          "archive": "poi.zip",
+          "basename": "atm.csv"
+        },
+        "query": {
+          "path": "geographical/supermarket.csv",
+          "archive": "poi.zip",
+          "basename": "supermarket.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 1000.0
+    },
+    {
+      "id": "atm_supermarket_r2000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/atm.csv",
+          "archive": "poi.zip",
+          "basename": "atm.csv"
+        },
+        "query": {
+          "path": "geographical/supermarket.csv",
+          "archive": "poi.zip",
+          "basename": "supermarket.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 2000.0
+    },
+    {
+      "id": "atm_supermarket_r5000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/atm.csv",
+          "archive": "poi.zip",
+          "basename": "atm.csv"
+        },
+        "query": {
+          "path": "geographical/supermarket.csv",
+          "archive": "poi.zip",
+          "basename": "supermarket.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 5000.0
+    },
+    {
+      "id": "hospital_university_r500",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 500.0
+    },
+    {
+      "id": "hospital_university_r1000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 1000.0
+    },
+    {
+      "id": "hospital_university_r2000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 2000.0
+    },
+    {
+      "id": "hospital_university_r5000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/hospital.csv",
+          "archive": "poi.zip",
+          "basename": "hospital.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 5000.0
+    },
+    {
+      "id": "bakery_university_r500",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/bakery.csv",
+          "archive": "poi.zip",
+          "basename": "bakery.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 500.0
+    },
+    {
+      "id": "bakery_university_r1000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/bakery.csv",
+          "archive": "poi.zip",
+          "basename": "bakery.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 1000.0
+    },
+    {
+      "id": "bakery_university_r2000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/bakery.csv",
+          "archive": "poi.zip",
+          "basename": "bakery.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 2000.0
+    },
+    {
+      "id": "bakery_university_r5000",
+      "suite": "geographical",
+      "dimension": 2,
+      "files": {
+        "train": {
+          "path": "geographical/bakery.csv",
+          "archive": "poi.zip",
+          "basename": "bakery.csv"
+        },
+        "query": {
+          "path": "geographical/university.csv",
+          "archive": "poi.zip",
+          "basename": "university.csv"
+        }
+      },
+      "queries_policy": "all_source_queries",
+      "radius_policy": "constant",
+      "radius": 5000.0
+    }
+  ]
+}

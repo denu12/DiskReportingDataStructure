@@ -27,3 +27,11 @@ search traversal, avoiding kNN heap maintenance and sorting. This shared
 wrapper also serves the d-dimensional campaign. Immutable Kiddo retains its
 native result-vector API; Nabo retains its native unsorted kNN-with-radius API.
 No upstream search predicates or correctness failures are repaired here.
+
+SPRK (cheating), esa_sprk_CHEATING_IDS_ONLY: replaces the old 2D coordinate-gathering wrapper in future campaigns. Retains the existing normalized f64 SPRK tree and native query into a reusable ID vector. Timed queries return individual materialized IDs, without coordinate gathering or exact integer post-filtering. This deliberately relaxed output contract is recorded in result JSON. Verification maps IDs to original integer points after timing and compares against the ordinary integer oracle without repairing output. The manually adapted integer-point SPRK competitor remains. Full-dimensional SPRK is separate and unchanged.
+
+Reporting adapter revision (2026-10-09): the 2D SPRK (adapted) campaign
+uses the Rust vector of explicitly materialized integer coordinates as its
+final output. Its clear, allocation and coordinate writes remain timed. The
+C++ bridge borrows this completed output without materializing a second copy.
+The integer SPRK construction, traversal and membership predicates are unchanged.

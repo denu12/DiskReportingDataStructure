@@ -52,8 +52,8 @@ def main():
     data = ROOT/'data/ESA'; source = data/'source'; archives = data/'archives'
     archive_names = {'graph_embeddings': 'embedding_data.zip', 'uniform_points': 'distributions.zip', 'geographical': 'poi.zip'}
     if any(f in archive_names for f in args.families):
-        candidates = [data/'zenodo-record.json', ROOT/'data/esa2026-ddim-full/archives/zenodo-record.json', ROOT/'data/esa2026-2d/data/zenodo-record.json']
-        record = next((json.loads(p.read_text()) for p in candidates if p.exists()), None)
+        record_path = data/'zenodo-record.json'
+        record = json.loads(record_path.read_text()) if record_path.exists() else None
         if record is None:
             with urllib.request.urlopen('https://zenodo.org/api/records/21243483', timeout=120) as f: record = json.load(f)
         save(data/'zenodo-record.json', record)
@@ -61,11 +61,6 @@ def main():
             if family not in archive_names: continue
             name = archive_names[family]; item = next(f for f in record['files'] if f['key'] == name)
             target = archives/name
-            old = ROOT/'data/esa2026-ddim-full/archives'/name
-            if not target.exists() and old.exists():
-                target.parent.mkdir(parents=True, exist_ok=True)
-                try: target.hardlink_to(old)
-                except OSError: shutil.copyfile(old, target)
             download(item['links']['self'], target, item['size'], item['checksum'].removeprefix('md5:'))
             print('verified', name, flush=True)
     if not {'high_dimensional', 'clustering'} & set(args.families): return

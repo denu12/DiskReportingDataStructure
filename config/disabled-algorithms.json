@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "algorithms": [
+    "brute_force"
+  ],
+  "reason": "Do not schedule the dimensional brute-force control.",
+  "reasons": {
+    "brute_force": "Dimensional brute force disabled by user."
+  }
+}

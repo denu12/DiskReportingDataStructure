@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "kind": "theater",
+  "name": "static-3d",
+  "title": "Static 3D",
+  "campaigns": [
+    "Scaling3D",
+    "Static3D"
+  ],
+  "execution_policy": "config/execution.json",
+  "data_layout": "data/<campaign>",
+  "results_layout": "results/<campaign>/<run>"
+}

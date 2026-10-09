@@ -12,10 +12,11 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
-from prepare_esa import STATIC
+from workloads import STATIC, DIMENSIONAL
+from campaign_paths import campaign_directory
 
 REVISION = 'a81b216a2a63bde3d4447e4053b4ca31081fe286'
-ARTIFACT = ROOT / 'third_party/esa2026-workloads/reproducibility-cli'
+ARTIFACT = ROOT / 'src/third_party/esa2026-workloads/reproducibility-cli'
 FAMILIES = ['graph_embeddings', 'uniform_points', 'high_dimensional', 'clustering', 'geographical']
 DIMENSIONS = {'deep': 96, 'fmn': 784, 'sift': 128, 'sift_large': 128,
               'gist': 960, 'glo': 100, 'banknote': 4, 'dermatology': 34,
@@ -36,7 +37,7 @@ def sha(path):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--archives', type=Path, default=ROOT/'data/esa2026-ddim-full/archives')
+    ap.add_argument('--archives', type=Path, default=ROOT/'data/ESA/archives')
     args = ap.parse_args()
     source = (ARTIFACT/'src/main.rs').read_text()
     radii = {name: [float(x) for x in values.split(',') if x.strip()]
@@ -90,7 +91,7 @@ def main():
                 files=dict(train=dict(path=f'geographical/{train}', archive='poi.zip', basename=train),
                            query=dict(path=f'geographical/{query}', archive='poi.zip', basename=query)),
                 queries_policy='all_source_queries', radius_policy='constant', radius=radius))
-    ndim = json.loads((ROOT/'campaigns/esa2026-ddim/campaign.json').read_text())['algorithms']
+    ndim = DIMENSIONAL
     source_paths = ['src/main.rs', 'src/benchmark/distribution_bench.rs', 'src/benchmark/runner.rs',
                     'data/download_scripts/download_clustering.py', 'data/download_scripts/nn_download_to_csv.py',
                     'data/download_scripts/download_nn.sh']
@@ -98,31 +99,33 @@ def main():
                       zenodo_record=21243483, files={p: sha(ARTIFACT/p) for p in source_paths})
     index = dict(schema=1, upstream=provenance, full=[], native_2d=[], omitted_empty_2d=[])
     for family in FAMILIES:
-        for only2d in [False, True]:
-            selected = [c for c in cases[family] if not only2d or c['dimension'] == 2]
+        for only2d in ([True] if family == 'geographical' else [False, True]):
+            selected = [c for c in cases[family] if (c['dimension'] == 2 if only2d else c['dimension'] > 2)]
             name = ('2D_ESA_' if only2d else 'ESA_')+family
             if not selected:
-                index['omitted_empty_2d'].append(name)
+                if only2d: index['omitted_empty_2d'].append(name)
                 continue
             manifest = dict(schema=1, name=name, family=family, upstream=provenance,
-                parent='ESA_'+family if only2d else None,
-                selection='native dimension == 2, no projection' if only2d else 'complete upstream workload family',
+                parent=None,
+                selection='native dimension == 2, no projection' if only2d else 'upstream workload family restricted to dimension > 2; native 2D cases belong to the small theater',
                 input_format='ESA2D01' if only2d else 'ddim-u32',
                 algorithms=STATIC if only2d else ndim,
                 comparison_contract=dict(coordinates='common uint32 grid', output='explicit original integer coordinates',
+                    exceptions={'esa_sprk_CHEATING_IDS_ONLY': 'SPRK (cheating): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output'} if only2d else {},
                     measurement='bounded single-core jobs; separate build/query timing; three final repetitions',
                     claim='upstream workload matrix; not a floating-point/Criterion timing reproduction'),
                 dimensions=sorted({c['dimension'] for c in selected}), cases=selected)
-            folder = ROOT/'campaigns'/name
+            folder = campaign_directory(ROOT,name)
             save(folder/'campaign.json', manifest)
             folder.joinpath('README.md').write_text(
                 f'# {name}\n\n{len(selected)} upstream workload cases; dimensions: '+', '.join(map(str, manifest['dimensions']))+
                 '. All source training points, queries and radii are retained.\n\n'
-                'See [the ESA campaign guide](../ESA.md) for preparation, execution, provenance and the integer-coordinate contract. '
+                'See [the ESA campaign guide](../../../../docs/ESA-WORKLOADS.md) for preparation, execution, provenance and the integer-coordinate contract. '
                 'This file defines workloads; it does not mean all input data have been downloaded or all dimensions are supported by every adapter.\n', encoding='utf-8')
             index['native_2d' if only2d else 'full'].append(dict(name=name, cases=len(selected), dimensions=manifest['dimensions']))
+    index['theater_workloads'] = sum(len([c for c in cases[f] if c['dimension'] > 2]) for f in FAMILIES if f != 'geographical')
     index['unique_workloads'] = sum(len(v) for v in cases.values())
-    save(ROOT/'campaigns/esa-campaigns.json', index)
+    save(ROOT/'config/esa-workloads.json', index)
     print(json.dumps({k: index[k] for k in ['full', 'native_2d', 'omitted_empty_2d', 'unique_workloads']}, indent=2))
 
 

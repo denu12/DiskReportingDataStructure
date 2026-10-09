@@ -8,5 +8,5 @@ RUN mkdir -p data results bin build && chown -R benchmark:benchmark data results
 USER benchmark
 ENV PATH="/home/benchmark/.cargo/bin:/opt/disk-range-report/.venv/bin:${PATH}" DRR_BACKEND=process
 RUN bash tools/setup_arch.sh && BAZEL=bazelisk bash tools/build_arch.sh && pacman -Q > results/build/arch-packages.txt
-ENTRYPOINT ["python", "tools/run.py"]
+ENTRYPOINT ["python", "run_theater.py"]
 CMD ["--help"]

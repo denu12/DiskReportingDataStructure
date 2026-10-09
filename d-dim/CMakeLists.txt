@@ -1,8 +1,0 @@
-cmake_minimum_required(VERSION 3.20)
-project(diskreport_ddim LANGUAGES CXX)
-add_library(diskreport_ddim INTERFACE)
-target_include_directories(diskreport_ddim INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
-target_compile_features(diskreport_ddim INTERFACE cxx_std_20)
-add_executable(ddim_check check_campaign.cpp)
-target_link_libraries(ddim_check PRIVATE diskreport_ddim)
-target_include_directories(ddim_check SYSTEM PRIVATE ../src/third_party/stann/include)

@@ -7,7 +7,7 @@ refresh_compile_commands(
     # For example, specify a dict of targets and any flags required to build.
     targets = {
         "@thst": "",
-        "//app/algorithms/sfc": "",
+        "//app/algorithms/static": "",
     },
     # No need to add flags already in .bazelrc. They're automatically picked up.
     # If you don't need flags, a list of targets is also okay, as is a single target string.
@@ -20,17 +20,9 @@ genrule(
     name = "build-info",
     srcs = [],
     outs = ["build-info.h"],
-    cmd = select({
-        "//:gperftools_tcmalloc": "cat bazel-out/stable-status.txt | while read line; do echo \"#define $$line\" >> $@; done; echo \"#define MALLOC_IMPLEMENTATION \\\"tc-malloc\\\"\">>$@",
-        "//conditions:default": "cat bazel-out/stable-status.txt | while read line; do echo \"#define $$line\" >> $@; done; echo \"#define MALLOC_IMPLEMENTATION \\\"default\\\"\">>$@",
-    }),
+    cmd = "cat bazel-out/stable-status.txt | while read line; do echo \"#define $$line\" >> $@; done; echo \"#define MALLOC_IMPLEMENTATION \\\"default\\\"\">>$@",
     stamp = True,
     visibility = ["//visibility:public"],
-)
-
-config_setting(
-    name = "gperftools_tcmalloc",
-    values = {"define": "tcmalloc=gperftools"},
 )
 
 config_setting(

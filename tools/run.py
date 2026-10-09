@@ -17,7 +17,8 @@ import threading
 import time
 import sys
 import sysconfig
-from budget import budget,policy
+from budget import budget,policy,policy_path
+from algorithm_labels import metadata,display_name
 
 def atomic(path,obj):
  path.parent.mkdir(parents=True,exist_ok=True)
@@ -115,16 +116,22 @@ class Campaign:
    status=classify(process.returncode,(directory/'run.log').read_text(),result)
    if timed_out:status='timeout'
    if self.stop.is_set() or self.stop_file.exists():status='interrupted_user'
-   return dict(status=status,algorithm=algorithm['name'],case=case['id'],mode=algorithm['mode'],repetition=rep,cpu=cpu,timeout_seconds=timeout,wall_seconds=time.monotonic()-start,result=result,log=str((directory/'run.log').relative_to(self.base)))
+   return dict(**metadata(algorithm['name']),status=status,algorithm=algorithm['name'],case=case['id'],mode=algorithm['mode'],repetition=rep,cpu=cpu,timeout_seconds=timeout,wall_seconds=time.monotonic()-start,result=result,log=str((directory/'run.log').relative_to(self.base)))
   finally:self.cpus.put(cpu)
  def run(self):
   if self.stop_file.exists():raise RuntimeError('STOP marker exists; use explicit --resume to authorize a new run')
   if (self.out/'state.json').exists():raise RuntimeError('This phase already has results; preserve them in a new campaign copy before rerunning')
   fingerprint=identity(self.root,self.bindir);fingerprint['backend']=self.backend;fingerprint['cpus']=self.manifest['policy']['cpus']
-  fingerprint['execution_policy']=sha(self.base/'campaigns/execution.json')
+  fingerprint['execution_policy']=sha(policy_path(self.base))
+  fingerprint['algorithm_labels']=sha(self.base/'tools/algorithm_labels.py')
   fingerprint['harness']={p.name:sha(p) for p in (self.base/'tools').glob('*.py')}
   selected=self.manifest['algorithms']
   if self.args.algorithms:selected=[a for a in selected if a['name'] in self.args.algorithms]
+  disabled_path=self.base/'config/disabled-algorithms.json'
+  disabled=set(json.loads(disabled_path.read_text())['algorithms']) if disabled_path.exists() else set()
+  selected=[a for a in selected if a['name'] not in disabled]
+  fingerprint['selected_algorithms']=[a['name'] for a in selected]
+  fingerprint['disabled_algorithms']=sorted(disabled)
   if not selected:raise ValueError('No selected algorithms')
   results=[]
   if self.args.phase!='correctness':
@@ -184,17 +191,19 @@ class Campaign:
   with concurrent.futures.ThreadPoolExecutor(max_workers=min(self.stage['workers'],len(self.manifest["policy"]["cpus"]))) as pool:
    futures=[pool.submit(task,a) for a in selected]
    for future in concurrent.futures.as_completed(futures):
-    name,rows=future.result();results.extend(rows)
+    name,rows=future.result()
+    for row in rows:row.update(metadata(row['algorithm']))
+    results.extend(rows)
     if self.args.phase=='correctness':
      state['eligibility'][name]='blocked' if any(r['status'] in ('infrastructure_error','not_started','interrupted_user') for r in rows) else 'passed' if len(rows)==len(self.manifest['correctness']) and all(r['status']=='success' for r in rows) else 'excluded'
-    atomic(self.out/'state.json',state);print(name,[(r.get('case'),r['status']) for r in rows],flush=True)
+    atomic(self.out/'state.json',state);print(display_name(name),[(r.get('case'),r['status']) for r in rows],flush=True)
   state['status']='stopped' if self.stop.is_set() or self.stop_file.exists() else 'budget_exhausted' if time.monotonic()>self.deadline-self.timeout else 'complete'
   atomic(self.out/'state.json',state)
 
 def main():
  p=argparse.ArgumentParser(description='Explicit correctness, screen and final campaign stages; no automatic queue.')
  p.add_argument('phase',choices=['correctness','screen','final','followup','contention','stop'])
- p.add_argument('--campaign',choices=['scaling','static','dynamic-circles','static-circles','esa2026-2d'],required=True)
+ p.add_argument('--campaign',choices=['scaling','static','dynamic-circles'],required=True)
  p.add_argument('--run',default='default');p.add_argument('--root',type=Path)
  p.add_argument('--base',type=Path,default=Path(__file__).resolve().parents[1])
  p.add_argument('--backend',choices=['systemd','process'],default=os.environ.get('DRR_BACKEND','systemd'))

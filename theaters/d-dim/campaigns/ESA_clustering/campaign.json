@@ -1,0 +1,507 @@
+{
+  "schema": 1,
+  "name": "ESA_clustering",
+  "family": "clustering",
+  "upstream": {
+    "repository": "https://github.com/wembed-pdf/rembed",
+    "revision": "a81b216a2a63bde3d4447e4053b4ca31081fe286",
+    "zenodo_record": 21243483,
+    "files": {
+      "src/main.rs": "dea9e2157a5a1fe057214617ab6b06e4b9786ab62361f64ba799a6ee018a900d",
+      "src/benchmark/distribution_bench.rs": "c3502ac4debdd07362e5a15856b49a2602a532a464792af437a90d62c9602520",
+      "src/benchmark/runner.rs": "60d3a9a270ba7440bbb74035ecdb52593bfe58dfd3fae58970e726653a450056",
+      "data/download_scripts/download_clustering.py": "864543ae1886380fbd3cfdac114d0701829d5b1155d63d49af608d908b773408",
+      "data/download_scripts/nn_download_to_csv.py": "b850d07c90640f2afc20e5a3e292accae4bf3aaaadb68d5319b7e4782eed76e0",
+      "data/download_scripts/download_nn.sh": "a57536f8135a1adfbea8c89814502f86feb9a09d4a19aceacb396d063b6d709d"
+    }
+  },
+  "parent": null,
+  "selection": "upstream workload family restricted to dimension > 2; native 2D cases belong to the small theater",
+  "input_format": "ddim-u32",
+  "algorithms": [
+    "chan_sss_ddim_MANUALLY_ADAPTED",
+    "stann_fr_ddim_MANUALLY_ADAPTED",
+    "ann_fr",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "esa_sprk",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_snn_rust",
+    "esa_nanoflann",
+    "cgal_kd"
+  ],
+  "comparison_contract": {
+    "coordinates": "common uint32 grid",
+    "output": "explicit original integer coordinates",
+    "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
+    "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction"
+  },
+  "dimensions": [
+    4,
+    5,
+    7,
+    13,
+    34
+  ],
+  "cases": [
+    {
+      "id": "banknote_r0.1",
+      "suite": "clustering",
+      "dataset": "banknote",
+      "dimension": 4,
+      "files": {
+        "train": {
+          "path": "clustering/banknote.csv"
+        },
+        "query": {
+          "path": "clustering/banknote.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.1,
+      "radius": 0.1
+    },
+    {
+      "id": "banknote_r0.2",
+      "suite": "clustering",
+      "dataset": "banknote",
+      "dimension": 4,
+      "files": {
+        "train": {
+          "path": "clustering/banknote.csv"
+        },
+        "query": {
+          "path": "clustering/banknote.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.2,
+      "radius": 0.19999999999999998
+    },
+    {
+      "id": "banknote_r0.3",
+      "suite": "clustering",
+      "dataset": "banknote",
+      "dimension": 4,
+      "files": {
+        "train": {
+          "path": "clustering/banknote.csv"
+        },
+        "query": {
+          "path": "clustering/banknote.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.3,
+      "radius": 0.29999999999999993
+    },
+    {
+      "id": "banknote_r0.4",
+      "suite": "clustering",
+      "dataset": "banknote",
+      "dimension": 4,
+      "files": {
+        "train": {
+          "path": "clustering/banknote.csv"
+        },
+        "query": {
+          "path": "clustering/banknote.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.4,
+      "radius": 0.4
+    },
+    {
+      "id": "banknote_r0.5",
+      "suite": "clustering",
+      "dataset": "banknote",
+      "dimension": 4,
+      "files": {
+        "train": {
+          "path": "clustering/banknote.csv"
+        },
+        "query": {
+          "path": "clustering/banknote.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.5,
+      "radius": 0.5000000000000001
+    },
+    {
+      "id": "dermatology_r5",
+      "suite": "clustering",
+      "dataset": "dermatology",
+      "dimension": 34,
+      "files": {
+        "train": {
+          "path": "clustering/dermatology.csv"
+        },
+        "query": {
+          "path": "clustering/dermatology.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 5.0,
+      "radius": 5.000000000000001
+    },
+    {
+      "id": "dermatology_r5.1",
+      "suite": "clustering",
+      "dataset": "dermatology",
+      "dimension": 34,
+      "files": {
+        "train": {
+          "path": "clustering/dermatology.csv"
+        },
+        "query": {
+          "path": "clustering/dermatology.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 5.1,
+      "radius": 5.099999999999999
+    },
+    {
+      "id": "dermatology_r5.2",
+      "suite": "clustering",
+      "dataset": "dermatology",
+      "dimension": 34,
+      "files": {
+        "train": {
+          "path": "clustering/dermatology.csv"
+        },
+        "query": {
+          "path": "clustering/dermatology.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 5.2,
+      "radius": 5.200000000000001
+    },
+    {
+      "id": "dermatology_r5.3",
+      "suite": "clustering",
+      "dataset": "dermatology",
+      "dimension": 34,
+      "files": {
+        "train": {
+          "path": "clustering/dermatology.csv"
+        },
+        "query": {
+          "path": "clustering/dermatology.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 5.3,
+      "radius": 5.299999999999999
+    },
+    {
+      "id": "dermatology_r5.4",
+      "suite": "clustering",
+      "dataset": "dermatology",
+      "dimension": 34,
+      "files": {
+        "train": {
+          "path": "clustering/dermatology.csv"
+        },
+        "query": {
+          "path": "clustering/dermatology.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 5.4,
+      "radius": 5.4
+    },
+    {
+      "id": "ecoli_r0.5",
+      "suite": "clustering",
+      "dataset": "ecoli",
+      "dimension": 7,
+      "files": {
+        "train": {
+          "path": "clustering/ecoli.csv"
+        },
+        "query": {
+          "path": "clustering/ecoli.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.5,
+      "radius": 0.5000000000000001
+    },
+    {
+      "id": "ecoli_r0.6",
+      "suite": "clustering",
+      "dataset": "ecoli",
+      "dimension": 7,
+      "files": {
+        "train": {
+          "path": "clustering/ecoli.csv"
+        },
+        "query": {
+          "path": "clustering/ecoli.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.6,
+      "radius": 0.6000000000000001
+    },
+    {
+      "id": "ecoli_r0.7",
+      "suite": "clustering",
+      "dataset": "ecoli",
+      "dimension": 7,
+      "files": {
+        "train": {
+          "path": "clustering/ecoli.csv"
+        },
+        "query": {
+          "path": "clustering/ecoli.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.7,
+      "radius": 0.7000000000000001
+    },
+    {
+      "id": "ecoli_r0.8",
+      "suite": "clustering",
+      "dataset": "ecoli",
+      "dimension": 7,
+      "files": {
+        "train": {
+          "path": "clustering/ecoli.csv"
+        },
+        "query": {
+          "path": "clustering/ecoli.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.8,
+      "radius": 0.7999999999999999
+    },
+    {
+      "id": "ecoli_r0.9",
+      "suite": "clustering",
+      "dataset": "ecoli",
+      "dimension": 7,
+      "files": {
+        "train": {
+          "path": "clustering/ecoli.csv"
+        },
+        "query": {
+          "path": "clustering/ecoli.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 0.9,
+      "radius": 0.8999999999999999
+    },
+    {
+      "id": "phoneme_r8.5",
+      "suite": "clustering",
+      "dataset": "phoneme",
+      "dimension": 5,
+      "files": {
+        "train": {
+          "path": "clustering/phoneme.csv"
+        },
+        "query": {
+          "path": "clustering/phoneme.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 8.5,
+      "radius": 8.5
+    },
+    {
+      "id": "phoneme_r8.6",
+      "suite": "clustering",
+      "dataset": "phoneme",
+      "dimension": 5,
+      "files": {
+        "train": {
+          "path": "clustering/phoneme.csv"
+        },
+        "query": {
+          "path": "clustering/phoneme.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 8.6,
+      "radius": 8.600000000000001
+    },
+    {
+      "id": "phoneme_r8.7",
+      "suite": "clustering",
+      "dataset": "phoneme",
+      "dimension": 5,
+      "files": {
+        "train": {
+          "path": "clustering/phoneme.csv"
+        },
+        "query": {
+          "path": "clustering/phoneme.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 8.7,
+      "radius": 8.699999999999998
+    },
+    {
+      "id": "phoneme_r8.8",
+      "suite": "clustering",
+      "dataset": "phoneme",
+      "dimension": 5,
+      "files": {
+        "train": {
+          "path": "clustering/phoneme.csv"
+        },
+        "query": {
+          "path": "clustering/phoneme.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 8.8,
+      "radius": 8.8
+    },
+    {
+      "id": "phoneme_r8.9",
+      "suite": "clustering",
+      "dataset": "phoneme",
+      "dimension": 5,
+      "files": {
+        "train": {
+          "path": "clustering/phoneme.csv"
+        },
+        "query": {
+          "path": "clustering/phoneme.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 8.9,
+      "radius": 8.899999999999999
+    },
+    {
+      "id": "wine_r2.2",
+      "suite": "clustering",
+      "dataset": "wine",
+      "dimension": 13,
+      "files": {
+        "train": {
+          "path": "clustering/wine.csv"
+        },
+        "query": {
+          "path": "clustering/wine.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 2.2,
+      "radius": 2.2
+    },
+    {
+      "id": "wine_r2.3",
+      "suite": "clustering",
+      "dataset": "wine",
+      "dimension": 13,
+      "files": {
+        "train": {
+          "path": "clustering/wine.csv"
+        },
+        "query": {
+          "path": "clustering/wine.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 2.3,
+      "radius": 2.3
+    },
+    {
+      "id": "wine_r2.4",
+      "suite": "clustering",
+      "dataset": "wine",
+      "dimension": 13,
+      "files": {
+        "train": {
+          "path": "clustering/wine.csv"
+        },
+        "query": {
+          "path": "clustering/wine.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 2.4,
+      "radius": 2.4000000000000004
+    },
+    {
+      "id": "wine_r2.5",
+      "suite": "clustering",
+      "dataset": "wine",
+      "dimension": 13,
+      "files": {
+        "train": {
+          "path": "clustering/wine.csv"
+        },
+        "query": {
+          "path": "clustering/wine.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 2.5,
+      "radius": 2.5000000000000004
+    },
+    {
+      "id": "wine_r2.6",
+      "suite": "clustering",
+      "dataset": "wine",
+      "dimension": 13,
+      "files": {
+        "train": {
+          "path": "clustering/wine.csv"
+        },
+        "query": {
+          "path": "clustering/wine.csv"
+        }
+      },
+      "queries_policy": "all_training_points",
+      "radius_policy": "constant",
+      "nominal_radius": 2.6,
+      "radius": 2.6000000000000005
+    }
+  ]
+}

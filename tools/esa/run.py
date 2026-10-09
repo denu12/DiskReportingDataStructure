@@ -18,8 +18,10 @@ import time
 from catalog import ROOT, save, sha
 
 sys.path.insert(0, str(ROOT/'tools'))
-from budget import budget, policy
-from run_ddim_all import command as ddim_command
+from budget import budget, policy, policy_path
+from campaign_paths import campaign_directory
+from backends import command as ddim_command
+from algorithm_labels import metadata, display_name
 
 COMPILED_DIMS = set(range(2, 17)) | {32}
 DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
@@ -27,6 +29,9 @@ DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
 
 
 def supported(algorithm, case, format2d):
+    if algorithm == 'esa_sprk_CHEATING_IDS_ONLY': return format2d or case['dimension'] == 3
+    if algorithm == 'Morton3D': return not format2d and case['dimension'] == 3
+    if algorithm == 'morton_d_dim': return not format2d and 1 <= case['dimension'] <= 16
     return format2d or algorithm in DYNAMIC_DIMENSION or case['dimension'] in COMPILED_DIMS
 
 
@@ -63,14 +68,18 @@ def sample(original, target, format2d):
 
 def run_phase(args, manifest):
     config = policy(ROOT); stage = config['stages'][args.phase]
+    disabled_path = ROOT/'config/disabled-algorithms.json'
+    disabled = set(json.loads(disabled_path.read_text())['algorithms']) if disabled_path.exists() else set()
     folder = ROOT/'results'/args.campaign/args.run
     target = folder/args.phase/'state.json'
     if target.exists(): raise RuntimeError('Phase already exists; use a fresh run label')
     if (folder/'STOP').exists(): raise RuntimeError('This run is stopped')
     if manifest.get('status') != 'ready': raise RuntimeError('Campaign has missing data; prepare every case first')
-    if manifest.get('specification_sha256') != sha(ROOT/'campaigns'/args.campaign/'campaign.json'):
+    if manifest.get('specification_sha256') != sha(campaign_directory(ROOT,args.campaign)/'campaign.json'):
         raise RuntimeError('Prepared campaign specification is stale; prepare it again')
     cases = manifest['cases']; algorithms = manifest['algorithms']
+    if args.campaign == 'GeographyLarge' and any(not 1000000 <= c['n'] <= 5000000 or c['queries'] != 1000 for c in cases):
+        raise RuntimeError('GeographyLarge requires 1–5 million points and exactly 1,000 queries per instance')
     format2d = manifest['input_format'] == 'ESA2D01'
     data = ROOT/'data'/args.campaign
     cpus = config['cpus']
@@ -81,24 +90,27 @@ def run_phase(args, manifest):
     paths = {p for a in algorithms for p in backend(a, format2d, args.bin_dir)}
     if format2d: paths.add(str(args.bin_dir/'libsfc_esa2026.so'))
     if not all(Path(p).is_file() for p in paths): raise RuntimeError('Build the campaign backends first')
-    identity = dict(manifest=sha(data/'campaign.json'), policy=sha(ROOT/'campaigns/execution.json'),
+    identity = dict(manifest=sha(data/'campaign.json'), policy=sha(policy_path(ROOT)),
         binaries={p: sha(Path(p)) for p in sorted(paths)},
         harness={str(p.relative_to(ROOT)): sha(p) for p in sorted((ROOT/'tools/esa').glob('*.py'))})
-    for p in [ROOT/'tools/budget.py', ROOT/'tools/run_ddim_all.py', ROOT/'src/third_party/esa2026/snnpy.py']:
+    for p in [ROOT/'tools/campaign_paths.py', ROOT/'tools/budget.py', ROOT/'tools/backends.py', ROOT/'tools/algorithm_labels.py', ROOT/'src/third_party/esa2026/snnpy.py']:
         if p.is_file(): identity['harness'][str(p.relative_to(ROOT))] = sha(p)
     for p in (ROOT/'src/third_party/esa2026/snnpy').rglob('*.py'):
         identity['harness'][str(p.relative_to(ROOT))] = sha(p)
+    identity['disabled_algorithms'] = sorted(disabled)
+    identity['algorithms'] = list(algorithms)
     identity['python_packages'] = {}
     for name in ['numpy', 'scipy', 'scikit-learn']:
         try: identity['python_packages'][name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError: identity['python_packages'][name] = None
     for c in cases:
+        if not any(supported(a, c, format2d) for a in algorithms): continue
         if sha(data/c['path']) != c['sha256']: raise RuntimeError('Input checksum mismatch: '+c['id'])
     eligible = set(algorithms)
     measured = None
     if args.phase != 'correctness':
         gate = json.loads((folder/'correctness/state.json').read_text())
-        if gate['identity'] != identity or gate['status'] != 'complete': raise RuntimeError('Correctness gate incomplete or stale')
+        if not (gate['identity'] == identity) or gate['status'] != 'complete': raise RuntimeError('Correctness gate incomplete or stale')
         eligible = {a for a, v in gate['eligibility'].items() if v == 'passed'}
     if args.phase == 'correctness':
         smallest = {}
@@ -108,11 +120,11 @@ def run_phase(args, manifest):
     repetitions = config['repetitions'] if args.phase == 'final' else 1
     if args.phase == 'final':
         screen = json.loads((folder/'screen/state.json').read_text())
-        if screen['identity'] != identity or screen['status'] != 'complete': raise RuntimeError('Screen is incomplete or stale')
+        if not (screen['identity'] == identity) or screen['status'] != 'complete': raise RuntimeError('Screen is incomplete or stale')
         measured = {(r['algorithm'], r['case']) for r in screen['results'] if r['status'] == 'success'}
         loads = [0.0]*min(stage['workers'], len(cpus))
         for i, a in enumerate(algorithms):
-            cost = sum(r.get('wall_seconds', 0)*repetitions*1.25 for r in screen['results'] if r['algorithm'] == a and r['status'] == 'success')
+            cost = 0.0 if a in disabled else sum(r.get('wall_seconds', 0)*repetitions*1.25 for r in screen['results'] if r['algorithm'] == a and r['status'] == 'success')
             loads[i % len(loads)] += cost
         estimate = max(loads)
         remaining = args.deadline-time.monotonic()
@@ -139,9 +151,10 @@ def run_phase(args, manifest):
         checked = []
         for c in selected:
             for rep in range(repetitions):
-                row = dict(algorithm=a, case=c['id'], dimension=c['dimension'], repetition=rep, cpu=cpu)
+                row = dict(algorithm=a, case=c['id'], dimension=c['dimension'], repetition=rep, cpu=cpu, **metadata(a))
                 status = None
-                if not supported(a, c, format2d): status = 'unsupported_dimension'
+                if a in disabled: status = 'disabled_by_user'
+                elif not supported(a, c, format2d): status = 'unsupported_dimension'
                 elif a not in eligible: status = 'excluded_by_correctness'
                 elif measured is not None and (a, c['id']) not in measured: status = 'not_selected_after_screen'
                 elif stopped.is_set() or (folder/'STOP').exists(): status = 'stopped'
@@ -192,11 +205,11 @@ def run_phase(args, manifest):
                            backend_status=report.get('status') if report else None, returncode=process.returncode)
                 save(job/'outcome.json', row); record(row); checked.append(outcome)
                 with lock: state['current'].pop(str(cpu), None); save(target, state)
-                print(args.phase, a, c['id'], outcome, flush=True)
+                print(args.phase, display_name(a), c['id'], outcome, flush=True)
                 if outcome != 'success': break
         if args.phase == 'correctness':
             with lock:
-                state['eligibility'][a] = 'unsupported_dimension' if not checked else 'passed' if all(v == 'success' for v in checked) else 'excluded'
+                state['eligibility'][a] = 'disabled_by_user' if a in disabled else 'unsupported_dimension' if not checked else 'passed' if all(v == 'success' for v in checked) else 'excluded'
                 save(target, state)
     # Each worker owns one physical core and processes complete algorithm sequences.
     assignments = [[] for _ in range(min(stage['workers'], len(cpus)))]
@@ -207,7 +220,7 @@ def run_phase(args, manifest):
         list(pool.map(worker, range(len(assignments))))
     statuses = {r['status'] for r in state['results']}
     state['status'] = 'stopped' if 'stopped' in statuses else 'budget_exhausted' if 'not_run_budget' in statuses else 'complete'
-    state['needs_attention'] = bool(statuses-{'success', 'unsupported_dimension', 'excluded_by_correctness', 'not_selected_after_screen'})
+    state['needs_attention'] = bool(statuses-{'success', 'unsupported_dimension', 'excluded_by_correctness', 'not_selected_after_screen', 'disabled_by_user'})
     state['finished_unix'] = time.time(); save(target, state)
     if state['status'] != 'complete': raise RuntimeError('Phase did not complete: '+state['status'])
 
@@ -216,15 +229,20 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--campaign', required=True); ap.add_argument('--run', required=True)
     ap.add_argument('--phase', choices=['correctness', 'screen', 'final', 'all'], default='all')
+    ap.add_argument('--algorithms', nargs='+', help='Explicit roster for this run; leaves prepared manifests unchanged')
     ap.add_argument('--describe', action='store_true', help='Report input and dimension coverage; launch nothing')
     ap.add_argument('--bin-dir', type=Path, default=ROOT/'bin/esa2d')
     args = ap.parse_args()
-    index = json.loads((ROOT/'campaigns/esa-campaigns.json').read_text())
-    if args.campaign not in [c['name'] for c in index['full']+index['native_2d']]: ap.error('Unknown ESA campaign')
+    index = json.loads((ROOT/'config/esa-workloads.json').read_text())
+    if args.campaign not in [c['name'] for c in index['full']+index['native_2d']]+['Scaling3D', 'Static3D', 'GeographyLarge']: ap.error('Unknown dimensional campaign')
     if Path(args.run).name != args.run or args.run in ['', '.', '..']: ap.error('Invalid run label')
     args.bin_dir = args.bin_dir.resolve(); args.base = ROOT
     path = ROOT/'data'/args.campaign/'campaign.json'
-    manifest = json.loads((path if path.exists() else ROOT/'campaigns'/args.campaign/'campaign.json').read_text())
+    manifest = json.loads((path if path.exists() else campaign_directory(ROOT,args.campaign)/'campaign.json').read_text())
+    if args.algorithms:
+        if len(set(args.algorithms)) != len(args.algorithms): ap.error('Duplicate algorithms')
+        if any(a not in manifest['algorithms'] and a not in {'morton_d_dim', 'Morton3D'} for a in args.algorithms): ap.error('Unknown algorithm override')
+        manifest = dict(manifest, algorithms=args.algorithms)
     if args.describe:
         print(json.dumps(dict(name=args.campaign, status=manifest.get('status', 'not_prepared'), cases=len(manifest['cases']),
             dimensions=manifest['dimensions'], unsupported={a: [d for d in manifest['dimensions'] if not supported(a, {'dimension': d}, manifest['input_format'] == 'ESA2D01')] for a in manifest['algorithms']}), indent=2)); return
