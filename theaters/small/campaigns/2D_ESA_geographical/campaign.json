@@ -54,7 +54,7 @@
     "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
     "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction",
     "exceptions": {
-      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (cheating): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output"
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (IDs only): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output"
     }
   },
   "dimensions": [

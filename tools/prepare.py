@@ -1,5 +1,5 @@
 """Generate reproducible circle workloads, never execute a benchmark."""
-import argparse,json,random,struct
+import argparse,json,random,struct,hashlib
 from pathlib import Path
 from algorithm_labels import metadata
 import numpy as np
@@ -17,6 +17,30 @@ def points(rng,n,distribution,dimension=2):
  elif distribution=='normal':a=np.clip(rng.normal(.5,.125,(n,dimension)),0,1)
  else:a=np.column_stack((rng.random(n),np.minimum(rng.exponential(.1,(n,dimension-1)),1)))
  return np.rint(a*MAX).astype(np.uint32)
+def query_modes(distribution,spec):
+ return ['uniform'] if distribution=='uniform' else spec.get('query_centers',['uniform','matched'])
+
+def calibrated_queries(indexed,distribution,mode,target,count,seed,suite):
+ dimension=indexed.shape[1];n=len(indexed)
+ stream=int.from_bytes(hashlib.sha256(f'{suite}/{seed}/{mode}/{target}'.encode()).digest()[:8],'little')
+ rng=np.random.default_rng(stream)
+ query_distribution=distribution if mode=='matched' else 'uniform'
+ centers=points(rng,count,query_distribution,dimension)
+ pilots=points(rng,16,query_distribution,dimension)
+ # Use the full population for rare outputs; otherwise a deterministic sample.
+ sample_size=n if target<64 else min(n,262144)
+ sample=indexed if sample_size==n else indexed[rng.choice(n,sample_size,replace=False)]
+ coords=sample.astype(np.float64)/MAX
+ rank=min(sample_size-1,max(0,round(min(target,n)*sample_size/n)-1))
+ distances=[]
+ for center in pilots:
+  delta=coords-center.astype(np.float64)/MAX
+  squared=np.einsum('ij,ij->i',delta,delta)
+  distances.append(float(np.partition(squared,rank)[rank]))
+ radius2=int(float(np.median(distances))*MAX*MAX)
+ return centers,radius2,dict(target_answers=target,query_centers=mode,calibration_pilots=16,
+  calibration_sample_points=sample_size,calibration='median pilot kth-neighbor squared distance',radius_squared=str(radius2))
+
 def main():
  p=argparse.ArgumentParser();p.add_argument('--campaign',choices=['scaling','static','dynamic-circles'],required=True);p.add_argument('--dest',type=Path,help='Fresh input directory; default data/<campaign>');p.add_argument('--smoke',action='store_true',help='Small validation workload, recorded in manifest');args=p.parse_args()
  config=json.loads((campaign_directory(BASE,args.campaign)/'campaign.json').read_text());root=args.dest.resolve() if args.dest else BASE/'data'/args.campaign
@@ -29,9 +53,12 @@ def main():
    for seed in seeds:
     if args.campaign in ('scaling','static'):
      for dist in spec['distributions']:
-      for radius in spec['radii']:
-       rng=np.random.default_rng(seed);pts=points(rng,n,dist);q=points(rng,16 if args.smoke else config['queries'],'uniform');r2=int(radius*MAX)**2
-       id=f'{suite}/{dist}-n{n}-r{radius}-s{seed}';path=root/'prepared'/(id+'.bin');write_data(path,pts,[(int(x),int(y),r2) for x,y in q]);add(id,suite,seed,n,path,queries=len(q),distribution=dist,radius_fraction=radius)
+      for target in spec['target_answers']:
+       for mode in query_modes(dist,spec):
+        rng=np.random.default_rng(seed);pts=points(rng,n,dist)
+        q,r2,design=calibrated_queries(pts,dist,mode,target,16 if args.smoke else config['queries'],seed,suite)
+        id=f'{suite}/{dist}-n{n}-k{target}-{mode}-s{seed}';path=root/'prepared'/(id+'.bin')
+        write_data(path,pts,[(int(x),int(y),r2) for x,y in q]);add(id,suite,seed,n,path,queries=len(q),distribution=dist,**design)
     else:
      for ratio in spec['update_ratios']:
       rng=random.Random(seed);initial=[(rng.randrange(MAX+1),rng.randrange(MAX+1)) for _ in range(n)];live=list(initial);events=[]

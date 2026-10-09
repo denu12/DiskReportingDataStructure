@@ -4,9 +4,9 @@ A theater is the top-level experiment collection. Its `theater.json` lists campa
 
 | Theater | Purpose | Instances |
 |---|---|---:|
-| [static](static/README.md) | Synthetic 2D and large real geographical workloads | 170 |
+| [static](static/README.md) | Synthetic 2D and large real geographical workloads | 180 |
 | [small](small/README.md) | Original native 2D imported workloads | 50 |
-| [static-3d](static-3d/README.md) | Synthetic 3D workloads | 70 |
+| [static-3d](static-3d/README.md) | Synthetic 3D workloads | 80 |
 | [d-dim](d-dim/README.md) | Imported workloads above two dimensions | 279 |
 | [dynamic](dynamic/README.md) | Updates and queries in 2D | 90 |
 

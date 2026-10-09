@@ -18,22 +18,25 @@ template<std::size_t D, template<std::size_t> class Algorithm> int run(std::istr
   auto n = read<std::uint64_t>(in), q = read<std::uint64_t>(in);
   std::vector<P> points(n);
   for (auto& p : points) for (auto& x : p) x = read<std::uint32_t>(in);
+  std::vector<std::pair<P,W>> queries(q);
+  for(auto& [center,radius2]:queries){
+    for(auto& x:center)x=read<std::uint32_t>(in);
+    radius2=read<std::uint64_t>(in);radius2|=W(read<std::uint64_t>(in))<<64;
+  }
   const auto build_start=std::chrono::steady_clock::now();
   I index(points);
   const double build_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-build_start).count();
   double query_seconds=0;
   std::size_t answers = 0;
   std::vector<P> actual;
+  const auto batch_start=std::chrono::steady_clock::now();
   for (std::size_t j = 0; j < q; ++j) {
-    P center{};
-    for (auto& x : center) x = read<std::uint32_t>(in);
-    W radius2 = read<std::uint64_t>(in);
-    radius2 |= W(read<std::uint64_t>(in)) << 64;
+    const auto& [center,radius2]=queries[j];
+    const auto query_start=benchmark_mode?batch_start:std::chrono::steady_clock::now();
     actual.clear();
     std::vector<P> expected;
-    const auto query_start=std::chrono::steady_clock::now();
     index.ball_squared(center, radius2, [&](auto id) { actual.push_back(points.at(id)); });
-    query_seconds+=std::chrono::duration<double>(std::chrono::steady_clock::now()-query_start).count();
+    if(!benchmark_mode)query_seconds+=std::chrono::duration<double>(std::chrono::steady_clock::now()-query_start).count();
     answers += actual.size();
     if (benchmark_mode) continue;
     // Independent full scan, accumulating rather than subtracting distances.
@@ -53,6 +56,7 @@ template<std::size_t D, template<std::size_t> class Algorithm> int run(std::istr
       return 2;
     }
   }
+  if(benchmark_mode)query_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-batch_start).count();
   std::cout << "{\"status\":\"success\",\"points\":" << n
             << ",\"queries\":" << q << ",\"answers\":" << answers
             << ",\"build_seconds\":" << build_seconds << ",\"query_seconds\":" << query_seconds << "}\n";

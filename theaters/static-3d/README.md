@@ -5,9 +5,9 @@ This theater lifts the synthetic 2D scaling and fixed-size designs to three-dime
 | Campaign | Instances | Workload |
 |---|---:|---|
 | [Scaling3D](campaigns/Scaling3D/README.md) | 40 | Uniform points: n = 10k, 100k, 2m, 4m, 6m, 8m, 10m, 12m; five seeds. |
-| [Static3D](campaigns/Static3D/README.md) | 30 | Four million points; distribution and radius suites; five seeds. |
+| [Static3D](campaigns/Static3D/README.md) | 40 | Four million points; distribution and target-output suites; five seeds. |
 
-Each instance has 1,000 queries. Morton3D is the specialized standalone implementation. Compatible dimensional competitors are used; SPRK has coordinate-reporting and IDs-only diagnostic entries. The five uniform/radius-0.01 instances are repeated across the fixed-size suites, as in 2D. Generic Morton, geography and brute force are not selected by this theater.
+Each instance has 1,000 queries. Morton3D is the specialized standalone implementation. Compatible dimensional competitors are used; SPRK has coordinate-reporting and IDs-only diagnostic entries. The synthetic suites use calibrated output sizes and distinct query streams; nonuniform inputs have uniform and distribution-matched query variants. Generic Morton, geography and brute force are not selected by this theater.
 
 ## Prepare and run
 
@@ -27,7 +27,7 @@ python run_theater.py static-3d --run paper-static-3d --status
 python run_theater.py static-3d --run paper-static-3d --stop
 ```
 
-The first command is a preview. Execution uses one worker on one core, fresh ordinary-workload correctness admission, screening and three final repetitions of eligible pairs. See the [protocol](../../docs/EXPERIMENTS.md) for exclusions, limits and timing. Historical IDs-only SPRK diagnostics must remain separate from coordinate-reporting comparisons; see the [reporting contract](../../docs/REPORTING.md).
+The first command is a preview. Execution uses one worker on one core, fresh ordinary and boundary/duplicate correctness admission, screening and three final repetitions of eligible pairs. See the [protocol](../../docs/EXPERIMENTS.md) for exclusions, limits and timing. Historical IDs-only SPRK diagnostics must remain separate from coordinate-reporting comparisons; see the [reporting contract](../../docs/REPORTING.md).
 
 Results remain under `results/<campaign>/<run>/<phase>/`. Controller progress and its recorded policy are under `results/_execution-<run>/`; shared elapsed budgets are under `results/_budgets/<run>.json`. Counts above are instances, not executed or successful jobs.
 

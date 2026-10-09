@@ -7,8 +7,6 @@ pub mod graph { pub struct Graph; impl Graph { pub fn is_connected(&self,_a:usiz
 static GRAPH:graph::Graph=graph::Graph;
 use pyo3::prelude::*;
 use dvec::DVec;
-struct Spark(sprk::Sprk<2,8,f64,u32>);
-impl Query<2> for Spark { fn query_radius(&self,p:DVec<2>,r:f64,out:&mut Vec<usize>){ self.0.query_radius(&p.components,r,out); } }
 struct PyIndex { tree:Py<PyAny>, query:Py<PyAny>, snn:bool }
 impl PyIndex {
  fn new(points:&[[f64;2]],kind:u32)->Self { Python::attach(|py| {
@@ -36,7 +34,7 @@ struct Index { points:Vec<[u32;2]>, engine:Option<Box<dyn Query<2>>>, coordinate
 }
 #[unsafe(no_mangle)] pub unsafe extern "C" fn esa_create_with_hint(kind:u32,p:*const u32,n:usize,radius_hint:f64)->*mut std::ffi::c_void {
  let points=unsafe{std::slice::from_raw_parts(p.cast::<[u32;2]>(),n)}.to_vec();
- if kind==10 {
+ if kind==10 || kind==0 {
   let tree=sprk::integer_reporting::IntegerPointSprk::new(&points);
   return Box::into_raw(Box::new(Index{points:Vec::new(),engine:None,coordinate_engine:None,integer_sprk:Some(tree),hits:Vec::new(),output:Vec::new()})).cast();
  }
@@ -48,7 +46,6 @@ struct Index { points:Vec<[u32;2]>, engine:Option<Box<dyn Query<2>>>, coordinate
  let e=Embedding{positions:coords.iter().map(|p|DVec::new(*p)).collect(),graph:&GRAPH};
  let integer_sprk=None;
  let engine:Option<Box<dyn Query<2>>>=if n==0{None}else{Some(match kind {
- 0=>Box::new(Spark(sprk::Sprk::new(&coords))),
  1=>Box::new(kiddo::Kiddo::new(e)),
  2=>Box::new(nabo::Nabo::new(e)),
  3=>Box::new(neighbourhood::Neihbourhood::new(e)),
@@ -112,4 +109,17 @@ mod dynamic_kiddo;
   for &id in &index.hits { index.output.push(index.points[id]); }
  }
  unsafe{*out=index.output.as_ptr().cast()};index.output.len()
+}
+
+// Runtime initialization is outside index construction for every bridge entry.
+#[unsafe(no_mangle)] pub extern "C" fn esa_prepare_runtime(kind:u32) {
+ if kind>=7 && kind<=9 { Python::attach(|py| {
+  py.import("numpy").unwrap();
+  py.import(if kind==9 {"snnpy"} else {"sklearn.neighbors"}).unwrap();
+ }); }
+}
+#[unsafe(no_mangle)] pub unsafe extern "C" fn esa_integer_sprk_ids(p:*mut std::ffi::c_void,x:u32,y:u32,lo:u64,hi:u64,out:*mut *const usize)->usize {
+ let index=unsafe{&mut *p.cast::<Index>()};index.hits.clear();
+ index.integer_sprk.as_mut().expect("integer SPRK index").query_ids([x,y],((hi as u128)<<64)|lo as u128,&mut index.hits);
+ unsafe{*out=index.hits.as_ptr()};index.hits.len()
 }

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <map>
 #include <memory>
+#include <limits>
 #include <numeric>
 #include <vector>
 #include <string>
@@ -25,7 +26,10 @@ struct Data {
  if(i<n)points.push_back(p);else{centers.push_back(p);Wide r=read<std::uint64_t>(f);r|=Wide(read<std::uint64_t>(f))<<64;radii.push_back(r);}}
  }
  bool contains(std::size_t id,std::size_t q)const{Wide sum=0;for(unsigned a=0;a<d;++a){auto diff=std::int64_t(points[id][a])-centers[q][a];auto v=std::uint64_t(diff<0?-diff:diff);sum+=Wide(v)*v;}return sum<=radii[q];}
- double radius(std::size_t q)const{return std::sqrt(double(radii[q]))/4294967296.;}
+ double radius(std::size_t q)const{
+  double squared=double(radii[q])/18446744073709551616.;
+  return std::nextafter(std::sqrt(std::nextafter(squared*(1+64*d*std::numeric_limits<double>::epsilon()),INFINITY)),INFINITY);
+ }
  std::vector<double> center(std::size_t q)const{std::vector<double> v;for(auto x:centers[q])v.push_back(double(x)/4294967296.);return v;}
 };
 #if defined(BACKEND_NANO) || defined(BACKEND_BOOST)
@@ -46,7 +50,9 @@ Query create(Data& d,const std::string&){
 }
 #elif defined(BACKEND_NANO)
 #include "nanoflann.hpp"
-struct Cloud{Data& d;std::size_t kdtree_get_point_count()const{return d.points.size();}double kdtree_get_pt(std::size_t i,std::size_t a)const{return double(d.points[i][a])/4294967296.;}template<class B>bool kdtree_get_bbox(B&)const{return false;}};
+struct Cloud{unsigned dimension;std::vector<double> coordinates;
+ explicit Cloud(const Data& d):dimension(d.d){coordinates.reserve(d.points.size()*d.d);for(const auto& p:d.points)for(auto x:p)coordinates.push_back(double(x)/4294967296.);}
+ std::size_t kdtree_get_point_count()const{return coordinates.size()/dimension;}double kdtree_get_pt(std::size_t i,std::size_t a)const{return coordinates[i*dimension+a];}template<class B>bool kdtree_get_bbox(B&)const{return false;}};
 Query create(Data& d,const std::string&){
  auto cloud=std::make_shared<Cloud>(d);
  using Tree=nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Simple_Adaptor<double,Cloud>,Cloud,-1,std::size_t>;
@@ -57,7 +63,7 @@ Query create(Data& d,const std::string&){
   for(unsigned a=0;a<d.d;++a)c[a]=double(d.centers[q][a])/4294967296.;
   auto r=d.radius(q);hits.clear();
   tree->radiusSearch(c.data(),r*r,hits,nanoflann::SearchParameters(0,false));
-  for(auto h:hits){const auto& p=d.points[h.first];out.insert(out.end(),p.begin(),p.end());}
+  for(auto h:hits)if(d.contains(h.first,q)){const auto& p=d.points[h.first];out.insert(out.end(),p.begin(),p.end());}
  };
 }
 #elif defined(BACKEND_CGAL)
@@ -101,12 +107,13 @@ DIM(2) DIM(3) DIM(4) DIM(5) DIM(6) DIM(7) DIM(8) DIM(9) DIM(10) DIM(11) DIM(12) 
 default:throw std::runtime_error("Unsupported dimension");}}
 #endif
 int main(int argc,char** argv){try{if(argc!=3 && argc!=4)throw std::runtime_error("Usage: foreign_check CASE ALGORITHM [--bench]");bool bench=argc==4 && std::string(argv[3])=="--bench";Data data(argv[1]);Query query;auto start=std::chrono::steady_clock::now();if(!data.points.empty())query=create(data,argv[2]);double build_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();double query_seconds=0;std::size_t answers=0;
-std::vector<std::uint32_t> reported;for(std::size_t q=0;q<data.centers.size();++q){start=std::chrono::steady_clock::now();reported.clear();
+std::vector<std::uint32_t> reported;auto batch_start=std::chrono::steady_clock::now();for(std::size_t q=0;q<data.centers.size();++q){if(!bench)start=std::chrono::steady_clock::now();reported.clear();
 #if defined(BACKEND_NANO) || defined(BACKEND_BOOST)
 if(query)query(q,reported);
 #else
-auto ids=query?query(q):std::vector<std::size_t>{};reported.reserve(ids.size()*data.d);for(auto id:ids){const auto& p=data.points.at(id);reported.insert(reported.end(),p.begin(),p.end());}
+auto ids=query?query(q):std::vector<std::size_t>{};reported.reserve(ids.size()*data.d);for(auto id:ids)if(data.contains(id,q)){const auto& p=data.points.at(id);reported.insert(reported.end(),p.begin(),p.end());}
 #endif
-query_seconds+=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();answers+=reported.size()/data.d;if(bench)continue;std::vector<Point> actual;for(std::size_t i=0;i<reported.size();i+=data.d)actual.emplace_back(reported.begin()+i,reported.begin()+i+data.d);std::vector<Point> expected;for(std::size_t i=0;i<data.points.size();++i)if(data.contains(i,q))expected.push_back(data.points[i]);std::sort(expected.begin(),expected.end());std::sort(actual.begin(),actual.end());if(actual!=expected){std::cout<<"{\"status\":\"incorrect\",\"query\":"<<q<<",\"actual_count\":"<<actual.size()<<",\"expected_count\":"<<expected.size()<<"}\n";return 2;}}
+if(!bench)query_seconds+=std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();answers+=reported.size()/data.d;if(bench)continue;std::vector<Point> actual;for(std::size_t i=0;i<reported.size();i+=data.d)actual.emplace_back(reported.begin()+i,reported.begin()+i+data.d);std::vector<Point> expected;for(std::size_t i=0;i<data.points.size();++i)if(data.contains(i,q))expected.push_back(data.points[i]);std::sort(expected.begin(),expected.end());std::sort(actual.begin(),actual.end());if(actual!=expected){std::cout<<"{\"status\":\"incorrect\",\"query\":"<<q<<",\"actual_count\":"<<actual.size()<<",\"expected_count\":"<<expected.size()<<"}\n";return 2;}}
+if(bench)query_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-batch_start).count();
 std::cout<<"{\"status\":\"success\",\"queries\":"<<data.centers.size()<<",\"answers\":"<<answers<<",\"build_seconds\":"<<build_seconds<<",\"query_seconds\":"<<query_seconds<<"}\n";return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

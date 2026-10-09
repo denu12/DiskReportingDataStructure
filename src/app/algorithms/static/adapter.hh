@@ -105,6 +105,7 @@ struct Algo : public ::diskreport::app::algorithms::TwoPhaseAlgorithmImpl<
       ::esa_campaign::registry()[name]=[name](const ::esa_campaign::Dataset& d,bool verify){
         if(!d.events.empty())throw std::runtime_error("Static entry cannot execute dynamic operations");
         Concrete adapter;
+        if constexpr(requires { DataStructure::prepare_runtime(); })DataStructure::prepare_runtime();
         auto start=std::chrono::steady_clock::now();
         std::vector<typename DataStructure::PointType> points;points.reserve(d.points.size());
         for(auto p:d.points)points.push_back(adapter.point_constructor(p.x,p.y));
@@ -128,13 +129,16 @@ struct Algo : public ::diskreport::app::algorithms::TwoPhaseAlgorithmImpl<
           [&](auto lo,auto hi,auto& out){
             auto l=adapter.point_constructor(lo.x,lo.y),h=adapter.point_constructor(hi.x,hi.y);
             // Native circle adapters report directly; CGAL requires a concrete back-insert iterator.
-            if constexpr(exact_circle || requires(typename DataStructure::PointType p) { p.x(); p.y(); }) {
+            if constexpr(exact_circle || requires { DataStructure::native_output_iterator; }) {
               index.query(typename DataStructure::QueryType(l,h),std::back_inserter(out));
             } else {
               if(direct)index.query(typename DataStructure::QueryType(l,h),std::back_inserter(out));
               else index.query(typename DataStructure::QueryType(l,h),::esa_campaign::CircleOutput<typename DataStructure::PointType>{&out,::esa_campaign::active_circle});
             }
-          },r);
+          },r,nullptr,[] {
+            if constexpr(requires { DataStructure::uses_native_radius; })return DataStructure::uses_native_radius;
+            else return false;
+          }());
       };
     }
   }

@@ -10,7 +10,7 @@ LABELS = {
  'chan_sss_dyn_ADAPTED_DYNAMIC': 'Chan',
  'ann_fr': 'ANN', 'stann_fr': 'STANN', 'stann_fr_ddim_MANUALLY_ADAPTED': 'STANN',
  'esa_sprk': 'SPRK', 'esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS': 'SPRK',
- 'esa_sprk_CHEATING_IDS_ONLY': 'SPRK (cheating)',
+ 'esa_sprk_CHEATING_IDS_ONLY': 'SPRK (IDs only)',
  'esa_kiddo': 'Kiddo', 'esa_nabo': 'Nabo', 'esa_neighbourhood': 'Neighbourhood',
  'esa_vptree': 'Acap VP-tree', 'esa_orthtree': 'Orthtree', 'esa_grid': 'Grid',
  'esa_sklearn_kd': 'scikit-learn k-d tree', 'esa_sklearn_ball': 'scikit-learn ball tree',
@@ -22,7 +22,7 @@ LABELS = {
 }
 LOCAL = {'Morton','MortonSIMD','Morton3D','morton_d_dim','naive','brute_force'}
 REIMPLEMENTED = {'chan_sss','chan_sss_ddim_MANUALLY_ADAPTED','chan_sss_dyn_ADAPTED_DYNAMIC'}
-MODIFIED = {'stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
+MODIFIED = {'pargeo','stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
             'esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS','esa_kiddo','esa_grid','esa_neighbourhood'}
 PATCHED = {'esa_kiddo','esa_grid','esa_neighbourhood'}
 

@@ -2,7 +2,7 @@
 
 Research code and experiments for **Practical Distance Reporting by Sorting Along a Space-Filling Curve**.
 
-Distance reporting asks which stored points lie within a given distance of a query location. In two dimensions, this means listing every point inside a disk. This project studies a simple index: sort integer points in Morton (Z-)order, locate short contiguous ranges of candidates, and scan those ranges while checking the actual distance. We compare its construction, query and update costs with established spatial indexes.
+Distance reporting asks which stored points lie within a given distance of a query location. In two dimensions, this means listing every point inside a disk. This project studies a simple index: sort integer points in Morton (Z-)order, locate short contiguous ranges of candidates, and scan those ranges while checking the actual distance. We compare construction and query costs with established spatial indexes. A separate dynamic theater studies updates in external indexes; there is no dynamic Morton implementation.
 
 Publication preparation and the outstanding Chan/STANN source-permission question
 are recorded in [publication status](docs/PUBLICATION.md).
@@ -28,9 +28,9 @@ An experiment **theater** contains campaigns. A **campaign** studies a related q
 
 | Theater | Contents | Instances |
 |---|---|---:|
-| [static](theaters/static/README.md) | 2D scaling, fixed-size synthetic inputs, large geographical inputs | 170 |
+| [static](theaters/static/README.md) | 2D scaling, fixed-size synthetic inputs, large geographical inputs | 180 |
 | [small](theaters/small/README.md) | The paper's native 2D graph, uniform and geographical workloads | 50 |
-| [static-3d](theaters/static-3d/README.md) | 3D synthetic scaling and fixed-size inputs | 70 |
+| [static-3d](theaters/static-3d/README.md) | 3D synthetic scaling and fixed-size inputs | 80 |
 | [d-dim](theaters/d-dim/README.md) | Four imported families, restricted to dimensions above two | 279 |
 | [dynamic](theaters/dynamic/README.md) | 2D insertions, deletions and disk queries | 90 |
 
@@ -60,11 +60,11 @@ The [Arch Docker image](Dockerfile) builds the 2D programs. Native user systemd 
 
 ## What the measurements mean
 
-Conforming queries materialize the original integer point coordinates, including repeated occurrences. Membership checks, adapter work and output writes belong inside query timing. Build, query and update times are separate; input loading and correctness verification are outside those algorithm timings.
+Conforming queries materialize the original integer point coordinates, including repeated occurrences. Membership checks, adapter work and output writes belong inside query timing. Build, query and update times are separate; memory caps are enforced but peak memory is not measured, so these results support no space claim; input loading and correctness verification are outside those algorithm timings.
 
-The local **SPRK (adapted)** wrapper follows this coordinate-reporting contract. **SPRK (cheating)** reports point IDs inside timing and gathers coordinates only for verification afterwards. It measures a different output contract and must be identified separately in tables. That local label is not a claim that the upstream authors violated their own benchmark contract. [Reporting details](docs/REPORTING.md) explain the distinction.
+The local **SPRK (adapted)** wrapper follows this coordinate-reporting contract. **SPRK (IDs only)** uses the same f32 candidate search and timed exact integer membership check, but materializes only point IDs. It measures a different output contract and must be identified separately in tables. [Reporting details](docs/REPORTING.md) explain the distinction.
 
-Correctness admission uses ordinary workloads. Artificial boundary and duplicate stress fixtures are not admission gates. A failure means an implementation or adapter did not satisfy this experiment's contract on the tested inputs; it is not automatically evidence of an upstream defect. Incorrect outputs, timeouts, crashes and unsupported dimensions remain explicit in the results.
+Correctness admission includes ordinary workloads and mandatory boundary/duplicate fixtures for every entry. Successful answer counts are compared across implementations and repetitions in every phase; disagreements block the run. A failure means an implementation or adapter did not satisfy this experiment's contract on the tested inputs; it is not automatically evidence of an upstream defect. Incorrect outputs, timeouts, crashes and unsupported dimensions remain explicit in the results.
 
 ## Repository map
 

@@ -68,19 +68,22 @@ template<class P> struct CircleOutput {
  CircleOutput& operator=(const P& p){auto a=xy(p);if(circle->contains(a.x,a.y))output->push_back(p);return *this;}
 };
 
-template<class P,class Query> Result queries(const Dataset& d,bool verify,bool integrated,Query query,Result r,std::vector<P>* reusable=nullptr) {
+template<class P,class Query> Result queries(const Dataset& d,bool verify,bool integrated,Query query,Result r,std::vector<P>* reusable=nullptr,bool native_radius=false) {
   std::vector<P> local_output;auto& output=reusable?*reusable:local_output;
-  for(size_t i=0;i<d.queries.size();++i){const auto& c=d.queries[i];auto [lo,hi]=bounds(c);
-    auto start=std::chrono::steady_clock::now();
+  auto batch_start=std::chrono::steady_clock::now();
+  for(size_t i=0;i<d.queries.size();++i){const auto& c=d.queries[i];
+    auto start=verify?std::chrono::steady_clock::now():batch_start;
+    auto [lo,hi]=native_radius?std::pair{XY{c.x,c.y},XY{c.x,c.y}}:bounds(c);
     active_circle=&c;
     output.clear();query(lo,hi,output);
     active_circle=nullptr;
     // Rectangle-only competitors use the standard timed circle adapter.
     if(!integrated)std::erase_if(output,[&](const auto& p){auto a=xy(p);return !c.contains(a.x,a.y);});
-    r.answers+=output.size();++r.queries;r.query_seconds+=elapsed(start);
+    r.answers+=output.size();++r.queries;if(verify)r.query_seconds+=elapsed(start);
     if(verify){std::vector<uint64_t> got;got.reserve(output.size());for(const auto& p:output){auto a=xy(p);got.push_back(key(a.x,a.y));}std::sort(got.begin(),got.end());
       if(got!=truth(d,c)){r.correct=false;r.failed_query=i;return r;}}
   }
+  if(!verify)r.query_seconds+=elapsed(batch_start);
   return r;
 }
 template<class P,class Index,class Convert> Result dynamic_queries(const Dataset& d,bool verify,bool integrated,Index& index,Convert point,Result r) {

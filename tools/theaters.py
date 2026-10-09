@@ -12,8 +12,9 @@ def case_count(spec):
     total = 0
     for suite in spec.get('suites', {}).values():
         count = 1
-        for field in ['sizes', 'distributions', 'radii', 'update_ratios']:
+        for field in ['sizes', 'radii', 'target_answers', 'update_ratios']:
             count *= len(suite.get(field, [None]))
+        count *= sum(1 if d=='uniform' else len(suite.get('query_centers',['uniform'])) for d in suite.get('distributions',['uniform']))
         total += count
     return total*len(spec.get('seeds', [None]))
 

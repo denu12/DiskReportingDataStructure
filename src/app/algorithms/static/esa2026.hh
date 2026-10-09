@@ -19,6 +19,10 @@ struct EsaApi {
  CircleCandidates circle_candidates;
  using IntegerSearch=size_t(*)(void*,uint32_t,uint32_t,uint64_t,uint64_t,const uint32_t**);
  IntegerSearch integer_search;
+ using IntegerIds=size_t(*)(void*,uint32_t,uint32_t,uint64_t,uint64_t,const size_t**);
+ IntegerIds integer_ids;
+ using PrepareRuntime=void(*)(uint32_t);
+ PrepareRuntime prepare_runtime;
  using CreateHint=void*(*)(uint32_t,const uint32_t*,size_t,double);
  CreateHint create_hint;
  Create create; Destroy destroy; Search search; CircleSearch circle_search;
@@ -29,13 +33,17 @@ struct EsaApi {
  circle_search=reinterpret_cast<CircleSearch>(dlsym(lib,"esa_circle_query"));
  circle_candidates=reinterpret_cast<CircleCandidates>(dlsym(lib,"esa_circle_candidates"));
  integer_search=reinterpret_cast<IntegerSearch>(dlsym(lib,"esa_integer_sprk_query"));
- if(!create||!destroy||!search)throw std::runtime_error("Invalid ESA bridge ABI");}
+ integer_ids=reinterpret_cast<IntegerIds>(dlsym(lib,"esa_integer_sprk_ids"));
+ prepare_runtime=reinterpret_cast<PrepareRuntime>(dlsym(lib,"esa_prepare_runtime"));
+ if(!create||!destroy||!search||!prepare_runtime)throw std::runtime_error("Invalid ESA bridge ABI");}
  static EsaApi& get(){static EsaApi api;return api;}
 };
 template<unsigned Kind> class Esa2026 {
  public:
+ static void prepare_runtime(){auto& api=EsaApi::get();api.prepare_runtime(Kind);}
  static constexpr bool uses_radius_hint=Kind==6;
  static constexpr bool reports_exact_circle=true;
+ static constexpr bool uses_native_radius=true;
  using IDXT=uint32_t; using PointType=Point<IDXT>;using QueryType=Query<PointType>;
  explicit Esa2026(const std::vector<PointType>& points,double radius_hint=4294967.296){std::vector<uint32_t> xy;xy.reserve(2*points.size());for(auto p:points){xy.push_back(p.x);xy.push_back(p.y);}static const uint32_t empty[2]={};if(!EsaApi::get().create_hint)throw std::runtime_error("Radius-hint bridge unavailable");index_=EsaApi::get().create_hint(Kind,xy.empty()?empty:xy.data(),points.size(),radius_hint/4294967296.0);}
  ~Esa2026(){EsaApi::get().destroy(index_);}
@@ -48,7 +56,10 @@ template<unsigned Kind> class Esa2026 {
    for(size_t i=0;i<n;++i)*out++=PointType{xy[2*i],xy[2*i+1]};return;
   }
   if(!EsaApi::get().circle_candidates)throw std::runtime_error("ESA campaign requires enumerated circle bridge ABI");
-  double r=std::sqrt(double(c->radius2())/18446744073709551616.0+64*std::numeric_limits<double>::epsilon());
+  double squared=double(c->radius2())/18446744073709551616.0*(1+128*std::numeric_limits<double>::epsilon());
+  // SNN subtracts absolute dot products: cancellation needs an absolute allowance.
+  if constexpr(Kind==9)squared+=128*std::numeric_limits<double>::epsilon();
+  double r=std::nextafter(std::sqrt(std::nextafter(squared,INFINITY)),INFINITY);
   if constexpr(Kind==3){
    auto n=EsaApi::get().circle_search(index_,c->x,c->y,r,&xy);
    for(size_t i=0;i<n;++i)if(c->contains(xy[2*i],xy[2*i+1]))*out++=PointType{xy[2*i],xy[2*i+1]};return;
@@ -64,6 +75,7 @@ auto n=EsaApi::get().search(index_,q.p.x,q.p.y,q.q.x,q.q.y,&xy);for(size_t i=0;i
 class EsaNanoflann {
  public:
  static constexpr bool reports_exact_circle=true;
+ static constexpr bool uses_native_radius=true;
  using IDXT=uint32_t; using PointType=Point<IDXT>;using QueryType=Query<PointType>;
  struct Cloud {std::vector<PointType> p;size_t kdtree_get_point_count()const{return p.size();}double kdtree_get_pt(size_t i,size_t d)const{return double(d?p[i].y:p[i].x)/4294967296.0;}template<class B>bool kdtree_get_bbox(B&)const{return false;}};
  using Tree=nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Simple_Adaptor<double,Cloud>,Cloud,2>;
@@ -71,7 +83,7 @@ class EsaNanoflann {
  template<class Output>void query(const QueryType&q,Output out)const{
  if(auto c=::esa_campaign::active_circle){
  double center[2]={double(c->x)/4294967296.0,double(c->y)/4294967296.0};hits_.clear();
- tree_.radiusSearch(center,double(c->radius2())/18446744073709551616.0+64*std::numeric_limits<double>::epsilon(),hits_,nanoflann::SearchParameters(0,false));
+ tree_.radiusSearch(center,std::nextafter(double(c->radius2())/18446744073709551616.0*(1+128*std::numeric_limits<double>::epsilon()),INFINITY),hits_,nanoflann::SearchParameters(0,false));
  for(auto h:hits_){auto p=cloud_.p[h.first];if(c->contains(p.x,p.y))*out++=p;}return;
  }
  if(q.p.x>q.q.x||q.p.y>q.q.y)return;

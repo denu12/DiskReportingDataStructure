@@ -3,7 +3,7 @@ cc_library(
     srcs = [
         "morton_simd_adapter.cc",
         "esa2026.cc",
-        "SPRKcheating.cc",
+        "SPRKids.cc",
         "stann_fr.cc",
         "ann_fr.cc",
         "boost.cc",

@@ -17,6 +17,8 @@ import threading
 import time
 import sys
 import sysconfig
+import random
+from experiment_integrity import boundary_case, machine_identity, check_answer_counts, prior_phases, SCHEDULE_SEED
 from budget import budget,policy,policy_path
 from algorithm_labels import metadata,display_name
 
@@ -55,9 +57,7 @@ class Campaign:
   self.root=args.root.resolve();self.base=args.base.resolve();self.bindir=self.base/'bin/esa2d'
   self.manifest=json.loads((self.root/'campaign.json').read_text());self.args=args
   self.manifest['policy']=policy(self.base)
-  # Admission is based on ordinary workloads, not synthetic edge fixtures.
-  # Preserve the original manifest and historical findings on disk.
-  if self.manifest['policy'].get('correctness_case_policy')=='smallest_ordinary_workload_per_suite':
+  if self.manifest['policy'].get('correctness_case_policy')in ('smallest_ordinary_workload_per_suite','ordinary_and_boundary_duplicates'):
    ordinary={}
    for case in sorted(self.manifest['cases'],key=lambda c:(c['n'],c['id'])):
     ordinary.setdefault(case['suite'],case)
@@ -66,6 +66,7 @@ class Campaign:
   self.stage=self.manifest['policy']['stages'][args.phase]
   self.timeout=self.stage['timeout_seconds']
   self.runroot=self.base/'results'/args.campaign/args.run;self.out=self.runroot/args.phase
+  self.manifest['correctness'].append(boundary_case(self.runroot/'admission_inputs',dynamic=args.campaign=='dynamic-circles'))
   self.stop_file=self.runroot/'STOP';self.stop=threading.Event();self.cpus=queue.Queue()
   for cpu in (args.cpus or self.manifest['policy']['cpus']):self.cpus.put(cpu)
   self.env=environment(self.base,self.bindir)
@@ -116,12 +117,14 @@ class Campaign:
    status=classify(process.returncode,(directory/'run.log').read_text(),result)
    if timed_out:status='timeout'
    if self.stop.is_set() or self.stop_file.exists():status='interrupted_user'
-   return dict(**metadata(algorithm['name']),status=status,algorithm=algorithm['name'],case=case['id'],mode=algorithm['mode'],repetition=rep,cpu=cpu,timeout_seconds=timeout,wall_seconds=time.monotonic()-start,result=result,log=str((directory/'run.log').relative_to(self.base)))
+   return dict(**metadata(algorithm['name']),status=status,algorithm=algorithm['name'],case=case['id'],mode=algorithm['mode'],execution_backend=self.backend,repetition=rep,cpu=cpu,timeout_seconds=timeout,wall_seconds=time.monotonic()-start,result=result,log=str((directory/'run.log').relative_to(self.base)))
   finally:self.cpus.put(cpu)
  def run(self):
   if self.stop_file.exists():raise RuntimeError('STOP marker exists; use explicit --resume to authorize a new run')
   if (self.out/'state.json').exists():raise RuntimeError('This phase already has results; preserve them in a new campaign copy before rerunning')
   fingerprint=identity(self.root,self.bindir);fingerprint['backend']=self.backend;fingerprint['cpus']=self.manifest['policy']['cpus']
+  fingerprint['machine']=machine_identity(self.manifest['policy']['cpus'])
+  fingerprint['schedule_seed']=self.manifest['policy'].get('schedule_seed',SCHEDULE_SEED)
   fingerprint['execution_policy']=sha(policy_path(self.base))
   fingerprint['algorithm_labels']=sha(self.base/'tools/algorithm_labels.py')
   fingerprint['harness']={p.name:sha(p) for p in (self.base/'tools').glob('*.py')}
@@ -136,14 +139,17 @@ class Campaign:
   results=[]
   if self.args.phase!='correctness':
    gate=json.loads((self.runroot/'correctness/state.json').read_text())
-   if gate['identity']!=fingerprint:raise RuntimeError('Correctness gate is stale: manifest or binaries changed')
+   if gate['identity']!=fingerprint or gate['status']!='complete':raise RuntimeError('Correctness gate is stale: manifest or binaries changed')
    allowed={a for a,v in gate['eligibility'].items() if v=='passed'}
+   for a in selected:
+    if a['name'] not in allowed:
+     results.extend(dict(algorithm=a['name'],case=c['id'],status='excluded_by_correctness',**metadata(a['name'])) for c in self.manifest['cases'])
    selected=[a for a in selected if a['name'] in allowed]
   if self.args.cases and not set(self.args.cases)<={c['id'] for c in self.manifest['cases']}:raise RuntimeError('Unknown case ID in --cases')
   measured=None;planned_cases=None
   if self.args.phase in ('final','contention','followup'):
    screen=json.loads((self.runroot/'screen/state.json').read_text())
-   if screen['identity']!=fingerprint:raise RuntimeError('Screening results are stale')
+   if screen['identity']!=fingerprint or screen['status']!='complete':raise RuntimeError('Screening results are stale')
    measured={(r['algorithm'],r['case']) for r in screen['results'] if r['status']=='success'}
    if self.args.phase=='final':
     plan=json.loads((self.base/'results/_plans'/(self.args.run+'.json')).read_text())
@@ -164,7 +170,7 @@ class Campaign:
     measured={(r['algorithm'],r['case']) for r in rows if r['status']=='timeout'}
   if self.args.phase in ('followup','contention') and not any((a['name'],c) in measured for a in selected for c in self.args.cases):raise RuntimeError('No selected pair qualifies for this follow-up stage')
   if self.backend=='systemd':subprocess.run(['systemctl','--user','set-property','--runtime','esa2d-bench.slice',f"MemoryMax={self.manifest['policy']['aggregate_memory_gib']}G",'MemorySwapMax=0'],check=True)
-  state=dict(phase=self.args.phase,execution=dict(timeout_seconds=self.timeout,workers=min(self.stage['workers'],len(self.manifest['policy']['cpus'])),shared_budget_pool=self.stage.get('budget_pool',self.args.phase)),status='running',identity=fingerprint,results=results,eligibility={},started=datetime.datetime.now(datetime.timezone.utc).isoformat())
+  state=dict(configured_cases=[c['id'] for c in (self.manifest['correctness'] if self.args.phase=='correctness' else self.manifest['cases'])],phase=self.args.phase,execution=dict(timeout_seconds=self.timeout,workers=min(self.stage['workers'],len(self.manifest['policy']['cpus'])),shared_budget_pool=self.stage.get('budget_pool',self.args.phase)),status='running',identity=fingerprint,results=results,eligibility={},started=datetime.datetime.now(datetime.timezone.utc).isoformat())
   atomic(self.out/'state.json',state)
   def task(a):
    local=[];streak=0
@@ -172,24 +178,25 @@ class Campaign:
     for case in self.manifest['correctness']:
      r=self.job(a,case,'verify');local.append(r)
      if r['status']!='success':break
-   else:
-    repetitions=1 if self.args.phase in ('screen','followup') else self.manifest['policy']['repetitions']
-    cases=sorted(self.manifest['cases'],key=lambda c:(c['suite'],c['n'],c['id']))
-    if planned_cases is not None:cases=[c for c in cases if c['id'] in planned_cases]
-    if self.args.cases:cases=[c for c in cases if c['id'] in self.args.cases]
-    for case in cases:
-     if measured is not None and (a['name'],case['id']) not in measured:
-      local.append(dict(algorithm=a['name'],case=case['id'],status='not_selected_after_screen'));continue
-     if self.args.phase=='screen' and self.args.campaign=='esa2026-2d' and case['suite']=='distributions' and streak>=2:
-      local.append(dict(algorithm=a['name'],case=case['id'],status='skipped_after_two_scaling_timeouts'));continue
-     for rep in range(repetitions):
-      r=self.job(a,case,'bench',rep);local.append(r)
-      if r['status']!='success':break
-     if case['suite']=='distributions':streak=streak+1 if r['status']=='timeout' else 0
    return a['name'],local
   signal.signal(signal.SIGTERM,lambda *_:self.stop.set());signal.signal(signal.SIGINT,lambda *_:self.stop.set())
   with concurrent.futures.ThreadPoolExecutor(max_workers=min(self.stage['workers'],len(self.manifest["policy"]["cpus"]))) as pool:
-   futures=[pool.submit(task,a) for a in selected]
+   if self.args.phase=='correctness':
+    futures=[pool.submit(task,a) for a in selected]
+   else:
+    repetitions=1 if self.args.phase in ('screen','followup') else self.manifest['policy']['repetitions']
+    jobs=[]
+    for a in selected:
+     for case in self.manifest['cases']:
+      if planned_cases is not None and case['id'] not in planned_cases:continue
+      if self.args.cases and case['id'] not in self.args.cases:continue
+      if measured is not None and (a['name'],case['id']) not in measured:
+       results.append(dict(algorithm=a['name'],case=case['id'],status='not_selected_after_screen'));continue
+      for rep in range(repetitions):jobs.append((a,case,rep))
+    random.Random(fingerprint['schedule_seed']).shuffle(jobs)
+    atomic(self.out/'schedule.json',[[a['name'],c['id'],rep] for a,c,rep in jobs])
+    def one_job(a,c,rep):return a['name'],[self.job(a,c,'bench',rep)]
+    futures=[pool.submit(one_job,*job) for job in jobs]
    for future in concurrent.futures.as_completed(futures):
     name,rows=future.result()
     for row in rows:row.update(metadata(row['algorithm']))
@@ -198,7 +205,11 @@ class Campaign:
      state['eligibility'][name]='blocked' if any(r['status'] in ('infrastructure_error','not_started','interrupted_user') for r in rows) else 'passed' if len(rows)==len(self.manifest['correctness']) and all(r['status']=='success' for r in rows) else 'excluded'
     atomic(self.out/'state.json',state);print(display_name(name),[(r.get('case'),r['status']) for r in rows],flush=True)
   state['status']='stopped' if self.stop.is_set() or self.stop_file.exists() else 'budget_exhausted' if time.monotonic()>self.deadline-self.timeout else 'complete'
+  state['needs_attention']=any(r['status'] not in ('success','not_selected_after_screen','excluded_by_correctness') for r in results)
+  if 'blocked' in state['eligibility'].values():state['status']='needs_attention'
+  mismatches=check_answer_counts(state,prior_phases(self.runroot,self.args.phase))
   atomic(self.out/'state.json',state)
+  if state['status']!='complete':raise RuntimeError('Phase incomplete or needs attention; see state.json')
 
 def main():
  p=argparse.ArgumentParser(description='Explicit correctness, screen and final campaign stages; no automatic queue.')

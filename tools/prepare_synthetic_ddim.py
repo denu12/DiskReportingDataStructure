@@ -8,7 +8,7 @@ import time
 import numpy as np
 from campaign_paths import campaign_directory
 from algorithm_labels import metadata
-from prepare import points
+from prepare import points,query_modes,calibrated_queries
 from workloads import MAX, sha
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,23 +29,23 @@ def prepare(name, destination, smoke):
     if (folder/'campaign.json').exists():
         raise RuntimeError('Prepared campaign already exists: '+name)
     seeds = [1] if smoke else spec['seeds']
-    plan = [(suite,n,seed,dist,radius)
+    plan = [(suite,n,seed,dist,target,mode)
             for suite,s in spec['suites'].items()
-            for n,seed,dist,radius in itertools.product(
-                [256] if smoke else s['sizes'], seeds, s['distributions'], s['radii'])]
+            for n,seed,dist,target in itertools.product(
+                [256] if smoke else s['sizes'], seeds, s['distributions'], s['target_answers'])
+            for mode in query_modes(dist,s)]
     state = dict(status='running', name=name, total=len(plan), completed=0,
                  started_unix=time.time(), smoke=smoke, current=None)
     status_path = folder/'preparation-status.json'
     save(status_path,state)
     rows=[]
     try:
-        for suite,n,seed,distribution,radius in plan:
-            case_id=f'{suite}/{distribution}-n{n}-r{radius}-s{seed}'
+        for suite,n,seed,distribution,target,mode in plan:
+            case_id=f'{suite}/{distribution}-n{n}-k{target}-{mode}-s{seed}'
             state['current']=case_id;save(status_path,state)
             rng=np.random.default_rng(seed)
             indexed=points(rng,n,distribution,d)
-            centers=points(rng,16 if smoke else spec['queries'],'uniform',d)
-            radius_squared=int(radius*MAX)**2
+            centers,radius_squared,design=calibrated_queries(indexed,distribution,mode,target,16 if smoke else spec['queries'],seed,suite)
             output=folder/'prepared'/(case_id+'.bin')
             output.parent.mkdir(parents=True,exist_ok=True)
             temporary=output.with_suffix('.partial')
@@ -57,7 +57,7 @@ def prepare(name, destination, smoke):
                     stream.write(struct.pack('<QQ',radius_squared&((1<<64)-1),radius_squared>>64))
             temporary.replace(output)
             rows.append(dict(id=case_id,suite=suite,dimension=d,n=n,queries=len(centers),
-                             seed=seed,distribution=distribution,radius_fraction=radius,
+                             seed=seed,distribution=distribution,**design,
                              path=output.relative_to(folder).as_posix(),sha256=sha(output),status='ready'))
             del indexed,centers
             state['completed']+=1;save(status_path,state)

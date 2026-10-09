@@ -9,3 +9,5 @@ The versioned [campaign.json](campaign.json) is the authoritative workload defin
 Use `python run_theater.py static` from the repository root to preview the complete theater, or add `--run FRESH_LABEL --execute` to run it after preparation. The [theater README](../../README.md) documents preparation, roster constraints and workload interpretation.
 
 Instance counts do not include algorithm configurations or final repetitions. Correctness failures, unsupported dimensions and unsuccessful screening pairs remain explicit outcomes; they are not successful measurements.
+
+Radii are calibrated to a nominal 1,000 answers per query across input sizes. This separates index-size scaling from increasing output volume. Calibration uses independent pilot queries; actual answer counts are recorded.

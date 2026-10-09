@@ -15,8 +15,12 @@
       "distributions": [
         "uniform"
       ],
-      "radii": [
-        0.01
+      "target_answers": [
+        1000
+      ],
+      "query_centers": [
+        "uniform",
+        "matched"
       ]
     }
   },
@@ -30,5 +34,6 @@
   "queries": 1000,
   "schema": 1,
   "name": "scaling",
-  "execution_policy": "config/execution.json"
+  "execution_policy": "config/execution.json",
+  "query_design": "Independent uniform and distribution-matched centers; radius calibrated to nominal output size using 16 pilot queries."
 }

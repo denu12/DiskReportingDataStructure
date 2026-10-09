@@ -10,8 +10,12 @@
         "normal",
         "skew"
       ],
-      "radii": [
-        0.01
+      "target_answers": [
+        1000
+      ],
+      "query_centers": [
+        "uniform",
+        "matched"
       ]
     },
     "selectivity": {
@@ -21,10 +25,14 @@
       "distributions": [
         "uniform"
       ],
-      "radii": [
-        0.001,
-        0.01,
-        0.1
+      "target_answers": [
+        1,
+        100,
+        10000
+      ],
+      "query_centers": [
+        "uniform",
+        "matched"
       ]
     }
   },
@@ -38,5 +46,6 @@
   "queries": 1000,
   "schema": 1,
   "name": "static",
-  "execution_policy": "config/execution.json"
+  "execution_policy": "config/execution.json",
+  "query_design": "Independent uniform and distribution-matched centers; radius calibrated to nominal output size using 16 pilot queries."
 }

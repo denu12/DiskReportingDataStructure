@@ -1,7 +1,6 @@
 # Publication status
 
-The current source tree is staged for review. No publication push is performed by
-repository preparation. Existing Git history is retained.
+The repository was published at commit `0067462`. The audit repair is a new working-tree revision; its findings, changes and validation are recorded in [audit resolution](AUDIT-RESOLUTION.md). Preparing these changes does not push them or rerun publication campaigns. Existing Git history is retained.
 
 ## Remaining source-permission question
 
@@ -22,22 +21,15 @@ See [third-party credits](THIRD_PARTY.md) and the corresponding `NOTICE.txt` fil
 - Arch build scripts, dependency pins, Dockerfile and upstream notices.
 
 Private historical data, generated inputs, results, binaries and local toolchains
-are excluded from Git and Docker. The staged file list contains none of these.
+are excluded from Git and Docker. The tracked file list contains none of these.
 The checked Git history has no paths under `historical_data/`, `data/` or `results/`.
 A source snapshot does not erase older source revisions from Git history.
 
 ## Validation and limits
 
-Publication checks inspect the staged tree, relative documentation links, Python
-syntax, JSON definitions, executable script modes and common credential/workstation
-path patterns. These are repository checks, not new experimental regression tests.
+Repository checks cover Python syntax, JSON definitions, documentation links and theater previews. Native validation uses Archie's cached pinned dependencies in an isolated source workspace; this does not establish a fresh online dependency download or a clean Docker image build. Targeted correctness checks and small end-to-end runner exercises are summarized in [audit resolution](AUDIT-RESOLUTION.md).
 
-The clean staged source export passes all five theater previews, shell syntax
-checks, compilation of the four standalone Morton files, the three CMake
-dimensional C++ targets, and both 2D Bazel configurations (default and ParGeo). Native compilation uses Archie's cached dependencies. That does
-not establish a fresh online dependency download or a clean Docker image build.
-The Dockerfile builds the 2D programs; full imported and dimensional theaters use
-native user systemd as documented in [RUNNING.md](RUNNING.md).
+The Dockerfile builds the 2D programs; full imported and dimensional theaters use native user systemd as documented in [RUNNING.md](RUNNING.md).
 
 Existing experiment results predate some source changes. They remain private and
 must not be presented as measurements of the current source without identifying

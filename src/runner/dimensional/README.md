@@ -18,6 +18,6 @@ Use `python run_theater.py d-dim --run FRESH_LABEL --algorithms morton_d_dim --e
 to select generic Morton for the full dimensional theater. Dimensions above 16
 are recorded as unsupported. Specialized Morton3D belongs to `static-3d`.
 
-The 3D diagnostic `esa_sprk_CHEATING_IDS_ONLY` is displayed as **SPRK (cheating)**. Its separate Rust executable materializes IDs only inside query timing; coordinate lookup for correctness remains outside timing. It is separate from coordinate-reporting SPRK.
+The 3D diagnostic `esa_sprk_CHEATING_IDS_ONLY` is displayed as **SPRK (IDs only)**. Its separate Rust executable performs native f32 candidate search and exact integer membership inside timing, then materializes IDs only. Coordinates are materialized afterwards for verification. It is separate from coordinate-reporting SPRK.
 
 The diagnostic label refers to a local difference in reporting contract, not misconduct by upstream authors. See [reporting details](../../../docs/REPORTING.md).

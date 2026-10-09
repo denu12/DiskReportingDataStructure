@@ -1,48 +1,55 @@
-//! Manual adaptation of SPRK reporting for original uint32 point output.
-//! Upstream construction, traversal and floating-point candidate distances are
-//! retained. Integer payloads follow the exact SIMD block/lane order, including
-//! leaf padding. No input-order ID lookup is performed during reporting.
-use crate::tree::{LeafRange, Sprk};
+//! Local exact-integer reporting adapter around the upstream f32 SIMD query.
+//! Candidate IDs use the native writer. Gathering, exact membership and writing
+//! the requested output are all performed by the timed caller.
+use crate::tree::Sprk;
 
-/// Static two-dimensional SPRK with leaf-local integer point payloads.
-pub struct IntegerPointSprk {
-    tree: Sprk<2, 8, f64, u32>,
-    points: Vec<[[u32; 2]; 8]>,
-    valid: Vec<[bool; 8]>,
-    ranges: Vec<LeafRange>,
+/// Conservative envelope for uint32 coordinates normalized by 2^32.
+/// The absolute term covers f32 coordinate rounding; the relative term covers
+/// distance arithmetic. Higher-dimensional half-distance kernels also need a
+/// cancellation allowance because they subtract dot products of absolute positions.
+pub fn candidate_radius<const D: usize>(radius: f64) -> f32 {
+    let epsilon = f32::EPSILON as f64;
+    let rounded = radius + 2.0 * (D as f64).sqrt() * epsilon;
+    let squared = rounded * rounded * (1.0 + 64.0 * D as f64 * epsilon)
+        + if D >= 6 { 32.0 * (D * D) as f64 * epsilon } else { 0.0 };
+    (squared.sqrt() as f32).next_up()
 }
 
+pub struct IntegerPointSprk {
+    tree: Option<Sprk<2, 8, f32, u32>>,
+    points: Vec<[u32; 2]>,
+    candidates: Vec<usize>,
+}
 impl IntegerPointSprk {
-    /// Build the tree and its integer payloads; both are construction costs.
     pub fn new(points: &[[u32; 2]]) -> Self {
-        let coords: Vec<_> = points.iter().map(|p| p.map(|x| x as f64 / 4294967296.0)).collect();
-        let tree = Sprk::<2, 8, f64, u32>::new(&coords);
-        let valid = tree.positions_sorted.iter().map(|b| b.ids.map(|id| (id as usize) < points.len())).collect();
-        let payload = tree.positions_sorted.iter().map(|b| b.ids.map(|id| points.get(id as usize).copied().unwrap_or([0, 0]))).collect();
-        Self { tree, points: payload, valid, ranges: Vec::new() }
+        let coords: Vec<_> = points.iter().map(|p| p.map(|x| (x as f64 / 4294967296.0) as f32)).collect();
+        Self { tree: if points.is_empty() { None } else { Some(Sprk::new(&coords)) },
+               points: points.to_vec(), candidates: Vec::new() }
     }
-
-    /// Append each exact matching integer point explicitly, preserving multiplicity.
+    fn candidates(&mut self, center: [u32; 2], radius2: u128) {
+        self.candidates.clear();
+        if let Some(tree) = &self.tree {
+            let pos = center.map(|x| (x as f64 / 4294967296.0) as f32);
+            let radius = candidate_radius::<2>((radius2 as f64).sqrt() / 4294967296.0);
+            tree.query_radius(&pos, radius, &mut self.candidates);
+        }
+    }
+    fn contains(point: [u32; 2], center: [u32; 2], radius2: u128) -> bool {
+        let dx = (point[0] as i64 - center[0] as i64).unsigned_abs() as u128;
+        let dy = (point[1] as i64 - center[1] as i64).unsigned_abs() as u128;
+        dx * dx + dy * dy <= radius2
+    }
     pub fn query_points(&mut self, center: [u32; 2], radius2: u128, out: &mut Vec<[u32; 2]>) {
-        if self.points.is_empty() { return; }
-        let pos = center.map(|x| x as f64 / 4294967296.0);
-        // Same conservative floating-point envelope as the existing adapter.
-        let radius = (radius2 as f64 / 18446744073709551616.0 + 64.0 * f64::EPSILON).sqrt();
-        let threshold = radius * radius;
-        self.ranges.clear();
-        self.tree.collect_ranges(&pos, 0, 0, threshold, &mut [0.0; 2], &mut self.ranges);
-        for range in &self.ranges {
-            for block in range.min_i..range.max_i {
-                let distances = self.tree.positions_sorted[block].dist_squared(pos);
-                for lane in 0..8 {
-                    if self.valid[block][lane] && distances[lane] <= threshold {
-                        let p = self.points[block][lane];
-                        let dx = p[0] as i128 - center[0] as i128;
-                        let dy = p[1] as i128 - center[1] as i128;
-                        if (dx * dx + dy * dy) as u128 <= radius2 { out.push(p); }
-                    }
-                }
-            }
+        self.candidates(center, radius2);
+        for &id in &self.candidates {
+            let point = self.points[id];
+            if Self::contains(point, center, radius2) { out.push(point); }
+        }
+    }
+    pub fn query_ids(&mut self, center: [u32; 2], radius2: u128, out: &mut Vec<usize>) {
+        self.candidates(center, radius2);
+        for &id in &self.candidates {
+            if Self::contains(self.points[id], center, radius2) { out.push(id); }
         }
     }
 }

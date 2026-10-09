@@ -10,8 +10,12 @@
         "normal",
         "skew"
       ],
-      "radii": [
-        0.01
+      "target_answers": [
+        1000
+      ],
+      "query_centers": [
+        "uniform",
+        "matched"
       ]
     },
     "selectivity": {
@@ -21,10 +25,14 @@
       "distributions": [
         "uniform"
       ],
-      "radii": [
-        0.001,
-        0.01,
-        0.1
+      "target_answers": [
+        1,
+        100,
+        10000
+      ],
+      "query_centers": [
+        "uniform",
+        "matched"
       ]
     }
   },
@@ -70,13 +78,14 @@
   "source_campaign": "static",
   "geometry": "closed Euclidean spheres on uint32 grid",
   "coordinate_generation": "uniform per axis; normal mean 0.5 standard deviation 0.125 clipped to [0,1]; skew has uniform x and independent exponential y,z with mean 0.1 clipped to [0,1]; nearest uint32 integer",
-  "radius_policy": "same fraction of coordinate-domain width as 2D; no equal-answer-count adjustment",
+  "radius_policy": "Median kth-neighbor squared distance of 16 independent pilot queries; nominal target sizes in suites; actual counts measured.",
   "comparison_contract": {
     "coordinates": "uint32 grid",
     "output": "explicit original integer coordinates",
     "measurement": "single-core jobs; existing shared budgets and timeouts; three final repetitions",
     "exceptions": {
-      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (cheating): materialized IDs only; coordinate gathering and exact oracle outside query timing"
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (IDs only): exact integer membership and materialized IDs inside timing; coordinates materialized only for verification."
     }
-  }
+  },
+  "query_design": "Independent uniform and distribution-matched centers; radius calibrated to nominal output size using 16 pilot queries."
 }

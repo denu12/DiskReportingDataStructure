@@ -21,15 +21,11 @@ struct Pkd {
     auto slice = parlay::make_slice(points.data(), points.data() + points.size());
     index.build(slice, 2);
     pnts = points.size();
+    outs.resize(pnts); // One reusable output workspace; allocation is part of construction.
   }
   void query(const QueryType& q, auto&& out) {
-    size_t i, k;
-    auto siz = index.range_count(q, i, k);  // TODO discuss
-    outs.resize(siz);
-    size_t s = index.range_query_serial(q, outs);
-    for (auto s : outs) {
-      *(out++) = s;
-    }
+    size_t count = index.range_query_serial(q, parlay::make_slice(outs));
+    for (size_t i=0;i<count;++i) *(out++) = outs[i];
   }
 };
 template <typename Tp>

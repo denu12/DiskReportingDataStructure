@@ -289,7 +289,7 @@ index 6ce7179..5a89fbc 100644
 +      right = NULL;
 +    } else {
 +      intT k = findWidest();
-+      floatT xM = (pMax[k] + pMin[k]) / 2;
++      floatT xM = (floatT(pMax[k]) + floatT(pMin[k])) / 2;
 +
 +      // Split items by xM (serial)
 +      intT median = splitItemSerial(xM);
@@ -381,7 +381,7 @@ index 6ce7179..5a89fbc 100644
 +      right = NULL;
 +    } else {
 +      intT k = findWidest();
-+      floatT xM = (pMax[k] + pMin[k]) / 2;
++      floatT xM = (floatT(pMax[k]) + floatT(pMin[k])) / 2;
 +
 +      // Split items by xM in dim k (parallel)
 +      parlay::parallel_for(0, size(), [&](intT i) {

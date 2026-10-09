@@ -33,8 +33,8 @@ def main():
     for name in args.campaigns:
         path = args.base / 'results' / name / args.run / 'screen/state.json'
         screen = json.loads(path.read_text())
-        if screen['status'] == 'running':
-            raise RuntimeError('Screening is still running')
+        if screen['status'] != 'complete':
+            raise RuntimeError('Screening is incomplete or needs attention')
         rows = screen['results']
         known = {r['case'] for r in rows}
         cases = set(matrix[name]) if matrix is not None else known
@@ -48,7 +48,7 @@ def main():
                 jobs += config['repetitions']
         workers = min(config['stages']['final']['workers'], len(screen['identity']['cpus']))
         loads = [0.0] * workers
-        # The runner assigns one algorithm's sequence to each available worker.
+        # Conservative estimate; execution interleaves individual jobs.
         for seconds in totals.values():
             i = loads.index(min(loads))
             loads[i] += seconds

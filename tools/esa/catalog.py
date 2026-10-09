@@ -111,7 +111,7 @@ def main():
                 input_format='ESA2D01' if only2d else 'ddim-u32',
                 algorithms=STATIC if only2d else ndim,
                 comparison_contract=dict(coordinates='common uint32 grid', output='explicit original integer coordinates',
-                    exceptions={'esa_sprk_CHEATING_IDS_ONLY': 'SPRK (cheating): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output'} if only2d else {},
+                    exceptions={'esa_sprk_CHEATING_IDS_ONLY': 'SPRK (IDs only): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output'} if only2d else {},
                     measurement='bounded single-core jobs; separate build/query timing; three final repetitions',
                     claim='upstream workload matrix; not a floating-point/Criterion timing reproduction'),
                 dimensions=sorted({c['dimension'] for c in selected}), cases=selected)

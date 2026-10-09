@@ -10,11 +10,11 @@ contract. It does not necessarily mean the upstream index or search was modified
 The provenance column distinguishes a local implementation of a published technique,
 modified upstream source, and an upstream index used through our adapter. Historical
 `UPSTREAM` IDs denote the index's origin, not the absence of a local adapter.
-SPRK (cheating) retains its separate, explicitly relaxed IDs-only label.
+SPRK (IDs only) retains its separate, explicitly relaxed IDs-only label.
 
 Kiddo, Grid and Neighbourhood have previously applied source repairs. Their names
 still end in `(adapted)`; `source_repairs=true` and the notices disclose the repairs.
-No new competitor correctness repairs are part of this adapter cleanup.
+Local adapter corrections from the audit are recorded below; upstream limitations remain explicit.
 
 ## Current mapping
 
@@ -33,7 +33,7 @@ No new competitor correctness repairs are part of this adapter cleanup.
 | `cgal_kd` | CGAL k-d tree (adapted) | upstream index with local adapter |
 | `thst_quad` | THST quadtree (adapted) | upstream index with local adapter |
 | `thst_rtree` | THST R-tree (adapted) | upstream index with local adapter |
-| `pargeo` | ParGeo (adapted) | upstream index with local adapter |
+| `pargeo` | ParGeo (adapted) | modified upstream source and local adapter |
 | `pam` | PAM (adapted) | upstream index with local adapter |
 | `pkd` | Pkd-tree (adapted) | upstream index with local adapter |
 | `chan_sss` | Chan (adapted) | local implementation of published technique |
@@ -44,7 +44,7 @@ No new competitor correctness repairs are part of this adapter cleanup.
 | `stann_fr_ddim_MANUALLY_ADAPTED` | STANN (adapted) | modified upstream source and local adapter |
 | `esa_sprk` | SPRK (adapted) | upstream index with local adapter |
 | `esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS` | SPRK (adapted) | modified upstream source and local adapter |
-| `esa_sprk_CHEATING_IDS_ONLY` | SPRK (cheating) | upstream index with local adapter |
+| `esa_sprk_CHEATING_IDS_ONLY` | SPRK (IDs only) | upstream index with local adapter |
 | `esa_kiddo` | Kiddo (adapted) | modified upstream source and local adapter; prior source repairs |
 | `esa_nabo` | Nabo (adapted) | upstream index with local adapter |
 | `esa_neighbourhood` | Neighbourhood (adapted) | modified upstream source and local adapter; prior source repairs |
@@ -69,11 +69,12 @@ No new competitor correctness repairs are part of this adapter cleanup.
 
 - Dimensional nanoflann (adapted) builds once, retains query buffers, requests
   unsorted radius hits and gathers coordinates directly into the final output.
-  Its upstream floating-point membership predicate is unchanged.
+  A conservative radius and exact integer post-filter enforce the common closed-sphere contract. Coordinate access uses flat pre-normalized storage.
 - Dimensional Boost variants store point coordinates directly. The native query
   combines box pruning with our exact sphere predicate on the stored point;
   accepted coordinates are written directly to the final output. There is no
   bounding-box hit vector, intermediate ID vector or input-array lookup.
+- Both SPRK variants use native f32 SIMD candidates followed by timed exact integer filtering.
 - 2D SPRK (adapted) uses its Rust coordinate vector as the final result. Every
   coordinate is explicitly written during the timed query. The bridge exposes
   that completed vector without a second coordinate copy. Its storage remains
@@ -83,3 +84,5 @@ No new competitor correctness repairs are part of this adapter cleanup.
 These changes require fresh measurements. Do not relabel historical timings as
 measurements of these optimized adapters. Upstream sources and modification
 records are linked from [third-party credits](THIRD_PARTY.md).
+
+Pkd now always passes box hits through the disk predicate and reuses an n-point workspace instead of counting first. PAM uses one native range-sum traversal with a local coordinate-reporting callback, bypassing the example callback that transposed coordinates; duplicate multiplicities are integer weights. CGAL uses double kernels, explicit timed k-d tree construction and a half-open range-tree upper bound one grid unit beyond the closed endpoint. ParGeo midpoint arithmetic casts before adding uint32 endpoints. These are changes to our integration, not evidence against the upstream algorithms.

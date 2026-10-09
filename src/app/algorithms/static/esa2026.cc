@@ -6,8 +6,8 @@ namespace diskreport::sfc::app::algorithms::sfc {
 namespace {
 esa_campaign::Result run_sprk_points(const esa_campaign::Dataset& data,bool verify) {
  if(!data.events.empty())throw std::runtime_error("SPRK (adapted) is static only");
- auto started=std::chrono::steady_clock::now();
  auto& api=EsaApi::get();
+ auto started=std::chrono::steady_clock::now();
  if(!api.integer_search)throw std::runtime_error("Integer SPRK bridge unavailable");
  std::vector<uint32_t> points;points.reserve(2*data.points.size());
  for(auto p:data.points){points.push_back(p.x);points.push_back(p.y);}
@@ -15,11 +15,12 @@ esa_campaign::Result run_sprk_points(const esa_campaign::Dataset& data,bool veri
  void* index=api.create(10,points.empty()?empty:points.data(),data.points.size());
  struct Owner{void* index;EsaApi& api;~Owner(){api.destroy(index);}} owner{index,api};
  esa_campaign::Result result;result.build_seconds=esa_campaign::elapsed(started);
+ auto batch_start=std::chrono::steady_clock::now();
  for(size_t i=0;i<data.queries.size();++i){
   const auto& c=data.queries[i];const uint32_t* output=nullptr;
-  started=std::chrono::steady_clock::now();
+  if(verify)started=std::chrono::steady_clock::now();
   const size_t count=api.integer_search(index,c.x,c.y,c.radius2_lo,c.radius2_hi,&output);
-  result.answers+=count;++result.queries;result.query_seconds+=esa_campaign::elapsed(started);
+  result.answers+=count;++result.queries;if(verify)result.query_seconds+=esa_campaign::elapsed(started);
   if(verify){
    std::vector<uint64_t> actual;actual.reserve(count);
    for(size_t j=0;j<count;++j)actual.push_back(esa_campaign::key(output[2*j],output[2*j+1]));
@@ -27,6 +28,7 @@ esa_campaign::Result run_sprk_points(const esa_campaign::Dataset& data,bool veri
    if(actual!=esa_campaign::truth(data,c)){result.correct=false;result.failed_query=i;return result;}
   }
  }
+ if(!verify)result.query_seconds=esa_campaign::elapsed(batch_start);
  return result;
 }
 const bool integer_sprk_registered=[] {

@@ -15,6 +15,8 @@ import sys
 import sysconfig
 import threading
 import time
+import random
+import queue
 from catalog import ROOT, save, sha
 
 sys.path.insert(0, str(ROOT/'tools'))
@@ -22,6 +24,7 @@ from budget import budget, policy, policy_path
 from campaign_paths import campaign_directory
 from backends import command as ddim_command
 from algorithm_labels import metadata, display_name
+from experiment_integrity import boundary_case, machine_identity, check_answer_counts, prior_phases, SCHEDULE_SEED
 
 COMPILED_DIMS = set(range(2, 17)) | {32}
 DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
@@ -77,7 +80,7 @@ def run_phase(args, manifest):
     if manifest.get('status') != 'ready': raise RuntimeError('Campaign has missing data; prepare every case first')
     if manifest.get('specification_sha256') != sha(campaign_directory(ROOT,args.campaign)/'campaign.json'):
         raise RuntimeError('Prepared campaign specification is stale; prepare it again')
-    cases = manifest['cases']; algorithms = manifest['algorithms']
+    cases = manifest['cases']; algorithms = [a['name'] if isinstance(a,dict) else a for a in manifest['algorithms']]
     if args.campaign == 'GeographyLarge' and any(not 1000000 <= c['n'] <= 5000000 or c['queries'] != 1000 for c in cases):
         raise RuntimeError('GeographyLarge requires 1–5 million points and exactly 1,000 queries per instance')
     format2d = manifest['input_format'] == 'ESA2D01'
@@ -90,10 +93,10 @@ def run_phase(args, manifest):
     paths = {p for a in algorithms for p in backend(a, format2d, args.bin_dir)}
     if format2d: paths.add(str(args.bin_dir/'libsfc_esa2026.so'))
     if not all(Path(p).is_file() for p in paths): raise RuntimeError('Build the campaign backends first')
-    identity = dict(manifest=sha(data/'campaign.json'), policy=sha(policy_path(ROOT)),
+    identity = dict(machine=machine_identity(cpus),schedule_seed=config.get('schedule_seed',SCHEDULE_SEED),manifest=sha(data/'campaign.json'), policy=sha(policy_path(ROOT)),
         binaries={p: sha(Path(p)) for p in sorted(paths)},
         harness={str(p.relative_to(ROOT)): sha(p) for p in sorted((ROOT/'tools/esa').glob('*.py'))})
-    for p in [ROOT/'tools/campaign_paths.py', ROOT/'tools/budget.py', ROOT/'tools/backends.py', ROOT/'tools/algorithm_labels.py', ROOT/'src/third_party/esa2026/snnpy.py']:
+    for p in [ROOT/'tools/experiment_integrity.py', ROOT/'tools/campaign_paths.py', ROOT/'tools/budget.py', ROOT/'tools/backends.py', ROOT/'tools/algorithm_labels.py', ROOT/'src/third_party/esa2026/snnpy.py']:
         if p.is_file(): identity['harness'][str(p.relative_to(ROOT))] = sha(p)
     for p in (ROOT/'src/third_party/esa2026/snnpy').rglob('*.py'):
         identity['harness'][str(p.relative_to(ROOT))] = sha(p)
@@ -116,6 +119,7 @@ def run_phase(args, manifest):
         smallest = {}
         for c in sorted(cases, key=lambda c: (c['n'], c['id'])): smallest.setdefault(c['dimension'], c)
         selected = list(smallest.values())
+        selected += [boundary_case(folder/'admission_inputs',d,format2d) for d in smallest]
     else: selected = cases
     repetitions = config['repetitions'] if args.phase == 'final' else 1
     if args.phase == 'final':
@@ -138,7 +142,7 @@ def run_phase(args, manifest):
     env['LD_LIBRARY_PATH'] = str(ROOT/'bin/lib')+os.pathsep+env.get('LD_LIBRARY_PATH', '')
     subprocess.run(['systemctl', '--user', 'set-property', '--runtime', 'esa2d-bench.slice',
                     f'MemoryMax={config["aggregate_memory_gib"]}G', 'MemorySwapMax=0'], check=True)
-    state = dict(status='running', phase=args.phase, identity=identity, results=[], eligibility={},
+    state = dict(configured_cases=[c['id'] for c in selected],status='running', phase=args.phase, identity=identity, results=[], eligibility={},
                  started_unix=time.time(), current={})
     lock = threading.Lock(); stopped = threading.Event()
     signal.signal(signal.SIGTERM, lambda *_: stopped.set()); signal.signal(signal.SIGINT, lambda *_: stopped.set())
@@ -147,11 +151,11 @@ def run_phase(args, manifest):
         with lock:
             state['results'].append(row); state['outcomes'] = dict(Counter(r['status'] for r in state['results']))
             save(target, state)
-    def algorithm_task(a, cpu):
+    def algorithm_task(a, cpu, only_case=None, only_rep=None):
         checked = []
-        for c in selected:
-            for rep in range(repetitions):
-                row = dict(algorithm=a, case=c['id'], dimension=c['dimension'], repetition=rep, cpu=cpu, **metadata(a))
+        for c in ([only_case] if only_case is not None else selected):
+            for rep in ([only_rep] if only_rep is not None else range(repetitions)):
+                row = dict(algorithm=a, case=c['id'], dimension=c['dimension'], repetition=rep, cpu=cpu, execution_backend='systemd', **metadata(a))
                 status = None
                 if a in disabled: status = 'disabled_by_user'
                 elif not supported(a, c, format2d): status = 'unsupported_dimension'
@@ -211,16 +215,24 @@ def run_phase(args, manifest):
             with lock:
                 state['eligibility'][a] = 'disabled_by_user' if a in disabled else 'unsupported_dimension' if not checked else 'passed' if all(v == 'success' for v in checked) else 'excluded'
                 save(target, state)
-    # Each worker owns one physical core and processes complete algorithm sequences.
-    assignments = [[] for _ in range(min(stage['workers'], len(cpus)))]
-    for i, a in enumerate(algorithms): assignments[i % len(assignments)].append(a)
+    workers=min(stage['workers'],len(cpus))
+    jobs=[(a,None,None) for a in algorithms] if args.phase=='correctness' else [
+        (a,c,rep) for rep in range(repetitions) for c in selected for a in algorithms]
+    random.Random(identity['schedule_seed']).shuffle(jobs)
+    save(folder/args.phase/'schedule.json',[[a,c['id'] if c else None,rep] for a,c,rep in jobs])
+    pending=queue.Queue()
+    for job in jobs:pending.put(job)
     def worker(i):
-        for a in assignments[i]: algorithm_task(a, cpus[i])
-    with ThreadPoolExecutor(max_workers=len(assignments)) as pool:
-        list(pool.map(worker, range(len(assignments))))
+        while True:
+            try:a,c,rep=pending.get_nowait()
+            except queue.Empty:return
+            algorithm_task(a,cpus[i],c,rep)
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        list(pool.map(worker,range(workers)))
     statuses = {r['status'] for r in state['results']}
     state['status'] = 'stopped' if 'stopped' in statuses else 'budget_exhausted' if 'not_run_budget' in statuses else 'complete'
     state['needs_attention'] = bool(statuses-{'success', 'unsupported_dimension', 'excluded_by_correctness', 'not_selected_after_screen', 'disabled_by_user'})
+    check_answer_counts(state,prior_phases(folder,args.phase))
     state['finished_unix'] = time.time(); save(target, state)
     if state['status'] != 'complete': raise RuntimeError('Phase did not complete: '+state['status'])
 

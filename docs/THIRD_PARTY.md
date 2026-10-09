@@ -25,7 +25,7 @@ ESA workloads come from [rembed](https://github.com/wembed-pdf/rembed), commit `
 
 The detailed vendored `NOTICE.txt` files are authoritative modification records. Chan and STANN are locally adapted for reporting. Chan's dynamic treap is a local dynamization, not recovered upstream dynamic code. ANN uses a timed reporting adapter around `annkFRSearch`.
 
-Existing Kiddo, grid and Neighbourhood repairs predate the no-repair experimental policy and remain disclosed; these are not untouched upstream binaries. Publication cleanup makes no competitor correctness repairs. Static 2D Grid receives the arithmetic mean declared query radius, with normalized width .001 only as its empty/zero-radius fallback. Other fixed tuning is disclosed in the adapter notices; true per-query answer counts are not supplied as hints. ANN's two-pass reporting work is timed.
+Existing Kiddo, grid and Neighbourhood repairs predate the no-repair experimental policy and remain disclosed; these are not untouched upstream binaries. The audit repair corrects local adapter defects; see [audit resolution](AUDIT-RESOLUTION.md). Static 2D and dimensional Grid receive the arithmetic mean declared query radius, with normalized width .001 only as its empty/zero-radius fallback. Other fixed tuning is disclosed in the adapter notices; true per-query answer counts are not supplied as hints. ANN's two-pass reporting work is timed.
 
 Chan's original source and the recovered STANN mirror did not include explicit license grants. Their notices retain that fact; no project license is asserted over them. Other dependencies include Abseil, protobuf, GMP, Google Benchmark, GoogleTest, Parlay and build tools; licenses remain in their distributions. Required inherited utility notices remain in source, and the inherited harness notice is preserved in `src/third_party/LEGACY-NOTICES.txt`.
 
@@ -33,6 +33,6 @@ Chan's original source and the recovered STANN mirror did not include explicit l
 
 Current workload membership is listed in the [theater index](../theaters/README.md). Prepared manifests identify candidate configurations; ordinary-workload correctness and dimension support determine which jobs proceed. The dimensional brute-force control is disabled by policy. GPU comparisons are excluded.
 
-The two local SPRK configurations compare coordinate reporting with an explicitly labelled IDs-only diagnostic. The diagnostic's local name, SPRK (cheating), is not an allegation about upstream authors. See the [reporting contract](REPORTING.md) for the timed-work distinction and the limits of comparing these runs with the source paper. Upstream READMEs and licenses are preserved as third-party documents; they do not describe this project's orchestration policy.
+The two local SPRK configurations compare coordinate reporting with an explicitly labelled IDs-only diagnostic. See the [reporting contract](REPORTING.md) for the timed-work distinction and the limits of comparing these runs with the source paper. Upstream READMEs and licenses are preserved as third-party documents; they do not describe this project's orchestration policy.
 
 Publication labels and modification categories are specified in the [adapter catalog](ADAPTERS.md). Use **STANN (adapted)** and **Chan (adapted)** consistently across dimensions; machine IDs remain unchanged.
