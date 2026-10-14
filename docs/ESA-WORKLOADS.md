@@ -101,6 +101,6 @@ python tools/esa/catalog.py --archives data/ESA/archives
 
 Use `python run_theater.py small` or `python run_theater.py d-dim` to preview the current theater. Add `--run FRESH_LABEL --execute` after [building and preparation](RUNNING.md). The top-level runner uses one worker on one core and performs correctness, screening and final measurements across the selected theater.
 
-The default dimensional roster contains 19 enabled external configurations; brute force is disabled. Several compiled backends support only dimensions 2–16 and 32. Unsupported dimensions are recorded separately from incorrect output. Generic Morton can be selected explicitly for dimensions at most 16.
+The default dimensional roster has 23 entries, including two Morton variants, up to two supported SPRK variants, all other competitors and a scan control. Several compiled backends support only dimensions 2–16 and 32. Unsupported dimensions are recorded separately from incorrect output. Generic Morton and dimensional MortonPlus are selected by default for dimensions at most 16.
 
 The source table above describes the original families. Active membership is defined by the theater manifests: 279 instances above two dimensions and 50 native 2D instances. Obsolete combined campaign definitions have been removed. See the [reporting contract](REPORTING.md) before comparing these measurements with the paper.

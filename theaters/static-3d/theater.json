@@ -4,10 +4,15 @@
   "name": "static-3d",
   "title": "Static 3D",
   "campaigns": [
-    "Scaling3D",
+    "input_scaling_3d",
+    "radius_scaling_3d",
     "Static3D"
   ],
   "execution_policy": "config/execution.json",
   "data_layout": "data/<campaign>",
-  "results_layout": "results/<campaign>/<run>"
+  "results_layout": "results/<campaign>/<run>",
+  "campaign_directories": {
+    "input_scaling_3d": "input_scaling",
+    "radius_scaling_3d": "radius_scaling"
+  }
 }

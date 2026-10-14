@@ -10,9 +10,6 @@
 #include <stdexcept>
 #include <utility>
 #include <vector>
-#if !defined(__AVX2__)
-#error "Compile morton3D.cc with -mavx2 on an AVX2-capable x86-64 CPU"
-#endif
 
 namespace diskreport::morton3d {
 using Wide = unsigned __int128;

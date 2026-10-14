@@ -4,17 +4,18 @@ This theater lifts the synthetic 2D scaling and fixed-size designs to three-dime
 
 | Campaign | Instances | Workload |
 |---|---:|---|
-| [Scaling3D](campaigns/Scaling3D/README.md) | 40 | Uniform points: n = 10k, 100k, 2m, 4m, 6m, 8m, 10m, 12m; five seeds. |
+| [input_scaling](campaigns/input_scaling/README.md) | 60 | Uniform points: n = 100k, 500k, 2m, 4m, 6m, 8m, 10m, 12m, 14m, 16m, 18m, 20m; five seeds. |
+| [radius_scaling](campaigns/radius_scaling/README.md) | 35 | Four million uniform points; seven fixed radii; five seeds; 1,000 queries per instance. |
 | [Static3D](campaigns/Static3D/README.md) | 40 | Four million points; distribution and target-output suites; five seeds. |
 
-Each instance has 1,000 queries. Morton3D is the specialized standalone implementation. Compatible dimensional competitors are used; SPRK has coordinate-reporting and IDs-only diagnostic entries. The synthetic suites use calibrated output sizes and distinct query streams; nonuniform inputs have uniform and distribution-matched query variants. Generic Morton, geography and brute force are not selected by this theater.
+Each instance has 1,000 queries. Morton3D is the specialized standalone implementation. Compatible dimensional competitors are used; SPRK has coordinate-reporting and IDs-only diagnostic entries. Input scaling and fixed-size suites calibrate output sizes. Radius scaling uses fixed radii with paired points and query centers; nonuniform fixed-size inputs have uniform and distribution-matched query variants. Generic Morton, geography and brute force are not selected by this theater.
 
 ## Prepare and run
 
 Use the [Arch setup guide](../../docs/RUNNING.md). Build the 2D programs first, then run `python tools/build_ddim.py` for dimensional backends. From the repository root, prepare missing inputs separately:
 
 ```sh
-python tools/prepare_synthetic_ddim.py --campaign Scaling3D Static3D
+python tools/prepare_synthetic_ddim.py --campaign input_scaling_3d radius_scaling_3d Static3D
 ```
 
 Preparation can download large datasets. Reuse validated existing inputs; do not replace data associated with previous measurements. Each definition and prepared manifest records the workload selection.

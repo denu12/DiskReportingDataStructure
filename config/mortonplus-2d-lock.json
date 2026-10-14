@@ -1,0 +1,22 @@
+{
+  "name": "Morton (plus) 2D",
+  "version": "2026-10-14-fixed-avx2-bmi2",
+  "file": "src/morton/mortonplus.hpp",
+  "sha256": "f1ae43f3cc98623f867cc071bfc9f49cb8d7979dfb6b5baaef2a86411503209e",
+  "lines": 305,
+  "configuration": {
+    "batch": 8,
+    "extra_levels": 6,
+    "min_points": 128,
+    "output": "Results"
+  },
+  "validation": "Fixed AVX2/BMI2 validation recorded in docs/MORTONPLUS-VERSIONS.md",
+  "previous_version": {
+    "version": "2026-10-14-fixed-defaults",
+    "sha256": "9a84c65939f302cd15c47220add5faff8324a0bf881bc83660aaa10a47dea5c2"
+  },
+  "required_isa": [
+    "AVX2",
+    "BMI2"
+  ]
+}

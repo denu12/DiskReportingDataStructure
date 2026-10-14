@@ -8,8 +8,8 @@ This revision addresses the retained review of publication commit `0067462`. Ear
 | C2: PAM coordinate transposition | One local range-sum reporting callback emits x,y and preserves duplicate multiplicity as integer weights. The faulty upstream example reporting callback is not used. |
 | C3: ParGeo midpoint overflow | Cast endpoints to the library's floating type before addition in our uint32 patch. |
 | C4 / M3: CGAL kernel and upper edge | Double kernels represent uint32 exactly. Build the k-d tree inside construction timing. Convert closed range-tree upper bounds to exclusive double endpoints, including UINT32_MAX + 1. |
-| C5: SPRK adaptation | Native f32 SIMD candidate reporting, conservative outward radius, timed exact integer filtering and explicit coordinate writes. IDs-only uses the same candidate/membership path. The former f64/scalar variant is removed from the active roster; its source remains in Git history. |
-| M2: correctness evidence | Mandatory boundary/duplicate admission for every entry; cross-algorithm and cross-repetition answer-count disagreement blocks progression in all phases. |
+| C5: SPRK adaptation | Native f32 SIMD candidate reporting, conservative outward radius, timed exact integer filtering and explicit coordinate writes. The audit run used an IDs-only entry with the same candidate/membership path. A later requested change restores SPRK (original): historical f64 floating-point ID search without exact integer filtering. The frozen audit run retains its original implementation and label. |
+| M2: correctness evidence | Mandatory boundary/duplicate admission for every entry; cross-algorithm and cross-repetition answer-count disagreement within the same membership contract blocks progression in all phases. The restored cheating diagnostic uses disclosed floating-contract admission and records integer disagreements separately. |
 | M4: dimensional rounding | Floating dimensional backends receive outward margins and exact integer filtering. Numerical failure remains an admission failure, never silently repaired in results. |
 | M5: adapter overhead | Flat pre-normalized dimensional nanoflann storage, runtime/import warmup before build timing, one-pass Pkd and PAM reporting. ANN retains its native count/report API and both passes are timed. |
 | M7: configuration | NDEBUG in both C++ build paths; f32 SPRK; dimensional Grid receives the mean declared query radius. Remaining f64 wrapper adaptations are explicit. THST's suspected slowdown is not treated as an established source defect: its quadtree midpoint uses min + (max-min)/2, so the ParGeo overflow mechanism does not apply there. |
@@ -17,7 +17,7 @@ This revision addresses the retained review of publication commit `0067462`. Ear
 | M9: workloads | Uniform and distribution-matched query locations; pilot-calibrated output sizes; distinct query streams between suites. New fixed-size campaigns have 40 cases each. |
 | Timing details | Query geometry and reusable-buffer clearing are timed. Static bench mode uses one timer around the complete query loop; verification remains outside timing. |
 | Scheduling / provenance | Seeded interleaving of performance jobs, saved schedules, per-row execution backend, governor/turbo/microcode identity, successful/configured coverage columns. |
-| Labels | SPRK (IDs only) is the public display name. Historical machine IDs are retained solely for provenance. |
+| Labels | SPRK (original) is the public display name. Historical machine IDs are retained solely for provenance. |
 | Dynamic Pkd | The single-insert construction and single-update regime is disclosed; no claim of optimal batch-dynamic performance. |
 
 ## External prerequisite

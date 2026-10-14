@@ -54,13 +54,15 @@
   "input_format": "ddim-u32",
   "algorithms": [
     "Morton3D",
+    "MortonPlus3D",
+    "esa_sprk_CHEATING_IDS_ONLY",
+    "esa_sprk_RUST_EXACT_3D",
     "chan_sss_ddim_MANUALLY_ADAPTED",
     "stann_fr_ddim_MANUALLY_ADAPTED",
     "ann_fr",
     "boost_lin",
     "boost_quad",
     "boost_star",
-    "esa_sprk",
     "esa_kiddo",
     "esa_nabo",
     "esa_neighbourhood",
@@ -73,7 +75,7 @@
     "esa_snn_rust",
     "esa_nanoflann",
     "cgal_kd",
-    "esa_sprk_CHEATING_IDS_ONLY"
+    "brute_force"
   ],
   "source_campaign": "static",
   "geometry": "closed Euclidean spheres on uint32 grid",
@@ -84,7 +86,7 @@
     "output": "explicit original integer coordinates",
     "measurement": "single-core jobs; existing shared budgets and timeouts; three final repetitions",
     "exceptions": {
-      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (IDs only): exact integer membership and materialized IDs inside timing; coordinates materialized only for verification."
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (original): expanded f64 ball and materialized point IDs; eligible for normalization, with its distinct contract disclosed."
     }
   },
   "query_design": "Independent uniform and distribution-matched centers; radius calibrated to nominal output size using 16 pilot queries."

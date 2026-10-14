@@ -19,13 +19,16 @@
   "selection": "upstream workload family restricted to dimension > 2; native 2D cases belong to the small theater",
   "input_format": "ddim-u32",
   "algorithms": [
+    "morton_d_dim",
+    "MortonPlusDDim",
+    "esa_sprk_CHEATING_IDS_ONLY",
+    "esa_sprk_RUST_EXACT_3D",
     "chan_sss_ddim_MANUALLY_ADAPTED",
     "stann_fr_ddim_MANUALLY_ADAPTED",
     "ann_fr",
     "boost_lin",
     "boost_quad",
     "boost_star",
-    "esa_sprk",
     "esa_kiddo",
     "esa_nabo",
     "esa_neighbourhood",
@@ -37,13 +40,17 @@
     "esa_snn",
     "esa_snn_rust",
     "esa_nanoflann",
-    "cgal_kd"
+    "cgal_kd",
+    "brute_force"
   ],
   "comparison_contract": {
     "coordinates": "common uint32 grid",
     "output": "explicit original integer coordinates",
     "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
-    "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction"
+    "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction",
+    "exceptions": {
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (original): expanded f64 ball and materialized point IDs; eligible for normalization, with its distinct contract disclosed."
+    }
   },
   "dimensions": [
     3,

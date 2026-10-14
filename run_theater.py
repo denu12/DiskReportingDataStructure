@@ -21,8 +21,9 @@ sys.path.insert(0, str(ROOT / 'tools'))
 from budget import save
 from campaign_paths import campaign_directory, theater_manifests
 from theaters import case_count
+from workloads import validate_roster
 
-SYNTHETIC = {'scaling', 'static', 'dynamic-circles'}
+SYNTHETIC = {'input_scaling', 'radius_scaling', 'static', 'dynamic-circles'}
 
 
 def read(path):
@@ -67,6 +68,7 @@ def preflight(campaigns, algorithms, hash_inputs):
     """Resolve the actual manifest paths, including shared ESA data directories."""
     errors, inputs, rosters, checked, binaries = [], {}, {}, {}, set()
     disabled = set(read(ROOT / 'config/disabled-algorithms.json')['algorithms'])
+    from algorithm_backends_2d import binary as binary_2d
     from backends import command as dimensional_command
     for name in campaigns:
         definition = campaign_directory(ROOT, name) / 'campaign.json'
@@ -85,21 +87,22 @@ def preflight(campaigns, algorithms, hash_inputs):
         if len(manifest.get('cases', [])) != case_count(read(definition)):
             errors.append(f'{name}: prepared case count differs from the definition')
         entries = manifest.get('algorithms', [])
-        names = [a['name'] if isinstance(a, dict) else a for a in entries]
-        extra = {'morton_d_dim', 'Morton3D'} if name not in SYNTHETIC else set()
+        names = validate_roster(entries)
+        extra = {'morton_d_dim', 'Morton3D', 'MortonPlusDDim'} if name not in SYNTHETIC else set()
         selected = algorithms or names
         if set(selected) - set(names) - extra:
             errors.append(f'{name}: unknown algorithm selection')
         selected = [a for a in selected if a not in disabled]
         if not selected:
             errors.append(f'{name}: no enabled algorithms')
+        validate_roster(selected)
         rosters[name] = selected
         format2d = name in SYNTHETIC or manifest.get('input_format') == 'ESA2D01'
         if format2d:
             binaries.add(ROOT / 'bin/esa2d/libsfc_esa2026.so')
         for algorithm in selected:
             if format2d:
-                binaries.add(ROOT / 'bin/esa2d' / ('esa_runner_pargeo' if algorithm == 'pargeo' else 'esa_runner'))
+                binaries.add(ROOT / 'bin/esa2d' / binary_2d(algorithm))
             else:
                 try:
                     binaries.update(Path(p) for p in dimensional_command(algorithm))
@@ -192,12 +195,18 @@ def execute(args, campaigns, plan, folder):
                 if stopped:
                     state['status'] = 'stopped'
                     break
-                if child.returncode:
+                result_path = ROOT / 'results' / str(name) / args.run / phase / 'state.json'
+                result = read(result_path) if name and result_path.exists() else None
+                budget_limited = (name in config.get('protected_campaign_budgets', {})
+                                  and phase in ('screen', 'final') and result
+                                  and result['status'] == 'budget_exhausted')
+                if child.returncode and not budget_limited:
                     raise RuntimeError(f'{phase}/{name}: exit {child.returncode}; see controller log')
                 if name:
-                    result = read(ROOT / 'results' / name / args.run / phase / 'state.json')
-                    if result['status'] != 'complete':
+                    if result['status'] != 'complete' and not budget_limited:
                         raise RuntimeError(f'{phase}/{name}: {result["status"]}')
+                    if budget_limited:
+                        state.setdefault('budget_limited_phases', []).append({'phase': phase, 'campaign': name})
                     if any(v == 'blocked' for v in result.get('eligibility', {}).values()):
                         raise RuntimeError(f'{phase}/{name}: infrastructure blocked admission')
                     state['needs_attention'] |= result.get('needs_attention', False)

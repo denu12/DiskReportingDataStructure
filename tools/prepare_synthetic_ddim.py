@@ -8,7 +8,7 @@ import time
 import numpy as np
 from campaign_paths import campaign_directory
 from algorithm_labels import metadata
-from prepare import points,query_modes,calibrated_queries
+from prepare import points,query_modes,calibrated_queries,fixed_radius_queries
 from workloads import MAX, sha
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,7 +32,7 @@ def prepare(name, destination, smoke):
     plan = [(suite,n,seed,dist,target,mode)
             for suite,s in spec['suites'].items()
             for n,seed,dist,target in itertools.product(
-                [256] if smoke else s['sizes'], seeds, s['distributions'], s['target_answers'])
+                [256] if smoke else s['sizes'], seeds, s['distributions'], s.get('target_answers',s.get('radii',[])))
             for mode in query_modes(dist,s)]
     state = dict(status='running', name=name, total=len(plan), completed=0,
                  started_unix=time.time(), smoke=smoke, current=None)
@@ -41,11 +41,13 @@ def prepare(name, destination, smoke):
     rows=[]
     try:
         for suite,n,seed,distribution,target,mode in plan:
-            case_id=f'{suite}/{distribution}-n{n}-k{target}-{mode}-s{seed}'
+            parameter=('r' if 'radii' in spec['suites'][suite] else 'k')+str(target)
+            case_id=f'{suite}/{distribution}-n{n}-{parameter}-{mode}-s{seed}'
             state['current']=case_id;save(status_path,state)
             rng=np.random.default_rng(seed)
             indexed=points(rng,n,distribution,d)
-            centers,radius_squared,design=calibrated_queries(indexed,distribution,mode,target,16 if smoke else spec['queries'],seed,suite)
+            query_generator=fixed_radius_queries if 'radii' in spec['suites'][suite] else calibrated_queries
+            centers,radius_squared,design=query_generator(indexed,distribution,mode,target,16 if smoke else spec['queries'],seed,suite)
             output=folder/'prepared'/(case_id+'.bin')
             output.parent.mkdir(parents=True,exist_ok=True)
             temporary=output.with_suffix('.partial')
@@ -76,7 +78,7 @@ def prepare(name, destination, smoke):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--campaign',nargs='+',choices=['Scaling3D','Static3D'],required=True)
+    ap.add_argument('--campaign',nargs='+',choices=['input_scaling_3d', 'radius_scaling_3d','Static3D'],required=True)
     ap.add_argument('--dest',type=Path,default=ROOT/'data',help='Parent directory for prepared campaign folders')
     ap.add_argument('--smoke',action='store_true',help='Small ordinary workload for checking the input format')
     args=ap.parse_args()

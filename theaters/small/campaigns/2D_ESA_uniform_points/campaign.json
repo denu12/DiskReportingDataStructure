@@ -21,6 +21,7 @@
   "algorithms": [
     "Morton",
     "MortonSIMD",
+    "MortonPlusCPP",
     "boost_lin",
     "boost_quad",
     "boost_star",
@@ -35,7 +36,7 @@
     "chan_sss",
     "ann_fr",
     "stann_fr",
-    "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
+    "esa_sprk_RUST_EXACT",
     "esa_sprk_CHEATING_IDS_ONLY",
     "esa_kiddo",
     "esa_nabo",
@@ -54,7 +55,7 @@
     "measurement": "bounded single-core jobs; separate build/query timing; three final repetitions",
     "claim": "upstream workload matrix; not a floating-point/Criterion timing reproduction",
     "exceptions": {
-      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (IDs only): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output"
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (original): expanded f64 ball and materialized point IDs; eligible for normalization, with its distinct contract disclosed."
     }
   },
   "dimensions": [

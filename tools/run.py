@@ -214,7 +214,7 @@ class Campaign:
 def main():
  p=argparse.ArgumentParser(description='Explicit correctness, screen and final campaign stages; no automatic queue.')
  p.add_argument('phase',choices=['correctness','screen','final','followup','contention','stop'])
- p.add_argument('--campaign',choices=['scaling','static','dynamic-circles'],required=True)
+ p.add_argument('--campaign',choices=['input_scaling', 'radius_scaling','static','dynamic-circles'],required=True)
  p.add_argument('--run',default='default');p.add_argument('--root',type=Path)
  p.add_argument('--base',type=Path,default=Path(__file__).resolve().parents[1])
  p.add_argument('--backend',choices=['systemd','process'],default=os.environ.get('DRR_BACKEND','systemd'))

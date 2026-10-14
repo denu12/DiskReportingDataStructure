@@ -69,10 +69,13 @@ mod query;
 mod tree;
 mod vec_writer;
 
-/// Manually adapted 2D integer-point reporting; separate from upstream SPRK.
+/// ESA authors' exact 2D integer-point reporting adaptation.
 pub mod integer_reporting;
 
 pub use dynamic::DynSprk;
 pub use output::{IdDist, QueryOutput};
 pub use scalar::{IdStorage, Scalar};
 pub use tree::Sprk;
+
+/// Local 3D extension of the ESA authors' integer-point reporting adaptation.
+pub mod integer_reporting_3d;

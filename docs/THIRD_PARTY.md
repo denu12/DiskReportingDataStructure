@@ -31,8 +31,28 @@ Chan's original source and the recovered STANN mirror did not include explicit l
 
 ## Experimental use
 
-Current workload membership is listed in the [theater index](../theaters/README.md). Prepared manifests identify candidate configurations; ordinary-workload correctness and dimension support determine which jobs proceed. The dimensional brute-force control is disabled by policy. GPU comparisons are excluded.
+Current workload membership is listed in the [theater index](../theaters/README.md). Prepared manifests identify candidate configurations; ordinary-workload correctness and dimension support determine which jobs proceed. The dimensional scan control is included; it has no construction normalization ratio. GPU comparisons are excluded.
 
 The two local SPRK configurations compare coordinate reporting with an explicitly labelled IDs-only diagnostic. See the [reporting contract](REPORTING.md) for the timed-work distinction and the limits of comparing these runs with the source paper. Upstream READMEs and licenses are preserved as third-party documents; they do not describe this project's orchestration policy.
 
 Publication labels and modification categories are specified in the [adapter catalog](ADAPTERS.md). Use **STANN (adapted)** and **Chan (adapted)** consistently across dimensions; machine IDs remain unchanged.
+
+## MortonPlus and retained SPRK source revisions
+
+Morton (plus) is the C++ translation in `src/morton/mortonplus.hpp` of the ESA
+authors' MortonPlus algorithm, Rust implementation by Dennis Kobert. Credit:
+Thomas Blasius, Jean-Pierre von der Heydt, Tobias Kempf, Dennis Kobert and Nikolai
+Maas, authors of *Benchmarking and Engineering Data Structures for Spherical
+Range Queries* (ESA 2026). The port does not claim invention of MortonPlus.
+Upstream source: https://github.com/TrueDoctor/DiskReportingDataStructure/tree/morton-plus
+Revision: `7e6f57558ca6ae8b93a3ca0f64a2d1b0ec579097`. The original MIT license
+notice (copyright 2026 Ivor van der Hoog) is retained in the header.
+
+SPRK (adapted) vendors `integer_reporting.rs` from
+https://github.com/TrueDoctor/DiskReportingDataStructure/tree/sprk-exact-point-reporting,
+revision `6ee75fdbd33ecb3d4014b99c5036509b6a7c9f97`. It uses their default
+`IntegerPointSprk`; the upstream SPRK MIT license, copyright 2026 wembed-pdf,
+and authors Dennis Kobert and Tobias Kempf are retained. The campaign driver is
+local integration code. The old local integer adapter has been replaced, not
+renamed as the authors' implementation. The Rust MortonPlus implementation is
+not vendored as an active competitor.

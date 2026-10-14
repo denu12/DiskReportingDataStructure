@@ -1,0 +1,53 @@
+{
+  "description": "Static 2D radius scaling at four million uniform integer points",
+  "suites": {
+    "radius_scaling": {
+      "sizes": [
+        4000000
+      ],
+      "distributions": [
+        "uniform"
+      ],
+      "radii": [
+        0.000282094792,
+        0.000892062058,
+        0.002820947918,
+        0.008920620581,
+        0.028209479177,
+        0.089206205808,
+        0.282094791774
+      ],
+      "query_centers": [
+        "uniform"
+      ]
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "queries": 1000,
+  "schema": 1,
+  "name": "radius_scaling",
+  "execution_policy": "config/execution.json",
+  "query_design": "Fixed radii as fractions of uint32 grid width; identical indexed points and query centers across radii for each seed.",
+  "title": "radius_scaling",
+  "radius_policy": "Round radius_fraction * UINT32_MAX to nearest integer; square this integer exactly. No pilot calibration.",
+  "radius_design": {
+    "nominal_interior_answers": [
+      1,
+      10,
+      100,
+      1000,
+      10000,
+      100000,
+      1000000
+    ],
+    "unit_ball_volume": 3.141592653589793,
+    "formula": "(nominal_answers / (4000000 * unit_ball_volume)) ** (1 / dimension)",
+    "boundary_effects": "Query centers cover the whole cube; balls intersecting boundaries return fewer points. Actual counts are measured."
+  }
+}

@@ -20,3 +20,7 @@ path = "snn_main.rs"
 [[bin]]
 name = "ddim-sprk-ids-check"
 path = "sprk_ids_main.rs"
+
+[[bin]]
+name = "sprk-adapted-3d-check"
+path = "../../../third_party/esa2026/sprk/examples/campaign3d.rs"

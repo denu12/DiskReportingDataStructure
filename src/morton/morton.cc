@@ -106,7 +106,7 @@ class Morton {
  private:
   std::vector<PointType> points;
   std::vector<Rank> ranks;
-  // Original Morton encoding. PDEP deposits scalar bits; it is not SIMD.
+  // Original Morton encoding. PDEP deposits scalar bits
   static Rank morton(uint32_t x, uint32_t y) {
     return _pdep_u64(x, UINT64_C(0x5555555555555555)) |
            _pdep_u64(y, UINT64_C(0xaaaaaaaaaaaaaaaa));

@@ -52,6 +52,7 @@
   "algorithms": [
     "Morton",
     "MortonSIMD",
+    "MortonPlusCPP",
     "boost_lin",
     "boost_quad",
     "boost_star",
@@ -66,7 +67,7 @@
     "chan_sss",
     "ann_fr",
     "stann_fr",
-    "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
+    "esa_sprk_RUST_EXACT",
     "esa_sprk_CHEATING_IDS_ONLY",
     "esa_kiddo",
     "esa_nabo",

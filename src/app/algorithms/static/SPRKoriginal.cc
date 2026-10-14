@@ -1,4 +1,4 @@
-// SPRK (IDs only): relaxed output contract, materialized IDs only.
+// SPRK (original): relaxed output contract, materialized IDs only.
 // Upstream credit and adaptations: src/third_party/esa2026/NOTICE.txt.
 #include "app/algorithms/static/esa2026.hh"
 #include "benchmark/esa_campaign.hh"
@@ -8,9 +8,10 @@ namespace {
 esa_campaign::Result run_sprk_ids(const esa_campaign::Dataset& data, bool verify) {
   if (!data.events.empty()) throw std::runtime_error("SPRK IDs entry is static only");
   auto& api = EsaApi::get();
-  if (!api.integer_ids) throw std::runtime_error("SPRK ID bridge unavailable");
+  if (!api.circle_candidates) throw std::runtime_error("SPRK ID bridge unavailable");
   esa_campaign::Result result;
   result.output_contract = "point_ids_only";
+  result.membership_contract = "expanded_f64_ball";
   auto started = std::chrono::steady_clock::now();
   std::vector<uint32_t> points;
   points.reserve(2 * data.points.size());
@@ -23,11 +24,14 @@ esa_campaign::Result run_sprk_ids(const esa_campaign::Dataset& data, bool verify
   for (size_t i = 0; i < data.queries.size(); ++i) {
     const auto& circle = data.queries[i];
     const size_t* ids = nullptr;
+    const uint32_t* unused_points = nullptr;
     if(verify)started = std::chrono::steady_clock::now();
-    // Same f32 candidates and exact integer membership as coordinate reporting;
-    // this diagnostic materializes only IDs.
-    const size_t count = api.integer_ids(index, circle.x, circle.y,
-                                        circle.radius2_lo, circle.radius2_hi, &ids);
+    // Historical floating-point IDs-only path: omit exact integer membership
+    // and coordinate output from timing. Verification still checks the oracle.
+    const double radius = std::sqrt(double(circle.radius2()) / 18446744073709551616.0
+                                   + 64 * std::numeric_limits<double>::epsilon());
+    const size_t count = api.circle_candidates(index, circle.x, circle.y, radius,
+                                              &ids, &unused_points);
     result.answers += count;
     ++result.queries;
     if(verify)result.query_seconds += esa_campaign::elapsed(started);
@@ -43,7 +47,19 @@ esa_campaign::Result run_sprk_ids(const esa_campaign::Dataset& data, bool verify
         actual.push_back(esa_campaign::key(p.x, p.y));
       }
       std::sort(actual.begin(), actual.end());
-      if (actual != esa_campaign::truth(data, circle)) {
+      if (actual != esa_campaign::truth(data, circle)) ++result.integer_mismatch_queries;
+      // Independent scan of the declared floating contract, outside query timing.
+      std::vector<uint64_t> expected;
+      const double cx = double(circle.x) / 4294967296.0;
+      const double cy = double(circle.y) / 4294967296.0;
+      for (auto p : data.points) {
+        const double dx = double(p.x) / 4294967296.0 - cx;
+        const double dy = double(p.y) / 4294967296.0 - cy;
+        if (std::fma(dy, dy, dx * dx) <= radius * radius)
+          expected.push_back(esa_campaign::key(p.x, p.y));
+      }
+      std::sort(expected.begin(), expected.end());
+      if (actual != expected) {
         result.correct = false; result.failed_query = i; return result;
       }
     }

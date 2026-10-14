@@ -4,12 +4,31 @@ This theater contains the imported workload instances with dimension greater tha
 
 | Campaign | Instances | Workload |
 |---|---:|---|
-| [ESA_graph_embeddings](campaigns/ESA_graph_embeddings/README.md) | 210 | Dimensions 3–16. |
+| [ESA_graph_embeddings](campaigns/ESA_graph_embeddings/README.md) | 210 | Dimensions 3â€“16. |
 | [ESA_uniform_points](campaigns/ESA_uniform_points/README.md) | 14 | Dimensions 8 and 32. |
 | [ESA_high_dimensional](campaigns/ESA_high_dimensional/README.md) | 30 | Dimensions 96, 100, 128, 784 and 960. |
 | [ESA_clustering](campaigns/ESA_clustering/README.md) | 25 | Dimensions 4, 5, 7, 13 and 34. |
 
-The default external roster and dimension support are recorded in each definition. Several compiled adapters support only dimensions 2–16 and 32. Unsupported jobs are labelled, not treated as incorrect. Generic Morton is available with --algorithms morton_d_dim and supports at most 16 dimensions; it is not silently substituted for the specialized 3D implementation. The dimensional brute-force control is disabled.
+The default roster includes all external competitors, a scan control, dimensional
+Morton and dimensional MortonPlus. Both Morton entries support dimensions 1-16;
+specialized Morton3D belongs to the static-3d theater. Original SPRK supports
+compiled dimensions 2-16 and 32; adapted SPRK is available only in dimension 3
+here. Unsupported jobs are labelled, not treated as incorrect. See
+[competitor rosters](../../docs/COMPETITORS.md).
+
+
+## Protected time budgets
+
+| Campaign | Screening | Final measurements |
+|---|---:|---:|
+| Graph embeddings | 12 hours | 12 hours |
+| Uniform points | 4 hours | 4 hours |
+| High-dimensional data | 4 hours | 4 hours |
+| Clustering | 4 hours | 4 hours |
+
+The theater has a 24-hour screening allocation and a 24-hour final allocation, for a 48-hour active-time ceiling. Each campaign has its own protected share; graph embeddings cannot spend the others' time. Existing usage stays charged to the campaign that consumed it. Whole-job caps remain 60 seconds for screening and 180 seconds for final measurements.
+
+When a campaign exhausts screening, the controller proceeds to the next campaign. Successfully screened implementation/instance pairs still receive up to three final repetitions, even when screening coverage is incomplete. Finals stop at that campaign's own budget; unexecuted work remains explicitly unmeasured. A final estimate larger than its protected allocation does not block all measurements.
 
 ## Prepare and run
 

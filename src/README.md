@@ -22,3 +22,8 @@ Bazel builds the 2D harness. CMake, direct C++ compilation and Cargo build the
 dimensional drivers. Use the root build scripts documented in
 [RUNNING.md](../docs/RUNNING.md). The public experiment command is
 `python run_theater.py THEATER`; the four standalone indexes do not run experiments.
+
+MortonPlus is now included as `morton/mortonplus.hpp`, credited to the ESA
+authors; `runner/morton_2d_campaign.cpp` runs the retained 2D Morton variants.
+Their exact Rust SPRK campaign driver is
+`third_party/esa2026/sprk/examples/campaign.rs`.

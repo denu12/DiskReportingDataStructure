@@ -36,3 +36,42 @@ before/after rounds, reused output capacity, and exact coordinate-multiset check
 on 32 ordinary queries. These targeted comparisons are not replacement campaign
 results. Per-point output was retained: batch-vector insertion and the tested 2D
 rank alignment did not provide consistent benefits.
+
+## General-dimensional Morton optimization
+
+MortonDDim now uses the same eight-point coordinate blocks and contiguous
+eight-key search nodes as Morton3D, generalized across all rank words. Its SIMD
+encoder spreads bits with compile-time masks and shifts rather than examining
+individual bits. Query bounding radii use square-root estimates corrected by
+exact integer arithmetic. Crossing axes are ordered by their most significant
+changed Morton bit; precomputed axis XOR deltas stream query cells in sorted
+rank order and adjacent cells are merged. No heap allocation or cell sort is
+required inside the index query.
+
+The public API and 1–16 dimension limit are unchanged. All candidate distances
+retain exact low-word and carry accumulation, and accepted original coordinates
+are emitted inside query timing, with duplicate occurrences preserved. The
+entire uint32 universe can be emitted directly only when the exact squared
+radius proves that all points must be inside. Maximal valid keys are handled
+explicitly when they equal search-node padding. Cell enumeration remains
+exponential in the number of crossing axes; streaming does not remove that limit.
+
+Steady storage is approximately 4D + 9*ceil(D/2) bytes per point, compared with
+4D + 8*ceil(D/2) previously, excluding vector objects, allocation rounding and
+temporary construction storage. Coordinates are stored once. Padding is confined
+to the final coordinate block and the rank-node levels.
+
+On Archie (Ryzen 5 7600X, GCC 16.1.1, one pinned core), 96 targeted uniform-input
+comparisons used 100k and 1m points, two seeds, four radii, 64 queries, an untimed
+warm-up and seven alternating before/after rounds. Query geometric-mean speedups
+were 2.31x, 2.88x, 3.37x, 4.27x, 4.90x and 6.01x for D=2,3,4,8,12,16 respectively.
+These are development comparisons, not replacement results for the full
+dimensional campaigns. Reused output buffers still materialized every coordinate.
+
+The standalone regression test checks every dimension 1–16 against an independent
+integer-coordinate multiset oracle, including closed boundaries, duplicates,
+zero and maximal radii, carry overflow, padded nodes and every encoding depth.
+Build and run it with `g++ -std=c++20 -O3 -mavx2 src/morton/morton_d_dim_test.cc
+-o /tmp/morton_ddim_test && /tmp/morton_ddim_test`, or use CMake/CTest's
+`morton_ddim_test` target in `src/runner/dimensional`. Fresh campaign admission is
+required before using the new implementation for publication timings.

@@ -1,3 +1,12 @@
+## Retained 2D backends
+
+`tools/build_arch.sh` also invokes `tools/build_selected_2d.sh` for the standalone
+Morton family and their Rust SPRK adaptation. The binary routing is centralized
+in `tools/algorithm_backends_2d.py`. Prepare fresh manifests after this roster
+change; old result directories remain historical records.
+Run `python tools/check_selected_2d.py` after building to check both input formats,
+empty inputs, duplicate coordinates and 65-bit squared radii against an exact oracle.
+
 # Build, prepare and run on Arch Linux
 
 Run commands from the repository root. Building and preparation do not launch measurements. Start with `python run_theater.py` to list theaters and read the chosen theater's README before downloading data.
@@ -19,7 +28,7 @@ For `d-dim` or `static-3d`, also run:
 python tools/build_ddim.py
 ```
 
-This builds dimensional C++, Rust and Python-facing adapters. The 2D build must have fetched the external headers first. Python-backed competitors need the active scientific environment. Retain the generated build logs if a backend is unavailable; preflight refuses missing programs.
+This builds all dimensional C++, Rust and Python-facing adapters, including MortonPlus and the 3D SPRK adaptation. The 2D build must have fetched the external headers first. Python-backed competitors need the active scientific environment. Retain the generated build logs if a backend is unavailable; preflight refuses missing programs.
 
 ## Prepare inputs
 

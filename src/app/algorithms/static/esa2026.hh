@@ -17,10 +17,6 @@ struct EsaApi {
  using CircleSearch=size_t(*)(void*,uint32_t,uint32_t,double,const uint32_t**);
  using CircleCandidates=size_t(*)(void*,uint32_t,uint32_t,double,const size_t**,const uint32_t**);
  CircleCandidates circle_candidates;
- using IntegerSearch=size_t(*)(void*,uint32_t,uint32_t,uint64_t,uint64_t,const uint32_t**);
- IntegerSearch integer_search;
- using IntegerIds=size_t(*)(void*,uint32_t,uint32_t,uint64_t,uint64_t,const size_t**);
- IntegerIds integer_ids;
  using PrepareRuntime=void(*)(uint32_t);
  PrepareRuntime prepare_runtime;
  using CreateHint=void*(*)(uint32_t,const uint32_t*,size_t,double);
@@ -32,8 +28,6 @@ struct EsaApi {
  create=reinterpret_cast<Create>(dlsym(lib,"esa_create"));destroy=reinterpret_cast<Destroy>(dlsym(lib,"esa_destroy"));search=reinterpret_cast<Search>(dlsym(lib,"esa_query"));
  circle_search=reinterpret_cast<CircleSearch>(dlsym(lib,"esa_circle_query"));
  circle_candidates=reinterpret_cast<CircleCandidates>(dlsym(lib,"esa_circle_candidates"));
- integer_search=reinterpret_cast<IntegerSearch>(dlsym(lib,"esa_integer_sprk_query"));
- integer_ids=reinterpret_cast<IntegerIds>(dlsym(lib,"esa_integer_sprk_ids"));
  prepare_runtime=reinterpret_cast<PrepareRuntime>(dlsym(lib,"esa_prepare_runtime"));
  if(!create||!destroy||!search||!prepare_runtime)throw std::runtime_error("Invalid ESA bridge ABI");}
  static EsaApi& get(){static EsaApi api;return api;}
@@ -50,11 +44,6 @@ template<unsigned Kind> class Esa2026 {
  Esa2026(const Esa2026&)=delete;Esa2026& operator=(const Esa2026&)=delete;
  template<class Output>void query(const QueryType&q,Output out)const{const uint32_t* xy;
  if(auto c=::esa_campaign::active_circle){
-  if constexpr(Kind==10){
-   if(!EsaApi::get().integer_search)throw std::runtime_error("Integer SPRK bridge unavailable");
-   auto n=EsaApi::get().integer_search(index_,c->x,c->y,c->radius2_lo,c->radius2_hi,&xy);
-   for(size_t i=0;i<n;++i)*out++=PointType{xy[2*i],xy[2*i+1]};return;
-  }
   if(!EsaApi::get().circle_candidates)throw std::runtime_error("ESA campaign requires enumerated circle bridge ABI");
   double squared=double(c->radius2())/18446744073709551616.0*(1+128*std::numeric_limits<double>::epsilon());
   // SNN subtracts absolute dot products: cancellation needs an absolute allowance.
@@ -68,7 +57,6 @@ template<unsigned Kind> class Esa2026 {
   auto n=EsaApi::get().circle_candidates(index_,c->x,c->y,r,&ids,&xy);
   for(size_t i=0;i<n;++i){auto id=ids[i];auto x=xy[2*id],y=xy[2*id+1];if(c->contains(x,y))*out++=PointType{x,y};}return;
  }
-if constexpr(Kind==10)throw std::runtime_error("Integer SPRK adaptation supports circle campaigns only");
 auto n=EsaApi::get().search(index_,q.p.x,q.p.y,q.q.x,q.q.y,&xy);for(size_t i=0;i<n;++i)*out++=PointType{xy[2*i],xy[2*i+1]};}
  private:void* index_;
 };

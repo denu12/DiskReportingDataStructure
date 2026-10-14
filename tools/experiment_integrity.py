@@ -68,12 +68,14 @@ def check_answer_counts(state, previous=()):
         for row in source['results']:
             result = row.get('result') or {}
             if row['status']=='success' and 'answers' in result and 'queries' in result:
-                groups[(row['case'],result['queries'])].append((source is state,row))
+                # Compare equal membership contracts; the explicit cheating diagnostic differs.
+                contract=result.get('membership_contract','closed_integer_ball')
+                groups[(row['case'],result['queries'],contract)].append((source is state,row))
     mismatches=[]
-    for (case,queries),rows in groups.items():
+    for (case,queries,contract),rows in groups.items():
         counts=sorted({r['result']['answers'] for _,r in rows})
         if len(counts)<2 or not any(current for current,_ in rows): continue
-        mismatches.append(dict(case=case,queries=queries,answer_counts=counts))
+        mismatches.append(dict(case=case,queries=queries,membership_contract=contract,answer_counts=counts))
         for current,row in rows:
             if current:
                 row['status']='answer_count_mismatch'

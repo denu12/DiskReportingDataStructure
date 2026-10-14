@@ -1,3 +1,12 @@
+## Current Morton/SPRK roster
+
+The 14 October 2026 roster supersedes older SPRK adapter descriptions below.
+`esa_sprk_RUST_EXACT` is **SPRK (adapted)**, their Rust IntegerPointSprk (2D).
+`esa_sprk_CHEATING_IDS_ONLY` is **SPRK (original)**, with the same disclosed
+floating-point IDs-only contract. Our previous exact SPRK wrappers are removed.
+`MortonPlusCPP` is **Morton (plus)**, a credited C++ port of the ESA authors' work.
+All unrelated competitor adaptations remain unchanged.
+
 # Competitor labels and adaptations
 
 Use the display names below in every table and plot. Machine IDs are stable selectors,
@@ -10,7 +19,7 @@ contract. It does not necessarily mean the upstream index or search was modified
 The provenance column distinguishes a local implementation of a published technique,
 modified upstream source, and an upstream index used through our adapter. Historical
 `UPSTREAM` IDs denote the index's origin, not the absence of a local adapter.
-SPRK (IDs only) retains its separate, explicitly relaxed IDs-only label.
+SPRK (original) retains its separate, explicitly relaxed IDs-only label.
 
 Kiddo, Grid and Neighbourhood have previously applied source repairs. Their names
 still end in `(adapted)`; `source_repairs=true` and the notices disclose the repairs.
@@ -42,9 +51,8 @@ Local adapter corrections from the audit are recorded below; upstream limitation
 | `ann_fr` | ANN (adapted) | upstream index with local adapter |
 | `stann_fr` | STANN (adapted) | modified upstream source and local adapter |
 | `stann_fr_ddim_MANUALLY_ADAPTED` | STANN (adapted) | modified upstream source and local adapter |
-| `esa_sprk` | SPRK (adapted) | upstream index with local adapter |
-| `esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS` | SPRK (adapted) | modified upstream source and local adapter |
-| `esa_sprk_CHEATING_IDS_ONLY` | SPRK (IDs only) | upstream index with local adapter |
+| `esa_sprk_RUST_EXACT` | SPRK (adapted) | ESA authors' Rust integer reporting adaptation |
+| `esa_sprk_CHEATING_IDS_ONLY` | SPRK (original) | upstream index with local adapter |
 | `esa_kiddo` | Kiddo (adapted) | modified upstream source and local adapter; prior source repairs |
 | `esa_nabo` | Nabo (adapted) | upstream index with local adapter |
 | `esa_neighbourhood` | Neighbourhood (adapted) | modified upstream source and local adapter; prior source repairs |
@@ -74,10 +82,10 @@ Local adapter corrections from the audit are recorded below; upstream limitation
   combines box pruning with our exact sphere predicate on the stored point;
   accepted coordinates are written directly to the final output. There is no
   bounding-box hit vector, intermediate ID vector or input-array lookup.
-- Both SPRK variants use native f32 SIMD candidates followed by timed exact integer filtering.
+- SPRK (adapted) uses their f32 tree to select leaf ranges, then exact integer tests and bulk coordinate output directly from stored leaf blocks. SPRK (original) uses the historical f64 floating-point search, writes IDs only, and omits the exact integer filter.
 - 2D SPRK (adapted) uses its Rust coordinate vector as the final result. Every
-  coordinate is explicitly written during the timed query. The bridge exposes
-  that completed vector without a second coordinate copy. Its storage remains
+  coordinate is explicitly written during the timed query in the standalone
+  Rust campaign driver, without a second coordinate copy. Its storage remains
   valid until the next query or index destruction. It is not a subtree handle,
   input slice or promise to enumerate points later.
 
@@ -86,3 +94,11 @@ measurements of these optimized adapters. Upstream sources and modification
 records are linked from [third-party credits](THIRD_PARTY.md).
 
 Pkd now always passes box hits through the disk predicate and reuses an n-point workspace instead of counting first. PAM uses one native range-sum traversal with a local coordinate-reporting callback, bypassing the example callback that transposed coordinates; duplicate multiplicities are integer weights. CGAL uses double kernels, explicit timed k-d tree construction and a half-open range-tree upper bound one grid unit beyond the closed endpoint. ParGeo midpoint arithmetic casts before adding uint32 endpoints. These are changes to our integration, not evidence against the upstream algorithms.
+
+## New exact 3D extensions
+
+`MortonPlus3D` and `esa_sprk_RUST_EXACT_3D` report original uint32 triples,
+including duplicates, under an exact unsigned-128 squared-radius predicate.
+They are local extensions of the retained C++ MortonPlus port and the authors'
+Rust SPRK adaptation. They use the same display names as their 2D counterparts;
+results must retain dimension and machine ID. See [implementation notes](MORTONPLUS-VERSIONS.md).

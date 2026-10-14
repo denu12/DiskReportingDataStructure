@@ -10,9 +10,6 @@
 #include <immintrin.h>
 #include <utility>
 #include <vector>
-#if !defined(__AVX2__) || !defined(__BMI2__)
-#error "Compile mortonSIMD.cc with -mavx2 -mbmi2"
-#endif
 namespace diskreport::morton_MortonSIMD {
 using Wide = unsigned __int128;
 struct Point {

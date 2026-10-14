@@ -1,42 +1,6 @@
 #include "app/algorithms/static/esa2026.hh"
 #include "app/algorithms/static/adapter.hh"
 namespace diskreport::sfc::app::algorithms::sfc {
-// SPRK (adapted): the Rust vector is the final, explicitly enumerated point
-// result. Its writes and growth are timed; no second C++ result is required.
-namespace {
-esa_campaign::Result run_sprk_points(const esa_campaign::Dataset& data,bool verify) {
- if(!data.events.empty())throw std::runtime_error("SPRK (adapted) is static only");
- auto& api=EsaApi::get();
- auto started=std::chrono::steady_clock::now();
- if(!api.integer_search)throw std::runtime_error("Integer SPRK bridge unavailable");
- std::vector<uint32_t> points;points.reserve(2*data.points.size());
- for(auto p:data.points){points.push_back(p.x);points.push_back(p.y);}
- static const uint32_t empty[2]={};
- void* index=api.create(10,points.empty()?empty:points.data(),data.points.size());
- struct Owner{void* index;EsaApi& api;~Owner(){api.destroy(index);}} owner{index,api};
- esa_campaign::Result result;result.build_seconds=esa_campaign::elapsed(started);
- auto batch_start=std::chrono::steady_clock::now();
- for(size_t i=0;i<data.queries.size();++i){
-  const auto& c=data.queries[i];const uint32_t* output=nullptr;
-  if(verify)started=std::chrono::steady_clock::now();
-  const size_t count=api.integer_search(index,c.x,c.y,c.radius2_lo,c.radius2_hi,&output);
-  result.answers+=count;++result.queries;if(verify)result.query_seconds+=esa_campaign::elapsed(started);
-  if(verify){
-   std::vector<uint64_t> actual;actual.reserve(count);
-   for(size_t j=0;j<count;++j)actual.push_back(esa_campaign::key(output[2*j],output[2*j+1]));
-   std::sort(actual.begin(),actual.end());
-   if(actual!=esa_campaign::truth(data,c)){result.correct=false;result.failed_query=i;return result;}
-  }
- }
- if(!verify)result.query_seconds=esa_campaign::elapsed(batch_start);
- return result;
-}
-const bool integer_sprk_registered=[] {
- esa_campaign::registry()["esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS"]=run_sprk_points;
- return true;
-}();
-}
-
 using Esa1Algo=Algo<Esa2026<1>>; REGISTER_IMPL_NAMED(Esa1Algo,"esa_kiddo");
 using Esa2Algo=Algo<Esa2026<2>>; REGISTER_IMPL_NAMED(Esa2Algo,"esa_nabo");
 using Esa3Algo=Algo<Esa2026<3>>; REGISTER_IMPL_NAMED(Esa3Algo,"esa_neighbourhood");

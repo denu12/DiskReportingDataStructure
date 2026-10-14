@@ -16,11 +16,11 @@ namespace esa_campaign {
 struct XY { uint32_t x, y; };
 struct Event { uint8_t kind; Circle value; }; // 0 insert, 1 delete one occurrence, 2 query
 struct Dataset { std::vector<XY> points; std::vector<Circle> queries; std::vector<Event> events; };
-struct Result { double build_seconds=0, query_seconds=0, update_seconds=0; uint64_t answers=0, queries=0, insertions=0, deletions=0; std::string output_contract="integer_points"; bool correct=true; int64_t failed_query=-1; };
+struct Result { double build_seconds=0, query_seconds=0, update_seconds=0; uint64_t answers=0, queries=0, insertions=0, deletions=0; std::string output_contract="integer_points", membership_contract="closed_integer_ball"; uint64_t integer_mismatch_queries=0; bool correct=true; int64_t failed_query=-1; };
 using Runner = std::function<Result(const Dataset&, bool)>;
 inline std::map<std::string, Runner>& registry() { static std::map<std::string, Runner> r; return r; }
 inline bool selected(const std::string& name) {
-  static const std::vector<std::string> names={"Morton","MortonSIMD","boost_lin","boost_quad","boost_star","cgal_rt","cgal_kd","thst_quad","thst_rtree","pargeo","pam","pkd","naive","chan_sss","ann_fr","stann_fr","esa_sprk_CHEATING_IDS_ONLY","esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS","esa_kiddo","esa_nabo","esa_neighbourhood","esa_vptree","esa_orthtree","esa_grid","esa_sklearn_kd","esa_sklearn_ball","esa_snn","esa_nanoflann","boost_lin_dyn","boost_quad_dyn","boost_star_dyn","chan_sss_dyn_ADAPTED_DYNAMIC","kiddo_mutable_dyn_UPSTREAM","nanoflann_dyn_UPSTREAM","pkd_dyn_UPSTREAM","thst_rtree_dyn_UPSTREAM","thst_quad_dyn_UPSTREAM"};
+  static const std::vector<std::string> names={"Morton","MortonSIMD","boost_lin","boost_quad","boost_star","cgal_rt","cgal_kd","thst_quad","thst_rtree","pargeo","pam","pkd","naive","chan_sss","ann_fr","stann_fr","esa_sprk_CHEATING_IDS_ONLY","esa_kiddo","esa_nabo","esa_neighbourhood","esa_vptree","esa_orthtree","esa_grid","esa_sklearn_kd","esa_sklearn_ball","esa_snn","esa_nanoflann","boost_lin_dyn","boost_quad_dyn","boost_star_dyn","chan_sss_dyn_ADAPTED_DYNAMIC","kiddo_mutable_dyn_UPSTREAM","nanoflann_dyn_UPSTREAM","pkd_dyn_UPSTREAM","thst_rtree_dyn_UPSTREAM","thst_quad_dyn_UPSTREAM"};
   return std::find(names.begin(),names.end(),name)!=names.end();
 }
 inline bool ours(const std::string& n) { return n == "Morton" || n == "MortonSIMD"; }

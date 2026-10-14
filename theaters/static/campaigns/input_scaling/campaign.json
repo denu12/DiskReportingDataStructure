@@ -1,16 +1,20 @@
 {
   "description": "Static circle reporting as the point count increases",
   "suites": {
-    "scaling": {
+    "input_scaling": {
       "sizes": [
-        10000,
         100000,
+        500000,
         2000000,
         4000000,
         6000000,
         8000000,
         10000000,
-        12000000
+        12000000,
+        14000000,
+        16000000,
+        18000000,
+        20000000
       ],
       "distributions": [
         "uniform"
@@ -33,7 +37,8 @@
   ],
   "queries": 1000,
   "schema": 1,
-  "name": "scaling",
+  "name": "input_scaling",
   "execution_policy": "config/execution.json",
-  "query_design": "Independent uniform and distribution-matched centers; radius calibrated to nominal output size using 16 pilot queries."
+  "query_design": "Independent uniform and distribution-matched centers; radius calibrated to nominal output size using 16 pilot queries.",
+  "title": "input_scaling"
 }

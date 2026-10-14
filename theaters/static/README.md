@@ -4,18 +4,20 @@ This theater compares disk reporting as the number of points, spatial distributi
 
 | Campaign | Instances | Workload |
 |---|---:|---|
-| [scaling](campaigns/scaling/README.md) | 40 | Uniform points: n = 10k, 100k, 2m, 4m, 6m, 8m, 10m, 12m; five seeds; radius 0.01 of grid width. |
+| [input_scaling](campaigns/input_scaling/README.md) | 60 | Uniform points: n = 100k, 500k, 2m, 4m, 6m, 8m, 10m, 12m, 14m, 16m, 18m, 20m; five seeds; nominal 1,000 answers per query. |
+| [radius_scaling](campaigns/radius_scaling/README.md) | 35 | Four million uniform points; seven fixed radii; five seeds; 1,000 queries per instance. |
 | [static](campaigns/static/README.md) | 40 | Four million points; distribution and target-output suites; five seeds. |
-| [GeographyLarge](campaigns/GeographyLarge/README.md) | 100 | Real pooled European POIs; n = 1–5 million, five seeds, four radii. |
+| [GeographyLarge](campaigns/GeographyLarge/README.md) | 100 | Real pooled European POIs; n = 1â€“5 million, five seeds, four radii. |
 
-Every instance has 1,000 queries. Uniform and distribution-matched query centers are separate instances; radii are calibrated by target output size. Query streams differ between suites. GeographyLarge extends the source methodology and is not one of the original paper datasets.
+Every instance has 1,000 queries. Nonuniform fixed-size suites separate uniform and distribution-matched query centers. Input scaling and fixed-size suites calibrate radii by target output size; radius scaling uses fixed radii and paired points and query centers. Query streams differ between suites. GeographyLarge extends the source methodology and is not one of the original paper datasets.
 
 ## Prepare and run
 
 Use the [Arch setup guide](../../docs/RUNNING.md). Build the 2D programs with `bash tools/build_arch.sh`. From the repository root, prepare missing inputs separately:
 
 ```sh
-python tools/prepare.py --campaign scaling
+python tools/prepare.py --campaign input_scaling
+python tools/prepare.py --campaign radius_scaling
 python tools/prepare.py --campaign static
 python tools/prepare_geography_large.py
 ```

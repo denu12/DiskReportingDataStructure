@@ -2,6 +2,7 @@
 import argparse,json,random,struct,hashlib
 from pathlib import Path
 from algorithm_labels import metadata
+from algorithm_backends_2d import binary
 import numpy as np
 from campaign_paths import campaign_directory
 from workloads import STATIC,DYNAMIC,MAX,sha,write_data
@@ -41,8 +42,19 @@ def calibrated_queries(indexed,distribution,mode,target,count,seed,suite):
  return centers,radius2,dict(target_answers=target,query_centers=mode,calibration_pilots=16,
   calibration_sample_points=sample_size,calibration='median pilot kth-neighbor squared distance',radius_squared=str(radius2))
 
+def fixed_radius_queries(indexed,distribution,mode,radius,count,seed,suite):
+ dimension=indexed.shape[1]
+ # Radius is deliberately absent from the stream identity: paired query centers.
+ stream=int.from_bytes(hashlib.sha256(f'{suite}/{seed}/{mode}'.encode()).digest()[:8],'little')
+ rng=np.random.default_rng(stream)
+ centers=points(rng,count,distribution if mode=='matched' else 'uniform',dimension)
+ integer_radius=round(radius*MAX)
+ radius2=integer_radius*integer_radius
+ return centers,radius2,dict(radius_fraction=radius,integer_radius=integer_radius,
+  radius_squared=str(radius2),query_centers=mode,radius_design='fixed fraction of grid width')
+
 def main():
- p=argparse.ArgumentParser();p.add_argument('--campaign',choices=['scaling','static','dynamic-circles'],required=True);p.add_argument('--dest',type=Path,help='Fresh input directory; default data/<campaign>');p.add_argument('--smoke',action='store_true',help='Small validation workload, recorded in manifest');args=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--campaign',choices=['input_scaling', 'radius_scaling','static','dynamic-circles'],required=True);p.add_argument('--dest',type=Path,help='Fresh input directory; default data/<campaign>');p.add_argument('--smoke',action='store_true',help='Small validation workload, recorded in manifest');args=p.parse_args()
  config=json.loads((campaign_directory(BASE,args.campaign)/'campaign.json').read_text());root=args.dest.resolve() if args.dest else BASE/'data'/args.campaign
  if (root/'campaign.json').exists():raise RuntimeError('Prepared campaign exists; archive it before replacing inputs')
  root.mkdir(parents=True,exist_ok=True);cases=[]
@@ -51,13 +63,15 @@ def main():
  for suite,spec in config['suites'].items():
   for n in ([256] if args.smoke else spec['sizes']):
    for seed in seeds:
-    if args.campaign in ('scaling','static'):
+    if args.campaign in ('input_scaling', 'radius_scaling','static'):
      for dist in spec['distributions']:
-      for target in spec['target_answers']:
+      for target in spec.get('target_answers',spec.get('radii',[])):
        for mode in query_modes(dist,spec):
         rng=np.random.default_rng(seed);pts=points(rng,n,dist)
-        q,r2,design=calibrated_queries(pts,dist,mode,target,16 if args.smoke else config['queries'],seed,suite)
-        id=f'{suite}/{dist}-n{n}-k{target}-{mode}-s{seed}';path=root/'prepared'/(id+'.bin')
+        query_generator=fixed_radius_queries if 'radii' in spec else calibrated_queries
+        q,r2,design=query_generator(pts,dist,mode,target,16 if args.smoke else config['queries'],seed,suite)
+        parameter=('r' if 'radii' in spec else 'k')+str(target)
+        id=f'{suite}/{dist}-n{n}-{parameter}-{mode}-s{seed}';path=root/'prepared'/(id+'.bin')
         write_data(path,pts,[(int(x),int(y),r2) for x,y in q]);add(id,suite,seed,n,path,queries=len(q),distribution=dist,**design)
     else:
      for ratio in spec['update_ratios']:
@@ -75,8 +89,8 @@ def main():
  for case in sorted(cases,key=lambda c:(c['n'],c['id'])):
   ordinary.setdefault(case['suite'],case)
  correct=list(ordinary.values())
- roster=STATIC if args.campaign in ('scaling','static') else DYNAMIC
- algorithms=[dict(name=a,mode='static' if a in STATIC else 'dynamic_updates',**metadata(a),binary='esa_runner_pargeo' if a=='pargeo' else 'esa_runner') for a in roster]
+ roster=STATIC if args.campaign in ('input_scaling', 'radius_scaling','static') else DYNAMIC
+ algorithms=[dict(name=a,mode='static' if a in STATIC else 'dynamic_updates',**metadata(a),binary=binary(a)) for a in roster]
  manifest=dict(schema=1,name=args.campaign,specification_sha256=sha(campaign_directory(BASE,args.campaign)/'campaign.json'),smoke=args.smoke,policy=json.loads((BASE/'config/execution.json').read_text()),geometry='closed circles on uint32 grid',algorithms=algorithms,cases=cases,correctness=correct)
  if 'esa_sprk_CHEATING_IDS_ONLY' in roster:manifest['output_contract_exceptions']={'esa_sprk_CHEATING_IDS_ONLY':'point_ids_only'}
  (root/'campaign.json').write_text(json.dumps(manifest,indent=2)+'\n');print(len(cases),'cases prepared; no benchmarks started')

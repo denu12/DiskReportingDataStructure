@@ -2,7 +2,7 @@
 
 This folder contains dimensional benchmark drivers and competitor adapters. The standalone Morton algorithms are in `src/morton/`.
 
-The dimensional roster has 19 enabled entries. The brute-force control is disabled by user policy. The publication labels are **Chan (adapted)** and **STANN (adapted)**. Stable `MANUALLY_ADAPTED` machine IDs select these entries. See [manual adaptations](MANUAL-ADAPTATIONS.md), [adapter details](ESA-ADAPTERS.md), and the [ESA campaign guide](../../../docs/ESA-WORKLOADS.md).
+The dimensional roster has 23 entries; unsupported dimensions are recorded explicitly. All retained competitors and the scan control are enabled by default. The publication labels are **Chan (adapted)** and **STANN (adapted)**. Stable `MANUALLY_ADAPTED` machine IDs select these entries. See [manual adaptations](MANUAL-ADAPTATIONS.md), [adapter details](ESA-ADAPTERS.md), and the [ESA campaign guide](../../../docs/ESA-WORKLOADS.md).
 
 Build on Arch with `python tools/build_ddim.py`. The CMake target `ddim_check` handles the Chan (adapted) and STANN (adapted) competitors; the build script also builds the foreign and Rust adapters. Third-party credits and licensing notices remain in the repository.
 

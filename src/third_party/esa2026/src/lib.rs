@@ -7,6 +7,9 @@ pub mod graph { pub struct Graph; impl Graph { pub fn is_connected(&self,_a:usiz
 static GRAPH:graph::Graph=graph::Graph;
 use pyo3::prelude::*;
 use dvec::DVec;
+// Deliberately relaxed historical diagnostic: floating radius, IDs only.
+struct Spark(sprk::Sprk<2,8,f64,u32>);
+impl Query<2> for Spark { fn query_radius(&self,p:DVec<2>,r:f64,out:&mut Vec<usize>){ self.0.query_radius(&p.components,r,out); } }
 struct PyIndex { tree:Py<PyAny>, query:Py<PyAny>, snn:bool }
 impl PyIndex {
  fn new(points:&[[f64;2]],kind:u32)->Self { Python::attach(|py| {
@@ -28,24 +31,20 @@ impl Query<2> for PyIndex { fn query_radius(&self,p:DVec<2>,r:f64,out:&mut Vec<u
  if let Some(slice)=buffer.as_slice(py){out.extend(slice.iter().map(|v|usize::try_from(v.get()).unwrap()));}
  else{out.extend(buffer.to_vec(py).unwrap().into_iter().map(|v|usize::try_from(v).unwrap()));}
  });} }
-struct Index { points:Vec<[u32;2]>, engine:Option<Box<dyn Query<2>>>, coordinate_engine:Option<::neighbourhood::KdTree<f64,2>>, integer_sprk:Option<sprk::integer_reporting::IntegerPointSprk>, hits:Vec<usize>, output:Vec<[u32;2]> }
+struct Index { points:Vec<[u32;2]>, engine:Option<Box<dyn Query<2>>>, coordinate_engine:Option<::neighbourhood::KdTree<f64,2>>, hits:Vec<usize>, output:Vec<[u32;2]> }
 #[unsafe(no_mangle)] pub unsafe extern "C" fn esa_create(kind:u32,p:*const u32,n:usize)->*mut std::ffi::c_void {
  unsafe{esa_create_with_hint(kind,p,n,0.001)}
 }
 #[unsafe(no_mangle)] pub unsafe extern "C" fn esa_create_with_hint(kind:u32,p:*const u32,n:usize,radius_hint:f64)->*mut std::ffi::c_void {
  let points=unsafe{std::slice::from_raw_parts(p.cast::<[u32;2]>(),n)}.to_vec();
- if kind==10 || kind==0 {
-  let tree=sprk::integer_reporting::IntegerPointSprk::new(&points);
-  return Box::into_raw(Box::new(Index{points:Vec::new(),engine:None,coordinate_engine:None,integer_sprk:Some(tree),hits:Vec::new(),output:Vec::new()})).cast();
- }
  let coords:Vec<[f64;2]>=points.iter().map(|p|p.map(|x|x as f64/4294967296.0)).collect();
  if kind==3 && n>0 {
   let native=::neighbourhood::KdTree::new(coords);
-  return Box::into_raw(Box::new(Index{points:Vec::new(),engine:None,coordinate_engine:Some(native),integer_sprk:None,hits:Vec::new(),output:Vec::new()})).cast();
+  return Box::into_raw(Box::new(Index{points:Vec::new(),engine:None,coordinate_engine:Some(native),hits:Vec::new(),output:Vec::new()})).cast();
  }
  let e=Embedding{positions:coords.iter().map(|p|DVec::new(*p)).collect(),graph:&GRAPH};
- let integer_sprk=None;
  let engine:Option<Box<dyn Query<2>>>=if n==0{None}else{Some(match kind {
+ 0=>Box::new(Spark(sprk::Sprk::new(&coords))),
  1=>Box::new(kiddo::Kiddo::new(e)),
  2=>Box::new(nabo::Nabo::new(e)),
  3=>Box::new(neighbourhood::Neihbourhood::new(e)),
@@ -55,7 +54,7 @@ struct Index { points:Vec<[u32;2]>, engine:Option<Box<dyn Query<2>>>, coordinate
  7|8|9=>Box::new(PyIndex::new(&coords,kind)),
  _=>panic!("unknown ESA backend"),
  })};
- Box::into_raw(Box::new(Index{points,engine,coordinate_engine:None,integer_sprk,hits:Vec::new(),output:Vec::new()})).cast()
+ Box::into_raw(Box::new(Index{points,engine,coordinate_engine:None,hits:Vec::new(),output:Vec::new()})).cast()
 }
 #[unsafe(no_mangle)] pub unsafe extern "C" fn esa_destroy(p:*mut std::ffi::c_void){drop(unsafe{Box::from_raw(p.cast::<Index>())});}
 #[unsafe(no_mangle)] pub unsafe extern "C" fn esa_query(p:*mut std::ffi::c_void,x0:u32,y0:u32,x1:u32,y1:u32,out:*mut *const u32)->usize{
@@ -80,12 +79,6 @@ struct Index { points:Vec<[u32;2]>, engine:Option<Box<dyn Query<2>>>, coordinate
 
 
 mod dynamic_kiddo;
-
-#[unsafe(no_mangle)] pub unsafe extern "C" fn esa_integer_sprk_query(p:*mut std::ffi::c_void,x:u32,y:u32,lo:u64,hi:u64,out:*mut *const u32)->usize {
- let index=unsafe{&mut *p.cast::<Index>()};index.output.clear();
- index.integer_sprk.as_mut().expect("integer SPRK index").query_points([x,y],((hi as u128)<<64)|lo as u128,&mut index.output);
- unsafe{*out=index.output.as_ptr().cast()};index.output.len()
-}
 
 // Internal bridge only: the C++ adapter enumerates these IDs into explicit
 // integer point output and applies the exact circle predicate once.
@@ -117,9 +110,4 @@ mod dynamic_kiddo;
   py.import("numpy").unwrap();
   py.import(if kind==9 {"snnpy"} else {"sklearn.neighbors"}).unwrap();
  }); }
-}
-#[unsafe(no_mangle)] pub unsafe extern "C" fn esa_integer_sprk_ids(p:*mut std::ffi::c_void,x:u32,y:u32,lo:u64,hi:u64,out:*mut *const usize)->usize {
- let index=unsafe{&mut *p.cast::<Index>()};index.hits.clear();
- index.integer_sprk.as_mut().expect("integer SPRK index").query_ids([x,y],((hi as u128)<<64)|lo as u128,&mut index.hits);
- unsafe{*out=index.hits.as_ptr()};index.hits.len()
 }

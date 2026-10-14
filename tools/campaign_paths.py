@@ -13,7 +13,7 @@ def campaign_directory(base, name):
     base = Path(base)
     if Path(name).name != name or name in ['', '.', '..']:
         raise ValueError('Invalid campaign ID')
-    matches = [path.parent/'campaigns'/name for path, spec in theater_manifests(base)
+    matches = [path.parent/'campaigns'/spec.get('campaign_directories', {}).get(name, name) for path, spec in theater_manifests(base)
                if name in spec['campaigns']]
     if len(matches) > 1:
         raise ValueError('Campaign belongs to multiple theaters: '+name)

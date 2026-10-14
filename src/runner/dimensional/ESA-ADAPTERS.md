@@ -1,3 +1,12 @@
+## Current SPRK scope
+
+Our old dimensional exact SPRK wrapper has been removed. The authors' 2D
+IntegerPointSprk now has a local exact 3D extension, `esa_sprk_RUST_EXACT_3D`.
+`MortonPlus3D` extends the C++ MortonPlus port to 3D. Both materialize original
+integer coordinates and support only dimension 3. The original IDs-only SPRK
+driver and other dimensional competitors remain available. See
+[version and validation notes](../../../docs/MORTONPLUS-VERSIONS.md).
+
 # Dimensional correctness interfaces
 
 These adapters support the current dimensional correctness and timing harness; they do not reproduce the source paper's measurement protocol. The current rosters are recorded in the [d-dimensional theater definitions](../../../theaters/d-dim/README.md).
@@ -11,7 +20,10 @@ implementations are not repaired after failures.
   rounded boundary distances, duplicate handling and cancellation can fail
   the closed, exact integer contract. Such failures do not by themselves
   establish errors relative to a library's own documented contract.
-* SPRK uses f64, width 8 and SVD support. Kiddo, Nabo, Neighbourhood, VP-tree,
+* SPRK (original) uses the historical
+  f64 width-8 tree, floating-point radius search and ID output, omitting the
+  integer filter and coordinate output; admission checks its declared floating
+  contract and records integer disagreements separately. Kiddo, Nabo, Neighbourhood, VP-tree,
   grid and Orthtree reuse the existing dimensional Rust modules, including
   previously disclosed local modifications.
 * Appendix G Rust SNN imports rembed `src/snn.rs` unchanged, retaining f32 and
@@ -43,7 +55,7 @@ to a reusable ID buffer. Existing native floating predicates are not repaired
 or post-filtered to conceal incorrect competitor answers. Historical ID-only
 timings are not comparable with this reporting revision.
 
-The 3D IDs-only diagnostic is an explicit exception to coordinate reporting. See [the output contract](../../../docs/REPORTING.md).
+The original IDs-only dimensional diagnostic is an explicit exception to coordinate reporting. See [the output contract](../../../docs/REPORTING.md).
 
 Publication labels and modification categories are specified in the [adapter catalog](../../../docs/ADAPTERS.md). Use **STANN (adapted)** and **Chan (adapted)** consistently across dimensions; machine IDs remain unchanged.
 

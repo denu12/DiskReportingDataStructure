@@ -24,5 +24,6 @@ mv -f "$base/bin/esa2d/esa_runner.next" "$base/bin/esa2d/esa_runner"
 "${bazel[@]}" build "${flags[@]}" --define=pargeo=enabled //app:esa_runner
 install -m755 bazel-bin/app/esa_runner "$base/bin/esa2d/esa_runner_pargeo.next"
 mv -f "$base/bin/esa2d/esa_runner_pargeo.next" "$base/bin/esa2d/esa_runner_pargeo"
+bash "$base/tools/build_selected_2d.sh"
 { date -u; uname -srmo; gcc --version; rustc --version; "${bazel[@]}" version; "$PYO3_PYTHON" --version; sha256sum "$base"/bin/esa2d/*; } > "$base/results/build/toolchain.txt"
 echo "Build complete; no experiments started."

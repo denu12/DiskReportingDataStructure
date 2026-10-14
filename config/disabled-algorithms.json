@@ -1,10 +1,5 @@
 {
   "schema": 1,
-  "algorithms": [
-    "brute_force"
-  ],
-  "reason": "Do not schedule the dimensional brute-force control.",
-  "reasons": {
-    "brute_force": "Dimensional brute force disabled by user."
-  }
+  "algorithms": [],
+  "reason": "Run every retained competitor by default; correctness and screening determine eligibility. Scan controls have no construction normalization ratio."
 }

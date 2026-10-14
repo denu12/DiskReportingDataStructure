@@ -40,5 +40,24 @@
       "budget_pool": "followup"
     }
   },
-  "schedule_seed": 20261009
+  "schedule_seed": 20261009,
+  "budget_scope": "theater",
+  "protected_campaign_budgets": {
+    "ESA_graph_embeddings": {
+      "screen": 43200,
+      "final": 43200
+    },
+    "ESA_uniform_points": {
+      "screen": 14400,
+      "final": 14400
+    },
+    "ESA_high_dimensional": {
+      "screen": 14400,
+      "final": 14400
+    },
+    "ESA_clustering": {
+      "screen": 14400,
+      "final": 14400
+    }
+  }
 }

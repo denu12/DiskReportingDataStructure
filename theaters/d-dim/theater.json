@@ -11,5 +11,29 @@
   ],
   "execution_policy": "config/execution.json",
   "data_layout": "data/<campaign>",
-  "results_layout": "results/<campaign>/<run>"
+  "results_layout": "results/<campaign>/<run>",
+  "budget_policy": {
+    "screen_total_seconds": 86400,
+    "final_total_seconds": 86400,
+    "campaign_allocations_seconds": {
+      "ESA_graph_embeddings": {
+        "screen": 43200,
+        "final": 43200
+      },
+      "ESA_uniform_points": {
+        "screen": 14400,
+        "final": 14400
+      },
+      "ESA_high_dimensional": {
+        "screen": 14400,
+        "final": 14400
+      },
+      "ESA_clustering": {
+        "screen": 14400,
+        "final": 14400
+      }
+    },
+    "on_screen_budget_exhaustion": "continue_to_next_campaign_and_measure_successfully_screened_pairs",
+    "charge_existing_usage": true
+  }
 }
