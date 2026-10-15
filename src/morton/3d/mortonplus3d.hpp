@@ -1,7 +1,7 @@
 // Standalone C++20 3D extension of the ESA authors' MortonPlus.
 // MortonPlus design / Rust source: Dennis Kobert and the ESA authors.
 // Local 3D extension: 96-bit Morton keys, octree refinement and exact 66-bit distances.
-// Requires GCC/Clang unsigned __int128 and AVX2 (-mavx2).
+// Requires GCC/Clang unsigned __int128 and AVX-512F and BMI2 (-mavx512f -mbmi2).
 // License notice: see the accompanying LICENSE file.
 
 #pragma once
@@ -97,25 +97,44 @@ inline std::uint64_t delta(std::uint64_t a,std::uint64_t b) { return a>b?a-b:b-a
 inline Wide distance(Point p,Point c) {
   Wide d=0;for(unsigned a=0;a<3;++a){const Wide x=delta(p[a],c[a]);d+=x*x;}return d;
 }
-inline __m256i less(__m256i a,__m256i b) {
-  const auto sign=_mm256_set1_epi64x(INT64_MIN);
-  return _mm256_cmpgt_epi64(_mm256_xor_si256(b,sign),_mm256_xor_si256(a,sign));
-}
-inline unsigned mask4(const Point* p,Point c,Wide r2) {
-  auto sum=_mm256_setzero_si256(),high=sum;
-  const auto offsets=_mm_setr_epi32(0,3,6,9);const auto one=_mm256_set1_epi64x(1);
-  for(unsigned a=0;a<3;++a) {
-    auto v=_mm_i32gather_epi32(reinterpret_cast<const int*>(p)+a,offsets,4);
-    const auto center=_mm_set1_epi32(std::bit_cast<std::int32_t>(c[a]));
-    auto d=_mm256_cvtepu32_epi64(_mm_sub_epi32(_mm_max_epu32(v,center),_mm_min_epu32(v,center)));
-    const auto next=_mm256_add_epi64(sum,_mm256_mul_epu32(d,d));
-    high=_mm256_add_epi64(high,_mm256_and_si256(less(next,sum),one));sum=next;
+// Eight xyz triples occupy 24 uint32 words. Masked loads also handle tails.
+struct Batch8 {
+  __m512i first, second;
+  unsigned count;
+  Batch8(const Point* p, unsigned n) : count(n) {
+    const auto words = n * 3;
+    first = _mm512_maskz_loadu_epi32((1u << std::min(words,16u))-1, p);
+    second = words > 16 ? _mm512_maskz_loadu_epi32((1u << (words-16))-1,
+        reinterpret_cast<const char*>(p)+64) : _mm512_setzero_si512();
   }
-  const auto lo=_mm256_set1_epi64x(std::bit_cast<std::int64_t>(std::uint64_t(r2)));
-  const auto hi=_mm256_set1_epi64x(std::int64_t(r2>>64));
-  const auto accepted=_mm256_or_si256(less(high,hi),_mm256_andnot_si256(less(lo,sum),_mm256_cmpeq_epi64(high,hi)));
-  return unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(accepted)));
-}
+  unsigned mask(Point c, Wide r2) const {
+    auto sum = _mm512_setzero_si512(), high = sum;
+    const auto one = _mm512_set1_epi64(1);
+    for (unsigned a=0; a<3; ++a) {
+      const auto indices = _mm512_setr_epi32(a,a+3,a+6,a+9,a+12,a+15,a+18,a+21,0,0,0,0,0,0,0,0);
+      const auto axis = _mm512_permutex2var_epi32(first,indices,second);
+      const auto p = _mm512_cvtepu32_epi64(_mm512_castsi512_si256(axis));
+      const auto center = _mm512_set1_epi64(c[a]);
+      const auto d = _mm512_sub_epi64(_mm512_max_epu64(p,center),_mm512_min_epu64(p,center));
+      const auto next = _mm512_add_epi64(sum,_mm512_mul_epu32(d,d));
+      high = _mm512_mask_add_epi64(high,_mm512_cmplt_epu64_mask(next,sum),high,one);sum=next;
+    }
+    const auto hi = _mm512_set1_epi64(uint64_t(r2>>64)), lo = _mm512_set1_epi64(uint64_t(r2));
+    return ((1u<<count)-1) & (_mm512_cmplt_epu64_mask(high,hi) |
+        (_mm512_cmpeq_epi64_mask(high,hi) & _mm512_cmple_epu64_mask(sum,lo)));
+  }
+  // Expand every accepted point bit to its three coordinate bits; preserve xyz order.
+  // Caller reserves eleven Points: the two full stores may write scratch space.
+  unsigned append(Point* out, unsigned accepted) const {
+    if (!accepted) return 0;
+    const unsigned words = _pdep_u32(accepted,0x249249u) * 7;
+    const unsigned first_words = std::popcount(words & 0xffffu);
+    _mm512_storeu_si512(out,_mm512_maskz_compress_epi32(words & 0xffffu,first));
+    _mm512_storeu_si512(reinterpret_cast<char*>(out)+4*first_words,
+                       _mm512_maskz_compress_epi32(words>>16,second));
+    return std::popcount(accepted);
+  }
+};
 struct RankTree {
   std::size_t n;
   std::vector<std::size_t> offsets{0};
@@ -131,7 +150,12 @@ struct RankTree {
       }
   }
   std::size_t count(std::size_t offset,Wide key) const {
-    std::size_t n=0;for(unsigned i=0;i<8;++i)n+=keys[offset+i]<key;return n;
+    const auto a=_mm512_loadu_si512(keys.data()+offset),b=_mm512_loadu_si512(keys.data()+offset+4);
+    const auto lo=_mm512_permutex2var_epi64(a,_mm512_setr_epi64(0,2,4,6,8,10,12,14),b);
+    const auto hi=_mm512_permutex2var_epi64(a,_mm512_setr_epi64(1,3,5,7,9,11,13,15),b);
+    const auto wh=_mm512_set1_epi64(uint64_t(key>>64)),wl=_mm512_set1_epi64(uint64_t(key));
+    return std::popcount(unsigned(_mm512_cmplt_epu64_mask(hi,wh) |
+        (_mm512_cmpeq_epi64_mask(hi,wh)&_mm512_cmplt_epu64_mask(lo,wl))));
   }
   std::size_t lower(Wide key) const {
     std::size_t k=0;for(std::size_t h=offsets.size()-2;h>0;--h)k=k*9+count(offsets[h]+k,key)*8;
@@ -167,7 +191,7 @@ class MortonPlus {
     }
     const auto side=std::uint64_t(1)<<(32-depth);
     const bool inside=Wide(3)*(side-1)*(side-1)/4<=r2 && cell_distance<true>(code,depth,c)<=r2;
-    if(!inside && depth<target && count>128 && depth<lut_level_){
+    if(!inside && depth<target && count>512 && depth<lut_level_){
       for(unsigned child=0;child<8;++child)descend(code|Wide(child)<<(3*(31-depth)),depth+1,target,c,r2,ranges);
       return;
     }
@@ -184,16 +208,17 @@ class MortonPlus {
   }
   void scan(std::size_t first,std::size_t last,bool inside,Point c,Wide r2,Results& out) const {
     if(first==last)return;
-    const auto extra=last-first+4;
+    const auto extra=last-first+11;
     if(extra>SIZE_MAX-out.size_)throw std::length_error("output overflow");
     out.reserve(out.size_+extra);auto n=out.size_;
     if(inside){std::memcpy(out.data_+n,points_.data()+first,(last-first)*sizeof(Point));out.size_+=last-first;return;}
-    auto emit=[&](std::size_t i,unsigned mask){for(unsigned j=0;j<4;++j){out.data_[n]=points_[i+j];n+=(mask>>j)&1;}};
-    auto i=first;
-    for(;last-i>=8;i+=8){const auto a=detail::mask4(points_.data()+i,c,r2),b=detail::mask4(points_.data()+i+4,c,r2);emit(i,a);emit(i+4,b);}
-    for(;last-i>=4;i+=4)emit(i,detail::mask4(points_.data()+i,c,r2));
-    for(;i<last;++i){out.data_[n]=points_[i];n+=detail::distance(points_[i],c)<=r2;}out.size_=n;
+    for(auto i=first;i<last;i+=8) {
+      detail::Batch8 batch(points_.data()+i,unsigned(std::min<std::size_t>(8,last-i)));
+      n+=batch.append(out.data_+n,batch.mask(c,r2));
+    }
+    out.size_=n;
   }
+
   [[gnu::noinline]] void scan_intervals(std::span<const detail::Interval> ranges,Point c,Wide r2,Results& out) const {
     std::size_t cursor=0;
     for(auto iv:ranges){

@@ -1,0 +1,394 @@
+[
+  {
+    "campaign": "input_scaling_3d",
+    "case": {
+      "id": "input_scaling/uniform-n100000-k1000-uniform-s1",
+      "suite": "input_scaling",
+      "dimension": 3,
+      "n": 100000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 1000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 100000,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "338220012186665984",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/input_scaling_3d/prepared/input_scaling/uniform-n100000-k1000-uniform-s1.bin",
+      "sha256": "8272f967e0bc05f0dbc05c59dbbe7bdb07ec6fcce5105364f231729c8bc17816",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": {
+      "id": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+      "suite": "input_scaling",
+      "dimension": 3,
+      "n": 2000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 1000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "48122489506697624",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/input_scaling_3d/prepared/input_scaling/uniform-n2000000-k1000-uniform-s1.bin",
+      "sha256": "43882fb3b5f5848ca561eb1cebd3658f4fcefee1c7c978fc437f388d728b79f4",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": {
+      "id": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+      "suite": "input_scaling",
+      "dimension": 3,
+      "n": 8000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 1000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "18518678092785040",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/input_scaling_3d/prepared/input_scaling/uniform-n8000000-k1000-uniform-s1.bin",
+      "sha256": "7dc07637c59004cc80ee9a40f33e7dd6893c0a12876de0c08d78440cb1073812",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": {
+      "id": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+      "suite": "input_scaling",
+      "dimension": 3,
+      "n": 20000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 1000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "10273668080665644",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/input_scaling_3d/prepared/input_scaling/uniform-n20000000-k1000-uniform-s1.bin",
+      "sha256": "b4e6573857b3e4fd055aff3a4790bf85a5a55c584021451f9a390e290ed726ee",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": {
+      "id": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+      "suite": "radius_scaling",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "radius_fraction": 0.003907963209,
+      "integer_radius": 16784574,
+      "radius_squared": "281721924361476",
+      "query_centers": "uniform",
+      "radius_design": "fixed fraction of grid width",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/radius_scaling_3d/prepared/radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1.bin",
+      "sha256": "d18034f1414de6ae32a099ec452c785fc6d924c7a7208dc9ba268fb6c8d5ad4c",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": {
+      "id": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+      "suite": "radius_scaling",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "radius_fraction": 0.008419451505,
+      "integer_radius": 36161269,
+      "radius_squared": "1307637375690361",
+      "query_centers": "uniform",
+      "radius_design": "fixed fraction of grid width",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/radius_scaling_3d/prepared/radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1.bin",
+      "sha256": "610c6257a301ec03e9b2cdc5d7b2765fd3c6816dfa54c6328e771db20346f598",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": {
+      "id": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+      "suite": "radius_scaling",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "radius_fraction": 0.018139158393,
+      "integer_radius": 77907092,
+      "radius_squared": "6069514983896464",
+      "query_centers": "uniform",
+      "radius_design": "fixed fraction of grid width",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/radius_scaling_3d/prepared/radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1.bin",
+      "sha256": "332d82daf8bd7b597e9ef739d7802af1225702a8a0e5a19d613b6ff31c086fa2",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": {
+      "id": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+      "suite": "radius_scaling",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "radius_fraction": 0.03907963209,
+      "integer_radius": 167845742,
+      "radius_squared": "28172193107530564",
+      "query_centers": "uniform",
+      "radius_design": "fixed fraction of grid width",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/radius_scaling_3d/prepared/radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1.bin",
+      "sha256": "16d19e8ecb6ac30decf8337c5877b911506d4e5fbb2fc55dd0d28cb8dbaa2d94",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": {
+      "id": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+      "suite": "radius_scaling",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "radius_fraction": 0.084194515048,
+      "integer_radius": 361612689,
+      "radius_squared": "130763736845810721",
+      "query_centers": "uniform",
+      "radius_design": "fixed fraction of grid width",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/radius_scaling_3d/prepared/radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1.bin",
+      "sha256": "c0e8221ecb25b7cab209a42923818c566cce421d6e92716c96b3713e4f371d50",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": {
+      "id": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+      "suite": "radius_scaling",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "radius_fraction": 0.18139158393,
+      "integer_radius": 779070921,
+      "radius_squared": "606951499947788241",
+      "query_centers": "uniform",
+      "radius_design": "fixed fraction of grid width",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/radius_scaling_3d/prepared/radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1.bin",
+      "sha256": "9b0dfa899312dd6379ddc4f1b405bfa6e05c7e9862d5d022002af26ed0ac25a8",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": {
+      "id": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+      "suite": "radius_scaling",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "radius_fraction": 0.390796320898,
+      "integer_radius": 1678457417,
+      "radius_squared": "2817219300682311889",
+      "query_centers": "uniform",
+      "radius_design": "fixed fraction of grid width",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-scaling-four-20261011/workspace/data/radius_scaling_3d/prepared/radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1.bin",
+      "sha256": "3dcb1ad1b8dec2db2a7ee7940cf15df9931ddd9a6c73f21141f8d7bc914312bd",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "distributions/uniform-n4000000-k1000-uniform-s1",
+      "suite": "distributions",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 1000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "28977709995768820",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/distributions/uniform-n4000000-k1000-uniform-s1.bin",
+      "sha256": "6b06d3c6f29aba6b5b7cc1fcb02773dbf6aefdf69acb99b1b700b1aee0f7f0b7",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "distributions/normal-n4000000-k1000-uniform-s1",
+      "suite": "distributions",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "normal",
+      "target_answers": 1000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "219148061149997120",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/distributions/normal-n4000000-k1000-uniform-s1.bin",
+      "sha256": "2ac2ddae437050ab3f9b2b387e57532234d666d8f9b36fde4b819a5df962ce63",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "distributions/normal-n4000000-k1000-matched-s1",
+      "suite": "distributions",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "normal",
+      "target_answers": 1000,
+      "query_centers": "matched",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "6783485189815976",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/distributions/normal-n4000000-k1000-matched-s1.bin",
+      "sha256": "82af11788993bc17f9df6baa19e7098c040869a0488601b69402111b864de8fd",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "distributions/skew-n4000000-k1000-uniform-s1",
+      "suite": "distributions",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "skew",
+      "target_answers": 1000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "1250162548543591168",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/distributions/skew-n4000000-k1000-uniform-s1.bin",
+      "sha256": "2a8db0686f5a5adbef83521feb786477b28edac9833efbb9a49e5e164e1c56f7",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "distributions/skew-n4000000-k1000-matched-s1",
+      "suite": "distributions",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "skew",
+      "target_answers": 1000,
+      "query_centers": "matched",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "4123434812971909",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/distributions/skew-n4000000-k1000-matched-s1.bin",
+      "sha256": "6da12cdf6f6a9b20f13256bf4d6154e3918b3309064b3be0f4529e4a4c56b20a",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "selectivity/uniform-n4000000-k1-uniform-s1",
+      "suite": "selectivity",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 1,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 4000000,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "219951117758515",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/selectivity/uniform-n4000000-k1-uniform-s1.bin",
+      "sha256": "7e9bc7336ee1ed410239f3364400a810385025980d227d9b31f07b9ad943502e",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "selectivity/uniform-n4000000-k100-uniform-s1",
+      "suite": "selectivity",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 100,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "5489298852772854",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/selectivity/uniform-n4000000-k100-uniform-s1.bin",
+      "sha256": "ada8496e9d085e1a73a69492b417b6dbdf979cfd477d7355d166267b36e45465",
+      "status": "ready"
+    }
+  },
+  {
+    "campaign": "Static3D",
+    "case": {
+      "id": "selectivity/uniform-n4000000-k10000-uniform-s1",
+      "suite": "selectivity",
+      "dimension": 3,
+      "n": 4000000,
+      "queries": 1000,
+      "seed": 1,
+      "distribution": "uniform",
+      "target_answers": 10000,
+      "query_centers": "uniform",
+      "calibration_pilots": 16,
+      "calibration_sample_points": 262144,
+      "calibration": "median pilot kth-neighbor squared distance",
+      "radius_squared": "132539481513423904",
+      "path": "/home/jacobus/Projects/DiskRangeReport/results/_queue-morton-boost-sprk-audited-20261009/workspace/data/Static3D/prepared/selectivity/uniform-n4000000-k10000-uniform-s1.bin",
+      "sha256": "c331988eae84a52b8a8daa6b505f7c09de9026880637fb4428ab91dd5ec4a1aa",
+      "status": "ready"
+    }
+  }
+]

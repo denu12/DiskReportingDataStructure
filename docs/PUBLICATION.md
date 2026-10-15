@@ -14,7 +14,7 @@ See [third-party credits](THIRD_PARTY.md) and the corresponding `NOTICE.txt` fil
 
 ## Release contents
 
-- Four standalone Morton implementations under `src/morton/`.
+- Eight retained standalone Morton implementations under `src/morton/2d`, `3d`, and `d_dim`; `dynamic` documents the absence of an active dynamic Morton.
 - Five documented theaters, with campaign definitions inside each theater.
 - One public orchestration entry point, `run_theater.py`.
 - Explicit adapter provenance and both SPRK output contracts.

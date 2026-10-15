@@ -31,7 +31,7 @@ cc_library(
             "//third_party/ann:ann_euclidean",
             "//benchmark",
             "//morton",
-            ":morton_scalar",
+            ":morton_index",
             "@CGAL",
             "@boost.foreach",
             "@boost.geometry",
@@ -95,12 +95,12 @@ cc_test(
 
 cc_test(name="esa2026_test", srcs=["esa2026_test.cc","esa2026.hh"], deps=["//benchmark","//third_party/esa2026:nanoflann"], linkopts=["-ldl"])
 
-# Separate translation unit: do not auto-vectorize the scalar baseline.
+# Separate translation unit for the compiler-vectorized Morton scan.
 cc_library(
-    name = "morton_scalar",
+    name = "morton_index",
     srcs = ["morton_adapter.cc"],
     hdrs = ["adapter.hh"],
-    copts = ["-fno-tree-vectorize", "-fno-tree-slp-vectorize"],
+    copts = ["-O3", "-march=native"],
     deps = ["//app/algorithms:algorithm_base_impl_lib", "//benchmark", "//morton"],
     alwayslink = 1,
 )

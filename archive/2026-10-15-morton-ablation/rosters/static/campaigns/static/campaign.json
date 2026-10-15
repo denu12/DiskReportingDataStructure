@@ -1,0 +1,51 @@
+{
+  "description": "Static circle reporting at a fixed point count",
+  "suites": {
+    "distributions": {
+      "sizes": [
+        4000000
+      ],
+      "distributions": [
+        "uniform",
+        "normal",
+        "skew"
+      ],
+      "target_answers": [
+        1000
+      ],
+      "query_centers": [
+        "uniform",
+        "matched"
+      ]
+    },
+    "selectivity": {
+      "sizes": [
+        4000000
+      ],
+      "distributions": [
+        "uniform"
+      ],
+      "target_answers": [
+        1,
+        100,
+        10000
+      ],
+      "query_centers": [
+        "uniform",
+        "matched"
+      ]
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "queries": 1000,
+  "schema": 1,
+  "name": "static",
+  "execution_policy": "config/execution.json",
+  "query_design": "Independent uniform and distribution-matched centers; radius calibrated to nominal output size using 16 pilot queries."
+}

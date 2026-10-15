@@ -37,7 +37,16 @@ void fixture(const char* path,const char* output){
 }
 int main(int argc,char** argv){
  if(argc==3){fixture(argv[1],argv[2]);return 0;}
- for(auto n:{0,1,7,9,73,513,1100})for(unsigned kind=0;kind<4;++kind){
+ // Every acceptance mask, with guards around the writable SIMD batch.
+ std::array<Point,CHUNK> lanes{};for(unsigned i=0;i<CHUNK;++i)lanes[i]={11+i*10,12+i*10};
+ for (unsigned mask=0; mask<(1u<<CHUNK); ++mask) {
+  std::array<Point,CHUNK+2> packed;packed.fill(Point{99,98});
+  const unsigned count=detail::emit(detail::load(lanes.data()),mask,packed.data()+1);
+  require(count==unsigned(std::popcount(mask)));
+  require(packed.front()==Point{99,98} && packed.back()==Point{99,98});
+  unsigned j=1;for(unsigned i=0;i<CHUNK;++i)if(mask&(1u<<i))require(packed[j++]==lanes[i]);
+ }
+ for(auto n:{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,31,32,33,73,127,128,129,255,256,257,511,512,513,1023,1024,1025,1100})for(unsigned kind=0;kind<4;++kind){
   std::vector<Point> p;for(int i=0;i<n;++i){Point v{random32(),random32()};if(kind==1)v={UINT32_MAX-v[0]%64,v[1]%64};if(kind==2)v={123456,654321};if(kind==3)v={v[0]&0xff000000,v[1]&0xff000000};p.push_back(v);}
   check(p);
  }

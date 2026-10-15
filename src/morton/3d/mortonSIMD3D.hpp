@@ -1,5 +1,10 @@
-// Standalone specialized 3D Morton reporting: C++20, x86-64 AVX2, no external libraries.
-// Include this file in a client compiled with -O3 -mavx2. No early-termination oracle.
+#pragma once
+#include <memory>
+#include <limits>
+#include <span>
+#include <cstring>
+// Explicit SIMD 3D Morton reporting: C++20, x86-64 AVX-512F, no external libraries.
+// Includes batched native output; no early-termination oracle.
 #include <algorithm>
 #include <array>
 #include <bit>
@@ -12,6 +17,51 @@
 #include <vector>
 
 namespace diskreport::morton3d {
+using Point = std::array<uint32_t,3>;
+class Results {
+  std::allocator<Point> alloc_;
+  Point* data_ = nullptr;
+  std::size_t size_ = 0, capacity_ = 0;
+ public:
+  Results() = default;
+  Results(const Results&) = delete;
+  Results& operator=(const Results&) = delete;
+  Results(Results&& other) noexcept { swap(other); }
+  Results& operator=(Results&& other) noexcept { swap(other); return *this; }
+  ~Results() { if (data_) alloc_.deallocate(data_, capacity_); }
+  void swap(Results& other) noexcept {
+    std::swap(data_, other.data_); std::swap(size_, other.size_);
+    std::swap(capacity_, other.capacity_);
+  }
+  void clear() noexcept { size_ = 0; }
+  std::size_t size() const noexcept { return size_; }
+  std::size_t capacity() const noexcept { return capacity_; }
+  bool empty() const noexcept { return size_ == 0; }
+  Point* data() noexcept { return data_; }
+  const Point* data() const noexcept { return data_; }
+  const Point* begin() const noexcept { return data_; }
+  const Point* end() const noexcept { return size_ ? data_ + size_ : data_; }
+  const Point& operator[](std::size_t i) const noexcept { return data_[i]; }
+  std::span<const Point> view() const noexcept { return {data_, size_}; }
+  void reserve(std::size_t requested) {
+    if (requested <= capacity_) return;
+    const auto limit = std::numeric_limits<std::size_t>::max() / sizeof(Point);
+    if (requested > limit) throw std::length_error("MortonPlus output too large");
+    const auto grown = capacity_ <= limit / 2 ? capacity_ * 2 : limit;
+    const auto cap = std::max(requested, grown);
+    auto* p = alloc_.allocate(cap);
+    if (size_) std::memcpy(p, data_, size_ * sizeof(Point));
+    if (data_) alloc_.deallocate(data_, capacity_);
+    data_ = p; capacity_ = cap;
+  }
+  void push_back(Point p) {
+    if (size_ == capacity_) reserve(size_ + 1);
+    data_[size_++] = p;
+  }
+ private:
+  friend class MortonSIMD3D;
+};
+
 using Wide = unsigned __int128;
 
 // Three uint32 coordinates produce a 96-bit Morton key, stored high word first.
@@ -75,14 +125,30 @@ struct MortonCodec3D {
   }
 };
 
-// Static index. Output iterators receive actual original integer coordinates.
-class Morton3D {
+namespace simd_detail {
+// Compact each coordinate axis, then interleave the accepted xyz triples.
+inline unsigned append_axes(Point* out,const __m256i* axes,unsigned mask) {
+  if(!mask)return 0;
+  const auto x=_mm512_maskz_compress_epi32(mask,_mm512_castsi256_si512(axes[0]));
+  const auto y=_mm512_maskz_compress_epi32(mask,_mm512_castsi256_si512(axes[1]));
+  const auto z=_mm512_maskz_compress_epi32(mask,_mm512_castsi256_si512(axes[2]));
+  auto first=_mm512_permutex2var_epi32(x,_mm512_setr_epi32(0,16,0,1,17,0,2,18,0,3,19,0,4,20,0,5),y);
+  first=_mm512_mask_mov_epi32(first,0x4924,_mm512_permutexvar_epi32(_mm512_setr_epi32(0,0,0,0,0,1,0,0,2,0,0,3,0,0,4,0),z));
+  auto second=_mm512_permutex2var_epi32(x,_mm512_setr_epi32(21,0,6,22,0,7,23,0,0,0,0,0,0,0,0,0),y);
+  second=_mm512_mask_mov_epi32(second,0x92,_mm512_permutexvar_epi32(_mm512_setr_epi32(0,5,0,0,6,0,0,7,0,0,0,0,0,0,0,0),z));
+  _mm512_storeu_si512(out,first);_mm512_storeu_si512(reinterpret_cast<char*>(out)+64,second);
+  return std::popcount(mask);
+}
+}
+
+// Static index. Results receive original integer triples in contiguous batches.
+class MortonSIMD3D {
   static constexpr std::size_t D = 3;
  public:
   using Codec = MortonCodec3D;
   using Point = typename Codec::Point;
   using Key = typename Codec::Key;
-  explicit Morton3D(const std::vector<Point>& input) {
+  explicit MortonSIMD3D(const std::vector<Point>& input) {
     struct Entry { Key key; std::size_t id; };
     std::vector<Entry> sorted;
     sorted.reserve(input.size());
@@ -115,10 +181,10 @@ class Morton3D {
       }
     }
   }
-  void query(const Point& center, std::uint64_t radius, auto output) const {
+  void query(const Point& center, std::uint64_t radius, Results& output) const {
     query_squared(center, Wide(radius) * radius, output);
   }
-  void query_squared(const Point& center, Wide radius_squared, auto output) const {
+  void query_squared(const Point& center, Wide radius_squared, Results& output) const {
     std::uint64_t radius = UINT32_MAX;
     // Integer ceiling square root; larger radii already enclose every axis.
     if (radius_squared < Wide(UINT32_MAX) * UINT32_MAX) {
@@ -166,61 +232,38 @@ class Morton3D {
 
   // Each search node is eight consecutive 96-bit keys, loaded without gathers.
   std::size_t bound(const Key& key, bool upper) const {
-    const auto wanted_high=_mm256_set1_epi64x(key[0]),wanted_low=_mm256_set1_epi64x(key[1]);
     auto count=[&](std::size_t offset) {
-      unsigned mask=0;
-      for(unsigned half=0;half<2;++half) {
-        const auto high=_mm256_loadu_si256(reinterpret_cast<const __m256i*>(ranks_[0].data()+offset+half*4));
-        const auto low=_mm256_loadu_si256(reinterpret_cast<const __m256i*>(ranks_[1].data()+offset+half*4));
-        const auto equal=_mm256_cmpeq_epi64(high,wanted_high);
-        auto less=_mm256_or_si256(Codec::unsigned_greater(wanted_high,high),
-            _mm256_and_si256(equal,Codec::unsigned_greater(wanted_low,low)));
-        if(upper)less=_mm256_or_si256(less,_mm256_and_si256(equal,_mm256_cmpeq_epi64(low,wanted_low)));
-        mask|=unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(less)))<<(4*half);
-      }
+      const auto hi=_mm512_loadu_si512(ranks_[0].data()+offset),lo=_mm512_loadu_si512(ranks_[1].data()+offset);
+      const auto h=_mm512_set1_epi64(key[0]),l=_mm512_set1_epi64(key[1]);
+      const auto same=_mm512_cmpeq_epi64_mask(hi,h);
+      unsigned mask=_mm512_cmplt_epu64_mask(hi,h)|(same&_mm512_cmplt_epu64_mask(lo,l));
+      if(upper)mask|=same&_mm512_cmpeq_epi64_mask(lo,l);
       return std::size_t(std::popcount(mask));
     };
     std::size_t k=0;
     for(std::size_t h=offsets_.size()-1;h>0;--h)k=k*9+count(offsets_[h]+k)*8;
     return k+count(k);
   }
-  void report(std::size_t first, std::size_t last, const Point& center,
-              Wide radius_squared, auto& output) const {
-    const auto radius_lo = _mm256_set1_epi64x(std::uint64_t(radius_squared));
-    const auto radius_hi = _mm256_set1_epi64x(std::uint64_t(radius_squared >> 64));
-    // Aligned coordinate blocks avoid gathers. Mask out points outside the interval.
-    for(std::size_t block=first/8;block<(last+7)/8;++block) {
-      const auto begin=std::max(first,block*8)-block*8;
-      const auto end=std::min(last,block*8+8)-block*8;
-      const unsigned valid=((1U<<end)-1)^((1U<<begin)-1);
-      __m256i sums[2]{_mm256_setzero_si256(),_mm256_setzero_si256()};
-      __m256i carries[2]{_mm256_setzero_si256(),_mm256_setzero_si256()};
-      for(unsigned axis=0;axis<3;++axis) {
-        const auto values=_mm256_load_si256(reinterpret_cast<const __m256i*>(points_[block].axis[axis]));
-        const auto c=_mm256_set1_epi32(center[axis]);
-        const auto delta=_mm256_sub_epi32(_mm256_max_epu32(values,c),_mm256_min_epu32(values,c));
-        const __m256i halves[2]{_mm256_cvtepu32_epi64(_mm256_castsi256_si128(delta)),
-                               _mm256_cvtepu32_epi64(_mm256_extracti128_si256(delta,1))};
-        for(unsigned half=0;half<2;++half) {
-          const auto term=_mm256_mul_epu32(halves[half],halves[half]),previous=sums[half];
-          sums[half]=_mm256_add_epi64(sums[half],term);
-          carries[half]=_mm256_sub_epi64(carries[half],Codec::unsigned_greater(previous,sums[half]));
-        }
+  void report(std::size_t first,std::size_t last,const Point& c,Wide r2,Results& out) const {
+    if(first==last)return;
+    out.reserve(out.size_+last-first+11);
+    const auto radius_low=_mm512_set1_epi64(uint64_t(r2)),radius_high=_mm512_set1_epi64(uint64_t(r2>>64));
+    const auto one=_mm512_set1_epi64(1);
+    for(size_t block=first/8;block<(last+7)/8;++block) {
+      const unsigned begin=std::max(first,block*8)-block*8,end=std::min(last,block*8+8)-block*8;
+      const unsigned valid=((1u<<end)-1)^((1u<<begin)-1);
+      __m256i axes[3];auto sum=_mm512_setzero_si512(),high=sum;
+      for(unsigned a=0;a<3;++a) {
+        axes[a]=_mm256_load_si256(reinterpret_cast<const __m256i*>(points_[block].axis[a]));
+        const auto values=_mm512_cvtepu32_epi64(axes[a]),center=_mm512_set1_epi64(c[a]);
+        const auto d=_mm512_sub_epi64(_mm512_max_epu64(values,center),_mm512_min_epu64(values,center));
+        const auto next=_mm512_add_epi64(sum,_mm512_mul_epu32(d,d));
+        high=_mm512_mask_add_epi64(high,_mm512_cmplt_epu64_mask(next,sum),high,one);sum=next;
       }
-      unsigned mask=0;
-      for(unsigned half=0;half<2;++half) {
-        const auto inside=_mm256_or_si256(Codec::unsigned_greater(radius_hi,carries[half]),
-            _mm256_and_si256(_mm256_cmpeq_epi64(carries[half],radius_hi),
-                _mm256_xor_si256(Codec::unsigned_greater(sums[half],radius_lo),_mm256_set1_epi64x(-1))));
-        mask|=unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(inside)))<<(4*half);
-      }
-      mask&=valid;
-      while(mask) {
-        const auto lane=std::countr_zero(mask);
-        *output++=Point{points_[block].axis[0][lane],points_[block].axis[1][lane],points_[block].axis[2][lane]};
-        mask&=mask-1;
-      }
+      const unsigned mask=valid&(_mm512_cmplt_epu64_mask(high,radius_high)|
+          (_mm512_cmpeq_epi64_mask(high,radius_high)&_mm512_cmple_epu64_mask(sum,radius_low)));
+      out.size_+=simd_detail::append_axes(out.data_+out.size_,axes,mask);
     }
   }
 };
-}  // namespace diskreport::morton3d
+} // namespace diskreport::morton3d

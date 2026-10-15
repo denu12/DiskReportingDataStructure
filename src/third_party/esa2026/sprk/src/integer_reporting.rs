@@ -44,7 +44,7 @@ fn pack(p: [u32; 2]) -> u64 { p[0] as u64 | (p[1] as u64) << 32 }
 #[inline(always)]
 fn inside_mask(block: &Block, cx: u64, cy: u64, radius2: u64) -> u8 {
     // Autovectorized code rebuilds the mask bit by bit; compare into a mask register instead.
-    #[cfg(target_feature = "avx512f")]
+    #[cfg(all(target_feature = "avx512f", not(feature = "compiler-only")))]
     unsafe {
         use std::arch::x86_64::*;
         let p = _mm512_load_epi64(block.points.as_ptr().cast());
@@ -74,14 +74,14 @@ fn inside_mask(block: &Block, cx: u64, cy: u64, radius2: u64) -> u8 {
 /// Appends the selected lanes of `src` to `out`, which must have room for W more.
 #[inline(always)]
 unsafe fn compress_store(src: &[u64; W], mask: u8, out: *mut u64) -> usize {
-    #[cfg(target_feature = "avx512f")]
+    #[cfg(all(target_feature = "avx512f", not(feature = "compiler-only")))]
     unsafe {
         use std::arch::x86_64::*;
         // Compress in a register: memory-destination compress is microcoded on Zen 4.
         let v = _mm512_maskz_compress_epi64(mask, _mm512_load_epi64(src.as_ptr().cast()));
         _mm512_storeu_si512(out.cast(), v);
     }
-    #[cfg(not(target_feature = "avx512f"))]
+    #[cfg(any(not(target_feature = "avx512f"), feature = "compiler-only"))]
     {
         let mut n = 0;
         for i in 0..W {

@@ -1,4 +1,4 @@
-#include "../../morton/mortonplus3d.hpp"
+#include "../../morton/3d/mortonplus3d.hpp"
 #include <iterator>
 #include <fstream>
 #include <iostream>

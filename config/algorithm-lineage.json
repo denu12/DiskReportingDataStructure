@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-15",
+  "Morton": {
+    "implementation": "compiler-vectorized 32-point scan",
+    "historical_measurement_id": "MortonAutoSIMD",
+    "historical_campaign": "morton-auto-simd-pair-2d-20261015",
+    "warning": "Historical measurements with ID Morton before this promotion are the previous scalar version; do not pool them.",
+    "archived_scalar_source_removed": "archive/2026-10-15-morton-ablation/morton.cc"
+  },
+  "esa_sprk_RUST_EXACT_NOSIMD": {
+    "implementation": "Authors adapted SPRK with compiler-only feature",
+    "historical_measurement_id": "esa_sprk_RUST_EXACT",
+    "historical_campaign": "sprk-compiler-only-2d-20261014",
+    "compiler_vectorization": true
+  },
+  "Morton3D": {
+    "implementation": "readable compiler-vectorized 3D Morton",
+    "version": "2026-10-15",
+    "warning": "Earlier Morton3D measurements are the handwritten AVX2 predecessor of current MortonSIMD3D; do not pool old and new series.",
+    "previous_source_removed": "archive/2026-10-15-morton-3d/morton3D.cc"
+  },
+  "MortonSIMD3D": {
+    "implementation": "AVX-512 rank search, filtering and compacted xyz output",
+    "version": "2026-10-15"
+  },
+  "MortonPlus3D": {
+    "implementation": "AVX-512 rank/filter/output; 512-point split cutoff",
+    "version": "2026-10-15",
+    "previous_source_removed": "archive/2026-10-15-morton-3d/mortonplus3d.hpp"
+  }
+}

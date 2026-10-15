@@ -205,7 +205,7 @@ impl QueryOutput<u32, f32> for IdDist<u32, f32> {
         dists: &[f32; W],
         dst: &mut [MaybeUninit<Self>; W],
     ) -> usize {
-        #[cfg(target_arch = "x86_64")]
+        #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
         if is_x86_feature_detected!("avx512f") && W >= 8 {
             // SAFETY: IdDist<u32, f32> is #[repr(C)] with layout [u32, f32] = 8 bytes.
             // AVX-512 feature detected at runtime.
@@ -241,7 +241,7 @@ impl QueryOutput<u32, f32> for IdDist<u64, f32> {
         dists: &[f32; W],
         dst: &mut [MaybeUninit<Self>; W],
     ) -> usize {
-        #[cfg(target_arch = "x86_64")]
+        #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
         if is_x86_feature_detected!("avx512f") && W >= 8 {
             // SAFETY: IdDist<u64, f32> is #[repr(C)] with layout [u64, f32, pad32] = 16 bytes.
             // AVX-512 feature detected at runtime.
@@ -292,7 +292,7 @@ impl QueryOutput<u32, f32> for IdDist<usize, f32> {
         dists: &[f32; W],
         dst: &mut [MaybeUninit<Self>; W],
     ) -> usize {
-        #[cfg(target_arch = "x86_64")]
+        #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
         if is_x86_feature_detected!("avx512f") && W >= 8 {
             // SAFETY: On 64-bit, IdDist<usize, f32> and IdDist<u64, f32> have identical
             // repr(C) layouts: [u64/usize (8 bytes), f32 (4 bytes), pad (4 bytes)] = 16 bytes.
@@ -340,7 +340,7 @@ impl QueryOutput<u64, f64> for IdDist<usize, f64> {
 // ── SIMD helpers ─────────────────────────────────────────────────────
 
 /// Interleave u32 IDs + f32 distances → IdDist<u32, f32> pairs.
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[target_feature(enable = "avx512f")]
 unsafe fn interleave_store_u32_f32_avx512<const W: usize>(
     ids: &[u32; W],
@@ -374,7 +374,7 @@ unsafe fn interleave_store_u32_f32_avx512<const W: usize>(
 }
 
 /// Interleave widened u64 IDs + f32 distances → IdDist<u64, f32> pairs.
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[target_feature(enable = "avx512f")]
 unsafe fn interleave_store_u64_f32_avx512<const W: usize>(
     ids: &[u32; W],

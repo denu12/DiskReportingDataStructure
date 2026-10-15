@@ -68,6 +68,7 @@
     "ann_fr",
     "stann_fr",
     "esa_sprk_RUST_EXACT",
+    "esa_sprk_RUST_EXACT_NOSIMD",
     "esa_sprk_CHEATING_IDS_ONLY",
     "esa_kiddo",
     "esa_nabo",

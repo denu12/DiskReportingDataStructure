@@ -4,7 +4,9 @@ Build with tools/build_selected_3d.sh first. No campaign data is modified.
 import json,random,struct,subprocess,tempfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-backends=[('MortonPlus3D',ROOT/'build/dimensional/morton_plus_3d_check'),
+backends=[('Morton3D',ROOT/'build/dimensional/morton_3d_check'),
+          ('MortonSIMD3D',ROOT/'build/dimensional/morton_simd_3d_check'),
+          ('MortonPlus3D',ROOT/'build/dimensional/morton_plus_3d_check'),
           ('esa_sprk_RUST_EXACT_3D',ROOT/'build/ddim-rust/release/sprk-adapted-3d-check')]
 rng=random.Random(20261014);checks=0
 with tempfile.TemporaryDirectory(prefix='diskreport-3d-check-') as folder:

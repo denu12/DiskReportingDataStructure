@@ -1,7 +1,10 @@
 use std::{fs::File,io::{Read,Seek,SeekFrom,BufReader},hint::black_box,time::Instant};
 // use sprk::integer_reporting::IntegerPointSprk; and ALGORITHM are replaced when the two independent runners are generated.
 use sprk::integer_reporting::IntegerPointSprk;
+#[cfg(not(feature = "compiler-only"))]
 const ALGORITHM:&str="esa_sprk_RUST_EXACT";
+#[cfg(feature = "compiler-only")]
+const ALGORITHM:&str="esa_sprk_RUST_EXACT_NOSIMD";
 fn read<const N:usize>(f:&mut impl Read)->std::io::Result<[u8;N]>{let mut b=[0;N];f.read_exact(&mut b)?;Ok(b)}
 fn u32r(f:&mut impl Read)->std::io::Result<u32>{Ok(u32::from_le_bytes(read(f)?))}
 fn u64r(f:&mut impl Read)->std::io::Result<u64>{Ok(u64::from_le_bytes(read(f)?))}

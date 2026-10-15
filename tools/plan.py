@@ -43,7 +43,7 @@ def main():
         totals = {}
         jobs = 0
         for row in rows:
-            if row['case'] in cases and row['status'] == 'success':
+            if row['case'] in cases and (row['status'] == 'success' or config.get('measure_failed_correctness',False)):
                 totals[row['algorithm']] = totals.get(row['algorithm'], 0) + row['wall_seconds'] * config['repetitions'] * 1.25
                 jobs += config['repetitions']
         workers = min(config['stages']['final']['workers'], len(screen['identity']['cpus']))

@@ -46,6 +46,7 @@
   "input_format": "ddim-u32",
   "algorithms": [
     "Morton3D",
+    "MortonSIMD3D",
     "MortonPlus3D",
     "esa_sprk_CHEATING_IDS_ONLY",
     "esa_sprk_RUST_EXACT_3D",
@@ -75,7 +76,7 @@
   "radius_policy": "Median kth-neighbor squared distance of 16 independent pilot queries; nominal target sizes in suites; actual counts measured.",
   "comparison_contract": {
     "coordinates": "uint32 grid",
-    "output": "explicit original integer coordinates",
+    "output": "native materialized points or indices for non-SPRK implementations; SPRK configurations unchanged",
     "measurement": "single-core jobs; existing shared budgets and timeouts; three final repetitions",
     "exceptions": {
       "esa_sprk_CHEATING_IDS_ONLY": "SPRK (original): expanded f64 ball and materialized point IDs; eligible for normalization, with its distinct contract disclosed."

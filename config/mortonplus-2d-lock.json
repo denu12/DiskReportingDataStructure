@@ -1,22 +1,24 @@
 {
   "name": "Morton (plus) 2D",
-  "version": "2026-10-14-fixed-avx2-bmi2",
-  "file": "src/morton/mortonplus.hpp",
-  "sha256": "f1ae43f3cc98623f867cc071bfc9f49cb8d7979dfb6b5baaef2a86411503209e",
-  "lines": 305,
+  "version": "2026-10-14-avx512-batch32-cutoff512",
+  "file": "src/morton/2d/mortonplus.hpp",
+  "sha256": "a6c3e362acacda316c0b6c29294826ce06dd806a820688c1995900b6dfb0c2f1",
+  "lines": 294,
   "configuration": {
-    "batch": 8,
+    "batch": 32,
     "extra_levels": 6,
-    "min_points": 128,
-    "output": "Results"
+    "min_points": 512,
+    "output": "Results",
+    "masked_tail": true,
+    "simd_rank_search": "AVX512"
   },
-  "validation": "Fixed AVX2/BMI2 validation recorded in docs/MORTONPLUS-VERSIONS.md",
+  "validation": "27,740 native and ASan/UBSan checks on Archie; controlled timing evidence in docs/MORTONPLUS-AVX512.md",
   "previous_version": {
-    "version": "2026-10-14-fixed-defaults",
-    "sha256": "9a84c65939f302cd15c47220add5faff8324a0bf881bc83660aaa10a47dea5c2"
+    "version": "2026-10-14-fixed-avx2-bmi2",
+    "sha256": "f1ae43f3cc98623f867cc071bfc9f49cb8d7979dfb6b5baaef2a86411503209e"
   },
   "required_isa": [
-    "AVX2",
+    "AVX512F",
     "BMI2"
   ]
 }

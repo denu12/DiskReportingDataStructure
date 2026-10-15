@@ -1,0 +1,3593 @@
+[
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.000657972,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000553246,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.001726955,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.0005339,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.000900607,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.002278178,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.001432453,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000543207,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.001728147,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.001423958,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000540092,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.002287776,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.00070463,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.000886831,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.000813504,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000547165,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.002332249,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.00172923,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000541244,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.001429258,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n100000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.000704059,
+    "answers": 85780,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.001138102,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.000872886,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.00200189,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.001645001,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000829324,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.000878846,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.00135068,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.001950674,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000796732,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.001574089,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.001301959,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.00087527,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.000957193,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.001287742,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000822,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000824745,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.001172466,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.001313291,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.002004966,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.000948196,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n2000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.001620576,
+    "answers": 100304,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.00058142,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.003957133,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.002590714,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.001289616,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000971189,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.00157467,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.003045665,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.004064003,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.0015482,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.002580344,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.001289255,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.003041558,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000968144,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000949238,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.002569143,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.004031131,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.001282122,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000968555,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.001563128,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000970608,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n8000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.003150332,
+    "answers": 97982,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.002158994,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000971871,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.001151267,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.002664722,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.001749447,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.001180381,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.001614965,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000974034,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.002587186,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.001589157,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.001166906,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.001739779,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.00114226,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.002160598,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.001103347,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000979105,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.001145756,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.00172943,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.002555958,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.00157492,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "input_scaling_3d",
+    "case": "input_scaling/uniform-n20000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.002142233,
+    "answers": 102647,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 3.0427e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.000150763,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 9.8745e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 4.9724e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 6.9831e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 5.865e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 5.6415e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 2.6801e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 1.9867e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 2.1741e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 5.357e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 3.0247e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.000104115,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.000113713,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 3.8493e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 3.729e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 2.4486e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 5.908e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 4.4383e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 3.779e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.003907963209-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 7.1664e-05,
+    "answers": 99,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.000265919,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.000304471,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.000120356,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000115587,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.000209973,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.000140252,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.000196488,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000101029,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000113051,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.000102863,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.000238186,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.000118131,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.000281387,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 8.2054e-05,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 7.0132e-05,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 6.9009e-05,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 5.0365e-05,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.000104856,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.000105989,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 9.9587e-05,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.008419451505-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 7.484e-05,
+    "answers": 905,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.000359654,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.000623187,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.000378299,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.000578343,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.000327414,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.000453209,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000366046,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.000611305,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.000376816,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000324979,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.000590016,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.000449923,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.000410348,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000351468,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.000248135,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000233588,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.000541724,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.000297647,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.000480851,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.000336721,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.018139158393-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000311343,
+    "answers": 9034,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.001580751,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.001209025,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.001003049,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.001849344,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.002148325,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000969055,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.002774127,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.001543582,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000995765,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000952584,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.001197783,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.002110353,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.00179345,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.002701761,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000964436,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.002676033,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.001788391,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000946734,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.002133316,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.001200549,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.03907963209-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.001591822,
+    "answers": 89017,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.006049513,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.010608604,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.016921209,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.003303348,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.004468581,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.012388137,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.003564177,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.003424725,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.010455968,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.004544203,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.005951409,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.016887085,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.003555661,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.01255563,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.01231536,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.016916379,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.003547245,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.006220653,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.01053191,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.00330408,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.084194515048-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.004509397,
+    "answers": 845752,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.013369004,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.012620382,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.058932409,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.01786147,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.095094072,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.069703006,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.02354643,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.016814058,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.013305735,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.012643736,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.095154444,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.023484494,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.059245114,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.06987571,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.014341436,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.02344493,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.095124778,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.069662941,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.012999092,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.059017839,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.18139158393-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.017778926,
+    "answers": 7435440,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.334803482,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.053926852,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.071562389,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.058469822,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.208326161,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.087842476,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.245210958,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.05379796,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.070983143,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.337880778,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.058030499,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.208467485,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.245277872,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.088242476,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.337099724,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.071214277,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.054079959,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.058419789,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.208508682,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.088133261,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "radius_scaling_3d",
+    "case": "radius_scaling/uniform-n4000000-r0.390796320898-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.245186752,
+    "answers": 57244804,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.001041491,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.001011184,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.001309663,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.002743229,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.001697469,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.002173512,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.001729259,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.00164955,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000984815,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.001258968,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.001698051,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000989834,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.002155017,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.002721488,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.001055998,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.00210347,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.001635975,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.00097708,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000963495,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.002675042,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/uniform-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.001777089,
+    "answers": 96128,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.024816749,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.006285925,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.004387459,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.004550916,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.033610724,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.007292952,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.02099464,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.004567978,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.02471049,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.00751068,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.004491995,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.005804343,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.021054602,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.03398257,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.004707339,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.033583883,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.021088695,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.006194424,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.004480754,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.007258036,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.024539139,
+    "answers": 2529760,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.002437036,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.003077334,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.001023748,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.004018158,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.001253648,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.001626978,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.00104132,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.003918651,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.003072115,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.002554134,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.001626547,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.001032394,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.00104605,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.001259068,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000783137,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.004023187,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.001607692,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.003064862,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.002628885,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.001041451,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/normal-n4000000-k1000-matched-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.001268045,
+    "answers": 136363,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.017109872,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.202259616,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.011989651,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.178170079,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.298283159,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.013507804,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.011805336,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.293444885,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.013301488,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.01187727,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.178277099,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.017161409,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.012280876,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.202290354,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.177834019,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.295449009,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.011975113,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.017279821,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.20229933,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.011602535,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.013586632,
+    "answers": 11415854,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.001043084,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000799228,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.000915515,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.00170818,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.00203933,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.001365408,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.000983432,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.00185258,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000870601,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000893945,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.0013183,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.000946083,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.001652435,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.001321946,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000877724,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.00155357,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.000938618,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.001341042,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.002052855,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000900637,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "distributions/skew-n4000000-k1000-matched-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.001280619,
+    "answers": 131261,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 3.6689e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 5.4181e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 9.6812e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 5.9792e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 5.3531e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.000128961,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.000148348,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 8.028e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 4.5004e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 4.3642e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 8.4619e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.000120105,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 4.244e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 3.8342e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 6.6565e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 2.2392e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 7.5852e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 6.2848e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 2.7041e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 3.6979e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k1-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 3.7791e-05,
+    "answers": 77,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.000238647,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.000570249,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.000285615,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.000435466,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.000451716,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.000343032,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.00062452,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.000380663,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.000433351,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.000277479,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.000329557,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.000606546,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.000310111,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.00043724,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.000263503,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.000146163,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.00021884,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.000367588,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.000275486,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.000415759,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k100-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.000449051,
+    "answers": 8068,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 1,
+    "seconds": 0.006118772,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 1,
+    "seconds": 0.003340297,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 1,
+    "seconds": 0.004565333,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 1,
+    "seconds": 0.012745056,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 1,
+    "seconds": 0.017504762,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 1,
+    "seconds": 0.010799792,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 1,
+    "seconds": 0.003638246,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 2,
+    "seconds": 0.003068638,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 2,
+    "seconds": 0.003344495,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 2,
+    "seconds": 0.017286042,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 2,
+    "seconds": 0.0061335,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 2,
+    "seconds": 0.01274725,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 2,
+    "seconds": 0.004594096,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 2,
+    "seconds": 0.01077727,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus1024",
+    "repetition": 3,
+    "seconds": 0.003351909,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "Morton3D",
+    "repetition": 3,
+    "seconds": 0.017394866,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "MortonSIMD3D",
+    "repetition": 3,
+    "seconds": 0.01079327,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "old_plus",
+    "repetition": 3,
+    "seconds": 0.006127048,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus128",
+    "repetition": 3,
+    "seconds": 0.004624774,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "old_morton",
+    "repetition": 3,
+    "seconds": 0.012760344,
+    "answers": 876866,
+    "queries": 96
+  },
+  {
+    "campaign": "Static3D",
+    "case": "selectivity/uniform-n4000000-k10000-uniform-s1",
+    "algorithm": "plus512",
+    "repetition": 3,
+    "seconds": 0.003609792,
+    "answers": 876866,
+    "queries": 96
+  }
+]

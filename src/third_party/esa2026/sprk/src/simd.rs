@@ -5,7 +5,7 @@ use crate::output::QueryOutput;
 use crate::scalar::{IdStorage, Scalar};
 
 use num_traits::Float;
-#[cfg(feature = "simd-compress")]
+#[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
 use wide::CmpLe;
 
 // ── Lane count restriction (mirrors std::simd::SupportedLaneCount) ───
@@ -280,11 +280,11 @@ impl<const D: usize> CompressDispatch<8, f32, u32> for PDVec<D, 8, f32, u32> {
         distances: [f32; 8],
         threshold: f32,
     ) -> (usize, [u32; 8], [f32; 8]) {
-        #[cfg(target_arch = "x86_64")]
+        #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
         if is_x86_feature_detected!("avx512f") {
             return unsafe { compress_avx512_f32_u32_8(distances, threshold, self.ids) };
         }
-        #[cfg(feature = "simd-compress")]
+        #[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
         {
             return compress_wide_f32_u32_8(distances, threshold, self.ids);
         }
@@ -300,11 +300,11 @@ impl<const D: usize> CompressDispatch<16, f32, u32> for PDVec<D, 16, f32, u32> {
         distances: [f32; 16],
         threshold: f32,
     ) -> (usize, [u32; 16], [f32; 16]) {
-        #[cfg(target_arch = "x86_64")]
+        #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
         if is_x86_feature_detected!("avx512f") {
             return unsafe { compress_avx512_f32_u32_16(distances, threshold, self.ids) };
         }
-        #[cfg(feature = "simd-compress")]
+        #[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
         {
             return compress_wide_f32_u32_16(distances, threshold, self.ids);
         }
@@ -322,7 +322,7 @@ impl<const D: usize> CompressDispatch<8, f32, u64> for PDVec<D, 8, f32, u64> {
         distances: [f32; 8],
         threshold: f32,
     ) -> (usize, [u64; 8], [f32; 8]) {
-        #[cfg(target_arch = "x86_64")]
+        #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
         if is_x86_feature_detected!("avx512f") {
             return unsafe { compress_avx512_f32_u64_8(distances, threshold, self.ids) };
         }
@@ -337,7 +337,7 @@ impl<const D: usize> CompressDispatch<16, f32, u64> for PDVec<D, 16, f32, u64> {
         distances: [f32; 16],
         threshold: f32,
     ) -> (usize, [u64; 16], [f32; 16]) {
-        #[cfg(target_arch = "x86_64")]
+        #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
         if is_x86_feature_detected!("avx512f") {
             return unsafe { compress_avx512_f32_u64_16(distances, threshold, self.ids) };
         }
@@ -356,11 +356,11 @@ macro_rules! impl_compress_f64 {
                 distances: [f64; $W],
                 threshold: f64,
             ) -> (usize, [$I; $W], [f64; $W]) {
-                #[cfg(target_arch = "x86_64")]
+                #[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
                 if is_x86_feature_detected!("avx512f") {
                     return unsafe { $avx512_fn(distances, threshold, self.ids) };
                 }
-                #[cfg(feature = "simd-compress")]
+                #[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
                 {
                     return $wide_fn(distances, threshold, self.ids);
                 }
@@ -382,7 +382,7 @@ impl_compress_f64!(8, u64, compress_avx512_f64_u64_8, compress_wide_f64_8);
 
 // ── AVX-512 f32+u32 ──────────────────────────────────────────────────
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f32_u32_8(
     distances: [f32; 8],
@@ -408,7 +408,7 @@ unsafe fn compress_avx512_f32_u32_8(
     }
 }
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f32_u32_16(
     distances: [f32; 16],
@@ -436,7 +436,7 @@ unsafe fn compress_avx512_f32_u32_16(
 
 // ── AVX-512 f32+u64 ──────────────────────────────────────────────────
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f32_u64_8(
     distances: [f32; 8],
@@ -462,7 +462,7 @@ unsafe fn compress_avx512_f32_u64_8(
     }
 }
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f32_u64_16(
     distances: [f32; 16],
@@ -497,7 +497,7 @@ unsafe fn compress_avx512_f32_u64_16(
 
 // ── AVX-512 f64+u32 ──────────────────────────────────────────────────
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f64_u32_4(
     distances: [f64; 4],
@@ -523,7 +523,7 @@ unsafe fn compress_avx512_f64_u32_4(
     }
 }
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f64_u32_8(
     distances: [f64; 8],
@@ -551,7 +551,7 @@ unsafe fn compress_avx512_f64_u32_8(
 
 // ── AVX-512 f64+u64 ──────────────────────────────────────────────────
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f64_u64_4(
     distances: [f64; 4],
@@ -577,7 +577,7 @@ unsafe fn compress_avx512_f64_u64_4(
     }
 }
 
-#[cfg(target_arch = "x86_64")]
+#[cfg(all(target_arch = "x86_64", not(feature = "compiler-only")))]
 #[inline(always)]
 unsafe fn compress_avx512_f64_u64_8(
     distances: [f64; 8],
@@ -605,7 +605,7 @@ unsafe fn compress_avx512_f64_u64_8(
 
 // ── wide crate f32+u32 ───────────────────────────────────────────────
 
-#[cfg(feature = "simd-compress")]
+#[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
 fn compress_wide_f32_u32_8(
     distances: [f32; 8],
     threshold: f32,
@@ -627,7 +627,7 @@ fn compress_wide_f32_u32_8(
     (count, compressed_ids.to_array(), dist_arr)
 }
 
-#[cfg(feature = "simd-compress")]
+#[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
 fn compress_wide_f32_u32_16(
     distances: [f32; 16],
     threshold: f32,
@@ -676,7 +676,7 @@ fn compress_wide_f32_u32_16(
 
 // ── wide crate f64 (generic over I — no ID casting needed) ───────────
 
-#[cfg(feature = "simd-compress")]
+#[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
 fn compress_wide_f64_4<I: Copy + Default>(
     distances: [f64; 4],
     threshold: f64,
@@ -699,7 +699,7 @@ fn compress_wide_f64_4<I: Copy + Default>(
     (j, id_arr, dist_arr)
 }
 
-#[cfg(feature = "simd-compress")]
+#[cfg(all(feature = "simd-compress", not(feature = "compiler-only")))]
 fn compress_wide_f64_8<I: Copy + Default>(
     distances: [f64; 8],
     threshold: f64,

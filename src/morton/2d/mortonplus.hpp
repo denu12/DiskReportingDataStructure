@@ -3,7 +3,7 @@
 // MortonPlus design and Rust implementation: the ESA authors, led by Dennis Kobert.
 // Thomas Blasius, Jean-Pierre von der Heydt, Tobias Kempf, Dennis Kobert, Nikolai Maas.
 // C++ translation prepared for DiskRangeReport, October 2026; see docs/THIRD_PARTY.md.
-// Compile with GCC/Clang: -std=c++20 -O3 -mavx2 -mbmi2.
+// Compile with GCC/Clang: -std=c++20 -O3 -mavx512f -mbmi2.
 // Requires unsigned __int128; native MSVC is not supported.
 //
 // License notice: see the accompanying LICENSE file.
@@ -91,48 +91,33 @@ inline bool contains(Point p, Point c, Wide r2) {
   const Wide x = delta(p[0], c[0]), y = delta(p[1], c[1]);
   return x*x + y*y <= r2;
 }
-using Vector = __m256i;
-inline __m256i less_unsigned(__m256i a, __m256i b) {
-  const auto sign = _mm256_set1_epi64x(INT64_MIN);
-  return _mm256_cmpgt_epi64(_mm256_xor_si256(b, sign), _mm256_xor_si256(a, sign));
-}
+using Vector = __m512i;
 struct Prepared {
-  __m256i cx, cy, low, radius;
+  __m512i cx, cy, low, radius;
   bool high;
-  Prepared(Point c, Wide r) : cx(_mm256_set1_epi64x(c[0])), cy(_mm256_set1_epi64x(c[1])),
-    low(_mm256_set1_epi64x(UINT32_MAX)), radius(_mm256_set1_epi64x(std::bit_cast<std::int64_t>(std::uint64_t(r)))),
+  Prepared(Point c, Wide r) : cx(_mm512_set1_epi64(c[0])), cy(_mm512_set1_epi64(c[1])),
+    low(_mm512_set1_epi64(UINT32_MAX)), radius(_mm512_set1_epi64(std::bit_cast<std::int64_t>(std::uint64_t(r)))),
     high((r >> 64) != 0) {}
 };
-inline Vector load(const Point* p) { return _mm256_loadu_si256(reinterpret_cast<const __m256i*>(p)); }
+inline Vector load(const Point* p) { return _mm512_loadu_si512(p); }
 inline unsigned mask(Vector v, const Prepared& p) {
-  const auto x = _mm256_and_si256(v, p.low), y = _mm256_srli_epi64(v, 32);
-  const auto dx = _mm256_sub_epi32(_mm256_max_epu32(x,p.cx), _mm256_min_epu32(x,p.cx));
-  const auto dy = _mm256_sub_epi32(_mm256_max_epu32(y,p.cy), _mm256_min_epu32(y,p.cy));
-  const auto xx = _mm256_mul_epu32(dx,dx);
-  const auto sum = _mm256_add_epi64(xx, _mm256_mul_epu32(dy,dy));
-  const unsigned carry = unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(less_unsigned(sum,xx))));
-  const unsigned le = ~unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(less_unsigned(p.radius,sum))));
-  return (p.high ? le | ~carry : le & ~carry) & 15;
+  const auto x = _mm512_and_si512(v, p.low), y = _mm512_srli_epi64(v, 32);
+  const auto dx = _mm512_sub_epi64(_mm512_max_epu64(x,p.cx), _mm512_min_epu64(x,p.cx));
+  const auto dy = _mm512_sub_epi64(_mm512_max_epu64(y,p.cy), _mm512_min_epu64(y,p.cy));
+  const auto xx = _mm512_mul_epu32(dx,dx);
+  const auto sum = _mm512_add_epi64(xx, _mm512_mul_epu32(dy,dy));
+  const unsigned carry = _mm512_cmplt_epu64_mask(sum,xx);
+  const unsigned le = _mm512_cmple_epu64_mask(sum,p.radius);
+  return (p.high ? le | ~carry : le & ~carry) & 255;
 }
 inline unsigned emit(Vector v, unsigned m, Point* dst) {
-  static constexpr auto permutations = [] {
-    std::array<std::array<int,8>,16> table{};
-    for (unsigned m=0;m<16;++m) {
-      unsigned n=0;
-      for (unsigned j=0;j<4;++j) if (m & (1u<<j)) { table[m][n++]=int(2*j); table[m][n++]=int(2*j+1); }
-    }
-    return table;
-  }();
-  const auto perm = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(permutations[m].data()));
-  _mm256_storeu_si256(reinterpret_cast<__m256i*>(dst), _mm256_permutevar8x32_epi32(v,perm));
+  // Register compression plus a normal store avoids slow memory compression on Zen 4.
+  _mm512_storeu_si512(dst, _mm512_maskz_compress_epi64(m,v));
   return std::popcount(m);
 }
 inline std::size_t count_below8(const std::uint64_t* p, std::uint64_t key) {
-  const auto x = _mm256_set1_epi64x(std::bit_cast<std::int64_t>(key));
-  unsigned m=0;
-  for (unsigned j=0;j<2;++j) m |= unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(
-    less_unsigned(_mm256_loadu_si256(reinterpret_cast<const __m256i*>(p+4*j)),x)))) << (4*j);
-  return std::popcount(m);
+  return std::popcount(unsigned(_mm512_cmplt_epu64_mask(
+    _mm512_loadu_si512(p), _mm512_set1_epi64(std::bit_cast<std::int64_t>(key)))));
 }
 struct RankTree {
   std::size_t n=0;
@@ -163,14 +148,14 @@ struct Interval { std::uint64_t first,last; bool inside; };
 inline thread_local std::vector<Interval> scratch;
 } // namespace detail
 
-inline constexpr unsigned CHUNK = 4;
-inline constexpr const char* KERNEL = "avx2";
+inline constexpr unsigned CHUNK = 8;
+inline constexpr const char* KERNEL = "avx512";
 inline std::uint64_t morton(Point p) { return detail::spread(p[0]) | detail::spread(p[1])<<1; }
 
-// Fixed experimental configuration: 8-point batches, six refinement levels,
-// 128-point stopping threshold, prefix lookup, inside-cell copies and bulk output.
+// Fixed experimental configuration: 32-point batches, six refinement levels,
+// 512-point stopping threshold, prefix lookup, inside-cell copies and bulk output.
 class MortonPlus {
-  static constexpr std::size_t W = 8;
+  static constexpr std::size_t W = 32;
   detail::RankTree ranks_;
   std::vector<Point> points_;
   std::vector<std::uint32_t> lut_;
@@ -217,7 +202,7 @@ class MortonPlus {
     }
     const auto side=std::uint64_t(1)<<(32-depth);
     const bool inside=Wide(side-1)*(side-1)/2<=r2 && cell_distance<true>(code,depth,c)<=r2;
-    const bool small=count<=128 || depth>=lut_level_;
+    const bool small=count<=512 || depth>=lut_level_;
     if (!inside && depth<target && !small) {
       for (std::uint64_t child=0;child<4;++child)
         descend(code | child<<(2*(31-depth)),depth+1,target,c,r2,intervals);
@@ -250,12 +235,16 @@ class MortonPlus {
     auto i=start;
     auto n=out.size(); auto* dst=writable(out,end-start+W);
     for (;end-i>=W;i+=W) {
-      detail::Vector v[W/4]; unsigned masks[W/4];
-      for (std::size_t j=0;j<W/4;++j) { v[j]=detail::load(points_.data()+i+4*j); masks[j]=detail::mask(v[j],pr); }
-      for (std::size_t j=0;j<W/4;++j) n+=detail::emit(v[j],masks[j],dst+n);
+      detail::Vector v[W/8]; unsigned masks[W/8];
+      for (std::size_t j=0;j<W/8;++j) { v[j]=detail::load(points_.data()+i+8*j); masks[j]=detail::mask(v[j],pr); }
+      for (std::size_t j=0;j<W/8;++j) n+=detail::emit(v[j],masks[j],dst+n);
     }
-    for (;end-i>=4;i+=4) { const auto v=detail::load(points_.data()+i); n+=detail::emit(v,detail::mask(v,pr),dst+n); }
-    for (;i<end;++i) { dst[n]=points_[i]; n+=detail::contains(points_[i],c,r2); }
+    for (;end-i>=8;i+=8) { const auto v=detail::load(points_.data()+i); n+=detail::emit(v,detail::mask(v,pr),dst+n); }
+    if (i<end) {
+      const unsigned valid=(1u<<unsigned(end-i))-1;
+      const auto v=_mm512_maskz_loadu_epi64(valid,points_.data()+i);
+      n+=detail::emit(v,detail::mask(v,pr)&valid,dst+n);
+    }
     out.size_=n;
   }
   // Keep this boundary: GCC inlining regressed small-output query timings.

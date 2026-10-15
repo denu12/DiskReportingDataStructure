@@ -1,10 +1,12 @@
+> Current policy: [original implementations and native outputs](ORIGINAL-CAMPAIGN.md). Correctness failures are recorded but do not suppress measurements in this campaign. Older adaptation descriptions below describe historical runs.
+
 # Reporting contract and comparison with the source paper
 
-The task here is to list every original integer point inside or on a query disk or sphere. Coordinate multiplicity matters. Returning a count, a range descriptor, a batch handle or only point IDs is a different interface.
+The task is range reporting with native output. Non-SPRK implementations may report points or individual indices using their normal API; duplicate occurrences must be preserved. Counts alone are not reporting. SPRK keeps its existing configurations and membership contracts. The root README lists the actual output of every retained implementation.
 
 ## Timed work
 
-Conforming query timings include traversal, membership predicates, adapter filtering and materialization of the original point coordinates. Where a library returns IDs, looking up and writing coordinates is part of that wrapper's timed query. Allocation and conversion work performed inside that query are included. Input loading and the independent oracle are not query time.
+Query timings include traversal, membership predicates, necessary geometric filtering, allocation and native output materialization. Non-SPRK index outputs do not undergo a timed conversion to point coordinates. Verification may resolve indices or convert native point types after timing. Dimensional Boost writes directly to a reusable vector of its native point type. Input loading and the independent oracle are not query time. This supersedes the earlier mandatory-coordinate output policy; historical measurements are unchanged.
 
 The code's upstream behavior and this project's wrapper behavior must be distinguished. Native APIs may use floating-point coordinates, strict radius comparisons or different duplicate conventions. A failure against our exact integer contract does not establish a defect under that library's own contract.
 

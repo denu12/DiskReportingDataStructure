@@ -1,5 +1,5 @@
-#include "mortonplus.hpp"
 #include "morton.cc"
+#include "mortonplus.hpp"
 #include "mortonSIMD.cc"
 #include <fstream>
 #include <iostream>
@@ -24,6 +24,7 @@ template<class Index,class Point,class Output>int run(std::istream& f,std::uint6
  for(std::size_t j=0;j<queries.size();++j){const auto [c,r]=queries[j];if(!bench)start=Clock::now();out.clear();
   if constexpr(std::is_same_v<Index,mortonplus::MortonPlus>)index.query(c,r,out);
   else if constexpr(std::is_same_v<Index,diskreport::morton_Morton::Morton>)index.query(diskreport::morton_Morton::Circle{{c[0],c[1]},r},std::back_inserter(out));
+  else if constexpr(std::is_same_v<Index,diskreport::morton_MortonSIMD::MortonSIMD>)index.query(diskreport::morton_MortonSIMD::Circle{{c[0],c[1]},r},out);
   else index.query(diskreport::morton_MortonSIMD::Circle{{c[0],c[1]},r},std::back_inserter(out));
   // Compiler barrier exposes every materialized coordinate, not just the count.
   asm volatile("" : : "r"(out.data()),"r"(out.size()) : "memory");answers+=out.size();++completed;
@@ -42,6 +43,6 @@ int main(int argc,char** argv){try{
  auto n=read<std::uint64_t>(f),q=read<std::uint64_t>(f);if(n>1000000000||q>1000000000)throw std::runtime_error("Bad counts");
  if(algorithm=="MortonPlusCPP")return run<mortonplus::MortonPlus,mortonplus::Point,mortonplus::Results>(f,n,q,bench,algorithm,dest);
  if(algorithm=="Morton")return run<diskreport::morton_Morton::Morton,diskreport::morton_Morton::Point,std::vector<diskreport::morton_Morton::Point>>(f,n,q,bench,algorithm,dest);
- if(algorithm=="MortonSIMD")return run<diskreport::morton_MortonSIMD::MortonSIMD,diskreport::morton_MortonSIMD::Point,std::vector<diskreport::morton_MortonSIMD::Point>>(f,n,q,bench,algorithm,dest);
+ if(algorithm=="MortonSIMD")return run<diskreport::morton_MortonSIMD::MortonSIMD,diskreport::morton_MortonSIMD::Point,diskreport::morton_MortonSIMD::Results>(f,n,q,bench,algorithm,dest);
  throw std::runtime_error("Unknown algorithm");
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 2;}}

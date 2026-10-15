@@ -71,7 +71,7 @@ dimensional campaigns. Reused output buffers still materialized every coordinate
 The standalone regression test checks every dimension 1–16 against an independent
 integer-coordinate multiset oracle, including closed boundaries, duplicates,
 zero and maximal radii, carry overflow, padded nodes and every encoding depth.
-Build and run it with `g++ -std=c++20 -O3 -mavx2 src/morton/morton_d_dim_test.cc
+Build and run it with `g++ -std=c++20 -O3 -mavx2 src/morton/d_dim/morton_d_dim_test.cc
 -o /tmp/morton_ddim_test && /tmp/morton_ddim_test`, or use CMake/CTest's
 `morton_ddim_test` target in `src/runner/dimensional`. Fresh campaign admission is
 required before using the new implementation for publication timings.

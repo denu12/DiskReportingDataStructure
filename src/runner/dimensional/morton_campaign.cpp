@@ -1,4 +1,4 @@
-#include "../../morton/morton_d_dim.cc"
+#include "../../morton/d_dim/morton_d_dim.cc"
 #include <iterator>
 #include <fstream>
 #include <iostream>

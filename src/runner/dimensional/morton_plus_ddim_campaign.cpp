@@ -1,4 +1,4 @@
-#include "../../morton/mortonplus_d_dim.hpp"
+#include "../../morton/d_dim/mortonplus_d_dim.hpp"
 #include <iterator>
 #include <fstream>
 #include <iostream>

@@ -16,7 +16,7 @@ for n in [0,1,7,8,9,129,1000]:
    f.write(struct.pack('<8sQQ',b'ESA2D01\0',n,len(qs)) if fmt==0 else struct.pack('<IQQ',2,n,len(qs)))
    for x,y in points:f.write(struct.pack('<II',x,y))
    for x,y,r in qs:f.write(struct.pack('<IIQQ',x,y,r&((1<<64)-1),r>>64))
-  for a,b in [('Morton','morton_cpp'),('MortonSIMD','morton_cpp'),('MortonPlusCPP','morton_cpp'),('esa_sprk_RUST_EXACT','sprk_rust_exact')]:
+  for a,b in [('Morton','morton_cpp'),('MortonSIMD','morton_cpp'),('MortonPlusCPP','morton_cpp'),('esa_sprk_RUST_EXACT','sprk_rust_exact'),('esa_sprk_RUST_EXACT_NOSIMD','sprk_rust_exact_nosimd')]:
    dest=tmp/'result.json'
    for mode in ['verify','bench']:
     run=subprocess.run([str(R/'bin/esa2d'/b),a,str(p),mode,str(dest)],capture_output=True,text=True)
@@ -24,4 +24,4 @@ for n in [0,1,7,8,9,129,1000]:
     s=json.loads(dest.read_text());assert s['status']=='success'
     expected=sum(sum((px-x)**2+(py-y)**2<=r for px,py in points) for x,y,r in qs)
     assert s['answers']==expected,(n,fmt,a,mode,s)
-print('112 runner invocations passed; exact output verified in both input formats; 4 retained backends.')
+print('140 runner invocations passed; exact output verified in both input formats; 5 backends.')

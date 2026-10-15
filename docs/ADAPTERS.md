@@ -1,3 +1,5 @@
+> Current policy: [original implementations and native outputs](ORIGINAL-CAMPAIGN.md). Correctness failures are recorded but do not suppress measurements in this campaign. Older adaptation descriptions below describe historical runs.
+
 ## Current Morton/SPRK roster
 
 The 14 October 2026 roster supersedes older SPRK adapter descriptions below.

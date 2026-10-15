@@ -6,7 +6,7 @@ This theater compares disk reporting as the number of points, spatial distributi
 |---|---:|---|
 | [input_scaling](campaigns/input_scaling/README.md) | 60 | Uniform points: n = 100k, 500k, 2m, 4m, 6m, 8m, 10m, 12m, 14m, 16m, 18m, 20m; five seeds; nominal 1,000 answers per query. |
 | [radius_scaling](campaigns/radius_scaling/README.md) | 35 | Four million uniform points; seven fixed radii; five seeds; 1,000 queries per instance. |
-| [static](campaigns/static/README.md) | 40 | Four million points; distribution and target-output suites; five seeds. |
+| [static](campaigns/static/README.md) | 100 | Four million points; all 20 distribution/centre/output combinations; five seeds. |
 | [GeographyLarge](campaigns/GeographyLarge/README.md) | 100 | Real pooled European POIs; n = 1â€“5 million, five seeds, four radii. |
 
 Every instance has 1,000 queries. Nonuniform fixed-size suites separate uniform and distribution-matched query centers. Input scaling and fixed-size suites calibrate radii by target output size; radius scaling uses fixed radii and paired points and query centers. Query streams differ between suites. GeographyLarge extends the source methodology and is not one of the original paper datasets.

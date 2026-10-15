@@ -22,7 +22,7 @@ fn distance(p: [u32; 3], c: [u32; 3]) -> u128 {
     p.into_iter().zip(c).map(|(x,y)| { let d=x.abs_diff(y) as u128; d*d }).sum()
 }
 fn mask(block: &Block, center: [u32; 3], radius2: u128) -> u8 {
-    #[cfg(all(target_arch="x86_64", target_feature="avx512f"))]
+    #[cfg(all(not(feature="compiler-only"), target_arch="x86_64", target_feature="avx512f"))]
     if radius2 <= 3 * u32::MAX as u128 * u32::MAX as u128 { unsafe {
         use std::arch::x86_64::*;
         let mut sum=_mm512_setzero_si512();let mut high=sum;
@@ -40,7 +40,7 @@ fn mask(block: &Block, center: [u32; 3], radius2: u128) -> u8 {
         return block.valid & (_mm512_cmplt_epu64_mask(high,hi)
             | (_mm512_cmpeq_epi64_mask(high,hi) & _mm512_cmple_epu64_mask(sum,lo)));
     }}
-    #[cfg(all(target_arch="x86_64", target_feature="avx2", not(target_feature="avx512f")))]
+    #[cfg(all(not(feature="compiler-only"), target_arch="x86_64", target_feature="avx2", not(target_feature="avx512f")))]
     if radius2 <= 3 * u32::MAX as u128 * u32::MAX as u128 { unsafe {
         use std::arch::x86_64::*;
         #[inline] unsafe fn less(a: __m256i,b: __m256i)->__m256i { unsafe {

@@ -1,5 +1,6 @@
-// Standalone 2D MortonSIMD: C++20, x86-64 AVX2 and BMI2; no library dependencies.
-// Include this file in a client compiled with -O3 -mavx2 -mbmi2.
+#pragma once
+// Standalone 2D MortonSIMD: C++20, x86-64 AVX-512F and BMI2; no library dependencies.
+// Include this file in a client compiled with -O3 -mavx512f -mbmi2.
 #include <algorithm>
 #include <array>
 #include <bit>
@@ -8,6 +9,10 @@
 #include <cstdint>
 #include <cstring>
 #include <immintrin.h>
+#include <memory>
+#include <limits>
+#include <stdexcept>
+#include <type_traits>
 #include <utility>
 #include <vector>
 namespace diskreport::morton_MortonSIMD {
@@ -15,6 +20,36 @@ using Wide = unsigned __int128;
 struct Point {
   using ElementType = uint32_t;
   uint32_t x, y;
+};
+// Reusable coordinate output. Allocated Point objects need no zero initialization;
+// only the initialized prefix [begin(), end()) is exposed to callers.
+class Results {
+  std::unique_ptr<Point[]> storage;
+  size_t used = 0, capacity = 0;
+ public:
+  Results() = default;
+  Results(const Results&) = delete;
+  Results& operator=(const Results&) = delete;
+  void clear() noexcept { used = 0; }
+  size_t size() const noexcept { return used; }
+  Point* data() noexcept { return storage.get(); }
+  const Point* data() const noexcept { return storage.get(); }
+  const Point* begin() const noexcept { return data(); }
+  const Point* end() const noexcept { return used ? data() + used : data(); }
+  void reserve_extra(size_t extra) {
+    const size_t limit = std::numeric_limits<size_t>::max() / sizeof(Point);
+    if (extra > limit - used) throw std::length_error("Morton SIMD output too large");
+    const size_t required = used + extra;
+    if (required <= capacity) return;
+    const size_t grown = capacity <= limit / 2 ? capacity * 2 : limit;
+    const size_t next_capacity = std::max(required, grown);
+    std::unique_ptr<Point[]> next(new Point[next_capacity]);
+    if (used) std::memcpy(next.get(), data(), used * sizeof(Point));
+    storage = std::move(next); capacity = next_capacity;
+  }
+  void push_back(Point p) { reserve_extra(1); storage[used++] = p; }
+ private:
+  friend class MortonSIMD;
 };
 struct Box {
   Point p, q;
@@ -45,13 +80,8 @@ struct Circle {
   }
 };
 
-// Unsigned 64-bit comparisons on AVX2: flip the sign bit before comparing.
-inline __m256i less_unsigned(__m256i a, __m256i b) {
-  const auto sign = _mm256_set1_epi64x(INT64_MIN);
-  return _mm256_cmpgt_epi64(_mm256_xor_si256(b, sign), _mm256_xor_si256(a, sign));
-}
 struct RankIndex {
-  // Original layered rank index, with two AVX2 vectors per node.
+  // Original layered rank index, with one AVX-512 vector per node.
   static constexpr size_t B = 8;
   size_t N, H, overall_size;
   std::vector<size_t> offsets;
@@ -75,13 +105,10 @@ struct RankIndex {
       }
   }
   size_t lower_bound(uint64_t key) const {
-    const auto x = _mm256_set1_epi64x(std::bit_cast<int64_t>(key));
+    const auto x = _mm512_set1_epi64(std::bit_cast<int64_t>(key));
     auto count = [&](size_t offset) {
-      auto a = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(btree.data() + offset));
-      auto b = _mm256_loadu_si256(reinterpret_cast<const __m256i*>(btree.data() + offset + 4));
-      unsigned mask = unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(less_unsigned(a, x)))) |
-          (unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(less_unsigned(b, x)))) << 4);
-      return size_t(std::popcount(mask));
+      return size_t(std::popcount(unsigned(_mm512_cmplt_epu64_mask(
+          _mm512_loadu_si512(btree.data() + offset), x))));
     };
     size_t k = 0;
     for (size_t h = H - 1; h > 0; --h) k = k * (B + 1) + count(offsets[h] + k) * B;
@@ -115,14 +142,24 @@ class MortonSIMD {
 
   }
 
-  void query(Point center, uint64_t radius, auto output) const {
-    query(Circle{center, Wide(radius) * radius}, output);
+  void query(Point center, uint64_t radius, auto&& output) const {
+    query(Circle{center, Wide(radius) * radius}, std::forward<decltype(output)>(output));
   }
   void query(const Circle& circle, auto output) const { scan(circle.bounds(), &circle, output); }
   void query(const Box& box, auto output) const { scan(box, nullptr, output); }
+  void query(const Circle& circle, Results& output) const {
+    const Box box = circle.bounds();
+    visit_ranges(box, [&](size_t start, size_t end) { report(start, end, box, &circle, output); });
+  }
+  void query(const Box& box, Results& output) const {
+    visit_ranges(box, [&](size_t start, size_t end) { report(start, end, box, nullptr, output); });
+  }
  protected:
   // Separate harness adapters can supply an already computed bounding square.
   void scan(const Box& box, const Circle* circle, auto output) const {
+    visit_ranges(box, [&](size_t start, size_t end) { report(start, end, box, circle, output); });
+  }
+  void visit_ranges(const Box& box, auto visit) const {
     const auto lo = box.p, hi = box.q;
     if (lo.x > hi.x || lo.y > hi.y) return;
 
@@ -138,12 +175,12 @@ class MortonSIMD {
       if (start < points.size() && ranks[start] < first) start = lower_bound(first);
       const size_t end = start < points.size() && ranks[start] <= last
                              ? upper_bound(last) : start;
-      report(start, end, box, circle, output);
+      visit(start, end);
       // Sorted intervals may repeat; never report a point twice.
       start = end;
     }
   }
- private:
+ protected:
   std::vector<PointType> points;
   RankIndex ranks;
 
@@ -172,60 +209,50 @@ class MortonSIMD {
 
 
   void report(size_t start, size_t end, const Box& box, const Circle* circle, auto& output) const {
+    constexpr bool batched = std::is_same_v<std::remove_cvref_t<decltype(output)>, Results>;
+    if (start == end) return;
+    // Eight-lane stores may leave seven uncommitted scratch points after the output.
+    if constexpr (batched) output.reserve_extra(end - start + 7);
     if (circle) {
       static_assert(sizeof(Point) == 8 && offsetof(Point, y) == 4);
-      const auto radius_lo = _mm256_set1_epi64x(std::bit_cast<int64_t>(uint64_t(circle->radius_squared)));
-      const auto radius_hi = _mm256_set1_epi64x(std::bit_cast<int64_t>(uint64_t(circle->radius_squared >> 64)));
-      // AVX2 compression table: preserve accepted points in scan order.
-      static constexpr auto permutations = [] {
-        std::array<std::array<int32_t, 8>, 16> table{};
-        for (unsigned mask = 0; mask < 16; ++mask) {
-          unsigned next = 0;
-          for (unsigned lane = 0; lane < 4; ++lane) if (mask & (1u << lane)) {
-            table[mask][next++] = 2 * lane; table[mask][next++] = 2 * lane + 1;
-          }
+      const auto cx = _mm512_set1_epi64(circle->center.x);
+      const auto cy = _mm512_set1_epi64(circle->center.y);
+      const auto low = _mm512_set1_epi64(UINT32_MAX);
+      const auto radius = _mm512_set1_epi64(std::bit_cast<int64_t>(uint64_t(circle->radius_squared)));
+      const uint64_t high = uint64_t(circle->radius_squared >> 64);
+      auto report_batch = [&](const __m512i points, unsigned valid) {
+        const auto x = _mm512_and_si512(points, low), y = _mm512_srli_epi64(points, 32);
+        const auto dx = _mm512_sub_epi64(_mm512_max_epu64(x,cx), _mm512_min_epu64(x,cx));
+        const auto dy = _mm512_sub_epi64(_mm512_max_epu64(y,cy), _mm512_min_epu64(y,cy));
+        const auto xx = _mm512_mul_epu32(dx,dx);
+        const auto sum = _mm512_add_epi64(xx, _mm512_mul_epu32(dy,dy));
+        const unsigned carry = _mm512_cmplt_epu64_mask(sum,xx);
+        const unsigned le = _mm512_cmple_epu64_mask(sum,radius);
+        const unsigned accepted = (high > 1 ? 255 : high ? le | ~carry : le & ~carry) & valid;
+        const auto packed = _mm512_maskz_compress_epi64(accepted,points);
+        const unsigned count = std::popcount(accepted);
+        if constexpr (batched) {
+          _mm512_storeu_si512(output.data() + output.used, packed);
+          output.used += count;
+        } else {
+          alignas(64) Point temporary[8];
+          _mm512_store_si512(temporary, packed);
+          for (unsigned i = 0; i < count; ++i) *output++ = temporary[i];
         }
-        return table;
-      }();
-      // Deinterleave eight contiguous points; widen even/odd squared distances.
-      const auto cx32=_mm256_set1_epi32(circle->center.x),cy32=_mm256_set1_epi32(circle->center.y);
-      for (; end - start >= 8; start += 8) {
-        const auto a=_mm256_loadu_si256(reinterpret_cast<const __m256i*>(points.data()+start));
-        const auto b=_mm256_loadu_si256(reinterpret_cast<const __m256i*>(points.data()+start+4));
-        const auto x=_mm256_permute4x64_epi64(_mm256_castps_si256(_mm256_shuffle_ps(
-            _mm256_castsi256_ps(a),_mm256_castsi256_ps(b),0x88)),0xd8);
-        const auto y=_mm256_permute4x64_epi64(_mm256_castps_si256(_mm256_shuffle_ps(
-            _mm256_castsi256_ps(a),_mm256_castsi256_ps(b),0xdd)),0xd8);
-        const auto dx=_mm256_sub_epi32(_mm256_max_epu32(x,cx32),_mm256_min_epu32(x,cx32));
-        const auto dy=_mm256_sub_epi32(_mm256_max_epu32(y,cy32),_mm256_min_epu32(y,cy32));
-        unsigned mask=0;
-        for(unsigned parity=0;parity<2;++parity) {
-          const auto u=parity?_mm256_srli_epi64(dx,32):dx;
-          const auto v=parity?_mm256_srli_epi64(dy,32):dy;
-          const auto xx=_mm256_mul_epu32(u,u),yy=_mm256_mul_epu32(v,v);
-          const auto sum=_mm256_add_epi64(xx,yy);
-          const auto carry=_mm256_and_si256(less_unsigned(sum,xx),_mm256_set1_epi64x(1));
-          const auto inside=_mm256_or_si256(less_unsigned(carry,radius_hi),
-              _mm256_andnot_si256(less_unsigned(radius_lo,sum),_mm256_cmpeq_epi64(carry,radius_hi)));
-          const unsigned bits=unsigned(_mm256_movemask_pd(_mm256_castsi256_pd(inside)));
-          mask|=_pdep_u32(bits,parity?0xaa:0x55);
-        }
-        for(unsigned half=0;half<2;++half) {
-          const unsigned selected=(mask>>(4*half))&15;
-          if(!selected)continue;
-          const auto permutation=_mm256_loadu_si256(reinterpret_cast<const __m256i*>(permutations[selected].data()));
-          alignas(32) uint64_t packed[4];
-          _mm256_store_si256(reinterpret_cast<__m256i*>(packed),_mm256_permutevar8x32_epi32(half?b:a,permutation));
-          for(unsigned i=0;i<unsigned(std::popcount(selected));++i) {
-            Point p;std::memcpy(&p,&packed[i],sizeof(p));*output++=p;
-          }
-        }
+      };
+      for (; end - start >= 8; start += 8)
+        report_batch(_mm512_loadu_si512(points.data()+start),255);
+      if (start < end) {
+        const unsigned valid = (1u << unsigned(end-start))-1;
+        report_batch(_mm512_maskz_loadu_epi64(valid,points.data()+start),valid);
       }
+      return;
     }
     for (; start < end; ++start) {
       const auto p = points[start];
       if (circle ? circle->contains(p) : p.x >= box.p.x && p.x <= box.q.x && p.y >= box.p.y && p.y <= box.q.y)
-        *output++ = p;
+        if constexpr (batched) output.storage[output.used++] = p;
+        else *output++ = p;
     }
   }
 };

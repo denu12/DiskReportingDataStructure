@@ -21,6 +21,7 @@ import random
 from experiment_integrity import boundary_case, machine_identity, check_answer_counts, prior_phases, SCHEDULE_SEED
 from budget import budget,policy,policy_path
 from algorithm_labels import metadata,display_name
+from workloads import validate_roster
 
 def atomic(path,obj):
  path.parent.mkdir(parents=True,exist_ok=True)
@@ -30,7 +31,10 @@ def sha(path):
  with path.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 
 def identity(root,bindir):
- return {'manifest':sha(root/'campaign.json'),**{p.name:sha(p) for p in bindir.iterdir() if p.is_file()}}
+ from original_runner import dependency_files
+ manifest=json.loads((root/'campaign.json').read_text())
+ dependencies={str(p):sha(p) for a in manifest['algorithms'] for p in dependency_files(a['name'] if isinstance(a,dict) else a)}
+ return {'manifest':sha(root/'campaign.json'),**{p.name:sha(p) for p in bindir.iterdir() if p.is_file()},'native_dependencies':dependencies}
 
 def environment(base,bindir):
  env=os.environ.copy()
@@ -42,6 +46,7 @@ def environment(base,bindir):
  return env
 
 def classify(returncode,log,result):
+ if result and result.get("status")=="unsupported_input":return "unsupported_input"
  if any(s in log for s in ['Invalid ESA2D data header','Truncated or trailing ESA2D data','Unregistered ESA algorithm','error while loading shared libraries','Failed to connect to bus']):return 'infrastructure_error'
  if 'too many items with the same position on one axis' in log.lower():return 'unsupported_input'
  if 'oom-kill' in log or 'Failed due to memory' in log:return 'memory'
@@ -130,6 +135,7 @@ class Campaign:
   fingerprint['harness']={p.name:sha(p) for p in (self.base/'tools').glob('*.py')}
   selected=self.manifest['algorithms']
   if self.args.algorithms:selected=[a for a in selected if a['name'] in self.args.algorithms]
+  validate_roster(selected)
   disabled_path=self.base/'config/disabled-algorithms.json'
   disabled=set(json.loads(disabled_path.read_text())['algorithms']) if disabled_path.exists() else set()
   selected=[a for a in selected if a['name'] not in disabled]
@@ -140,7 +146,7 @@ class Campaign:
   if self.args.phase!='correctness':
    gate=json.loads((self.runroot/'correctness/state.json').read_text())
    if gate['identity']!=fingerprint or gate['status']!='complete':raise RuntimeError('Correctness gate is stale: manifest or binaries changed')
-   allowed={a for a,v in gate['eligibility'].items() if v=='passed'}
+   allowed={a for a,v in gate['eligibility'].items() if v=='passed' or self.manifest['policy'].get('measure_failed_correctness',False)}
    for a in selected:
     if a['name'] not in allowed:
      results.extend(dict(algorithm=a['name'],case=c['id'],status='excluded_by_correctness',**metadata(a['name'])) for c in self.manifest['cases'])
@@ -150,7 +156,7 @@ class Campaign:
   if self.args.phase in ('final','contention','followup'):
    screen=json.loads((self.runroot/'screen/state.json').read_text())
    if screen['identity']!=fingerprint or screen['status']!='complete':raise RuntimeError('Screening results are stale')
-   measured={(r['algorithm'],r['case']) for r in screen['results'] if r['status']=='success'}
+   measured={(r['algorithm'],r['case']) for r in screen['results'] if r['status']=='success' or self.manifest['policy'].get('measure_failed_correctness',False)}
    if self.args.phase=='final':
     plan=json.loads((self.base/'results/_plans'/(self.args.run+'.json')).read_text())
     entry=plan['campaigns'][self.args.campaign]
@@ -170,7 +176,7 @@ class Campaign:
     measured={(r['algorithm'],r['case']) for r in rows if r['status']=='timeout'}
   if self.args.phase in ('followup','contention') and not any((a['name'],c) in measured for a in selected for c in self.args.cases):raise RuntimeError('No selected pair qualifies for this follow-up stage')
   if self.backend=='systemd':subprocess.run(['systemctl','--user','set-property','--runtime','esa2d-bench.slice',f"MemoryMax={self.manifest['policy']['aggregate_memory_gib']}G",'MemorySwapMax=0'],check=True)
-  state=dict(configured_cases=[c['id'] for c in (self.manifest['correctness'] if self.args.phase=='correctness' else self.manifest['cases'])],phase=self.args.phase,execution=dict(timeout_seconds=self.timeout,workers=min(self.stage['workers'],len(self.manifest['policy']['cpus'])),shared_budget_pool=self.stage.get('budget_pool',self.args.phase)),status='running',identity=fingerprint,results=results,eligibility={},started=datetime.datetime.now(datetime.timezone.utc).isoformat())
+  state=dict(configured_cases=[c['id'] for c in (self.manifest['correctness'] if self.args.phase=='correctness' else self.manifest['cases'])],phase=self.args.phase,execution=dict(timeout_seconds=self.timeout,workers=min(self.stage['workers'],len(self.manifest['policy']['cpus'])),shared_budget_pool=self.stage.get('budget_pool',self.args.phase)),status='running',measure_failed_correctness=self.manifest['policy'].get('measure_failed_correctness',False),identity=fingerprint,results=results,eligibility={},started=datetime.datetime.now(datetime.timezone.utc).isoformat())
   atomic(self.out/'state.json',state)
   def task(a):
    local=[];streak=0
@@ -199,7 +205,9 @@ class Campaign:
     futures=[pool.submit(one_job,*job) for job in jobs]
    for future in concurrent.futures.as_completed(futures):
     name,rows=future.result()
-    for row in rows:row.update(metadata(row['algorithm']))
+    for row in rows:
+     row.update(metadata(row['algorithm']))
+     if self.args.phase!='correctness':row['correctness_admission']=gate['eligibility'].get(row['algorithm'],'unknown')
     results.extend(rows)
     if self.args.phase=='correctness':
      state['eligibility'][name]='blocked' if any(r['status'] in ('infrastructure_error','not_started','interrupted_user') for r in rows) else 'passed' if len(rows)==len(self.manifest['correctness']) and all(r['status']=='success' for r in rows) else 'excluded'

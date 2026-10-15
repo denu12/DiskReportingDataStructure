@@ -22,7 +22,7 @@ class Rosters(unittest.TestCase):
                     if 'algorithms' in definition:self.assertEqual(definition['algorithms'],expected)
             for name in expected:self.assertTrue(metadata(name)['display_name'])
     def test_invalid_rosters(self):
-        for names in [['Morton','Morton'], ['esa_sprk_FAST_EXACT'], ['esa_sprk'], ['MortonPlusRust'], ['Morton','MortonSIMD','MortonPlusCPP','Morton3D'], ['esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_3D','esa_sprk_CHEATING_IDS_ONLY']]:
+        for names in [['Morton','Morton'], ['esa_sprk_FAST_EXACT'], ['esa_sprk'], ['MortonPlusRust'], ['Morton','MortonSIMD','MortonPlusCPP','MortonSplit','MortonTable','MortonBlocks','MortonBlocksSIMD','MortonLookupSplit','Morton3D'], ['esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_3D','esa_sprk_CHEATING_IDS_ONLY','esa_sprk_RUST_EXACT_NOSIMD']]:
             with self.subTest(names=names), self.assertRaises(ValueError):validate_roster(names)
     def test_dimension_boundaries(self):
         for d in [1,2,3,4,16,17,32,34,960]:
@@ -32,8 +32,24 @@ class Rosters(unittest.TestCase):
             self.assertEqual(runner.supported('esa_sprk_RUST_EXACT_3D',case,False),d==3)
             self.assertEqual(runner.supported('esa_sprk_CHEATING_IDS_ONLY',case,False),d in set(range(2,17))|{32})
         self.assertNotIn('Morton3D',DIMENSIONAL)
+        self.assertNotIn('MortonSIMD3D',DIMENSIONAL)
+        self.assertIn('MortonSIMD3D',STATIC_3D)
+        self.assertEqual(metadata('MortonSIMD3D')['display_name'],'Morton (simd)')
+        self.assertFalse(runner.supported('MortonSIMD3D',{'dimension':4},False))
         self.assertNotIn('MortonPlus3D',DIMENSIONAL)
         for name in DIMENSIONAL+STATIC_3D:self.assertTrue(command(name))
+    def test_retained_2d(self):
+        from algorithm_backends_2d import binary
+        self.assertEqual(len(STATIC),30)
+        self.assertTrue({'Morton','MortonSIMD','MortonPlusCPP',
+            'esa_sprk_CHEATING_IDS_ONLY','esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_NOSIMD',
+            'boost_lin','boost_quad','boost_star'} <= set(STATIC))
+        self.assertEqual(metadata('Morton')['display_name'],'Morton')
+        self.assertEqual(binary('esa_sprk_RUST_EXACT_NOSIMD'),'sprk_rust_exact_nosimd')
+        self.assertTrue(runner.supported('esa_sprk_RUST_EXACT_NOSIMD',{'dimension':2},True))
+        self.assertFalse(runner.supported('esa_sprk_RUST_EXACT_NOSIMD',{'dimension':3},False))
+        for name in ['MortonAutoSIMD','MortonSplit','MortonTable','MortonBlocks','MortonBlocksSIMD','MortonLookupSplit']:
+            with self.subTest(name=name),self.assertRaises(ValueError):validate_roster([name])
     def test_all_competitors_enabled(self):
         self.assertEqual(json.loads((ROOT/'config/disabled-algorithms.json').read_text())['algorithms'],[])
         for roster in [STATIC,STATIC_3D,DIMENSIONAL]:

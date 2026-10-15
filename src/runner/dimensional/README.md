@@ -21,3 +21,12 @@ are recorded as unsupported. Specialized Morton3D belongs to `static-3d`.
 The 3D diagnostic `esa_sprk_CHEATING_IDS_ONLY` is displayed as **SPRK (IDs only)**. Its separate Rust executable performs native f32 candidate search and exact integer membership inside timing, then materializes IDs only. Coordinates are materialized afterwards for verification. It is separate from coordinate-reporting SPRK.
 
 The diagnostic label refers to a local difference in reporting contract, not misconduct by upstream authors. See [reporting details](../../../docs/REPORTING.md).
+
+## Native output policy
+
+Retained non-SPRK runners use native reporting output. Morton returns points.
+Boost writes its native point objects directly into a reusable vector, using
+`rtree::query` with the exact sphere predicate; conversion for the oracle occurs
+after timing. SPRK configurations are unchanged; see the current
+[reporting contract](../../../docs/REPORTING.md) and root README output table.
+Validate Boost with `python tools/check_native_boost.py`.

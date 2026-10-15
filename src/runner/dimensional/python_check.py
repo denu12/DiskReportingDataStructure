@@ -41,23 +41,17 @@ for j,(c,r2) in enumerate(queries):
         actual=[i for i,row in enumerate(p) if sum((int(x)-int(y))**2 for x,y in zip(row,c))<=r2]
     elif tree is None: actual=[]
     else:
-        center=c.astype(np.float64)/2**32;radius=math.nextafter(math.sqrt(math.nextafter(r2/2**64*(1+64*d*np.finfo(float).eps),math.inf)),math.inf)
-        if kind=='esa_snn':
-            radius=math.sqrt(radius*radius+32*d*d*np.finfo(float).eps)
+        center=c.astype(np.float64)/2**32;radius=math.sqrt(r2)/2**32
         actual=tree.query_radius(center if kind=='esa_snn' else center.reshape(1,-1),radius)
         if kind!='esa_snn':actual=actual[0]
     ids=np.asarray(actual,dtype=np.intp)
     if np.any(ids<0) or np.any(ids>=n):raise ValueError("Invalid reported point ID")
-    # Exact membership and original-coordinate materialization are timed.
-    ids=np.asarray([i for i in ids if sum((int(x)-int(y))**2 for x,y in zip(p[i],c))<=r2],dtype=np.intp)
-    reported=p[ids]
+    # Retain the native indices; no timed filtering or coordinate gathering.
     if not bench: query_seconds+=time.perf_counter()-query_start
-    if not bench:
-        actual=sorted(map(tuple,reported.tolist()))
-        expected=sorted(tuple(map(int,p[i])) for i in expected)
+    if not bench: actual=sorted(map(int,ids))
     if not bench and actual!=expected:
         print(json.dumps(dict(status='incorrect',query=j,actual_count=len(actual),expected_count=len(expected))))
         sys.exit(2)
-    answers+=len(reported)
+    answers+=len(ids)
 if bench: query_seconds=time.perf_counter()-batch_start
-print(json.dumps(dict(status='success',queries=q,answers=answers,build_seconds=build_seconds,query_seconds=query_seconds)))
+print(json.dumps(dict(status='success',queries=q,answers=answers,build_seconds=build_seconds,query_seconds=query_seconds,output_contract='point_ids_only',membership_contract='original_f64_api')))

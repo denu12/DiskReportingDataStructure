@@ -37,5 +37,10 @@
   "radius": 0.01,
   "schema": 1,
   "name": "dynamic-circles",
-  "execution_policy": "config/execution.json"
+  "execution_policy": "config/execution.json",
+  "algorithms": [
+    "boost_lin_dyn",
+    "boost_quad_dyn",
+    "boost_star_dyn"
+  ]
 }

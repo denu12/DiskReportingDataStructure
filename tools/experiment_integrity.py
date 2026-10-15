@@ -82,7 +82,8 @@ def check_answer_counts(state, previous=()):
                 if state.get('phase')=='correctness': state['eligibility'][row['algorithm']]='excluded'
     state['answer_count_mismatches']=mismatches
     if mismatches:
-        state['status']='needs_attention';state['needs_attention']=True
+        state['needs_attention']=True
+        if not state.get('measure_failed_correctness',False):state['status']='needs_attention'
     return mismatches
 
 

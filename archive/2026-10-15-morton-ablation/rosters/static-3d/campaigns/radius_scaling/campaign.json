@@ -1,0 +1,94 @@
+{
+  "description": "Static 3D radius scaling at four million uniform integer points",
+  "suites": {
+    "radius_scaling": {
+      "sizes": [
+        4000000
+      ],
+      "distributions": [
+        "uniform"
+      ],
+      "radii": [
+        0.003907963209,
+        0.008419451505,
+        0.018139158393,
+        0.03907963209,
+        0.084194515048,
+        0.18139158393,
+        0.390796320898
+      ],
+      "query_centers": [
+        "uniform"
+      ]
+    }
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "queries": 1000,
+  "schema": 1,
+  "name": "radius_scaling_3d",
+  "execution_policy": "config/execution.json",
+  "dimension": 3,
+  "dimensions": [
+    3
+  ],
+  "input_format": "ddim-u32",
+  "algorithms": [
+    "Morton3D",
+    "MortonPlus3D",
+    "esa_sprk_CHEATING_IDS_ONLY",
+    "esa_sprk_RUST_EXACT_3D",
+    "chan_sss_ddim_MANUALLY_ADAPTED",
+    "stann_fr_ddim_MANUALLY_ADAPTED",
+    "ann_fr",
+    "boost_lin",
+    "boost_quad",
+    "boost_star",
+    "esa_kiddo",
+    "esa_nabo",
+    "esa_neighbourhood",
+    "esa_vptree",
+    "esa_orthtree",
+    "esa_grid",
+    "esa_sklearn_kd",
+    "esa_sklearn_ball",
+    "esa_snn",
+    "esa_snn_rust",
+    "esa_nanoflann",
+    "cgal_kd",
+    "brute_force"
+  ],
+  "source_campaign": "radius_scaling",
+  "geometry": "closed Euclidean spheres on uint32 grid",
+  "coordinate_generation": "uniform per axis; normal mean 0.5 standard deviation 0.125 clipped to [0,1]; skew has uniform x and independent exponential y,z with mean 0.1 clipped to [0,1]; nearest uint32 integer",
+  "radius_policy": "Round radius_fraction * UINT32_MAX to nearest integer; square this integer exactly. No pilot calibration.",
+  "comparison_contract": {
+    "coordinates": "uint32 grid",
+    "output": "explicit original integer coordinates",
+    "measurement": "single-core jobs; existing shared budgets and timeouts; three final repetitions",
+    "exceptions": {
+      "esa_sprk_CHEATING_IDS_ONLY": "SPRK (original): expanded f64 ball and materialized point IDs; eligible for normalization, with its distinct contract disclosed."
+    }
+  },
+  "query_design": "Fixed radii as fractions of uint32 grid width; identical indexed points and query centers across radii for each seed.",
+  "title": "radius_scaling",
+  "radius_design": {
+    "nominal_interior_answers": [
+      1,
+      10,
+      100,
+      1000,
+      10000,
+      100000,
+      1000000
+    ],
+    "unit_ball_volume": 4.1887902047863905,
+    "formula": "(nominal_answers / (4000000 * unit_ball_volume)) ** (1 / dimension)",
+    "boundary_effects": "Query centers cover the whole cube; balls intersecting boundaries return fewer points. Actual counts are measured."
+  }
+}

@@ -1,8 +1,17 @@
+# Current versions
+
+2D Plus uses the locked AVX-512 release in `config/mortonplus-2d-lock.json`.
+3D Plus now uses the 15 October AVX-512 upgrade, with exact triple compaction
+and a 512-point split cutoff; see [current 3D evidence](MORTON-3D-UPGRADE.md).
+The d-dimensional Plus implementation remains AVX2. The sections below are
+historical implementation and validation notes; their older ISA descriptions
+do not describe the current 2D/3D sources.
+
 # MortonPlus versions and dimensional extensions
 
 ## Current 2D lock: 2026-10-14-fixed-avx2-bmi2
 
-`src/morton/mortonplus.hpp` is now the 305-line fixed AVX2/BMI2 header.
+`src/morton/2d/mortonplus.hpp` is now the 305-line fixed AVX2/BMI2 header.
 SHA-256: `f1ae43f3cc98623f867cc071bfc9f49cb8d7979dfb6b5baaef2a86411503209e`.
 
 This explicitly supersedes the fixed-defaults source freeze at the user's request.
@@ -27,7 +36,7 @@ runner invocations and 2,536 differential queries against the Rust implementatio
 
 ## 3D implementations
 
-`src/morton/mortonplus3d.hpp` is standalone C++20, requiring GCC or Clang's
+`src/morton/3d/mortonplus3d.hpp` is standalone C++20, requiring GCC or Clang's
 unsigned __int128. Use `mortonplus3d::MortonPlus` and `mortonplus3d::Results`.
 The API appends original uint32 triples, preserving duplicates. It uses full
 96-bit Morton keys, an octree prefix lookup (depth capped at eight), an eight-key
@@ -79,7 +88,7 @@ validation does not establish a speed advantage over existing competitors.
 
 ## D-dimensional MortonPlus
 
-`src/morton/mortonplus_d_dim.hpp` provides
+`src/morton/d_dim/mortonplus_d_dim.hpp` provides
 `diskreport::ddimplus::MortonPlusDDim<D>` for dimensions 1 through 16.
 `Results<D>` appends original integer coordinates and bulk-copies fully contained
 ranges; output iterators are also supported. Compile with C++20 and AVX2.
@@ -112,3 +121,12 @@ All 160 runner verification/timing invocations pass independent answer-count
 checks across dimensions 1-16; dimensions 0, 17 and 32 are rejected. The scalar
 and SIMD 2D runner, existing 3D/d-dimensional runners, and new Plus dimensional
 runner compile successfully after removal of the instruction-set conditionals.
+
+## AVX-512 2D release (14 October 2026)
+
+The latest locked version is `2026-10-14-avx512-batch32-cutoff512`.
+It requires AVX512F/BMI2, scans 32-point batches with masked tails, and uses a
+512-point splitting cutoff. See [the release study](MORTONPLUS-AVX512.md).
+It passed 27,740 native/sanitizer checks and 252 runner checks on Archie.
+The separate 26-case comparison gives 1.218x geometric-mean speedup over the
+previous locked AVX2 version. No new full campaign or PDF update is claimed.

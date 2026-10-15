@@ -34,11 +34,13 @@ DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
 
 
 def supported(algorithm, case, format2d):
+    from original_runner import UNSUPPORTED
+    if algorithm in UNSUPPORTED: return False
     if algorithm == 'esa_sprk_CHEATING_IDS_ONLY': return format2d or case['dimension'] in COMPILED_DIMS
-    if algorithm in {'MortonPlusCPP','esa_sprk_RUST_EXACT'}: return format2d
+    if algorithm in {'Morton','MortonSIMD','MortonPlusCPP','esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_NOSIMD'}: return format2d
     if algorithm in {'MortonPlus3D','esa_sprk_RUST_EXACT_3D'}: return not format2d and case['dimension']==3
     if algorithm == 'MortonPlusDDim': return not format2d and 1 <= case['dimension'] <= 16
-    if algorithm == 'Morton3D': return not format2d and case['dimension'] == 3
+    if algorithm in {'Morton3D','MortonSIMD3D'}: return not format2d and case['dimension'] == 3
     if algorithm == 'morton_d_dim': return not format2d and 1 <= case['dimension'] <= 16
     return format2d or algorithm in DYNAMIC_DIMENSION or case['dimension'] in COMPILED_DIMS
 
@@ -95,9 +97,11 @@ def run_phase(args, manifest):
               Path(f'/sys/devices/system/cpu/cpu{c}/topology/core_id').read_text()) for c in cpus]
     if len(set(cores)) != len(cores) or not set(cpus) <= os.sched_getaffinity(0):
         raise RuntimeError('Configured CPUs must be distinct available physical cores')
-    paths = {p for a in algorithms for p in backend(a, format2d, args.bin_dir)}
+    from original_runner import dependency_files
+    paths = {p for a in algorithms for p in backend(a, format2d, args.bin_dir) if not p.startswith("--")}
     if format2d: paths.add(str(args.bin_dir/'libsfc_esa2026.so'))
     if not all(Path(p).is_file() for p in paths): raise RuntimeError('Build the campaign backends first')
+    paths.update(str(p) for a in algorithms for p in dependency_files(a))
     identity = dict(machine=machine_identity(cpus),schedule_seed=config.get('schedule_seed',SCHEDULE_SEED),manifest=sha(data/'campaign.json'), policy=sha(policy_path(ROOT)),
         binaries={p: sha(Path(p)) for p in sorted(paths)},
         harness={str(p.relative_to(ROOT)): sha(p) for p in sorted((ROOT/'tools/esa').glob('*.py'))})
@@ -119,7 +123,7 @@ def run_phase(args, manifest):
     if args.phase != 'correctness':
         gate = json.loads((folder/'correctness/state.json').read_text())
         if not (gate['identity'] == identity) or gate['status'] != 'complete': raise RuntimeError('Correctness gate incomplete or stale')
-        eligible = {a for a, v in gate['eligibility'].items() if v == 'passed'}
+        eligible = {a for a, v in gate['eligibility'].items() if v == 'passed' or config.get('measure_failed_correctness',False)}
     if args.phase == 'correctness':
         smallest = {}
         for c in sorted(cases, key=lambda c: (c['n'], c['id'])): smallest.setdefault(c['dimension'], c)
@@ -132,7 +136,7 @@ def run_phase(args, manifest):
         protected = args.campaign in config.get('protected_campaign_budgets', {})
         accepted = {'complete', 'budget_exhausted'} if protected else {'complete'}
         if not (screen['identity'] == identity) or screen['status'] not in accepted: raise RuntimeError('Screen is incomplete or stale')
-        measured = {(r['algorithm'], r['case']) for r in screen['results'] if r['status'] == 'success'}
+        measured = {(r['algorithm'], r['case']) for r in screen['results'] if r['status'] == 'success' or config.get('measure_failed_correctness',False)}
         loads = [0.0]*min(stage['workers'], len(cpus))
         for i, a in enumerate(algorithms):
             cost = 0.0 if a in disabled else sum(r.get('wall_seconds', 0)*repetitions*1.25 for r in screen['results'] if r['algorithm'] == a and r['status'] == 'success')
@@ -149,7 +153,7 @@ def run_phase(args, manifest):
     env['LD_LIBRARY_PATH'] = str(ROOT/'bin/lib')+os.pathsep+env.get('LD_LIBRARY_PATH', '')
     subprocess.run(['systemctl', '--user', 'set-property', '--runtime', 'esa2d-bench.slice',
                     f'MemoryMax={config["aggregate_memory_gib"]}G', 'MemorySwapMax=0'], check=True)
-    state = dict(configured_cases=[c['id'] for c in selected],status='running', phase=args.phase, identity=identity, results=[], eligibility={},
+    state = dict(measure_failed_correctness=config.get('measure_failed_correctness',False),configured_cases=[c['id'] for c in selected],status='running', phase=args.phase, identity=identity, results=[], eligibility={},
                  started_unix=time.time(), current={})
     lock = threading.Lock(); stopped = threading.Event()
     signal.signal(signal.SIGTERM, lambda *_: stopped.set()); signal.signal(signal.SIGINT, lambda *_: stopped.set())
@@ -163,6 +167,7 @@ def run_phase(args, manifest):
         for c in ([only_case] if only_case is not None else selected):
             for rep in ([only_rep] if only_rep is not None else range(repetitions)):
                 row = dict(algorithm=a, case=c['id'], dimension=c['dimension'], repetition=rep, cpu=cpu, execution_backend='systemd', **metadata(a))
+                if args.phase!='correctness':row['correctness_admission']=gate['eligibility'].get(a,'unknown')
                 status = None
                 if a in disabled: status = 'disabled_by_user'
                 elif not supported(a, c, format2d): status = 'unsupported_dimension'
@@ -260,7 +265,7 @@ def main():
     manifest = json.loads((path if path.exists() else campaign_directory(ROOT,args.campaign)/'campaign.json').read_text())
     if args.algorithms:
         if len(set(args.algorithms)) != len(args.algorithms): ap.error('Duplicate algorithms')
-        if any(a not in manifest['algorithms'] and a not in {'morton_d_dim', 'Morton3D', 'MortonPlusDDim'} for a in args.algorithms): ap.error('Unknown algorithm override')
+        if any(a not in manifest['algorithms'] and a not in (set() if manifest.get('input_format') == 'ESA2D01' else {'morton_d_dim', 'Morton3D', 'MortonPlusDDim'}) for a in args.algorithms): ap.error('Unknown algorithm override')
         manifest = dict(manifest, algorithms=args.algorithms)
     if args.describe:
         print(json.dumps(dict(name=args.campaign, status=manifest.get('status', 'not_prepared'), cases=len(manifest['cases']),

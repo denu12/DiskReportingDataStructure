@@ -1,4 +1,4 @@
-#include "morton/mortonSIMD.cc"
+#include "morton/2d/mortonSIMD.cc"
 #include "app/algorithms/static/adapter.hh"
 namespace diskreport::morton_MortonSIMD {
 class BenchmarkMortonSIMD : public MortonSIMD {

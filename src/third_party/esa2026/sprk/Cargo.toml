@@ -41,6 +41,8 @@ faer-core = { version = "0.17.1", optional = true }
 dyn-stack = { version = "0.13.2", optional = true }
 
 [features]
+# Use ordinary Rust kernels; native compiler auto-vectorization remains enabled.
+compiler-only = []
 default = ["simd-compress"]
 parallel = ["dep:rayon", "dep:sharded-vec-writer"]
 simd-compress = ["dep:simd-lookup", "dep:wide"]

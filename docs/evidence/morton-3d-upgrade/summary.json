@@ -1,0 +1,41 @@
+{
+  "Morton3D": {
+    "baseline": "old_morton",
+    "cases": 19,
+    "geomean_speedup": 0.914923405216802,
+    "wins": 3,
+    "minimum_speedup": 0.757578127770562,
+    "maximum_speedup": 1.6971523441729526,
+    "suites": {
+      "Static3D": 0.8935833415059705,
+      "input_scaling_3d": 0.8293880889385403,
+      "radius_scaling_3d": 0.9941614164207582
+    }
+  },
+  "MortonSIMD3D": {
+    "baseline": "old_morton",
+    "cases": 19,
+    "geomean_speedup": 1.2512971492047236,
+    "wins": 19,
+    "minimum_speedup": 1.1477060500294802,
+    "maximum_speedup": 1.5673810872970901,
+    "suites": {
+      "Static3D": 1.2337050264365101,
+      "input_scaling_3d": 1.2476562759967729,
+      "radius_scaling_3d": 1.27382909603775
+    }
+  },
+  "MortonPlus3D": {
+    "baseline": "old_plus",
+    "cases": 19,
+    "geomean_speedup": 1.4910397268384221,
+    "wins": 19,
+    "minimum_speedup": 1.00768734811288,
+    "maximum_speedup": 2.042867279961479,
+    "suites": {
+      "Static3D": 1.527134199685208,
+      "input_scaling_3d": 1.5233564058443663,
+      "radius_scaling_3d": 1.4331640615318
+    }
+  }
+}

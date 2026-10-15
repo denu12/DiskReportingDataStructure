@@ -1,4 +1,4 @@
-#include "../../morton/morton3D.cc"
+#include "../../morton/3d/morton3D.cc"
 #include <iterator>
 #include <fstream>
 #include <iostream>
@@ -24,6 +24,7 @@ template<std::size_t D> int run(std::istream& in) {
     for(auto& x:center)x=read<std::uint32_t>(in);
     radius2=read<std::uint64_t>(in);radius2|=W(read<std::uint64_t>(in))<<64;
   }
+  if (in.peek()!=EOF) throw std::runtime_error("Trailing input data");
   const auto build_start=std::chrono::steady_clock::now();
   I index(points);
   const double build_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-build_start).count();
@@ -38,6 +39,7 @@ template<std::size_t D> int run(std::istream& in) {
     std::vector<P> expected;
     index.query_squared(center, radius2, std::back_inserter(actual));
     if(!benchmark_mode)query_seconds+=std::chrono::duration<double>(std::chrono::steady_clock::now()-query_start).count();
+    asm volatile("" : : "r"(actual.data()), "r"(actual.size()) : "memory");
     answers += actual.size();
     if (benchmark_mode) continue;
     // Independent full scan, accumulating rather than subtracting distances.
@@ -60,12 +62,14 @@ template<std::size_t D> int run(std::istream& in) {
   if(benchmark_mode)query_seconds=std::chrono::duration<double>(std::chrono::steady_clock::now()-batch_start).count();
   std::cout << "{\"status\":\"success\",\"points\":" << n
             << ",\"queries\":" << q << ",\"answers\":" << answers
+            << ",\"dimension\":3,\"output_contract\":\"integer_points\",\"membership_contract\":\"closed_integer_ball\""
             << ",\"build_seconds\":" << build_seconds << ",\"query_seconds\":" << query_seconds << "}\n";
   return 0;
 }
 int main(int argc, char** argv) {
   try {
     if (argc < 2 || argc > 4) throw std::runtime_error("Usage: morton_3d_check CASE.bin [ALGORITHM] [--bench]");
+    if(argc==4 && std::string(argv[3])!="--bench") throw std::runtime_error("Unknown option");
     benchmark_mode=argc==4 && std::string(argv[3])=="--bench";
     const std::string algorithm = argc >= 3 ? argv[2] : "Morton3D";
     if (algorithm != "Morton3D") throw std::runtime_error("Unknown algorithm");

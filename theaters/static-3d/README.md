@@ -6,13 +6,19 @@ This theater lifts the synthetic 2D scaling and fixed-size designs to three-dime
 |---|---:|---|
 | [input_scaling](campaigns/input_scaling/README.md) | 60 | Uniform points: n = 100k, 500k, 2m, 4m, 6m, 8m, 10m, 12m, 14m, 16m, 18m, 20m; five seeds. |
 | [radius_scaling](campaigns/radius_scaling/README.md) | 35 | Four million uniform points; seven fixed radii; five seeds; 1,000 queries per instance. |
-| [Static3D](campaigns/Static3D/README.md) | 40 | Four million points; distribution and target-output suites; five seeds. |
+| [Static3D](campaigns/Static3D/README.md) | 100 | Four million points; all 20 distribution/centre/output combinations; five seeds. |
 
-Each instance has 1,000 queries. Morton3D is the specialized standalone implementation. Compatible dimensional competitors are used; SPRK has coordinate-reporting and IDs-only diagnostic entries. Input scaling and fixed-size suites calibrate output sizes. Radius scaling uses fixed radii with paired points and query centers; nonuniform fixed-size inputs have uniform and distribution-matched query variants. Generic Morton, geography and brute force are not selected by this theater.
+Each instance has 1,000 queries. The current roster contains Morton, Morton
+(simd), Morton (plus), SPRK (original), SPRK (adapted), and three Boost variants.
+Morton uses readable compiler-vectorized scans. SIMD and Plus use the validated
+AVX-512 upgrades. See [implementation and timing evidence](../../docs/MORTON-3D-UPGRADE.md).
+Input scaling and fixed-size suites calibrate output sizes; radius scaling uses
+fixed radii. Nonuniform inputs have uniform and distribution-matched queries.
+Completed older runs retain their original source versions and names.
 
 ## Prepare and run
 
-Use the [Arch setup guide](../../docs/RUNNING.md). Build the 2D programs first, then run `python tools/build_ddim.py` for dimensional backends. From the repository root, prepare missing inputs separately:
+Use the [Arch setup guide](../../docs/RUNNING.md). Build the 2D programs first, then run `python tools/build_ddim.py` for dimensional backends and `bash tools/build_selected_3d.sh` for the current Morton/SPRK selection. From the repository root, prepare missing inputs separately:
 
 ```sh
 python tools/prepare_synthetic_ddim.py --campaign input_scaling_3d radius_scaling_3d Static3D
@@ -32,4 +38,7 @@ The first command is a preview. Execution uses one worker on one core, fresh ord
 
 Results remain under `results/<campaign>/<run>/<phase>/`. Controller progress and its recorded policy are under `results/_execution-<run>/`; shared elapsed budgets are under `results/_budgets/<run>.json`. Counts above are instances, not executed or successful jobs.
 
-Publication labels and modification categories are specified in the [adapter catalog](../../docs/ADAPTERS.md). Use **STANN (adapted)** and **Chan (adapted)** consistently across dimensions; machine IDs remain unchanged.
+Publication labels and modification categories are specified in `tools/algorithm_labels.py`.
+Prepare fresh manifests after changing a roster or implementation; never replace
+completed results. The upgrade study uses sampled queries and does not replace
+the full theatre (now 195 cases) or its existing PDF results.

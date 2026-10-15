@@ -39,7 +39,7 @@ Publication labels and modification categories are specified in the [adapter cat
 
 ## MortonPlus and retained SPRK source revisions
 
-Morton (plus) is the C++ translation in `src/morton/mortonplus.hpp` of the ESA
+Morton (plus) is the C++ translation in `src/morton/2d/mortonplus.hpp` of the ESA
 authors' MortonPlus algorithm, Rust implementation by Dennis Kobert. Credit:
 Thomas Blasius, Jean-Pierre von der Heydt, Tobias Kempf, Dennis Kobert and Nikolai
 Maas, authors of *Benchmarking and Engineering Data Structures for Spherical

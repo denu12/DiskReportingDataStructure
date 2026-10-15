@@ -70,6 +70,7 @@ def preflight(campaigns, algorithms, hash_inputs):
     disabled = set(read(ROOT / 'config/disabled-algorithms.json')['algorithms'])
     from algorithm_backends_2d import binary as binary_2d
     from backends import command as dimensional_command
+    from original_runner import dependency_files
     for name in campaigns:
         definition = campaign_directory(ROOT, name) / 'campaign.json'
         path = ROOT / 'data' / name / 'campaign.json'
@@ -101,11 +102,12 @@ def preflight(campaigns, algorithms, hash_inputs):
         if format2d:
             binaries.add(ROOT / 'bin/esa2d/libsfc_esa2026.so')
         for algorithm in selected:
+            binaries.update(dependency_files(algorithm))
             if format2d:
                 binaries.add(ROOT / 'bin/esa2d' / binary_2d(algorithm))
             else:
                 try:
-                    binaries.update(Path(p) for p in dimensional_command(algorithm))
+                    binaries.update(Path(p) for p in dimensional_command(algorithm) if not p.startswith("--"))
                 except KeyError:
                     errors.append(f'{name}: no backend for {algorithm}')
         for case in manifest.get('cases', []):
