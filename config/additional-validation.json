@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-21",
+  "environment": "Ubuntu 24.04 WSL, local adapter validation only",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "suite": "tests/check_additional_competitors.py",
+  "runs": 360,
+  "summary": {
+    "phtree": {
+      "success": 36
+    },
+    "pgm_multidimensional": {
+      "success": 16,
+      "unsupported_input": 16,
+      "process_failure": 4
+    },
+    "psi_kd": {
+      "success": 36
+    },
+    "psi_orth": {
+      "success": 36
+    },
+    "psi_spac_z": {
+      "success": 36
+    },
+    "psi_spac_h": {
+      "success": 36
+    },
+    "lsi_linear": {
+      "success": 36
+    },
+    "lsi_quadratic": {
+      "success": 36
+    },
+    "lsi_rstar": {
+      "success": 36
+    },
+    "lsi_str": {
+      "success": 36
+    }
+  },
+  "binary_sha256": {
+    "check_pgm": "f05d7b3d7e79880aba520f68b94be41dc57a01fd168af91dc2f8ac57000a5022",
+    "check_phtree": "7b2f7946a8c2a1582ab0b97d7080a89332ec512a618f6b2f3755224760104eee",
+    "check_psi": "ca174473a1ae82983f82a24e12a60e69c71e9ebcd43a4288c15d90889e11ee45",
+    "check_spatialindex": "a414562fd8adb53a41e404a3f049dfb0e2b6c11e0f6b12e8ec51b5bb2dcaa467"
+  },
+  "notes": [
+    "Nine entries pass 18 cases each in verification and timing modes.",
+    "PGM: supported-width nonempty cases pass; four empty-input crashes; full-width input unsupported.",
+    "No campaign performance conclusions follow from these local tests."
+  ]
+}

@@ -41,6 +41,10 @@ Chan's original source and the recovered STANN mirror did not include explicit l
 
 ## Experimental use
 
+Current original-API policy, labels and native output contracts are specified in
+[ORIGINAL-CAMPAIGN.md](ORIGINAL-CAMPAIGN.md); it supersedes older adaptation notes
+below. New implementations are documented in [ADDITIONAL-COMPETITORS.md](ADDITIONAL-COMPETITORS.md).
+
 Current workload membership is listed in the [theater index](../theaters/README.md). Prepared manifests identify candidate configurations; ordinary-workload correctness and dimension support determine which jobs proceed. The dimensional scan control is included; it has no construction normalization ratio. GPU comparisons are excluded.
 
 The two local SPRK configurations compare coordinate reporting with an explicitly labelled IDs-only diagnostic. See the [reporting contract](REPORTING.md) for the timed-work distinction and the limits of comparing these runs with the source paper. Upstream READMEs and licenses are preserved as third-party documents; they do not describe this project's orchestration policy.
@@ -66,3 +70,22 @@ and authors Dennis Kobert and Tobias Kempf are retained. The campaign driver is
 local integration code. The old local integer adapter has been replaced, not
 renamed as the authors' implementation. The Rust MortonPlus implementation is
 not vendored as an active competitor.
+
+## Additional original implementations
+
+All five repositories below are unmodified Git submodules. The superproject's
+gitlinks and `config/additional-sources.json` record exact revisions. Their
+licenses and notices remain inside the upstream repositories.
+
+| Source | Credit | License | Use |
+|---|---|---|---|
+| [PGM-index](https://github.com/gvinciguerra/PGM-index) | Paolo Ferragina and Giorgio Vinciguerra; multidimensional implementation in the authors' library | Apache-2.0; bundled components retain their notices | Original multidimensional range API; restricted coordinates and failed checks documented |
+| [PH-tree C++](https://github.com/tzaeschke/phtree-cpp) | Tilmann Zäschke; derived from Improbable's implementation. PH-tree research: Zäschke, Zimmerli and Norrie, SIGMOD 2014 | Apache-2.0 | Author-maintained multimap, native IDs |
+| [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | Ziyang Men, Bo Huang, Yan Gu and Yihan Sun, Parallel Dynamic Spatial Indexes, PPoPP 2026; Men, Shen, Gu and Sun, Parallel kd-tree with Batch Updates, 2025 | MIT plus upstream third-party notices | Maintained authors' k-d, P-Orth, SPaC-Z and SPaC-H implementations |
+| [libspatialindex](https://github.com/libspatialindex/libspatialindex) | Marios Hadjieleftheriou and contributors | MIT, with upstream licensing history retained | Native linear, quadratic, R-star and STR-packed R-trees |
+| [PMQ](https://github.com/cicerolp/pmq) | Júlio Toss, Cícero A. L. Pahins, Bruno Raffin and João L. D. Comba, Computers & Graphics 2018 | GPL-3.0 | Original source included; missing external `pma_cd` dependency blocks integration |
+
+SpaceTreeLib's nested Parlay and libmorton repositories are initialized at the
+revisions specified by its own gitlinks. Benchmark adapters are separate from
+upstream code. The PH-tree C++ fork and maintained PSI revision are identified
+explicitly; neither is represented as the exact historical paper artifact.

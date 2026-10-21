@@ -16,9 +16,14 @@ are recorded in [publication status](docs/PUBLICATION.md).
 - **Run experiments:** [`run_theater.py`](run_theater.py) is the single top-level entry point. [Build and preparation instructions](docs/RUNNING.md) explain how to supply its inputs.
 - **Understand the comparison:** [reporting contract and adaptations](docs/REPORTING.md), [experimental protocol](docs/EXPERIMENTS.md), and [third-party credits](docs/THIRD_PARTY.md).
 
-## Active algorithms (15 October 2026)
+## Active algorithms (21 October 2026)
 
-The current 2D comparison contains only these nine configurations:
+The 2D roster has 40 entries and the 3D roster has 34, including controls and
+entries with explicit unsupported outcomes. The retained Morton, SPRK and Boost
+configurations are listed below. The other original competitors are described in
+[the original-API campaign](docs/ORIGINAL-CAMPAIGN.md).
+The ten newly integrated entries, their output types, and validation limitations
+are listed in [additional competitors](docs/ADDITIONAL-COMPETITORS.md).
 
 | Name | Machine ID | Implementation |
 |---|---|---|
@@ -39,8 +44,8 @@ Historical measurement files retain their original machine IDs; reports map the
 completed `MortonAutoSIMD` campaign to the new Morton name. Older `Morton`
 measurements describe the previous scalar version and must not be mixed with it.
 
-Three-dimensional and d-dimensional defaults retain only the available Morton,
-SPRK and Boost implementations. The 3D roster now contains compiler-vectorized Morton, explicit AVX-512 Morton
+Three-dimensional and d-dimensional defaults also include the external competitors
+listed in their campaign definitions. The 3D roster contains compiler-vectorized Morton, explicit AVX-512 Morton
 (simd), and AVX-512 Morton (plus). The adapted no-SIMD SPRK configuration is
 currently a 2D implementation. Dynamic
 defaults retain the three Boost variants. Completed campaigns remain unchanged.

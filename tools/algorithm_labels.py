@@ -20,6 +20,8 @@ LABELS = {
  'nanoflann_dyn_UPSTREAM': 'nanoflann', 'pkd_dyn_UPSTREAM': 'Pkd-tree',
  'thst_rtree_dyn_UPSTREAM': 'THST R-tree', 'thst_quad_dyn_UPSTREAM': 'THST quadtree',
 }
+from additional_competitors import LABELS as ADDITIONAL_LABELS, metadata as additional_metadata
+LABELS.update(ADDITIONAL_LABELS)
 LOCAL = {'Morton','MortonSIMD','MortonSIMD3D','Morton3D','morton_d_dim','naive','brute_force'}
 REIMPLEMENTED = {'chan_sss','chan_sss_ddim_MANUALLY_ADAPTED','chan_sss_dyn_ADAPTED_DYNAMIC'}
 MODIFIED = {'pargeo','stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
@@ -27,6 +29,7 @@ MODIFIED = {'pargeo','stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
 PATCHED = {'esa_kiddo','esa_grid','esa_neighbourhood'}
 
 def metadata(algorithm):
+    if algorithm in ADDITIONAL_LABELS: return additional_metadata(algorithm)
     from original_runner import RUST, PYTHON, UNSUPPORTED
     label = LABELS[algorithm]
     if algorithm in UNSUPPORTED and algorithm not in LOCAL and algorithm not in {'esa_sprk_CHEATING_IDS_ONLY','esa_sprk_RUST_EXACT_NOSIMD','esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_3D','MortonPlusCPP','MortonPlus3D','MortonPlusDDim'}:

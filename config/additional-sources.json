@@ -1,0 +1,34 @@
+{
+  "sources": [
+    {
+      "path": "src/third_party/pgm-index",
+      "url": "https://github.com/gvinciguerra/PGM-index.git",
+      "revision": "c6fcf3d34e55eb0061b01e2f49dfcbdb711f1407",
+      "source_modified": false
+    },
+    {
+      "path": "src/third_party/phtree-cpp",
+      "url": "https://github.com/tzaeschke/phtree-cpp.git",
+      "revision": "488121150a64f86890bb4c7e8e62e82903f301a7",
+      "source_modified": false
+    },
+    {
+      "path": "src/third_party/space-tree-lib",
+      "url": "https://github.com/ucrparlay/SpaceTreeLib.git",
+      "revision": "212220fa439d5c365315a343af6302d51d599814",
+      "source_modified": false
+    },
+    {
+      "path": "src/third_party/pmq",
+      "url": "https://github.com/cicerolp/pmq.git",
+      "revision": "ed82ff11385c2465eedcd56ef16ce0991c073f31",
+      "source_modified": false
+    },
+    {
+      "path": "src/third_party/libspatialindex",
+      "url": "https://github.com/libspatialindex/libspatialindex.git",
+      "revision": "2fb81f6405af70c871ddc0be709cb325e78e9550",
+      "source_modified": false
+    }
+  ]
+}

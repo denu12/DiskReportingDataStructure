@@ -140,6 +140,8 @@ Query create(Data& d,const std::string&){
   asm volatile(""::"r"(hits->data()),"r"(hits->size()):"memory");
  },[hits]{return hits->size();},[&,hits](std::size_t q){std::vector<Point> actual,expected;for(auto p:*hits)actual.push_back({std::uint32_t(p.second),std::uint32_t(p.first)});for(std::size_t i=0;i<d.points.size();++i)if(d.contains(i,q))expected.push_back(d.points[i]);std::sort(actual.begin(),actual.end());std::sort(expected.begin(),expected.end());return actual==expected;}};
 }
+#elif defined(BACKEND_ADDITIONAL)
+#include "additional_indexes.h"
 #elif defined(BACKEND_BRUTE)
 const char* output_contract="point_ids_only";const char* output_representation="indices";const char* membership_contract="closed_integer_ball";
 Query create(Data& d,const std::string&){auto hits=std::make_shared<std::vector<std::size_t>>();return {[&,hits](std::size_t q){hits->clear();for(std::size_t i=0;i<d.points.size();++i)if(d.contains(i,q))hits->push_back(i);},[hits]{return hits->size();},[&,hits](std::size_t q){return verify_ids(d,q,*hits);}};}

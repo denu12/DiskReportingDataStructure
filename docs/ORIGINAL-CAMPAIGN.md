@@ -1,5 +1,12 @@
 ## Original-API campaign (15 October 2026)
 
+**21 October extension:** newly prepared 2D/3D campaigns add ten entries from
+PH-tree, PGM-index, SpaceTreeLib and libspatialindex. The roster is now 40 in 2D
+and 34 in 3D, including controls and explicitly unsupported entries. Nine new
+entries passed the local adapter checks; PGM has documented failures and input
+limits. See [additional competitors](ADDITIONAL-COMPETITORS.md). The 15 October
+campaign snapshots described below retain their original rosters.
+
 The full competitor roster is restored: 30 entries in 2D and 24 in 3D, including
 scan controls. Morton uses the retained implementations; SPRK stays as configured.
 Other competitors use original search implementations and native outputs. Necessary

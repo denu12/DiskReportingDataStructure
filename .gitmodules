@@ -1,3 +1,18 @@
 [submodule "src/third_party/psql-refine-z-range"]
 	path = src/third_party/psql-refine-z-range
 	url = https://github.com/dbgroup-nagoya-u/psql-refine-z-range.git
+[submodule "src/third_party/pgm-index"]
+	path = src/third_party/pgm-index
+	url = https://github.com/gvinciguerra/PGM-index.git
+[submodule "src/third_party/phtree-cpp"]
+	path = src/third_party/phtree-cpp
+	url = https://github.com/tzaeschke/phtree-cpp.git
+[submodule "src/third_party/space-tree-lib"]
+	path = src/third_party/space-tree-lib
+	url = https://github.com/ucrparlay/SpaceTreeLib.git
+[submodule "src/third_party/pmq"]
+	path = src/third_party/pmq
+	url = https://github.com/cicerolp/pmq.git
+[submodule "src/third_party/libspatialindex"]
+	path = src/third_party/libspatialindex
+	url = https://github.com/libspatialindex/libspatialindex.git

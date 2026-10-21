@@ -20,6 +20,9 @@ DIMENSIONAL_EXTERNAL = [
  'esa_nanoflann', 'cgal_kd', 'brute_force']
 STATIC_3D = ['Morton3D','MortonSIMD3D','MortonPlus3D','esa_sprk_CHEATING_IDS_ONLY',
              'esa_sprk_RUST_EXACT_3D'] + DIMENSIONAL_EXTERNAL
+from additional_competitors import BACKENDS as ADDITIONAL_BACKENDS
+STATIC += list(ADDITIONAL_BACKENDS)
+STATIC_3D += list(ADDITIONAL_BACKENDS)
 DIMENSIONAL = ['morton_d_dim','MortonPlusDDim','esa_sprk_CHEATING_IDS_ONLY',
                'esa_sprk_RUST_EXACT_3D'] + DIMENSIONAL_EXTERNAL
 

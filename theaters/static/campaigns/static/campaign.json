@@ -80,6 +80,16 @@
     "esa_sklearn_kd",
     "esa_sklearn_ball",
     "esa_snn",
-    "esa_nanoflann"
+    "esa_nanoflann",
+    "phtree",
+    "pgm_multidimensional",
+    "psi_kd",
+    "psi_orth",
+    "psi_spac_z",
+    "psi_spac_h",
+    "lsi_linear",
+    "lsi_quadratic",
+    "lsi_rstar",
+    "lsi_str"
   ]
 }

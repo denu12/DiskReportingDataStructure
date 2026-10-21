@@ -12,9 +12,14 @@ RUST = {'esa_kiddo','esa_nabo','esa_neighbourhood','esa_vptree','esa_orthtree','
 PYTHON = {'esa_sklearn_kd','esa_sklearn_ball','esa_snn','brute_force'}
 UNSUPPORTED = {'chan_sss','stann_fr','chan_sss_ddim_MANUALLY_ADAPTED','stann_fr_ddim_MANUALLY_ADAPTED'}
 FOREIGN = {'ann_fr':'ann','esa_nanoflann':'nano','cgal_kd':'cgal','pargeo':'pargeo','pam':'pam'}
+from additional_competitors import BACKENDS
+FOREIGN.update(BACKENDS)
 TWO_D = RUST | PYTHON | UNSUPPORTED | {'ann_fr','esa_nanoflann','pargeo','pam','cgal_kd'}
+TWO_D |= set(BACKENDS)
 
 def dependency_files(algorithm):
+    if algorithm in BACKENDS and BACKENDS[algorithm]=='spatialindex':
+        return [ROOT/'build/dimensional/check_spatialindex',ROOT/'build/libspatialindex/src/libspatialindex.so']
     if algorithm in UNSUPPORTED:return [ROOT/'tools/original_runner.py']
     if algorithm in RUST:return [ROOT/'build/original-rust/release/original-range-check']
     if algorithm in PYTHON:return [ROOT/'src/runner/dimensional/python_check.py']
