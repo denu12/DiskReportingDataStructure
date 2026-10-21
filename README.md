@@ -9,6 +9,8 @@ are recorded in [publication status](docs/PUBLICATION.md).
 
 ## Start here
 
+- **Sugiura–Ishikawa original implementation:** [upstream PostgreSQL code](src/third_party/psql-refine-z-range/README.md), included unchanged as a pinned Git submodule. Initialise it with `git submodule update --init src/third_party/psql-refine-z-range`. Source is available locally; benchmark integration is pending. See [third-party credits](docs/THIRD_PARTY.md#sugiuraishikawa-z-ordered-range-refinement).
+
 - **Our code:** Morton variants and tests in [2d](src/morton/2d/README.md), [3d](src/morton/3d/README.md), [d_dim](src/morton/d_dim/README.md), and [dynamic](src/morton/dynamic/README.md).
 - **Use an index directly:** [standalone 2D example](docs/MORTON.md) and [Morton directory guide](src/morton/README.md).
 - **Run experiments:** [`run_theater.py`](run_theater.py) is the single top-level entry point. [Build and preparation instructions](docs/RUNNING.md) explain how to supply its inputs.

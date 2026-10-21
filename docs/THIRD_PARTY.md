@@ -1,5 +1,15 @@
 # Third-party credits
 
+## Sugiura–Ishikawa Z-ordered range refinement
+
+Kento Sugiura and Yoshiharu Ishikawa, *Z-ordered Range Refinement for Multi-dimensional Range Queries* (2023): [paper](https://arxiv.org/abs/2305.12732), [original source](https://github.com/dbgroup-nagoya-u/psql-refine-z-range).
+
+The original source is included unchanged as the Git submodule `src/third_party/psql-refine-z-range`, pinned to `5162f8700a150cdb0dba77159c5cc9b6bbb47a82`. Run `git submodule update --init src/third_party/psql-refine-z-range` after cloning this repository. No C++ translation or replacement implementation has been added.
+
+Upstream provides PostgreSQL PL/pgSQL functions, including `GetNextJumpIn`, `GetNextJumpOut`, `RefineZOrderRange`, and `LoosenZOrderRange`, plus pgTAP tests and installation scripts. `RefineZOrderRange` returns Z-order interval endpoints, rather than materialized distance-query answers. It limits the combined coordinate encoding to 63 bits. A PostgreSQL benchmark integration must preserve these semantics and disclose its precision and distance-filtering wrapper.
+
+Status: original source acquired; no benchmark runner, correctness validation, or timings yet. This is not an additional measured competitor. The pinned upstream revision contains no explicit license file; this project's license does not apply to it.
+
 External source retains its original copyright and license notices. The project license does not replace them. Bazel revisions and hashes are in `src/MODULE.bazel`; Rust versions are in `src/third_party/esa2026/Cargo.lock`; Python versions are in its `python-requirements.txt`.
 
 | Entries | Upstream credit and source |
