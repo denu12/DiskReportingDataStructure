@@ -1,0 +1,3804 @@
+{
+  "date": "2026-10-21",
+  "method": "Physical source lines, including blank lines, comments and inline examples/tests. Separate tests/drivers and external dependencies excluded except where scope explicitly says otherwise.",
+  "counts": {
+    "Boost": {
+      "source": "https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/boost.geometry+/include/boost/geometry/index",
+      "files": [
+        {
+          "path": "adaptors/query.hpp",
+          "lines": 93,
+          "sha256": "56dbebac8d3e653d7cf17f42e219bada7842fc88fba4848000ba4bd75ce8c3ee"
+        },
+        {
+          "path": "detail/algorithms/bounds.hpp",
+          "lines": 227,
+          "sha256": "cae08137007c69d9192bdea1e1478230cefcfb9ebff39fa054cd2eb676012ea8"
+        },
+        {
+          "path": "detail/algorithms/comparable_distance_centroid.hpp",
+          "lines": 84,
+          "sha256": "83263ce231e6889c9baae35c9f1faeab5f551e4b4d604247517f196ae84d819e"
+        },
+        {
+          "path": "detail/algorithms/comparable_distance_far.hpp",
+          "lines": 73,
+          "sha256": "172ce79211d1dfe47f0bf3cb81e2240acca4e7b5f6304acb5849b63ff7e59599"
+        },
+        {
+          "path": "detail/algorithms/comparable_distance_near.hpp",
+          "lines": 84,
+          "sha256": "8fce0b609f69ff70d71d45496fed7a6a71030d060d57f38b5fb5867814971910"
+        },
+        {
+          "path": "detail/algorithms/content.hpp",
+          "lines": 103,
+          "sha256": "3522bad99a19d60896f7e91304658cf122549052e04122bdf525fdd1363a2e68"
+        },
+        {
+          "path": "detail/algorithms/diff_abs.hpp",
+          "lines": 47,
+          "sha256": "bc23b7a35c444bbf777cdd6c1cb01ba54b022911bcac10358b8c68845281c8ef"
+        },
+        {
+          "path": "detail/algorithms/intersection_content.hpp",
+          "lines": 78,
+          "sha256": "c0f3095004dea21456907328a113930c41e765a89cebea07c1485e0ddaf246e0"
+        },
+        {
+          "path": "detail/algorithms/is_valid.hpp",
+          "lines": 97,
+          "sha256": "a627d26a4daf0d84dd0b811ddbca173b62cd43c137dd9bdb3b3b1a57291c0546"
+        },
+        {
+          "path": "detail/algorithms/margin.hpp",
+          "lines": 185,
+          "sha256": "386be18e61c066291fe8a4ef2a7062745264bb99c333dd9d898fae1a9797c569"
+        },
+        {
+          "path": "detail/algorithms/minmaxdist.hpp",
+          "lines": 124,
+          "sha256": "e084839004d2908c5eef229f1cb759e074e8ee1480e59f137da3bdfdce2c4b5a"
+        },
+        {
+          "path": "detail/algorithms/nth_element.hpp",
+          "lines": 62,
+          "sha256": "9d2f87d68911c65364866751e99bb562a838b66cebf5fc0b1c7f971f4b8622eb"
+        },
+        {
+          "path": "detail/algorithms/path_intersection.hpp",
+          "lines": 139,
+          "sha256": "7d435f9d8ac6c39443d2e1b42c7eaf2d37543b38a07d2b4e4a544ab814622cbc"
+        },
+        {
+          "path": "detail/algorithms/segment_intersection.hpp",
+          "lines": 165,
+          "sha256": "a5ffe2e9d4d58b062efd1aee4e3628519923ca9fc7873f1b69ac220d8a0f725a"
+        },
+        {
+          "path": "detail/algorithms/smallest_for_indexable.hpp",
+          "lines": 85,
+          "sha256": "2669bb4f88c9e1c577545247e3fa860d30dda6d4168268f7f69983d5d9c522fc"
+        },
+        {
+          "path": "detail/algorithms/sum_for_indexable.hpp",
+          "lines": 81,
+          "sha256": "90ac1aaa9ba9309a32810aa0310761b4166ad4e23e1675430738f48fad1707bc"
+        },
+        {
+          "path": "detail/algorithms/union_content.hpp",
+          "lines": 33,
+          "sha256": "d7fb5bd800aaeffd0e87bdecf2ab7f49ddc41512afdca3746d251b2106d86836"
+        },
+        {
+          "path": "detail/assert.hpp",
+          "lines": 19,
+          "sha256": "d3471cb12ecb7699bbf63fdf66cff7456ce2bb1c136bb95fc107fe18538c66e8"
+        },
+        {
+          "path": "detail/bounded_view.hpp",
+          "lines": 288,
+          "sha256": "492fbb6b1d2afd82cb8209b37224def9307726934a694144435fbd22940d8195"
+        },
+        {
+          "path": "detail/config_begin.hpp",
+          "lines": 21,
+          "sha256": "5001027d4325e4e9bd8c8e6c2956d32c6bbc1aa131aee8556135ec512595518d"
+        },
+        {
+          "path": "detail/config_end.hpp",
+          "lines": 12,
+          "sha256": "d24311fd73c94edde68785bf752bbebfa1d644d63bf0d1f80f9ccf0adfbe3edc"
+        },
+        {
+          "path": "detail/distance_predicates.hpp",
+          "lines": 228,
+          "sha256": "cecf5a41b64ba6ab92ab7d0d15b623c4d79c57dce6f51772c9e1ea89ef7d40f1"
+        },
+        {
+          "path": "detail/exception.hpp",
+          "lines": 87,
+          "sha256": "971a4c82886b046fcc47a6c1eab3ec06e03e4182dd9ee50599093be795fc1ae7"
+        },
+        {
+          "path": "detail/is_bounding_geometry.hpp",
+          "lines": 35,
+          "sha256": "a573c973a1e6dbc589a593d257e640d95385fde5a2f30ed14bd096b247ab26ff"
+        },
+        {
+          "path": "detail/is_indexable.hpp",
+          "lines": 47,
+          "sha256": "0fa6c63d1ec103911ec7ce9c8c96fe47bb37901d3b9a38566f43b2e51112d983"
+        },
+        {
+          "path": "detail/maxmin_heap.hpp",
+          "lines": 107,
+          "sha256": "59b0ba1a77eddccd9f1a6c7e2284f57d0990d1d6bdb6c220709ddeeefa882357"
+        },
+        {
+          "path": "detail/meta.hpp",
+          "lines": 101,
+          "sha256": "bcaa66b880d557d380848b19f223720739ba359f282090b1401ada6e47ef3667"
+        },
+        {
+          "path": "detail/minmax_heap.hpp",
+          "lines": 521,
+          "sha256": "cf211ce892105d1bd9e56cf6041ee46d5fab03dde20d42bddb56148ea8c458fb"
+        },
+        {
+          "path": "detail/predicates.hpp",
+          "lines": 736,
+          "sha256": "5dfd4c182ce9422c178f378c070962b413bc0b5ac5a709ee6897ba16bc7c14b9"
+        },
+        {
+          "path": "detail/priority_dequeue.hpp",
+          "lines": 150,
+          "sha256": "0a27884a16aa5a437254aa0c398236c47ea2e05a3b0a9950e897927770025581"
+        },
+        {
+          "path": "detail/rtree/adaptors.hpp",
+          "lines": 58,
+          "sha256": "4e4e2b7c09f8a96a2debc4fef3c49a953ce826ad570839ecedada1cc246d0a65"
+        },
+        {
+          "path": "detail/rtree/iterators.hpp",
+          "lines": 130,
+          "sha256": "63bd0ff252555b82e335b48e9ad0d2717d98b671efa037b5bcfd1427906f5c94"
+        },
+        {
+          "path": "detail/rtree/kmeans/kmeans.hpp",
+          "lines": 20,
+          "sha256": "586f314c45f01c0961fb5d9b8cf290af79ca9d6936b75b5bbad434b135173b5b"
+        },
+        {
+          "path": "detail/rtree/kmeans/split.hpp",
+          "lines": 104,
+          "sha256": "dac456e9b6fe566060731542e268c4a39d8c5148c932ed55ec8f486a9d8b3bf7"
+        },
+        {
+          "path": "detail/rtree/linear/linear.hpp",
+          "lines": 16,
+          "sha256": "ae655b5ae8e6e68dd882b47c0bb62c269a3b6e0339d8f5958382023c9ec0aed1"
+        },
+        {
+          "path": "detail/rtree/linear/redistribute_elements.hpp",
+          "lines": 477,
+          "sha256": "42b6d9e2f691e34877eeee4ac2bd3ef66dad3eb81e88c81ff1bced54178663e9"
+        },
+        {
+          "path": "detail/rtree/node/concept.hpp",
+          "lines": 84,
+          "sha256": "1e9f37057629485e90aeddfeaf6c44e44df50e7742b5e80df6d786597de99e45"
+        },
+        {
+          "path": "detail/rtree/node/node.hpp",
+          "lines": 230,
+          "sha256": "2bbd68b9804c3cd37baa1b489077c00b1de227012ecb326fb2076e1388addfb3"
+        },
+        {
+          "path": "detail/rtree/node/node_elements.hpp",
+          "lines": 115,
+          "sha256": "2998b520d5ee529a7bcf5222c1a04b9f6e720f8e9396b0456c8cfdba564e8bb7"
+        },
+        {
+          "path": "detail/rtree/node/pairs.hpp",
+          "lines": 40,
+          "sha256": "a785b0515a2a947123d8f691e931a8f36725bf18c6ebaa04ad5f893447c9f359"
+        },
+        {
+          "path": "detail/rtree/node/scoped_deallocator.hpp",
+          "lines": 57,
+          "sha256": "c5faa083d005f8da0e0a93dd52909da926eba580632e100741b16e43472624e3"
+        },
+        {
+          "path": "detail/rtree/node/subtree_destroyer.hpp",
+          "lines": 84,
+          "sha256": "8178741290e3a50a50d256803e22d46e3a58ad49edf7255eba4e87557e24483e"
+        },
+        {
+          "path": "detail/rtree/node/variant_dynamic.hpp",
+          "lines": 310,
+          "sha256": "e9d99b9dcdbfdd0f5e5e64b7d41d54f7a728edf8184cc3d8cb21c2d1299a91b4"
+        },
+        {
+          "path": "detail/rtree/node/variant_static.hpp",
+          "lines": 172,
+          "sha256": "1e27c43711c1bb4bed1e8b7d697e1a1269eb654e6828cb45c92624e305892786"
+        },
+        {
+          "path": "detail/rtree/node/variant_visitor.hpp",
+          "lines": 68,
+          "sha256": "f22035ce12f49626ac224d097dfffcbaf1217c12e16f6427d8dd775e02a3c717"
+        },
+        {
+          "path": "detail/rtree/node/weak_dynamic.hpp",
+          "lines": 357,
+          "sha256": "20bee7812ed337d4a7733ce8f2f0746e9997eb63694a8b69e183053589aff45e"
+        },
+        {
+          "path": "detail/rtree/node/weak_static.hpp",
+          "lines": 182,
+          "sha256": "cb0d9b731d81e0bcaab8d134217409f242d28c3afa1a17765f0ae2d2dba3792f"
+        },
+        {
+          "path": "detail/rtree/node/weak_visitor.hpp",
+          "lines": 73,
+          "sha256": "69f33b92cc48459f0ae153fb028bed508e67af64bca04cb2f8e8f5c011991177"
+        },
+        {
+          "path": "detail/rtree/options.hpp",
+          "lines": 174,
+          "sha256": "6b9266bbe7b3f7c15bda07d1c9bf9e833ae740ce8006944d9cb839416c5687d9"
+        },
+        {
+          "path": "detail/rtree/pack_create.hpp",
+          "lines": 524,
+          "sha256": "f1190d356094cb36c7612ac8c0951fde351138ae241796c04cb20261baf65a11"
+        },
+        {
+          "path": "detail/rtree/quadratic/quadratic.hpp",
+          "lines": 16,
+          "sha256": "f15278000ebfd041774c9d5f60f8bdb160c08a00533c8cd8d624d58bf228e97c"
+        },
+        {
+          "path": "detail/rtree/quadratic/redistribute_elements.hpp",
+          "lines": 317,
+          "sha256": "5ac84346a7c4b7d7c1122870d0fa252a2822cb52b6a4ac91e18e29a08f063f49"
+        },
+        {
+          "path": "detail/rtree/query_iterators.hpp",
+          "lines": 348,
+          "sha256": "aa9f44a7ced83dab625ea0ff78ddfab4e21f9a6b681362a7bb933f43372a717c"
+        },
+        {
+          "path": "detail/rtree/rstar/choose_next_node.hpp",
+          "lines": 269,
+          "sha256": "29e00b46015c4a751718a37b8f14c6d355ffd0c76f4134627fc4f87e1c3be0ab"
+        },
+        {
+          "path": "detail/rtree/rstar/insert.hpp",
+          "lines": 685,
+          "sha256": "e8523fdaff6b59e0eb4a7c3d74fb9f07b0668a938fa5714fb975350bcec8394f"
+        },
+        {
+          "path": "detail/rtree/rstar/redistribute_elements.hpp",
+          "lines": 510,
+          "sha256": "ec9ac94eb78afc7e967e5506850ea73a6fb52fee62dd9a5ad0981ae8cf28eb8f"
+        },
+        {
+          "path": "detail/rtree/rstar/rstar.hpp",
+          "lines": 18,
+          "sha256": "f127317fa2c88fa0befca2ac1d8f1a01111449c279b6d8f2d79707207925e839"
+        },
+        {
+          "path": "detail/rtree/utilities/are_boxes_ok.hpp",
+          "lines": 135,
+          "sha256": "8233d0c2681dab85ef02d351124a3f286f34fb6ec746ca39bec15470411e511e"
+        },
+        {
+          "path": "detail/rtree/utilities/are_counts_ok.hpp",
+          "lines": 118,
+          "sha256": "446d8e53f24732e063341d3096ac29b78b0b20b16ac062efa1a8ca5f011b1b09"
+        },
+        {
+          "path": "detail/rtree/utilities/are_levels_ok.hpp",
+          "lines": 112,
+          "sha256": "46c3d265f1bdab1efad62712214065863f9904b88ae810fa96ef1dac7df27d47"
+        },
+        {
+          "path": "detail/rtree/utilities/gl_draw.hpp",
+          "lines": 258,
+          "sha256": "2896b7f8ca93d8509885dc0d80f53fc858351dacd197c6cb0c7d60af3fb6e5a4"
+        },
+        {
+          "path": "detail/rtree/utilities/print.hpp",
+          "lines": 235,
+          "sha256": "3b17d7476dd4c843a143487e2eddb8acbc1a2e892e7b19fb87da6ab66c74f568"
+        },
+        {
+          "path": "detail/rtree/utilities/statistics.hpp",
+          "lines": 112,
+          "sha256": "3b862db24de14c8239f9189e5aea83ccb7966b7a5f64d321263e59be37662dac"
+        },
+        {
+          "path": "detail/rtree/utilities/view.hpp",
+          "lines": 67,
+          "sha256": "5514e5c4634baf9f36e96421e96f62793bbd05b794cac167c2aebd22d519439b"
+        },
+        {
+          "path": "detail/rtree/visitors/children_box.hpp",
+          "lines": 72,
+          "sha256": "5524042739e0c3c049ff201d160cd3264498b3956644c20d75d2b3fc29631049"
+        },
+        {
+          "path": "detail/rtree/visitors/copy.hpp",
+          "lines": 100,
+          "sha256": "a74b532fbead87873c30fceb312f4fabca463cf990ce23af2c2375adfa8dbc14"
+        },
+        {
+          "path": "detail/rtree/visitors/count.hpp",
+          "lines": 123,
+          "sha256": "127dde9d6b39f0da804128d6dc204c7261629c783cd8a83ffa6f753637dd7ee0"
+        },
+        {
+          "path": "detail/rtree/visitors/destroy.hpp",
+          "lines": 87,
+          "sha256": "b833aeeea30537d650908efb7d220f6e0e1a625146998a4388776554406a61a4"
+        },
+        {
+          "path": "detail/rtree/visitors/distance_query.hpp",
+          "lines": 576,
+          "sha256": "715ccc9e76646869396abc815030d2064ec33491785de52aabe383be96d09607"
+        },
+        {
+          "path": "detail/rtree/visitors/insert.hpp",
+          "lines": 635,
+          "sha256": "419074557af747dda10776b08f8def9fc156c00271540239de08830cc58f2690"
+        },
+        {
+          "path": "detail/rtree/visitors/is_leaf.hpp",
+          "lines": 50,
+          "sha256": "2ebb8c1d87e54522bc2e89bf16b0123e1df273c28b7b04e158a58f1f507f9cde"
+        },
+        {
+          "path": "detail/rtree/visitors/iterator.hpp",
+          "lines": 143,
+          "sha256": "82edee23f239a1203fabd829e13886462e738217f4d3601b6e0703fed2d5da36"
+        },
+        {
+          "path": "detail/rtree/visitors/remove.hpp",
+          "lines": 357,
+          "sha256": "9952c36976bca0daf3cf7ff79915f809af0ed085611d214296d2f52d10b4e678"
+        },
+        {
+          "path": "detail/rtree/visitors/spatial_query.hpp",
+          "lines": 275,
+          "sha256": "61fbcdae0277bc14ed8701cdb11e5c7f7cb0d240c91efb3953ce75fbacbe92ad"
+        },
+        {
+          "path": "detail/serialization.hpp",
+          "lines": 623,
+          "sha256": "4745658d88f98d4ce092ae48a617e37cc948d88e5df27167586575a15a0453be"
+        },
+        {
+          "path": "detail/tags.hpp",
+          "lines": 25,
+          "sha256": "0459ceddc74b91e54342e21ea9092b37781de1f1dc460668df3c3946ce624b3e"
+        },
+        {
+          "path": "detail/translator.hpp",
+          "lines": 95,
+          "sha256": "8518ce0899612fded6bddf31778beba7bd42f6bc2fb1668557d6d2fdc6ab167d"
+        },
+        {
+          "path": "detail/utilities.hpp",
+          "lines": 51,
+          "sha256": "3feb1a804f6b7f7e1ce30cebbde1a096be6632ef5dd24d8a769483aac1301755"
+        },
+        {
+          "path": "detail/varray.hpp",
+          "lines": 2123,
+          "sha256": "2e51b42ae23fe8cb5a4a5224c3dfe9a1dbaef1cf3be3cde4523c4eb9e38b82fc"
+        },
+        {
+          "path": "detail/varray_detail.hpp",
+          "lines": 667,
+          "sha256": "9ee56e75b425540b2aa84efc59e2c3902bf85efaa543ae32424b50352f2b4332"
+        },
+        {
+          "path": "distance_predicates.hpp",
+          "lines": 210,
+          "sha256": "87a322515da665b2e91c6ab4006f5dc9a55bb8cd0821b19e9653f7ea694548ea"
+        },
+        {
+          "path": "equal_to.hpp",
+          "lines": 339,
+          "sha256": "f302668afc569ce2324f262b7a5ca99c58aacd3203cbb44811918f6e4c83719e"
+        },
+        {
+          "path": "indexable.hpp",
+          "lines": 365,
+          "sha256": "63d488d567cdd4072441f1387ffa2b26a313fced32695243e7821a4ca4095908"
+        },
+        {
+          "path": "inserter.hpp",
+          "lines": 83,
+          "sha256": "48e020e705dc27f79875250bdb5109a481d7f69c850afc97952306de51379922"
+        },
+        {
+          "path": "parameters.hpp",
+          "lines": 337,
+          "sha256": "2073f1e6196644e67285c4e78f5a8f18901dfa818cab2650fbe275b57a9a1061"
+        },
+        {
+          "path": "predicates.hpp",
+          "lines": 429,
+          "sha256": "74c6d634239ad7e95dd7cb5cb27b38af9047545bdfea89cb6b2a69734cca95ba"
+        },
+        {
+          "path": "rtree.hpp",
+          "lines": 2396,
+          "sha256": "c7fe2c1c567087053a42b8dbb2995fba874174a07b3f938ab60ddd0c5eb9fc3a"
+        }
+      ],
+      "lines": 20748,
+      "location": "Archie build/source cache",
+      "scope": "Shared Boost.Geometry index headers; other Boost.Geometry components excluded"
+    },
+    "CGAL range tree": {
+      "source": "https://github.com/CGAL/cgal/tree/v6.0.1/Range_segment_trees",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules2+CGAL/include/CGAL",
+      "files": [
+        {
+          "path": "Range_segment_tree_traits.h",
+          "lines": 382,
+          "sha256": "f8003a37796d22e80634697cf6211af93bcad92297af996907079ee7daf59a39"
+        },
+        {
+          "path": "Range_tree_d.h",
+          "lines": 618,
+          "sha256": "f321e053258b663a1e4979fff26055c3c29591790f74f2e902749e05f5ee9e08"
+        },
+        {
+          "path": "Range_tree_k.h",
+          "lines": 417,
+          "sha256": "872e7ee4eb09f6d1c53c868662b990163022afc0b5d3962fba15c9142bb6ba5e"
+        },
+        {
+          "path": "Tree_base.h",
+          "lines": 232,
+          "sha256": "34af6ca18a5f66badd619b0f2e7d821cf2808ae6e2600281d832cc61f803e2cb"
+        }
+      ],
+      "lines": 1649,
+      "location": "Archie build/source cache",
+      "scope": "Range_tree*.h, Tree_base.h and Range_segment_tree_traits.h; other CGAL components excluded"
+    },
+    "CGAL k-d tree": {
+      "source": "https://github.com/CGAL/cgal/tree/v6.0.1/Spatial_searching",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules2+CGAL/include/CGAL",
+      "files": [
+        {
+          "path": "Fuzzy_sphere.h",
+          "lines": 168,
+          "sha256": "471bf9dad34c37c7bdaeea4d8e2850cf482de30bc355d62e5ce3cb456fa14a93"
+        },
+        {
+          "path": "Kd_tree.h",
+          "lines": 723,
+          "sha256": "35ed82e2566b03b3683ab24e6d9b1b0cf63c1ff9a60952ede345f780d5f9c4df"
+        },
+        {
+          "path": "Kd_tree_node.h",
+          "lines": 750,
+          "sha256": "855810bf9967e699101b128b9513e6685921dccdd79aff790b347aefde8fdd12"
+        },
+        {
+          "path": "Kd_tree_rectangle.h",
+          "lines": 436,
+          "sha256": "11013633360a60f3ff29f24942d522681891e9fd63870951e361ff9a039518cc"
+        },
+        {
+          "path": "Search_traits.h",
+          "lines": 43,
+          "sha256": "3e2d56ca85444fd479cb597493ec10f5d669b157f6a1594acee43f9b47df5bc0"
+        },
+        {
+          "path": "Search_traits_2.h",
+          "lines": 51,
+          "sha256": "fc4821cd315e0fb5f0ca4d29e5495b25223f6fb4714de27415fe0aa19055de19"
+        },
+        {
+          "path": "Search_traits_3.h",
+          "lines": 52,
+          "sha256": "83dbf5f0aeac552521ba32ecedcc1bbc8757ecbbc4316d65821c53bfdf22a9e9"
+        },
+        {
+          "path": "Search_traits_adapter.h",
+          "lines": 313,
+          "sha256": "6df67d92916604f4f0d8f5858121d1b1b7943bf59ebf9bbdda792e8002303130"
+        },
+        {
+          "path": "Search_traits_d.h",
+          "lines": 46,
+          "sha256": "6458e32eb484ee6aeec7cdfb4b21096f27868f1eb2ed067c1e92f3a6d61c3890"
+        },
+        {
+          "path": "Spatial_searching/internal/Get_dimension_tag.h",
+          "lines": 41,
+          "sha256": "af318f0f37c3aae97f3f171fb6b2540d566396abb3b8299ed4f6e4954e6fab39"
+        },
+        {
+          "path": "Spatial_searching/internal/K_neighbor_search.h",
+          "lines": 194,
+          "sha256": "0285bde2963d8658b7a6f5b0b573bffd0700ab59beb742b8342cb0fa9e6eba1f"
+        },
+        {
+          "path": "Spatial_searching/internal/Search_helpers.h",
+          "lines": 240,
+          "sha256": "7ebf55d1e9efad7ebe16fcf8f5760d0fe3b85de2254874d501b6c9f6329aedad"
+        },
+        {
+          "path": "Spatial_searching/internal/bounded_priority_queue.h",
+          "lines": 139,
+          "sha256": "83598804d115b3851706c7996aa51feebf3e870254785a64dcea8a958c4cc78f"
+        },
+        {
+          "path": "Splitters.h",
+          "lines": 307,
+          "sha256": "704a89b125eaad23ba9662de88c70d45d6f0a5b6b98dfcae7fd0bb65bae93b96"
+        }
+      ],
+      "lines": 3503,
+      "location": "Archie build/source cache",
+      "scope": "Kd_tree*.h, Fuzzy_sphere.h, Search_traits*.h, splitters and Spatial_searching internal headers; other CGAL components excluded"
+    },
+    "THST quadtree": {
+      "source": "https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules+thst/include/THST",
+      "files": [
+        {
+          "path": "QuadTree.h",
+          "lines": 814,
+          "sha256": "5df2094a62a35ddb7b8384f8e211499179a9a5e205e327fec1dbe6d533974317"
+        },
+        {
+          "path": "allocator.h",
+          "lines": 46,
+          "sha256": "1a9222a4eb53e5b16cbaf941dc920f31cdcd9af09dfc80f7542029637d187bc8"
+        },
+        {
+          "path": "bbox.h",
+          "lines": 407,
+          "sha256": "b5e22b88d3eefa06050f1e3377a9a92defb5141f3b79725c3fa166e66a19448c"
+        },
+        {
+          "path": "config.h",
+          "lines": 104,
+          "sha256": "ad2d1bd645253abf7ffcfc251cbe185ba6144b504ca54b232b0c907521f971fe"
+        },
+        {
+          "path": "indexable.h",
+          "lines": 14,
+          "sha256": "486bd909a7927da1d2c8d02ba7a76f5ae4a71832f213f9bd8783147149aee3f0"
+        },
+        {
+          "path": "predicates.h",
+          "lines": 109,
+          "sha256": "00ed4d36f04a1ec0c18eca69a3fd3474809cf06940b0f7abf83dc49f61d69fd9"
+        },
+        {
+          "path": "quad_tree_detail.h",
+          "lines": 504,
+          "sha256": "66a441bc6002d09fee8af6c6c7139ba11fa0cbf96f1552d8b2fd63eead0a2617"
+        }
+      ],
+      "lines": 1998,
+      "location": "Archie build/source cache",
+      "scope": "QuadTree.h, quad_tree_detail.h and five shared utility headers"
+    },
+    "THST R-tree": {
+      "source": "https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules+thst/include/THST",
+      "files": [
+        {
+          "path": "RTree.h",
+          "lines": 1779,
+          "sha256": "a22776a076fdad7181871a64814bfb7fe9a2c95a7b251f88fcf2968c5f8599cf"
+        },
+        {
+          "path": "allocator.h",
+          "lines": 46,
+          "sha256": "1a9222a4eb53e5b16cbaf941dc920f31cdcd9af09dfc80f7542029637d187bc8"
+        },
+        {
+          "path": "bbox.h",
+          "lines": 407,
+          "sha256": "b5e22b88d3eefa06050f1e3377a9a92defb5141f3b79725c3fa166e66a19448c"
+        },
+        {
+          "path": "config.h",
+          "lines": 104,
+          "sha256": "ad2d1bd645253abf7ffcfc251cbe185ba6144b504ca54b232b0c907521f971fe"
+        },
+        {
+          "path": "indexable.h",
+          "lines": 14,
+          "sha256": "486bd909a7927da1d2c8d02ba7a76f5ae4a71832f213f9bd8783147149aee3f0"
+        },
+        {
+          "path": "predicates.h",
+          "lines": 109,
+          "sha256": "00ed4d36f04a1ec0c18eca69a3fd3474809cf06940b0f7abf83dc49f61d69fd9"
+        },
+        {
+          "path": "rtree_detail.h",
+          "lines": 171,
+          "sha256": "3c6ad098ad50d654b5eb83331a7dfb0b9ab69b13414283f551e284e71e5b498f"
+        }
+      ],
+      "lines": 2630,
+      "location": "Archie build/source cache",
+      "scope": "RTree.h, rtree_detail.h and five shared utility headers"
+    },
+    "Pkd-tree": {
+      "source": "https://github.com/ucrparlay/Pkd-tree/tree/62c8839aa6e87b8cbf652a341a472f1fcf789ec0/include",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules+pkd_tree/include",
+      "files": [
+        {
+          "path": "cpdd/basic_point.h",
+          "lines": 166,
+          "sha256": "f4d505eceb36b5dd306b0b8024f11a759ac0440bddc9a1c8d72c8e9703e65ad7"
+        },
+        {
+          "path": "cpdd/batch_op/batch_delete.hpp",
+          "lines": 361,
+          "sha256": "3f66043fa8dd98131640f2bfb453a61979e667b5b1e5882a7055efbb429a9959"
+        },
+        {
+          "path": "cpdd/batch_op/batch_helpers.hpp",
+          "lines": 226,
+          "sha256": "c406fd75084b6591d73ea6976825784d29ba12e0ce46488c33e1ce7d0e06c9a6"
+        },
+        {
+          "path": "cpdd/batch_op/batch_insert.hpp",
+          "lines": 193,
+          "sha256": "423fb28952871b5db1e7d518973d1b786df3b5070fab314fe478b6f2c84c1d21"
+        },
+        {
+          "path": "cpdd/batch_op/build_tree.hpp",
+          "lines": 276,
+          "sha256": "7feba75c773f3d290899810d40e91bc3a4631f839ac0f79dc8319c622c908eee"
+        },
+        {
+          "path": "cpdd/batch_op/inner_tree.hpp",
+          "lines": 172,
+          "sha256": "68c15224cc1fe4c1a458201ae88e4e80c4208cf50ad3e5a29b09ff69b498d69c"
+        },
+        {
+          "path": "cpdd/comparator.h",
+          "lines": 81,
+          "sha256": "262ec790b25fa37d05def3f8679edd63cfcfdc8f48317fa792997df1939f5d9e"
+        },
+        {
+          "path": "cpdd/cpdd.h",
+          "lines": 23,
+          "sha256": "3d9bdf04a2e32a695884b0b060ea2272fd70dfa1cc4da68326fee52b31e07946"
+        },
+        {
+          "path": "cpdd/kdTreeParallel.h",
+          "lines": 250,
+          "sha256": "822a5b52d70d062f63b0f9942cbb88a3a4e2a37df373de9a4be6a1e314e81be8"
+        },
+        {
+          "path": "cpdd/query_op/nn_search.hpp",
+          "lines": 128,
+          "sha256": "865d11920a5e9528233dea5375f75aa9660a4188751531a02b28e38a2b265f78"
+        },
+        {
+          "path": "cpdd/query_op/nn_search_helpers.h",
+          "lines": 201,
+          "sha256": "21be711e6e1855e2f0290486999d1d949086d83fde30934ffb798a2c9c09c7ae"
+        },
+        {
+          "path": "cpdd/query_op/range_count.hpp",
+          "lines": 165,
+          "sha256": "f6ecdedad9a93716ae9e15c36f3063dad74aabed13488f048cb67090330f6088"
+        },
+        {
+          "path": "cpdd/query_op/range_query.hpp",
+          "lines": 121,
+          "sha256": "bb8998a425216a5c31b7f557c27bb33e8edb5449b6c445d593b6a3314b732608"
+        },
+        {
+          "path": "cpdd/utility/box_op.hpp",
+          "lines": 136,
+          "sha256": "5ba6084daba9a82a7a525bfdcd388bc9b1814c9aa7a816a8d7acf8139c6e0a60"
+        },
+        {
+          "path": "cpdd/utility/dimensinality.hpp",
+          "lines": 35,
+          "sha256": "9c8e932713934fd4c4b1be2098b1ab2cea48c330e0edfe362bc9299549e63b7c"
+        },
+        {
+          "path": "cpdd/utility/random_support.hpp",
+          "lines": 20,
+          "sha256": "3e5afef83d9bc983997a5f56fbae57f5a89f5468c819d3c0a30f4fbd7660dd79"
+        },
+        {
+          "path": "cpdd/utility/tree_node.hpp",
+          "lines": 133,
+          "sha256": "0429afbc1204a75d63e9b83e2431c301a255d6be54fcb64174df95d0ffce6050"
+        },
+        {
+          "path": "cpdd/utility/validation.hpp",
+          "lines": 126,
+          "sha256": "4a0a08cbbbc8271081f04a5ef82f688564c1566830cc365f52978c2a42c6915b"
+        }
+      ],
+      "lines": 2813,
+      "location": "Archie build/source cache",
+      "scope": "include/cpdd headers; external Parlay excluded"
+    },
+    "PAM": {
+      "source": "https://github.com/cmuparlay/PAM/tree/3574543ad84c34acb22edbeecb9d11a97a5eb87d",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/results/_queue-native-output-2d-3d-20261015/workspace/build/original-deps/PAM",
+      "files": [
+        {
+          "path": "examples/range_query/range_tree.h",
+          "lines": 159,
+          "sha256": "a2dda8d562537da024803d6f439b1e8133cb4148ac38d40db9468a7f0fcfabc9"
+        },
+        {
+          "path": "examples/range_query/range_utils.h",
+          "lines": 92,
+          "sha256": "6181605f6666b12e241b1bcd2fef1bb90014a612a2fba05842c1caf271ccf8ed"
+        },
+        {
+          "path": "include/pam/augmented_map.h",
+          "lines": 199,
+          "sha256": "4a3e8278ddab2308ef123e756769ebf813e578ef05322169af172cb3edd80be7"
+        },
+        {
+          "path": "include/pam/augmented_node.h",
+          "lines": 57,
+          "sha256": "15954044d5cfdd6d239f312bcd20bb4a1e0ddf97804bf2fd87712649a13e8f7e"
+        },
+        {
+          "path": "include/pam/augmented_ops.h",
+          "lines": 116,
+          "sha256": "b5e1798ca2d25d8591dbbe3baffc0c1c9656d642b40fd553eb0758dc885e016c"
+        },
+        {
+          "path": "include/pam/avl_tree.h",
+          "lines": 68,
+          "sha256": "a0d11d9c42fe91c1870739f9f05694cc451c0fb87e35b006657815817a2b4ba1"
+        },
+        {
+          "path": "include/pam/balance_utils.h",
+          "lines": 96,
+          "sha256": "276cf5f5125e904bc19be033c04ba95dc81264ed7048d5bce30cd7c05209e2bd"
+        },
+        {
+          "path": "include/pam/basic_node.h",
+          "lines": 60,
+          "sha256": "e7e0325e62309c1311ec8c90276e69e60bcf5fa0c50077f5554a98e5a80888ee"
+        },
+        {
+          "path": "include/pam/build.h",
+          "lines": 161,
+          "sha256": "ec4de23f415c97bc3224a8cd0f526a2c0b3e77befe4b2a24500997893a0a0489"
+        },
+        {
+          "path": "include/pam/gc.h",
+          "lines": 145,
+          "sha256": "843546943547f11f4f68189492e54c7df63b9699def48c7f42ab53f1f5a4d361"
+        },
+        {
+          "path": "include/pam/get_time.h",
+          "lines": 85,
+          "sha256": "c9c0bf350ab0a66034ac40a6d621dc58fc4dfc22cc2ef3f2d029504093a35e00"
+        },
+        {
+          "path": "include/pam/map.h",
+          "lines": 601,
+          "sha256": "6a4a5c5c9f3c3363aa4b9b8b9d3ff6bb3055da6773c50fb279cb221fef3ff73d"
+        },
+        {
+          "path": "include/pam/map_ops.h",
+          "lines": 608,
+          "sha256": "d3829efda473b19e04015209f856784b1f99c9e0430e81695a448b241dba4adb"
+        },
+        {
+          "path": "include/pam/pam.h",
+          "lines": 18,
+          "sha256": "cd98bdbd445c09b71a0d7fb68bdd46affbfe7f00915465054afedbbdd8ef0c3c"
+        },
+        {
+          "path": "include/pam/parse_command_line.h",
+          "lines": 117,
+          "sha256": "0f09e8487843eb3872d8fac78d5a30c237a1326ed2acd4f715fe67788329676b"
+        },
+        {
+          "path": "include/pam/red_black_tree.h",
+          "lines": 175,
+          "sha256": "79d53096f305238409b5f7c9ef34b052459d9d84b74260a414fa9a0df35d3ddc"
+        },
+        {
+          "path": "include/pam/sequence_ops.h",
+          "lines": 263,
+          "sha256": "9d3d00a60b81dfa3809273e57c1817a939bd38b859ebc35209d7adcf9b834673"
+        },
+        {
+          "path": "include/pam/treap.h",
+          "lines": 49,
+          "sha256": "f8c142a42eb55f09d6679585f1eddee86a8d966958034f1906a11250443fbac1"
+        },
+        {
+          "path": "include/pam/utils.h",
+          "lines": 96,
+          "sha256": "a9cce49913f46117825965e19e9455c8eb9381de657f84805abdbdd8fec1d93e"
+        },
+        {
+          "path": "include/pam/weight_balanced_tree.h",
+          "lines": 53,
+          "sha256": "7a2a73237f1bd21d933a58218a3aa2d32e3a321e53532595e18872e99badec4b"
+        }
+      ],
+      "lines": 3218,
+      "location": "Archie build/source cache",
+      "scope": "include/pam headers plus range_tree.h and range_utils.h from the original example; Parlay excluded"
+    },
+    "ParGeo": {
+      "source": "https://github.com/wangyiqiu/pargeo/tree/b87077ca253d28595e6887bb369501a64774712a",
+      "scope_root": "/home/jacobus/Projects/DiskRangeReport/results/_queue-native-output-2d-3d-20261015/workspace/build/original-deps/pargeo",
+      "files": [
+        {
+          "path": "include/pargeo/kdTree.h",
+          "lines": 401,
+          "sha256": "81f42ee1a15bdcb68f7d8bb19741cca14cb39f703053b321ede1b2618a331f61"
+        },
+        {
+          "path": "include/pargeo/kdTreeRange.h",
+          "lines": 158,
+          "sha256": "3122cefa743006bb1135ad7e96a13b6f4b1e861c190faeebb8a7448ea825f87c"
+        },
+        {
+          "path": "include/pargeo/point.h",
+          "lines": 139,
+          "sha256": "9cbe5ad52710eb0a22ad1fe1ac3f8a28bbcb66ce0496dfbf029ecc6569c7fe44"
+        }
+      ],
+      "lines": 698,
+      "location": "Archie build/source cache",
+      "scope": "Original kdTree.h, kdTreeRange.h and point.h; Parlay and other helpers excluded"
+    },
+    "kiddo": {
+      "source": "https://github.com/sdd/kiddo",
+      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/kiddo-5.0.3",
+      "files": [
+        {
+          "path": "src/best_neighbour.rs",
+          "lines": 76,
+          "sha256": "3f05217dfb6c08d6ef5d74c56dbacc0c9c5c2955cab0460dde0dcd5a8c7115df"
+        },
+        {
+          "path": "src/common/generate_best_n_within.rs",
+          "lines": 142,
+          "sha256": "6bcde476f3942010ee2529c3c2754026739602d4c255a146549ae157e2914361"
+        },
+        {
+          "path": "src/common/generate_nearest_n.rs",
+          "lines": 111,
+          "sha256": "e718f29d90d68ed773a2729b541313de4cc33fdebcab354d83137deb67744f7f"
+        },
+        {
+          "path": "src/common/generate_nearest_n_within_unsorted.rs",
+          "lines": 126,
+          "sha256": "cd742908e94cc93f72c715de2dcbfd674f345082dbb067743f60637c2d4a775e"
+        },
+        {
+          "path": "src/common/generate_nearest_one.rs",
+          "lines": 123,
+          "sha256": "8eb5fc77b6d61db39c4f94552d256f49d7cf80164cbded98329823630bbef8dd"
+        },
+        {
+          "path": "src/common/generate_within.rs",
+          "lines": 18,
+          "sha256": "b03cef8f2667fb9ad7ed4774a58a5fe281c5736ef560a872baff57f5635590f1"
+        },
+        {
+          "path": "src/common/generate_within_unsorted.rs",
+          "lines": 107,
+          "sha256": "d3c3c82f4b57426e9746529b87d35c26e1ccb27c63f102066fcabbabc5118eef"
+        },
+        {
+          "path": "src/common/generate_within_unsorted_iter.rs",
+          "lines": 117,
+          "sha256": "3c21cddac0c407ccf2ac83946dd2d24f209a1f7667b1ca42bc53dfd74825f9ee"
+        },
+        {
+          "path": "src/common/mod.rs",
+          "lines": 7,
+          "sha256": "cae8a0ce6b76ac3f24220c22972c69990b4246021c7d2bb75f92bc073cd957b0"
+        },
+        {
+          "path": "src/custom_serde.rs",
+          "lines": 267,
+          "sha256": "3107921d01db1891a21d8e7dc6de19c6b95ff1628a46745fd8b9864149c8beda"
+        },
+        {
+          "path": "src/fixed/construction.rs",
+          "lines": 437,
+          "sha256": "7ecddad285e698417cb2f94b4abb1239b058b786b679fdc080ea014a61c09fab"
+        },
+        {
+          "path": "src/fixed/distance.rs",
+          "lines": 102,
+          "sha256": "e4597e23b661a8ec834ecd732d45b7ffbd2bafa3a32ea97299e23395d2432e37"
+        },
+        {
+          "path": "src/fixed/kdtree.rs",
+          "lines": 516,
+          "sha256": "1377c9edae5ce3b67e38d70cd98749c7c376b3442d91a747fddfb10927fd1e03"
+        },
+        {
+          "path": "src/fixed/mod.rs",
+          "lines": 11,
+          "sha256": "ea2f25725fc7db921ce545d255a669027b8ea205d97b64c5b5cfde3f98bba080"
+        },
+        {
+          "path": "src/fixed/query/best_n_within.rs",
+          "lines": 202,
+          "sha256": "277ca4c63be64f50fb5a81469e8936327e568cf2924ee3828ec113142a1b1bf6"
+        },
+        {
+          "path": "src/fixed/query/mod.rs",
+          "lines": 8,
+          "sha256": "cde6ad8c550b3134594a693ea0ad84c57269a243583d9a7068a6876bb7c38ef9"
+        },
+        {
+          "path": "src/fixed/query/nearest_n.rs",
+          "lines": 181,
+          "sha256": "745c1ed56c98a9024d0cf15c3b2b438cdab3710c1b1139a43f74225c66b83cc8"
+        },
+        {
+          "path": "src/fixed/query/nearest_one.rs",
+          "lines": 166,
+          "sha256": "e3b0f52601e3438207d96ef360f9c5b924f08ceb2b1c6288c92e8eb60a2b24b4"
+        },
+        {
+          "path": "src/fixed/query/within.rs",
+          "lines": 186,
+          "sha256": "bfbbf2741e47e78cee29bf9a3639494c9d536b3d5ad81c238b98978040924af2"
+        },
+        {
+          "path": "src/fixed/query/within_unsorted.rs",
+          "lines": 189,
+          "sha256": "377aff746f8f56e77010f496cd04e259d403d9f149b29fe87799577fe7d86ab6"
+        },
+        {
+          "path": "src/fixed/query/within_unsorted_iter.rs",
+          "lines": 193,
+          "sha256": "ce51045f187446065d08df1644559067e689b14c9fea99b5550013c3cd272e48"
+        },
+        {
+          "path": "src/float/construction.rs",
+          "lines": 547,
+          "sha256": "03349755f2df6ccdf66c97121533da0e9507aab819bdf2ae5e6c16486bd5004f"
+        },
+        {
+          "path": "src/float/distance.rs",
+          "lines": 75,
+          "sha256": "35de22b80d5a22b668855c0c407a9f81155b5ea83362fde4109549ca2c6ec936"
+        },
+        {
+          "path": "src/float/kdtree.rs",
+          "lines": 383,
+          "sha256": "3e2844c80ea7b2a7dead37bc9110129240fbf4d643a71a64213949e101e62f76"
+        },
+        {
+          "path": "src/float/mod.rs",
+          "lines": 15,
+          "sha256": "c558efc4b3f2c9da421018c2198a5c2b54d7fbfd3c2d614cd378eda2b4861559"
+        },
+        {
+          "path": "src/float/query/best_n_within.rs",
+          "lines": 214,
+          "sha256": "0768a6458f99032ead60fe5d36ed032a949cd936f9a181e72c360f01450e6332"
+        },
+        {
+          "path": "src/float/query/mod.rs",
+          "lines": 9,
+          "sha256": "c40e7825af4d1a6fbb2c4e4430becfc2b55b00cac5342f2e5efc8ea818862306"
+        },
+        {
+          "path": "src/float/query/nearest_n.rs",
+          "lines": 200,
+          "sha256": "32d65fe13fad967efdf91ec394275c27fcb9ae21d801e63017562f9ad6b9fd1e"
+        },
+        {
+          "path": "src/float/query/nearest_n_within.rs",
+          "lines": 351,
+          "sha256": "d7211f2d4aea60b7f1754064d4bdcc4fd256a1b748ba6dd0d3a4f5a3719d88d3"
+        },
+        {
+          "path": "src/float/query/nearest_one.rs",
+          "lines": 191,
+          "sha256": "b59bad8951faf5400592405d1f8eb42978c26ce78873543819a83ce72a1d4ee1"
+        },
+        {
+          "path": "src/float/query/within.rs",
+          "lines": 200,
+          "sha256": "acdecc280dbfee2f17096d768c4d33a5e935b02f7112e834302fa7bba4bcf650"
+        },
+        {
+          "path": "src/float/query/within_unsorted.rs",
+          "lines": 207,
+          "sha256": "7e967b3144a51b3f005f5ad1b9ee448af889f6fba6c33a3ae7ed010eacdbdbbc"
+        },
+        {
+          "path": "src/float/query/within_unsorted_iter.rs",
+          "lines": 204,
+          "sha256": "8cba1ce41b45b9b089194650082a34ca0bad0eeb033640ed61488870d8b1eee3"
+        },
+        {
+          "path": "src/float/result_collection.rs",
+          "lines": 98,
+          "sha256": "58d3f2ffd890367446fd2aab2e4802366e09ecb2fe4d277e151ee5451d3bcee5"
+        },
+        {
+          "path": "src/float_leaf_slice/f32_avx2.rs",
+          "lines": 61,
+          "sha256": "4291dc2f68ae15015f11a3708cc717500bdef2c32397076cc883e14a5dcfc419"
+        },
+        {
+          "path": "src/float_leaf_slice/f32_avx512.rs",
+          "lines": 55,
+          "sha256": "968639812f6044c676cc97b68d005401ff778f628e6fd91ef55ef9f02c98eb26"
+        },
+        {
+          "path": "src/float_leaf_slice/f64_avx2.rs",
+          "lines": 79,
+          "sha256": "33078e9b2c336e0cff19a5c969e15377a089990d6eb617a6e24cfd7810613ce7"
+        },
+        {
+          "path": "src/float_leaf_slice/f64_avx512.rs",
+          "lines": 58,
+          "sha256": "eb1c9c6b6d4165d99e53b7798188f0bc1276bf69aa5614d23f1afb283bd6ca09"
+        },
+        {
+          "path": "src/float_leaf_slice/fallback.rs",
+          "lines": 178,
+          "sha256": "9921c66ffb95118416c43acb159810cc6a99e66083a023b3159ea3b69c1aace7"
+        },
+        {
+          "path": "src/float_leaf_slice/leaf_slice.rs",
+          "lines": 627,
+          "sha256": "450bdebc3f9ea05e9b715a0d358d42ad8d5026a42e049a74242e475118cf9ccd"
+        },
+        {
+          "path": "src/float_leaf_slice/mod.rs",
+          "lines": 37,
+          "sha256": "3eea1f6b8f48eb25bfb7de2da612cb4e4285085540720b873e1ff2aaf91f81d7"
+        },
+        {
+          "path": "src/hybrid/construction.rs",
+          "lines": 1261,
+          "sha256": "4e27fd37242381209943303d1e05f780ebb7aa5713e4b68c8608aa7796e91816"
+        },
+        {
+          "path": "src/hybrid/distance.rs",
+          "lines": 48,
+          "sha256": "65b7c60d214f27f58ef849dc279ebbad90c541c0bfe72bf1a3243971d19477b6"
+        },
+        {
+          "path": "src/hybrid/kdtree.rs",
+          "lines": 845,
+          "sha256": "7aabaf1ac6964aa7be5c71a49f958238da5b149e88555a5fb9702415ed6bfc19"
+        },
+        {
+          "path": "src/hybrid/mod.rs",
+          "lines": 10,
+          "sha256": "bce75ed03a5e40120c3e8d4b6eac8a39a87bb229070b1b92e099fe72c427b523"
+        },
+        {
+          "path": "src/hybrid/neighbour.rs",
+          "lines": 50,
+          "sha256": "28ae2783bf084421e5c191ad8601696ebdaffa5eddd6d614f3b016c4cd95bca7"
+        },
+        {
+          "path": "src/hybrid/query/best_n_within.rs",
+          "lines": 299,
+          "sha256": "1bc31efe3b4f0b7444d8aa9651b84f2e4b792ef2486087efa28eb61aa505de71"
+        },
+        {
+          "path": "src/hybrid/query/mod.rs",
+          "lines": 5,
+          "sha256": "d5f9b2d4fbb5d92a9aec39333989d360e0343a62990143f8b6a2560113173146"
+        },
+        {
+          "path": "src/hybrid/query/nearest_n.rs",
+          "lines": 270,
+          "sha256": "5153c6dbe6f13188ec8cde080d603efdefe9e125f3024d89a1c7ea6bce765692"
+        },
+        {
+          "path": "src/hybrid/query/nearest_one.rs",
+          "lines": 387,
+          "sha256": "ab30736aca621ed5fc4e3b1a30ea4fb371a12414718c33de8e2aab15dc26800b"
+        },
+        {
+          "path": "src/hybrid/query/within.rs",
+          "lines": 277,
+          "sha256": "3348f6e3e92cfe1eb8471032a1af47839dc74a7c219685e21c9241ea27137305"
+        },
+        {
+          "path": "src/hybrid/query/within_unsorted.rs",
+          "lines": 279,
+          "sha256": "85f4829f2c85f17451c998cf3673248c3e036d56097658df115cf905133a774d"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_approx_nearest_one.rs",
+          "lines": 68,
+          "sha256": "9a6341551103cd76044241a29111fa1d1eb03f6a1de507474e28f10731575bca"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_best_n_within.rs",
+          "lines": 237,
+          "sha256": "24f1055f3612d0a71c056830fc2ebd23f9e9c11e60e3d786671f198acc4fedbf"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_nearest_n.rs",
+          "lines": 18,
+          "sha256": "282b1f8f3f28dbb6a73a6af8a1fa4529a372826c0eb26bdd77a0f9f265e10c6b"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_nearest_n_within.rs",
+          "lines": 234,
+          "sha256": "9a30b9c848715fd969e7fd754bb4256b195d40391d07ee1af4715037b3aee314"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_nearest_one.rs",
+          "lines": 216,
+          "sha256": "a638ec6b8e74a0b02c557248817d5157c5839a8d6002c4a874bf83e7c9abd8b4"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_within.rs",
+          "lines": 17,
+          "sha256": "8413df671ae496db77f4849d4492230f1cf3faa161ea8ffdf69c82e24a849df8"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_within_unsorted.rs",
+          "lines": 17,
+          "sha256": "4f8b04d722ff7d4cb44f57a4e35da685995221392773671383bc288322a965ef"
+        },
+        {
+          "path": "src/immutable/common/generate_immutable_within_unsorted_iter.rs",
+          "lines": 130,
+          "sha256": "1fa062d39d5138d42877b192e1674ea64378269a2df4771f4cbeebb00fbb0a75"
+        },
+        {
+          "path": "src/immutable/common/mod.rs",
+          "lines": 8,
+          "sha256": "aeea3a5f235329f95c64cbc1ea4004abbd8b2b1b51a74e9321ba8ceb026be816"
+        },
+        {
+          "path": "src/immutable/float/kdtree.rs",
+          "lines": 893,
+          "sha256": "1c50dbdfd796667a7f085444776e9d2f7c7afa6881e041e5aef40abaca70c14d"
+        },
+        {
+          "path": "src/immutable/float/mod.rs",
+          "lines": 26,
+          "sha256": "28943c8f60e4417d6a85eea454291156430a93b6a2a766a756f37b534cdee2df"
+        },
+        {
+          "path": "src/immutable/float/query/approx_nearest_one.rs",
+          "lines": 114,
+          "sha256": "ff1920c561922953322655dd436587619dfcff2378e373ad258472a37626f2ed"
+        },
+        {
+          "path": "src/immutable/float/query/best_n_within.rs",
+          "lines": 239,
+          "sha256": "f044c3a469010847b95f3adaf2c2981dd4d3dd0181d1aa65b5078d9399608c01"
+        },
+        {
+          "path": "src/immutable/float/query/mod.rs",
+          "lines": 11,
+          "sha256": "061860d64731d0dee54a3a27dbd5cb1a49099e19e9358b647016155c4c4dc97a"
+        },
+        {
+          "path": "src/immutable/float/query/nearest_n.rs",
+          "lines": 297,
+          "sha256": "6c49aa2363c63e1374c2c2bdfd18e128d66aa5d5fee6d5e513cec5cd94851fa4"
+        },
+        {
+          "path": "src/immutable/float/query/nearest_n_within.rs",
+          "lines": 229,
+          "sha256": "10906c04792ded52866663da9cb8ce79c1efd648ea714f0e6def72224d905073"
+        },
+        {
+          "path": "src/immutable/float/query/nearest_one.rs",
+          "lines": 269,
+          "sha256": "3ce8f70aac58a2b79832ed681e714be2eadce2057106616341c857dfa595cec9"
+        },
+        {
+          "path": "src/immutable/float/query/within.rs",
+          "lines": 204,
+          "sha256": "7285301c008ec81a7fa6855d03e9a34de76ca8fd5c45ea666becaae5b89231a7"
+        },
+        {
+          "path": "src/immutable/float/query/within_unsorted.rs",
+          "lines": 202,
+          "sha256": "8f5819ebfd14b9bfcc7ebbe76697b7f9caed1cd2115d74e34f66f0775264c061"
+        },
+        {
+          "path": "src/immutable/float/query/within_unsorted_iter.rs",
+          "lines": 206,
+          "sha256": "a2c6b45f8056294c76928eb9fe6c0099fd27ee46081f1a40663fa7e10072d012"
+        },
+        {
+          "path": "src/immutable/mod.rs",
+          "lines": 25,
+          "sha256": "2eeeae3fd9c4ee44ea058920dac43a44dc96e251f582b705cf393a3f68873bd5"
+        },
+        {
+          "path": "src/iter.rs",
+          "lines": 45,
+          "sha256": "c287eaf1bbe67b56106556aa0fd4120e3902439e4da909990390633267f61ef5"
+        },
+        {
+          "path": "src/lib.rs",
+          "lines": 139,
+          "sha256": "82c9e6e9eacd3ca50bef6c728a5332a4b940daacdf054ec3a054a38810cbf915"
+        },
+        {
+          "path": "src/mirror_select_nth_unstable_by.rs",
+          "lines": 760,
+          "sha256": "9a4e12bf07e349f01fa652d4e4709a90d00e33c6bc08b93daa5c357d5fae2aa5"
+        },
+        {
+          "path": "src/modified_van_emde_boas.rs",
+          "lines": 185,
+          "sha256": "8dc612d8b3e66ab1cf71e69c762d264ce316fd95ff9ee3e645b1ad1d0438111f"
+        },
+        {
+          "path": "src/nearest_neighbour.rs",
+          "lines": 76,
+          "sha256": "7ee7032ccb1ae06e6afa1b91ef309db8a6bcf49a4926afc72805bf657c75b5ef"
+        },
+        {
+          "path": "src/traits.rs",
+          "lines": 161,
+          "sha256": "3660c09e2031ad64b4423abf072c85f787c9a8aa74d465a442364718cfe3942d"
+        },
+        {
+          "path": "src/util.rs",
+          "lines": 176,
+          "sha256": "57e2da27172319ae38fd18addded951d9267990bb8345154cb7ed9f973193df3"
+        },
+        {
+          "path": "src/within_unsorted_iter.rs",
+          "lines": 20,
+          "sha256": "a769a21df17bf03d73442ba47635ff742089114a3013feb1136641ddb3e950f8"
+        }
+      ],
+      "lines": 16027,
+      "location": "Archie build/source cache",
+      "scope": "Pinned crate src/**/*.rs; includes inline tests/examples and excludes external crates"
+    },
+    "nabo": {
+      "source": "https://github.com/enlightware/nabo-rs",
+      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nabo-0.5.0",
+      "files": [
+        {
+          "path": "src/heap.rs",
+          "lines": 153,
+          "sha256": "4af7b44c1bc6990fa37a6ea3ffc5e128f653a7cd96bc5de3c01fd512af330a99"
+        },
+        {
+          "path": "src/infinite.rs",
+          "lines": 4,
+          "sha256": "dba2a194acc6bb0292295e3c0e33c02d615297514b8cfec071c14c7164a8029d"
+        },
+        {
+          "path": "src/internal_neighbour.rs",
+          "lines": 47,
+          "sha256": "43588e38f51b9b35857599e59378cc240b17d5103a8800d4fce9d9f9950fafa9"
+        },
+        {
+          "path": "src/internal_parameters.rs",
+          "lines": 8,
+          "sha256": "7d823efbfb4f6360b345aab43612b13baf97c5df4e775e8e890170df655cb774"
+        },
+        {
+          "path": "src/lib.rs",
+          "lines": 787,
+          "sha256": "fe225250aa87aaa4adf36fa7e02fd14e7443d3e1cf15a4156e11585c6994982a"
+        },
+        {
+          "path": "src/node.rs",
+          "lines": 121,
+          "sha256": "b70dd0390fd4421e256aae6112d06bfd1f2129d5f278db8cb6311792d6f17494"
+        },
+        {
+          "path": "src/simple_point.rs",
+          "lines": 93,
+          "sha256": "ce58f3c95faa56ce574dddef0aa94e1183163bc26b0aae23eb17fb5a15ff51eb"
+        }
+      ],
+      "lines": 1213,
+      "location": "Archie build/source cache",
+      "scope": "Pinned crate src/**/*.rs; includes inline tests/examples and excludes external crates"
+    },
+    "neighbourhood": {
+      "source": "https://github.com/HOminus/neighbourhood",
+      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/neighbourhood-0.0.1",
+      "files": [
+        {
+          "path": "src/kd_index_tree.rs",
+          "lines": 220,
+          "sha256": "1ba1b4e220d55d7e10e7798f806ce0a88d04d9befce71516ed7378e982a5728a"
+        },
+        {
+          "path": "src/kd_tree.rs",
+          "lines": 208,
+          "sha256": "b85e0c2ff4054fc3b80324c9a8bd01eae774c9509a19d17d518499c63371fa35"
+        },
+        {
+          "path": "src/lib.rs",
+          "lines": 38,
+          "sha256": "3529c326d1fe1eddeb27a3d9987995999e295b5f59acdaab4f5d7658b798346c"
+        }
+      ],
+      "lines": 466,
+      "location": "Archie build/source cache",
+      "scope": "Pinned crate src/**/*.rs; includes inline tests/examples and excludes external crates"
+    },
+    "acap": {
+      "source": "https://github.com/tavianator/acap",
+      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/acap-0.4.0",
+      "files": [
+        {
+          "path": "src/chebyshev.rs",
+          "lines": 127,
+          "sha256": "9838d6bdb3d73ae8aa8075dcae9d6e06b9c527c9ac24f1afde51284a6c1cabe6"
+        },
+        {
+          "path": "src/coords.rs",
+          "lines": 79,
+          "sha256": "e3dfeab7d74faf712af859418ded652a8bfcc45289b75efeeed58ae0c4b905eb"
+        },
+        {
+          "path": "src/cos.rs",
+          "lines": 580,
+          "sha256": "b4de681a839e7617f447111b1e2439ce02f1d578550a7ce0ca7fdaf32819539d"
+        },
+        {
+          "path": "src/distance.rs",
+          "lines": 162,
+          "sha256": "edae7a67f262001fdb32f51a109044e92ed4d28d466b2068bd28dfbf76b5c780"
+        },
+        {
+          "path": "src/euclid.rs",
+          "lines": 400,
+          "sha256": "dff9b23e17bcd60d1d86382f90637861b6c45dcc27c8e121e960788a3c5415a0"
+        },
+        {
+          "path": "src/exhaustive.rs",
+          "lines": 127,
+          "sha256": "da6c02a651176c2deda20c7ec4d2c5f694fb746428275166939e169285a7f03d"
+        },
+        {
+          "path": "src/hamming.rs",
+          "lines": 85,
+          "sha256": "34a85aefdba5d0acc966b0c1014de92924fc9d28ae9e9b45683ae159d3fe463e"
+        },
+        {
+          "path": "src/kd.rs",
+          "lines": 566,
+          "sha256": "695a80427a2930ee9416cb1093aeca64a402a6e574bf1795442088863fc2e32c"
+        },
+        {
+          "path": "src/knn.rs",
+          "lines": 491,
+          "sha256": "801d5a3917014aaad157f13ab8ef0655df4aac3db7a969f9a1bdad1820a29a89"
+        },
+        {
+          "path": "src/lib.rs",
+          "lines": 149,
+          "sha256": "6138b2a153decfeee9a14cfdf1b551223fbd43c25a1a4613f7814b9cf6af13d6"
+        },
+        {
+          "path": "src/lp.rs",
+          "lines": 78,
+          "sha256": "8010fc2818b05129d5d2c263091d887bac612e037fe9e0ed7a60b76f1fb28e88"
+        },
+        {
+          "path": "src/taxi.rs",
+          "lines": 123,
+          "sha256": "5b97192e451f408fa587c8f6fb990f980a19a905744489e43a085d7e8d44b62c"
+        },
+        {
+          "path": "src/util.rs",
+          "lines": 61,
+          "sha256": "ff6124ec6e9d3043d1a803636414cede7dc489ca6acfe5aba1bc049be31e07ad"
+        },
+        {
+          "path": "src/vp.rs",
+          "lines": 646,
+          "sha256": "c2da73e4511ebb5644e14ea9ed212836fa5a6bfb94d9f95a5a393e981a122372"
+        }
+      ],
+      "lines": 3674,
+      "location": "Archie build/source cache",
+      "scope": "Pinned crate src/**/*.rs; includes inline tests/examples and excludes external crates"
+    },
+    "sklearn kd": {
+      "source": "https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors",
+      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/esa-python/lib/python3.14/site-packages/sklearn/neighbors",
+      "files": [
+        {
+          "path": "_binary_tree.pxi.tp",
+          "lines": 2477,
+          "sha256": "dc33fc91ded56153c7011fdbf48860b47f704768a40ec03e37c89fb507c06a5c"
+        },
+        {
+          "path": "_kd_tree.pyx.tp",
+          "lines": 336,
+          "sha256": "64ce3f0dc4bb7949176e9c4127838b5d1e9ec4b6e419407b2a677f3aed87e0dd"
+        },
+        {
+          "path": "_partition_nodes.pxd",
+          "lines": 10,
+          "sha256": "72f4057b7473d83f2208c48277c8895faf8629b54f7c167a3318bf56fbfe9e78"
+        },
+        {
+          "path": "_partition_nodes.pyx",
+          "lines": 122,
+          "sha256": "889c343c1f799f85605ce44f3230f32ebd0324a81d7f3a33fcf50aca2d0c7a56"
+        }
+      ],
+      "lines": 2945,
+      "location": "Archie build/source cache",
+      "scope": "KD-tree template, shared binary-tree template and partition-node sources; distance-metric and NumPy code excluded"
+    },
+    "sklearn ball": {
+      "source": "https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors",
+      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/esa-python/lib/python3.14/site-packages/sklearn/neighbors",
+      "files": [
+        {
+          "path": "_ball_tree.pyx.tp",
+          "lines": 284,
+          "sha256": "f1224704dedb45f76cdadec33f84f44fc8643001957eeb276d73875f25626889"
+        },
+        {
+          "path": "_binary_tree.pxi.tp",
+          "lines": 2477,
+          "sha256": "dc33fc91ded56153c7011fdbf48860b47f704768a40ec03e37c89fb507c06a5c"
+        },
+        {
+          "path": "_partition_nodes.pxd",
+          "lines": 10,
+          "sha256": "72f4057b7473d83f2208c48277c8895faf8629b54f7c167a3318bf56fbfe9e78"
+        },
+        {
+          "path": "_partition_nodes.pyx",
+          "lines": 122,
+          "sha256": "889c343c1f799f85605ce44f3230f32ebd0324a81d7f3a33fcf50aca2d0c7a56"
+        }
+      ],
+      "lines": 2893,
+      "location": "Archie build/source cache",
+      "scope": "Ball-tree template, shared binary-tree template and partition-node sources; distance-metric and NumPy code excluded"
+    },
+    "Morton 2D": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/2d/morton.cc",
+          "lines": 159,
+          "sha256": "bfff36e1223b1db1bc81048b20f5d124ee116d4f825a8f9e3b511e5d7a569a77"
+        }
+      ],
+      "lines": 159
+    },
+    "Morton SIMD 2D": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/2d/mortonSIMD.cc",
+          "lines": 259,
+          "sha256": "47af59469d764f88f29c60b6c934d9be622efe064c3b8a5a8cd3f7950587943e"
+        }
+      ],
+      "lines": 259
+    },
+    "Morton plus 2D": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/2d/mortonplus.hpp",
+          "lines": 294,
+          "sha256": "a6c3e362acacda316c0b6c29294826ce06dd806a820688c1995900b6dfb0c2f1"
+        }
+      ],
+      "lines": 294
+    },
+    "Morton 3D": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/3d/morton3D.cc",
+          "lines": 94,
+          "sha256": "e42673eefd2f19403e98a3bdf832e86803c1ee81625f297c9d0554976668b786"
+        }
+      ],
+      "lines": 94
+    },
+    "Morton SIMD 3D": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/3d/mortonSIMD3D.hpp",
+          "lines": 269,
+          "sha256": "bd6aee4fd4b79767e38126b302237aea7b5e4d7a3abdc20298bad3a794ab2c43"
+        }
+      ],
+      "lines": 269
+    },
+    "Morton plus 3D": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/3d/mortonplus3d.hpp",
+          "lines": 271,
+          "sha256": "e4d92b4a3ea1efddcb957447e6b059a2078844349db7a3d22b77f46db44fb541"
+        }
+      ],
+      "lines": 271
+    },
+    "Morton dD": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/d_dim/morton_d_dim.cc",
+          "lines": 324,
+          "sha256": "1ad33a3755eb69347858fa1f03cb9dab3e5841d8682682424986cffcb95fa9d5"
+        }
+      ],
+      "lines": 324
+    },
+    "Morton plus dD": {
+      "location": "repository",
+      "scope": "Single implementation file",
+      "files": [
+        {
+          "path": "src/morton/d_dim/mortonplus_d_dim.hpp",
+          "lines": 348,
+          "sha256": "c7d93c5759df8228732eb966b119231e0563d1862dc114aaebe10269617f343b"
+        }
+      ],
+      "lines": 348
+    },
+    "SPRK original": {
+      "location": "repository",
+      "scope": "Shared SPRK library modules; integer-reporting extensions excluded",
+      "files": [
+        {
+          "path": "src/third_party/esa2026/sprk/src/dynamic.rs",
+          "lines": 458,
+          "sha256": "fd622eb6e843e3bf3ac261a6a77a91d5214570c840460564084060423d6c89ec"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/iter.rs",
+          "lines": 228,
+          "sha256": "bae432c168ec5954c099ac8d72f58f070bd11409c532a8491a10c12aae37de3a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/lib.rs",
+          "lines": 81,
+          "sha256": "8de9f6862b5eeb4fd01237f64a3e57882bd10931752f19a99c3f589d99fe76ca"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/output.rs",
+          "lines": 413,
+          "sha256": "96c947ed88629d76c34ca11e341ca2535004f31538f22a148f506d83e12ff4d4"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/query.rs",
+          "lines": 179,
+          "sha256": "9a2d9dc81ce84366318a7f200985d114df361d2e0e304d6d0526dc05d02eac37"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/scalar.rs",
+          "lines": 179,
+          "sha256": "4f95a4787abfeeeb719bc57b3bb17465a211902d631dd4a2165352bb088fe38a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/simd.rs",
+          "lines": 752,
+          "sha256": "cfca4c395afae8335914f7796dd38452e9603102dbbe370f2fd5a222b5de043f"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/svd.rs",
+          "lines": 353,
+          "sha256": "1e5e9acac0beb4c4c2dd3bd328384ce4bd465206001d832ad77674750160ac6a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/tree.rs",
+          "lines": 503,
+          "sha256": "1bdd9e3afc95a2fe58b00e40e91bd4bbfa011eef051f60f4367409b35f653a21"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/vec_writer.rs",
+          "lines": 91,
+          "sha256": "d216ef592f1aaf4e57d07468e0e79cd632e731a441629408856461d1339678e5"
+        }
+      ],
+      "lines": 3237
+    },
+    "SPRK adapted 2D": {
+      "location": "repository",
+      "scope": "Shared SPRK library plus 2D integer-reporting module; includes both explicit-SIMD and compiler-only branches",
+      "files": [
+        {
+          "path": "src/third_party/esa2026/sprk/src/dynamic.rs",
+          "lines": 458,
+          "sha256": "fd622eb6e843e3bf3ac261a6a77a91d5214570c840460564084060423d6c89ec"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/integer_reporting.rs",
+          "lines": 388,
+          "sha256": "f758a2810e0894d6703d8e5c58f9ca942dbe9adf456f7fa7a63a729fe76b9f27"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/iter.rs",
+          "lines": 228,
+          "sha256": "bae432c168ec5954c099ac8d72f58f070bd11409c532a8491a10c12aae37de3a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/lib.rs",
+          "lines": 81,
+          "sha256": "8de9f6862b5eeb4fd01237f64a3e57882bd10931752f19a99c3f589d99fe76ca"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/output.rs",
+          "lines": 413,
+          "sha256": "96c947ed88629d76c34ca11e341ca2535004f31538f22a148f506d83e12ff4d4"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/query.rs",
+          "lines": 179,
+          "sha256": "9a2d9dc81ce84366318a7f200985d114df361d2e0e304d6d0526dc05d02eac37"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/scalar.rs",
+          "lines": 179,
+          "sha256": "4f95a4787abfeeeb719bc57b3bb17465a211902d631dd4a2165352bb088fe38a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/simd.rs",
+          "lines": 752,
+          "sha256": "cfca4c395afae8335914f7796dd38452e9603102dbbe370f2fd5a222b5de043f"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/svd.rs",
+          "lines": 353,
+          "sha256": "1e5e9acac0beb4c4c2dd3bd328384ce4bd465206001d832ad77674750160ac6a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/tree.rs",
+          "lines": 503,
+          "sha256": "1bdd9e3afc95a2fe58b00e40e91bd4bbfa011eef051f60f4367409b35f653a21"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/vec_writer.rs",
+          "lines": 91,
+          "sha256": "d216ef592f1aaf4e57d07468e0e79cd632e731a441629408856461d1339678e5"
+        }
+      ],
+      "lines": 3625
+    },
+    "SPRK adapted 3D": {
+      "location": "repository",
+      "scope": "Shared SPRK library plus 2D and 3D integer-reporting modules",
+      "files": [
+        {
+          "path": "src/third_party/esa2026/sprk/src/dynamic.rs",
+          "lines": 458,
+          "sha256": "fd622eb6e843e3bf3ac261a6a77a91d5214570c840460564084060423d6c89ec"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/integer_reporting.rs",
+          "lines": 388,
+          "sha256": "f758a2810e0894d6703d8e5c58f9ca942dbe9adf456f7fa7a63a729fe76b9f27"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/integer_reporting_3d.rs",
+          "lines": 164,
+          "sha256": "1a385b0142329ee44a0b4d6aedf1a6cb040d1aaee940a87ff2c9f9ceff36bf6f"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/iter.rs",
+          "lines": 228,
+          "sha256": "bae432c168ec5954c099ac8d72f58f070bd11409c532a8491a10c12aae37de3a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/lib.rs",
+          "lines": 81,
+          "sha256": "8de9f6862b5eeb4fd01237f64a3e57882bd10931752f19a99c3f589d99fe76ca"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/output.rs",
+          "lines": 413,
+          "sha256": "96c947ed88629d76c34ca11e341ca2535004f31538f22a148f506d83e12ff4d4"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/query.rs",
+          "lines": 179,
+          "sha256": "9a2d9dc81ce84366318a7f200985d114df361d2e0e304d6d0526dc05d02eac37"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/scalar.rs",
+          "lines": 179,
+          "sha256": "4f95a4787abfeeeb719bc57b3bb17465a211902d631dd4a2165352bb088fe38a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/simd.rs",
+          "lines": 752,
+          "sha256": "cfca4c395afae8335914f7796dd38452e9603102dbbe370f2fd5a222b5de043f"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/svd.rs",
+          "lines": 353,
+          "sha256": "1e5e9acac0beb4c4c2dd3bd328384ce4bd465206001d832ad77674750160ac6a"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/tree.rs",
+          "lines": 503,
+          "sha256": "1bdd9e3afc95a2fe58b00e40e91bd4bbfa011eef051f60f4367409b35f653a21"
+        },
+        {
+          "path": "src/third_party/esa2026/sprk/src/vec_writer.rs",
+          "lines": 91,
+          "sha256": "d216ef592f1aaf4e57d07468e0e79cd632e731a441629408856461d1339678e5"
+        }
+      ],
+      "lines": 3789
+    },
+    "Chan": {
+      "location": "repository",
+      "scope": "Original source file, including its example main",
+      "files": [
+        {
+          "path": "src/third_party/chan_sss/sss-original.cc",
+          "lines": 98,
+          "sha256": "12fccc5e6557699594c2c78868e79031b59f7c5c4595c120469e6a4c55e56da2"
+        }
+      ],
+      "lines": 98
+    },
+    "STANN": {
+      "location": "repository",
+      "scope": "Original upstream header collection",
+      "files": [
+        {
+          "path": "src/third_party/stann/upstream/include/ANN_W.hpp",
+          "lines": 133,
+          "sha256": "cbb40dba2ef4878d0b2bc01d5b817c26883c20e7d7ea4974182eac538dcafe55"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/assert.hpp",
+          "lines": 62,
+          "sha256": "a0ea4a921f8c64dbaceb3d3954868a49cc70d921f0387d05e1be8d2b4e09976e"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/bruteNN.hpp",
+          "lines": 125,
+          "sha256": "fe5e22e38095d182bb48d6ed22045e55dca12f6def1676124386e8f53da37b62"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/bsearch.hpp",
+          "lines": 298,
+          "sha256": "8c4330a13c88aa5ec516a492629cc322600eb1fe44ceffe4ab230bf0a99378d0"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/compute_bounding_box.hpp",
+          "lines": 122,
+          "sha256": "19fb51aad95469a2d62f7b1bc4b2a0d0cc45ea95ffeb96aad5b406d2b735bc27"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/const.hpp",
+          "lines": 34,
+          "sha256": "846fbb27ca7cf7fe6ec9a24e182e1f36f3fd5c35139450f0034d22693ffadb09"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/dpoint.hpp",
+          "lines": 519,
+          "sha256": "f780c6fa5d373d5ff1c67d59a3ca9f3a748c01d306e79bab5ff4d59c6a916dd5"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/filter_kruskal.hpp",
+          "lines": 331,
+          "sha256": "848f8af15285c7fa25bc6a2e5a68eefbc3e25608c054c411c908595a1b08205a"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/fst.hpp",
+          "lines": 188,
+          "sha256": "ffda80de04f517dc14c5589e665808732f78294ece42e3e293dc483037b9ca3f"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/gmst.hpp",
+          "lines": 114,
+          "sha256": "c83a212418db9376b2428234bc048ae84ab45ca5bbf5d3271bb37b4e6dd9015c"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/int_partition.hpp",
+          "lines": 90,
+          "sha256": "1d674cf36e18da7223ae94ede73cadc32de9144258922b4bd8766296a5a1b12c"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/nnBase.hpp",
+          "lines": 35,
+          "sha256": "abca5ef7ab31c6556315cc1afcfdff9f879b6c2fdddab75ea2a8a45e6899e528"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/pair_iter.hpp",
+          "lines": 280,
+          "sha256": "5f53ba75e6abb0be112d9c92112c16cfdf9b98a13ae53cc1212c4f186f5c9d7a"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/predicates.hpp",
+          "lines": 233,
+          "sha256": "80bc1864cb60dbbcf6bea0742a4bae10bf57dd1d0e565646cd6d903208b44d4f"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/pwspd.hpp",
+          "lines": 343,
+          "sha256": "136bab35c867c7713613c7f64c3907ceab962af5e3e902b13692c0721ff440c2"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/qknn.hpp",
+          "lines": 187,
+          "sha256": "b25e214a2453ed8b0c3666b26be7cd823c21de7c35f674c3c090a3c248b91cac"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/rand.hpp",
+          "lines": 47,
+          "sha256": "e0de03cbec8167f7dfedcf068121a3199c95edf2eeb55bf6e990da3c00d58103"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/sep_float.hpp",
+          "lines": 253,
+          "sha256": "a3d3c3c6b4a9cbff54a2b5c5a8fbcb3fccf16f21ccfdf3448f337289c2aebd70"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/sfcnn.hpp",
+          "lines": 495,
+          "sha256": "e2c37a71b15488dc3cb112b4d2a5c9895e5e74bf15111d49500d3b31664a099a"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/sfcnn_ip.hpp",
+          "lines": 324,
+          "sha256": "4310807fa5b1836b7822f3d478c6b57b0012e24deb3e9f35fcc91110db4f6c68"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/sfcnn_knng.hpp",
+          "lines": 400,
+          "sha256": "c32f02fa198604245d0ed1d2add56a71ded002fe8df5ab2923a2257528ba36b6"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/timer.hpp",
+          "lines": 167,
+          "sha256": "eee062f7206ceae54f0dc7b865554c139236c80f4e6568ae5d59301be54d817d"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/zorder_lt.hpp",
+          "lines": 1181,
+          "sha256": "4b3b5456f9a83d4fac1fd1231f4eb3aa693f6ce2b98e9f0ce1f0c14a34ca7813"
+        },
+        {
+          "path": "src/third_party/stann/upstream/include/zorder_type_traits.hpp",
+          "lines": 243,
+          "sha256": "8dfc620df52a2c023f04ca06bd2efa3a44b792dca903136b0efc98a12f9e4a43"
+        }
+      ],
+      "lines": 6204
+    },
+    "ANN": {
+      "location": "repository",
+      "scope": "ANN public/internal headers and library sources",
+      "files": [
+        {
+          "path": "src/third_party/ann/include/ANN/ANN.h",
+          "lines": 839,
+          "sha256": "02ce1f99778df2d74cb77d79aa7e153d6b78d881a83664f3301a9d6de4aa8a6c"
+        },
+        {
+          "path": "src/third_party/ann/include/ANN/ANNperf.h",
+          "lines": 223,
+          "sha256": "c823850f954ef0737cf51c9ff520470742ad657c109ccbf2c72c817691de4fa4"
+        },
+        {
+          "path": "src/third_party/ann/include/ANN/ANNx.h",
+          "lines": 169,
+          "sha256": "d0c784de2174ea3683b2819311edae1c205d9eb01acbaaafef2337e923e57176"
+        },
+        {
+          "path": "src/third_party/ann/src/ANN.cpp",
+          "lines": 201,
+          "sha256": "0348454afd679df78825c04774374eb1baebd54e60d0fe8643da9d1256d6be34"
+        },
+        {
+          "path": "src/third_party/ann/src/bd_fix_rad_search.cpp",
+          "lines": 61,
+          "sha256": "436b3d809b99567d54a1404c594e2d5ce8f5dd30a257193d06e98f8b418ca9c8"
+        },
+        {
+          "path": "src/third_party/ann/src/bd_pr_search.cpp",
+          "lines": 62,
+          "sha256": "2578f06dbaa2ee38ac2b9e769117e2e8e857bc0253041b7f2897818dbfcd17c9"
+        },
+        {
+          "path": "src/third_party/ann/src/bd_search.cpp",
+          "lines": 61,
+          "sha256": "c94fa139e56eeb32acfafd8b2dccaf55dbca912b68305eea57bb889e57fc4fe7"
+        },
+        {
+          "path": "src/third_party/ann/src/bd_tree.cpp",
+          "lines": 417,
+          "sha256": "96b466febfe375ca37302f509a0c16ecba9c0580d8b2b8232c23c3826581c1f8"
+        },
+        {
+          "path": "src/third_party/ann/src/bd_tree.h",
+          "lines": 100,
+          "sha256": "b0ba9434a7c533cbc3d6467809ad193b9a79ba93cc3eb134bc9846192f2a5d30"
+        },
+        {
+          "path": "src/third_party/ann/src/brute.cpp",
+          "lines": 109,
+          "sha256": "b0e0a619d7ab82c63c49599f75d779c7029a994cd0f2357cd19d46c7dfba56ee"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_dump.cpp",
+          "lines": 444,
+          "sha256": "75e132c7c23d6aeb637d4c81fcc97c895be8b1dae62197f632f63367d03d4f4b"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_fix_rad_search.cpp",
+          "lines": 183,
+          "sha256": "aa9ae1d94b7dbce72868da756da1ea1ed1b18f4d1300e5237587e2a47b774c88"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_fix_rad_search.h",
+          "lines": 44,
+          "sha256": "e4bab843a2526abb2b164730c0c0370fea8c6f07ccb9b4a2de1c866828b7b6f5"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_pr_search.cpp",
+          "lines": 219,
+          "sha256": "795d2b16322ba8c8fad8211ddcab918c59b273e4ed558454f8764ce780a8073f"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_pr_search.h",
+          "lines": 49,
+          "sha256": "86bcc1ed48e62a9dd5e793541e07fd4273dfa386e8f9a3dd389a802e72458a5a"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_search.cpp",
+          "lines": 210,
+          "sha256": "1d018f74b992cf75693a700f83df9e3be81510ecdabf4023829fd0a899a7bb7f"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_search.h",
+          "lines": 48,
+          "sha256": "47a508f81f8ce329961b78e7f8a7a7e17b3b556824f8b190e48c00a15b00ab41"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_split.cpp",
+          "lines": 428,
+          "sha256": "cbab1f575880e1f61c6d0c7b2088b38b55fe45e57273bd4f23ff41d8aa3970a9"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_split.h",
+          "lines": 85,
+          "sha256": "3776ba4b02a80b978eb38493d97722981b857b8443a1104be26c319e8b747540"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_tree.cpp",
+          "lines": 405,
+          "sha256": "cbd2bb6831804bcf9e25f872130bfefe8a6558141e55d63945e535bbf0663282"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_tree.h",
+          "lines": 197,
+          "sha256": "5d04dda64cacfe736b4ac40700c1a37e3e5ffe565cac74404e6606e50c3f7b95"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_util.cpp",
+          "lines": 439,
+          "sha256": "d1ddb78c744e8a862593011ae8c7049803585af0f762f04fe1c6289712c70d01"
+        },
+        {
+          "path": "src/third_party/ann/src/kd_util.h",
+          "lines": 124,
+          "sha256": "af77ed6b2f56cb24b8841248afe771d5c4aa5128ba237e8bd5b74209bafc22b4"
+        },
+        {
+          "path": "src/third_party/ann/src/perf.cpp",
+          "lines": 136,
+          "sha256": "5de9b13bc8df9085116112be1124fa802c93c099355dd0d33a53221f7b292f0a"
+        },
+        {
+          "path": "src/third_party/ann/src/pr_queue.h",
+          "lines": 125,
+          "sha256": "2a2af59971fd745450b7a75f1b47fe7f3e742e05a669e1d4f41c2fb974a72436"
+        },
+        {
+          "path": "src/third_party/ann/src/pr_queue_k.h",
+          "lines": 118,
+          "sha256": "4090e2c7e7d8f0cd8211f939a4ad72f2c3a92a25439961ff68137da4725304ba"
+        }
+      ],
+      "lines": 5496
+    },
+    "nanoflann": {
+      "location": "repository",
+      "scope": "Single upstream header",
+      "files": [
+        {
+          "path": "src/third_party/esa2026/nanoflann.hpp",
+          "lines": 2721,
+          "sha256": "b4b6f234fe366bb8a40f94e6729a8390542ea5ed6336c42e504b07f5e0952d1d"
+        }
+      ],
+      "lines": 2721
+    },
+    "Orthtree": {
+      "location": "repository",
+      "scope": "Original rembed implementation module; shared vector/query/SVD/SIMD helpers excluded",
+      "files": [
+        {
+          "path": "src/third_party/esa2026-workloads/src/orthtree.rs",
+          "lines": 367,
+          "sha256": "f0c5cc1dc408281ed63128d197d6e0d6f2470cc44812255f1ba8107fcb0e0a04"
+        }
+      ],
+      "lines": 367
+    },
+    "Grid": {
+      "location": "repository",
+      "scope": "Original rembed implementation module; shared vector/query/SVD/SIMD helpers excluded",
+      "files": [
+        {
+          "path": "src/third_party/esa2026-workloads/src/grid.rs",
+          "lines": 249,
+          "sha256": "f811bba6aa4921bde6a25a657b620cdd58405bd8b80263e75ee75d549399e075"
+        }
+      ],
+      "lines": 249
+    },
+    "SNN Rust": {
+      "location": "repository",
+      "scope": "Original rembed implementation module; shared vector/query/SVD/SIMD helpers excluded",
+      "files": [
+        {
+          "path": "src/third_party/esa2026-workloads/src/snn.rs",
+          "lines": 204,
+          "sha256": "6243fbc2a7ac8bc950d683125cc7a35c9d23862dd1492fb510b830336c8bd52b"
+        }
+      ],
+      "lines": 204
+    },
+    "SNN Python": {
+      "location": "repository",
+      "scope": "SNN Python/Cython package; NumPy/SciPy excluded",
+      "files": [
+        {
+          "path": "src/third_party/esa2026/snnpy/__init__.py",
+          "lines": 22,
+          "sha256": "eb4a355a7e673c3e8a140c0a6477a972e54821eda086addfd9d36977358bc988"
+        },
+        {
+          "path": "src/third_party/esa2026/snnpy/query.pyx",
+          "lines": 84,
+          "sha256": "12bb7e41f30362da059f0a08eb873a2039cb65fbe4b6731892b56bc40cbb31f4"
+        },
+        {
+          "path": "src/third_party/esa2026/snnpy/snnpy.py",
+          "lines": 80,
+          "sha256": "f02f19adc432ff9a843c94c9ee34f48b123bcfe2c0e3355b1da50f2492875922"
+        }
+      ],
+      "lines": 186
+    },
+    "PH-tree": {
+      "location": "repository",
+      "scope": "PH-tree library headers, including bundled B+ tree helpers",
+      "files": [
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/b_plus_tree_base.h",
+          "lines": 548,
+          "sha256": "131008d15b016ee75b2e7d78787062023634087a4e4b9e38da43983f9234925a"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/b_plus_tree_hash_map.h",
+          "lines": 500,
+          "sha256": "074e61830fd60f3a57613fe93a6ad41ebb5cfaac40486d11e3adb3ad88f02af6"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/b_plus_tree_map.h",
+          "lines": 321,
+          "sha256": "db71955299375cdfad95941f6d50e64c584630dcdaede9dca0a7f29fb5ee255a"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/b_plus_tree_multimap.h",
+          "lines": 355,
+          "sha256": "eee0ab87cbaf74ec81257d83cfaa3a81eb97584b280e518c8cf96a09508d94f3"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/base_types.h",
+          "lines": 187,
+          "sha256": "5f4f13706c91ddf11f4a15998d14ce8c0bbadd97de77010d028d0a4b0c0e419b"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/bits.h",
+          "lines": 172,
+          "sha256": "813b4ee649a4ad3a2ca81d5e1a04e33e164bc347ba9b8f1c0b59844bf57ecf52"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/bpt_fixed_vector.h",
+          "lines": 333,
+          "sha256": "8c9f1b06a72614bd184fd2ea8e657c968a41ca19018d177e2782c41f513700f1"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/bpt_priority_queue.h",
+          "lines": 269,
+          "sha256": "41e660ba1c262edbf8a82204d78303f70f7e289140dfffdccbcd3e48f99e20c2"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/common.h",
+          "lines": 217,
+          "sha256": "66d445cd9862343ea469df2e29f3befe32b128d4290affb47fbaa63f6731b74f"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/debug_helper.h",
+          "lines": 71,
+          "sha256": "8b00b2a5a45436978e826e9deac67192f1633660b52e863663f4b804b2a07ed6"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/flat_array_map.h",
+          "lines": 310,
+          "sha256": "7acc0e6dcce9befe261fa16b6f7b6e9322219f734b177b574c878c401eedab70"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/flat_sparse_map.h",
+          "lines": 154,
+          "sha256": "c503f9e9a23b546499565fff35bb934335490c44042e83fa1a6aefe1c79d86d9"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/common/tree_stats.h",
+          "lines": 110,
+          "sha256": "a16a73f7e416e42febb84bee94eae431f85e968835f5936602b8f36010126139"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/converter.h",
+          "lines": 397,
+          "sha256": "6447569b9c3d3a95a287f52ac014bd1129fa6c321b0acefd24c82bbfe5c55244"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/distance.h",
+          "lines": 137,
+          "sha256": "950d2cbddde94f9765648e0f342ab797fe78ead744b1f132f5e6b524765b1b18"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/filter.h",
+          "lines": 419,
+          "sha256": "b5d4a9bdb79d7c4b6a2e9019af009860a0523c39a44594cde6b8ea456191bdc1"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/phtree.h",
+          "lines": 440,
+          "sha256": "60b39d55c1c44123ce2b22948aca9650e1cbb0c2647dab7a7a04f170a109fa87"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/phtree_multimap.h",
+          "lines": 862,
+          "sha256": "1f43a0f60cb4775b36c2c3d4856c2c74e83841c324f8c8c79821a5a296fda081"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/debug_helper_v16.h",
+          "lines": 151,
+          "sha256": "d9109dacae4d6eb0407b5605cdf158fd8c8992f7513df6e7462a1b78e5191a9c"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/entry.h",
+          "lines": 273,
+          "sha256": "909e1b87aef2706c2cbff699f227730904b50dd26a74624e0a8f143785aca241"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/for_each.h",
+          "lines": 70,
+          "sha256": "a0ddbdf4a5b80cd8db077e2280ac333f564c0cb79983b158a94f3a14cd33fe98"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/for_each_hc.h",
+          "lines": 118,
+          "sha256": "89ca38178730d21b1fc8cf7d44bc521142a284a433fed44f54ab5f0dd2721647"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/iterator_base.h",
+          "lines": 125,
+          "sha256": "12685857caddc78ac0d063d0836bd7310abf2f80bb17f41bf5ce6b6d1cccbd5b"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/iterator_full.h",
+          "lines": 116,
+          "sha256": "f1dfe610b7ea87c01c61d944de422c779e0243b6bcdb82f80fd1eb35fba9f307"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/iterator_hc.h",
+          "lines": 210,
+          "sha256": "93d25811ce6e803c508204f1d9b2b74799bfb429cccfaa75304fe62ddbb5cfaf"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/iterator_knn_hs.h",
+          "lines": 189,
+          "sha256": "8b31ea64d72b3c36a9225ebe35c7edbc80da633e93a1c6f3e3d41f05f68ba35f"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/iterator_lower_bound.h",
+          "lines": 166,
+          "sha256": "c27771101cefef46ed9ea85c30c8f98cc3db87a85f1ee6a77dbbd8c765030c98"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/iterator_with_parent.h",
+          "lines": 72,
+          "sha256": "ffe9c7b9926021afbbbdbf1e845248e19ceafae606f14430595a6cfc798536e4"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/node.h",
+          "lines": 419,
+          "sha256": "fc2e21e14ca597e3772103f3a5a97f40b88f034aed428cdc5fb5ded66f53a3d1"
+        },
+        {
+          "path": "src/third_party/phtree-cpp/include/phtree/v16/phtree_v16.h",
+          "lines": 730,
+          "sha256": "1fba6c76d3c09d0a04c56d64b962f5429222cebcdb6f5de3aec7cd0d9def3966"
+        }
+      ],
+      "lines": 8441
+    },
+    "PGM": {
+      "location": "repository",
+      "scope": "PGM library headers, including other PGM variants, bundled SDSL and Morton encoder",
+      "files": [
+        {
+          "path": "src/third_party/pgm-index/include/pgm/morton_nd.hpp",
+          "lines": 575,
+          "sha256": "d59744b8691bcf40124d54b17472c80a0f1f470ca4cafbf07d271a509f70dcd6"
+        },
+        {
+          "path": "src/third_party/pgm-index/include/pgm/pgm_index.hpp",
+          "lines": 266,
+          "sha256": "4a872913854c9d0d34c69c3d4eae61af98493fd50da615583567f1c86ddb5b66"
+        },
+        {
+          "path": "src/third_party/pgm-index/include/pgm/pgm_index_dynamic.hpp",
+          "lines": 717,
+          "sha256": "e85d324f28d49926eec34c5db26c7af35c83976b24486c531c98eb579efb028b"
+        },
+        {
+          "path": "src/third_party/pgm-index/include/pgm/pgm_index_variants.hpp",
+          "lines": 1226,
+          "sha256": "950fb9606c55ad3b01de9a87449ff569b66410cf023fecaaa5359893a5137ef1"
+        },
+        {
+          "path": "src/third_party/pgm-index/include/pgm/piecewise_linear_model.hpp",
+          "lines": 365,
+          "sha256": "c09dbc73a334a9962e71aa4ad811627f79066fbc93716f1c6f7507d01f2c5a84"
+        },
+        {
+          "path": "src/third_party/pgm-index/include/pgm/sdsl.hpp",
+          "lines": 10828,
+          "sha256": "290189f08dc25cfd18d594b50591f35c33e8da087b5999ff8cfcebf7b09f382c"
+        }
+      ],
+      "lines": 13977
+    },
+    "PSI": {
+      "location": "repository",
+      "scope": "Shared PSI library: all four trees and bundled helpers; external Parlay/libmorton excluded",
+      "files": [
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree.h",
+          "lines": 537,
+          "sha256": "9447fcb7789592376bad0859d0fe3dda96837c2b43a94ba473a99fcfe513e337"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/box_cut.hpp",
+          "lines": 52,
+          "sha256": "bffb7fbf8075a2ca2609391c3323b378db19dd93697fc76db7f5eb4fa8cb0920"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/delete_tree.hpp",
+          "lines": 94,
+          "sha256": "25ff87b883363c0c0b0343390d9dc2c5c2807b368c46437e86e5ad0d9ea68b16"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/dimensionality.hpp",
+          "lines": 44,
+          "sha256": "3b8b80a6b44e8bd47c9ad72270b4b5d776204998b56dab781842a558c04e7d30"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/inner_tree.hpp",
+          "lines": 649,
+          "sha256": "8309b2595580e3244b10cde6215321bb191113ca35c4e002cb358b0cf2d416d4"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/knn_query.hpp",
+          "lines": 526,
+          "sha256": "b99afa8eace61515d7c6cab9b070c90aca639ca95c0f7f429997f9ac520c5849"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/points_op.hpp",
+          "lines": 182,
+          "sha256": "63d7d4b4439e1fe43c72ca945f828009c8a3fe0e871d04367c9c33eda018705d"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/range_query.hpp",
+          "lines": 335,
+          "sha256": "14a255677e22098a36bc993bbfe67b3dad775d36a7128ab51e9db290bbb69bd5"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/tree_op/build_inner_tree.hpp",
+          "lines": 65,
+          "sha256": "00de4dd68972e5d10ba384157d8d137611a39e3b3f385400be51543e0eca0592"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/tree_op/flatten.hpp",
+          "lines": 147,
+          "sha256": "b773b9faf2859620315817cf9e50fba58461c49488c016c486491c66d38aef3e"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/tree_op/leaf_op.hpp",
+          "lines": 179,
+          "sha256": "5ef85e8e3c96c069bb79354373cc25f60bda23e5da263e118bc7b946ecf15a13"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/tree_op/node_op.hpp",
+          "lines": 73,
+          "sha256": "2774cd47ac73bc7e237ea9983dd2751af7bd3d12dd0f72090782171be184710e"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/tree_op/rebuild.hpp",
+          "lines": 201,
+          "sha256": "a2813fe12662a18adb45b1a568ba86ddb2fe78112cdbb1fecb2efd0797741668"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/base_tree_impl/validation.hpp",
+          "lines": 366,
+          "sha256": "9d19b731bc30cfdf0240eaf1678386ca4c8422e74650f6d32b7bf8498660d58c"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/augmentation.h",
+          "lines": 147,
+          "sha256": "53dbacf86629d4a31832382dab0a93eb47c2ad6d1ee414b4354371df0a90a974"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/basic_point.h",
+          "lines": 293,
+          "sha256": "312150d4a3346d698f37c1ed072a387136fbd53d2e5580f02a6d6d780d2f9587"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/comparator.h",
+          "lines": 94,
+          "sha256": "4ed6fcfca23046f618c7315eb6184cf573f8f529b6d9c12b612d3c6b852a94f0"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/concepts.h",
+          "lines": 185,
+          "sha256": "08696797d0c96ffa1d73f63d771d45b9710f14ede7fa05c2442020d0c68be5c5"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/augmented_map.h",
+          "lines": 508,
+          "sha256": "d8b3441a1b7b37664d1d4d1e61d73c75f35d59ca67d21602e81374306357f5cf"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/augmented_node.h",
+          "lines": 401,
+          "sha256": "be09b92bdf84a48ce4e24fad6d6aed478e321e8358dd78c9efb8973f7097b2ac"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/augmented_ops.h",
+          "lines": 697,
+          "sha256": "8ba73bbf766a5dc4a21e7afc59fb57f860285ca6cb26caa7cf86742a453a2058"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/balance_utils.h",
+          "lines": 398,
+          "sha256": "fcbb9fa9ba481cd5d069ad27a4846024054d322d713ba61eeb412e8f51bc1f62"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/basic_node.h",
+          "lines": 474,
+          "sha256": "dc3b5403b9c6f830ab1577eabc6b8cfdae68ecb4e6698e9eb8e28806c5f96a42"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/basic_node_helpers.h",
+          "lines": 223,
+          "sha256": "d89803960ad18629adc92b0b8d9fe9a29cb7807673206d4f56d3202e415f5eec"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/build.h",
+          "lines": 203,
+          "sha256": "288838ba3b77d02b26c416c7354c1ba8ed34a1ae3911d0d1d9da5122d257f6fa"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/byte_encode.h",
+          "lines": 50,
+          "sha256": "b98899de89b3b3b207499fb257011f171a252bff703ae5214d3344c94583f2bb"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/compression.h",
+          "lines": 407,
+          "sha256": "ab69e4e93622586cb885b892d01cc1852c79dce4908c1fd1b08a32d87f9a6614"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/cpam.h",
+          "lines": 14,
+          "sha256": "d0dd3e323d5a64a86be4b301d889b9e792624843477863baa1b4ee0aa7e3bb09"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/cpam_sample_sort.h",
+          "lines": 296,
+          "sha256": "2dc772fca5b4789946613f099ab277690089150f271405135dc1893d70c4b2aa"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/gc.h",
+          "lines": 289,
+          "sha256": "b4dfb7a73f72ad4fe0888305fc6327045bcc1b6515c1278e0234f4ff50f3d503"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/get_time.h",
+          "lines": 106,
+          "sha256": "af4af40bc66b5dc91da46556dd817634e9f0101d53fed2187a75b3e74803c3eb"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/map.h",
+          "lines": 1146,
+          "sha256": "fcdd89705f64cfd2af147dd1f87f59ba69f1d370d3d6ffca87aae611b0ff4a04"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/map_ops.h",
+          "lines": 2445,
+          "sha256": "99075fd61d0a8eaf13903abfd50bae01d89fef51bb6996ccf1fdfab9d28f143e"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/parse_command_line.h",
+          "lines": 147,
+          "sha256": "9ba16d17defd404cd48ffe3a945c4fb2ee59ff3707317ee5686f72ae906f557d"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/sequence_ops.h",
+          "lines": 943,
+          "sha256": "32f08befd3211aa9f2b9e64a5692b956f36f6582acedbf170d5bc5b63aeca312"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/utils.h",
+          "lines": 187,
+          "sha256": "bcf1a3d2037bf48f13ec536c9ceb173035b524c3c95e52b4c4237ed725acdfe1"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/cpam/weight_balanced_tree.h",
+          "lines": 159,
+          "sha256": "1a72a2546d59de2ae130b63ef80f6b0c7dfbedfe176dbf61d4491c9d77269894"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/loggers.h",
+          "lines": 27,
+          "sha256": "066d738ef430e8babeb615038696b3f308dc772e1b6a48d7925b68a3be881691"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/search_container.h",
+          "lines": 140,
+          "sha256": "98e8488e2ef763e221b0a6bca534f4ce0a90b9292a4e13dc820253bb8d3e4776"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/space_filling_curve/hilbert.h",
+          "lines": 169,
+          "sha256": "71e4d1132997f9c78d594761565fc13ae6cda267ca2522562f0af2576e7045f2"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/space_filling_curve/hilbert.hpp",
+          "lines": 1694,
+          "sha256": "ba6a97aac50ba70a5bda3c9b2e7cb45e2230e3d9bb3b910809c23680a9e21bbf"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/space_filling_curve/hilbert_high_dim.h",
+          "lines": 257,
+          "sha256": "2c9f210f7c5424460e77ee3d96727dc29b86daeaa1605cb4fa92af101266d9c8"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/splitter.h",
+          "lines": 701,
+          "sha256": "a42903fc2ec6198aa9d2406d9ab6d0f4605520af70ad30949ac40e957cbeac33"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/dependence/tree_node.h",
+          "lines": 385,
+          "sha256": "0d6038229cb7f807ce56d8a81b2ba0d324fb9a2054b2a3aed332af34c4e3832d"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/kd_tree.h",
+          "lines": 188,
+          "sha256": "5ecf2b67eaecc53b3821a43c1014b3ba631c7abdb4fda909a9458f71864f7731"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/kd_tree_impl/kd_batch_delete.hpp",
+          "lines": 288,
+          "sha256": "1cd9fa3ac537bc90240c4b8f998bba489e49066bb705699a4ac8f977db86513f"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/kd_tree_impl/kd_batch_diff.hpp",
+          "lines": 177,
+          "sha256": "b5632a60a13bf64bb02ccf6a5481434a42158d093e25061c445b25d5be79b11e"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/kd_tree_impl/kd_batch_insert.hpp",
+          "lines": 175,
+          "sha256": "9cf8fc72d3f5c09e29c95858341b46d7e20079abf291104fbe0dbc315f8550c3"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/kd_tree_impl/kd_build_tree.hpp",
+          "lines": 224,
+          "sha256": "81a224e3a42f89a052a01497f04e5354f7bcc606dbd90e643a73e5b6f52de949"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/kd_tree_impl/kd_inter_node.hpp",
+          "lines": 85,
+          "sha256": "b5ee94d24ad0c2bf7ba65b44a4b0f318bddd3a44feb17f484f0104b74f62a256"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/kd_tree_impl/kd_override.hpp",
+          "lines": 80,
+          "sha256": "32f72241175ce8097dd10ca8276aac81c1dbd8cd39b8934566e88cf55567eb6f"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/orth_tree.h",
+          "lines": 220,
+          "sha256": "a7529c04f7abfb3f35fd0e8a8080e2793cacb8fdeb0b724b9c3ba942a991fc31"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/orth_tree_impl/orth_batch_delete.hpp",
+          "lines": 219,
+          "sha256": "f99d05a3de4e416dbcd3ba7806c2f3769c673bd140cfcb8a6e52b9185d5c86ce"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/orth_tree_impl/orth_batch_diff.hpp",
+          "lines": 144,
+          "sha256": "9689d7f7a529cbef94af2c3958c8ed1aa78d986b7ee3505c29469145b65b1700"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/orth_tree_impl/orth_batch_insert.hpp",
+          "lines": 169,
+          "sha256": "4c12ca97aa85c207b70ffe6330fa7bc15794530d6a47dd608fed9fa133c0bf8c"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/orth_tree_impl/orth_build_tree.hpp",
+          "lines": 246,
+          "sha256": "12173ccb559f3c2f5a534627b1449d2517870255ccd373a23325f0768820ebe9"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/orth_tree_impl/orth_inter_node.hpp",
+          "lines": 305,
+          "sha256": "fe951cbf83d9350c6de20c78636d51c3bb61c9bca20e87083ba5c3c3eab2dc9e"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/orth_tree_impl/orth_override.hpp",
+          "lines": 83,
+          "sha256": "772f80cd4b2b532760140efb8d9f89bb57d4fd1c1be4ef70754996121a20b480"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/p_tree.h",
+          "lines": 258,
+          "sha256": "2e7b245c102cd9d2d712797b5852d354719d951b955d6d46fb2a79943f6b3892"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/p_tree_impl/p_batch_delete.hpp",
+          "lines": 33,
+          "sha256": "3d46c85de1821abb1d3a3c7cdefa3563a02369163341f7af5536de22dd3a1e4e"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/p_tree_impl/p_batch_diff.hpp",
+          "lines": 33,
+          "sha256": "9f27f5733419ff3071654b403fcbb82bf696cc150e48ec9853b6a6bc3538fd9b"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/p_tree_impl/p_batch_insert.hpp",
+          "lines": 31,
+          "sha256": "bb19e4aa8c834e5f5c4ba9400f49c4b4a4fe8bf3d48d0e060b97e22f763d8e0f"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/p_tree_impl/p_build_tree.hpp",
+          "lines": 32,
+          "sha256": "c598e7170bab3057b1c1bd926aad58df63066ae32e5c9c976dfecc87e48900ff"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/p_tree_impl/p_inter_node.hpp",
+          "lines": 11,
+          "sha256": "c6ced245cc6ee59166e7c8c32128719bb4674586a572a0f78861049bd61cadb0"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/p_tree_impl/p_override.hpp",
+          "lines": 79,
+          "sha256": "68bdf5b386c019f8fab1377d6c85938918af8ead2da31185fcc23d44fa6f5198"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/tree_traits.h",
+          "lines": 198,
+          "sha256": "787227649ec37e23067b0b0dd85e1a9a1f47922f97a0d65480c35fa7d0134721"
+        },
+        {
+          "path": "src/third_party/space-tree-lib/include/psi/tree_traits_impl/box_op.hpp",
+          "lines": 346,
+          "sha256": "85c7dfd891fc6ecacd2e8f1d4d5e65659d84b8e4b0b18ccb0fe45200f6e70562"
+        }
+      ],
+      "lines": 20259
+    },
+    "libspatialindex": {
+      "location": "repository",
+      "scope": "Shared library source and public/internal headers, including other tree types and C API",
+      "files": [
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/Ball.h",
+          "lines": 98,
+          "sha256": "2845d675f26a04a7ee7147aa9939af798bc1fbd0b498ca1165ffe923f3948cae"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/LineSegment.h",
+          "lines": 103,
+          "sha256": "96cf4e4c895d48ff747e3233fb6b4ccc17a8a2eb83ed1e814ebdf8a9fa032c40"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/MVRTree.h",
+          "lines": 88,
+          "sha256": "7ede240798d8aad81449148285faa774e1dc815454d8996898e162e8ea65e481"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/MovingPoint.h",
+          "lines": 85,
+          "sha256": "5e638050712c23938d9c8aa1c67c79fc35d9f073a7a83b5f141cf3e04484fdcc"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/MovingRegion.h",
+          "lines": 166,
+          "sha256": "90d8f659281606f91c10e026fe45ed8de53b45f90a40cf5594d71848af8fe949"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/Point.h",
+          "lines": 92,
+          "sha256": "aa18ca78752f1dfc85cfbabbe1fefbb91d0bc7e800a1e176c4ca43f3c70b77f2"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/RTree.h",
+          "lines": 108,
+          "sha256": "615345ac37cbebf300e7fc3616058c7c2e4d0e6434ff97991ea5daeeb20eaa57"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/Region.h",
+          "lines": 111,
+          "sha256": "c4727bda765e7ed1ac7690fd7db78e87ea7456a9c61ac25172f4af11689cdd7e"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/SpatialIndex.h",
+          "lines": 265,
+          "sha256": "5ff262901a08be6cb8fe552ac227762c7f12fc7e7f5504fa54d1864a69940fd6"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/TPRTree.h",
+          "lines": 85,
+          "sha256": "efa1265c9e389655d12cf5471400f4dd937f0e697892cd1f72bd60bbabb127dc"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/TimePoint.h",
+          "lines": 95,
+          "sha256": "1955faf1739e14423100432de20b688655965385b8b9e8fb7d4243eb84b4c37e"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/TimeRegion.h",
+          "lines": 109,
+          "sha256": "6f04c670ad932bb915c9cf9210a9a2882d6b53890ab77ca6052c93c2873d4a7e"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/Version.h",
+          "lines": 48,
+          "sha256": "ef990546b86863632b4109a755e15199b704a62d260a92fdeb6abc6ec118613c"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/BoundsQuery.h",
+          "lines": 48,
+          "sha256": "2df8e16a3053526226365ecfc2db5f453c8777ae3064e2b7e36da060a6aea5d7"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/CountVisitor.h",
+          "lines": 48,
+          "sha256": "854a765920e1a1621cff0d0f0d18d3c7ef52f6ef47999382c65ca589f385153b"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/CustomStorage.h",
+          "lines": 84,
+          "sha256": "bd75a8d32ce31ab92004aed287c347a0f7125de713e7895c147654c295f2844a"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/DataStream.h",
+          "lines": 56,
+          "sha256": "4c05d9bebe46d0483ac65f64c6937c78a08c7e1fd22623c12a713164352d1d16"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/Error.h",
+          "lines": 54,
+          "sha256": "3599244e423f0010174ba30f36dc04c5ea9078242934d4669ce38ad869238313"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/IdVisitor.h",
+          "lines": 51,
+          "sha256": "9b5d21d68fb4e17ba6be439874f3544f50226717d466c0ca205bb6bedcd400bb"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/Index.h",
+          "lines": 86,
+          "sha256": "175d4c12661e98a8c672368dc036c4c7eee8f389f9a1fac576ebf13569f892b8"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/LeafQuery.h",
+          "lines": 75,
+          "sha256": "d86b2c012aa3efc52e2e07b6413e3fc9fb3852ce497b710f4d0e99bb9cccbb05"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/ObjVisitor.h",
+          "lines": 51,
+          "sha256": "03273c8f5334f019cfa53d7c91d20d83d5ad5b188e178cf5fa559504a0164918"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/Utility.h",
+          "lines": 38,
+          "sha256": "763297b8835e25ba4f2f7591c9d9a5a8cb624046b2816bcda8415a12a83bd451"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/sidx_api.h",
+          "lines": 432,
+          "sha256": "7b59cc5ffe29cd6dd35da17a18acda944eb58d5fcbf05a3e87d1c67319dfe24c"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/sidx_config.h",
+          "lines": 112,
+          "sha256": "c5dc2d92aa3f75a6ce39e2466f90d147152383debc798d7f5970c11824ae3364"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/sidx_export.h",
+          "lines": 44,
+          "sha256": "14b882507bcdc36d3fc3e35f634cd1c79e113f5a1a7a80e71ffee5da4d77ce73"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/capi/sidx_impl.h",
+          "lines": 47,
+          "sha256": "50e018521b908de12be073ce3e9fbc8b8b2a71a400868c36f18f565b3ba806aa"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/tools/PointerPool.h",
+          "lines": 95,
+          "sha256": "a65f6d27781699667b0a5631f9a7858655d1c1f29f1feebbb92e6d8b916f36b3"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/tools/PoolPointer.h",
+          "lines": 102,
+          "sha256": "2c70442487d22db571f49e0caaa3eadd0c22e8ce98520a35264418136e257a70"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/tools/Tools.h",
+          "lines": 501,
+          "sha256": "6d56eff01c355c1974e2e0ff70ac26171e5c0de2d9cbf53af379424eadfe62b1"
+        },
+        {
+          "path": "src/third_party/libspatialindex/include/spatialindex/tools/rand48.h",
+          "lines": 89,
+          "sha256": "7f7d7e6640298302409e9f4d24f16c4075d9c67cc613f433247b5e105b0264a9"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/BoundsQuery.cc",
+          "lines": 46,
+          "sha256": "4ee769e94b23629c728126bf079a2a73d6c71f8ce93e60474e3d529b425a8bf4"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/CountVisitor.cc",
+          "lines": 52,
+          "sha256": "521618d4690b95325a83e43373f0e60629cbfab1ba7636de49273a30ae90fefc"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/CustomStorage.cc",
+          "lines": 117,
+          "sha256": "9ba2dda9c5e29252720d971296558d9a8cd0bca8aa5ce5d6be6801a336680600"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/DataStream.cc",
+          "lines": 114,
+          "sha256": "e7d80f6c96f126097fb6e3d6ad551846d0d0dd5ebbf03ffafc11b3852e60ca2a"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/Error.cc",
+          "lines": 55,
+          "sha256": "eb5122b522fbc88d6de4c18a9edd2991840db3fe6928987739264c1cc03f82f9"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/IdVisitor.cc",
+          "lines": 54,
+          "sha256": "c6d121a9943da35d493ae874b8a1ad31be0e7958a4ec31e772811650f8ee7972"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/Index.cc",
+          "lines": 390,
+          "sha256": "e83434ca905f68dd37b06739af826b5d612568a2ae1429d259ed2735e824de65"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/LeafQuery.cc",
+          "lines": 131,
+          "sha256": "143df2d564b59c47036c339614ff24272ccc2ff9fcb1582263f826648db647fb"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/ObjVisitor.cc",
+          "lines": 61,
+          "sha256": "dff063f32b891f7c804701d0340275d5b12a764bef7b1733dcb4b3bd3b608972"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/Utility.cc",
+          "lines": 235,
+          "sha256": "2879d63c6161336d2835a007a802643710b93877c2c7f758c80e9fc0a67431e3"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/capi/sidx_api.cc",
+          "lines": 4038,
+          "sha256": "ea2281a1c8e64ab60b93c19645be7eb262cb40ebad1da2e26cde910918921b6c"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Index.cc",
+          "lines": 418,
+          "sha256": "a73e9c93f24a4fca28013935d928eb0dd6e8b2ca6b47476120ae1329516cdcbd"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Index.h",
+          "lines": 84,
+          "sha256": "40fbb2b08a881b9150b80b983a3e7bcce024e37cefc68b0957187284c9bdd7d7"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Leaf.cc",
+          "lines": 109,
+          "sha256": "99b8a47a77ec2c9fbc7912f9f4de17dd6d54f6e037a41d8ec9fdfe0fd87276e7"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Leaf.h",
+          "lines": 54,
+          "sha256": "3d7c98dec76c696acb4e9850cddda3df16ecfe1d4b7e45fb9bbaf27fe4462533"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/MVRTree.cc",
+          "lines": 1350,
+          "sha256": "42b970cfde3308fca9e00351ad90c11b80ec514cb97391cc729bafa669df8bd3"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/MVRTree.h",
+          "lines": 224,
+          "sha256": "779e9da1bda585af461a8007687eb69ca2d9022b38f7ae88910c973397028daa"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Node.cc",
+          "lines": 1509,
+          "sha256": "b36632a9c147ffa6a55007d2c7709334f12c37ac0130683be62636b244bd70e3"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Node.h",
+          "lines": 193,
+          "sha256": "5e88c4b935ea44c61184456b9372ab177e1eaec629495f1043c5878ba011eda5"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/PointerPoolNode.h",
+          "lines": 98,
+          "sha256": "c5d2831edf61aaee442a0a24f5dd2a0a59e674a707cab9f1fa46bc97f59e7d26"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Statistics.cc",
+          "lines": 197,
+          "sha256": "bde1860d1a166bfca20e8dacbb19ec4d55338e180146497077f6f84a65e00657"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/mvrtree/Statistics.h",
+          "lines": 105,
+          "sha256": "fdf4e7ce5eb423762711199df458b719cfa0e154a6a283217814aa795538cbf2"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/BulkLoader.cc",
+          "lines": 448,
+          "sha256": "1d9bb2a1bc777e49f3f737f6f445b89410c60d388a37f2fe9775cef5fe11622a"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/BulkLoader.h",
+          "lines": 139,
+          "sha256": "e93917f10b0f22e230152f956b6bcd762784bfe5a6274980603317e0f56620d4"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Index.cc",
+          "lines": 387,
+          "sha256": "1564b764b259d934ab1cfc3655ac45958ca9419efd98cc627497e42232c4d102"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Index.h",
+          "lines": 83,
+          "sha256": "9b36a1c6807166b1affddce1d61ea5373c2ee52ebdc919e1f7922dc94cb2aaf5"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Leaf.cc",
+          "lines": 145,
+          "sha256": "c44840defd3621f2e7be1b9dc6b7071bcc04c6429dc6b8ba643e4b8ee304070b"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Leaf.h",
+          "lines": 53,
+          "sha256": "8f287b9bd5fdf6a7a1db70ee90657cbba985c9c0b61604bce85bcdd00ee349aa"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Node.cc",
+          "lines": 1115,
+          "sha256": "af57a9faaa979f1be9f8ed05c5bcab8b9e79438a1f8b76699580afbafaec1887"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Node.h",
+          "lines": 198,
+          "sha256": "66947cb6976253b5c61b590ad918dd4391e64d1a8bd46b0d75cb1e1619d9447b"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/PointerPoolNode.h",
+          "lines": 111,
+          "sha256": "31253db1a73813feb274643a6c1b8e4f03e88d29e5e6957fe2a47cd3ec7b9df1"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/RTree.cc",
+          "lines": 1583,
+          "sha256": "f54518a6ffa093cc97e6c53dc1b2f9d4e5cc1fab620cf9203be1c47e216e8c0a"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/RTree.h",
+          "lines": 198,
+          "sha256": "070a0562bde9e7a0d1341004ac7e887ddd0c41bddebd710c654b548465b50149"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Statistics.cc",
+          "lines": 177,
+          "sha256": "9493436dc25eef55f8758d38eca6ea7eacb8a0599806dd351458343439e5a5b8"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/rtree/Statistics.h",
+          "lines": 99,
+          "sha256": "115682374a00b8f8b33be383c2be90c863b501d5678e784bdd1ac2496c65b0ff"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/Ball.cc",
+          "lines": 219,
+          "sha256": "9ef7aaa7256aff28dde23779870753c289da38a54e9c8ea36db4513129f23bab"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/LineSegment.cc",
+          "lines": 493,
+          "sha256": "4da033bef277a5798e45971adee3adb55794dcd61325291ddd6694fb3105fb4d"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/MovingPoint.cc",
+          "lines": 329,
+          "sha256": "c7c756d0ecd9871b06ae1d0a932826baa2b10503fcb39cb4a7f524378f439f16"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/MovingRegion.cc",
+          "lines": 1225,
+          "sha256": "c467df838e1953ecac90403ad1aaf52d00666dbed78564e37ec24fb935cfdd0a"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/Point.cc",
+          "lines": 275,
+          "sha256": "60ea496990f8e2ba301ad8c10346a9e63b58132d86bc7052de3f1c5400b71a29"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/Region.cc",
+          "lines": 579,
+          "sha256": "a9cc2d26b6e2d38631bfdf9391e11f5c0f79f4788ba09560f0447fe10e1a87ea"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/SpatialIndexImpl.cc",
+          "lines": 98,
+          "sha256": "f1a12576d95654a63682649f4a020fa7464df9c2f5aeaaffadc762ad5c45872a"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/TimePoint.cc",
+          "lines": 302,
+          "sha256": "5bb5faa44985fd5caa57815bb5c75ce97082225a80283edf11f83c64c9d60689"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/spatialindex/TimeRegion.cc",
+          "lines": 424,
+          "sha256": "15ae3367f2ff79c6c0812c02546027bab1124d26d6ac92aea9c315ff2bb73f5a"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/Buffer.cc",
+          "lines": 154,
+          "sha256": "5f2337dd3d00aaaac01ece50898c3468424ba84b5056908e67e817b4c4c7cfe9"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/Buffer.h",
+          "lines": 85,
+          "sha256": "58cdde44954c2d8e47845e2b37d8f96e8d83c338ca818e06e0ce5ad7de5e6263"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/DiskStorageManager.cc",
+          "lines": 516,
+          "sha256": "126bf2cd230894abf8c1672427a73530d16c504323a95fa48182786d501e97c4"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/DiskStorageManager.h",
+          "lines": 64,
+          "sha256": "514b25845c49ee47d125b26a8eaff5500978de41d56feeab808f5dca19bcf020"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/MemoryStorageManager.cc",
+          "lines": 135,
+          "sha256": "40458915e38ab8ea2b33dc300b2a0614d7c1ef8323360fd39cec21e695487cc3"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/MemoryStorageManager.h",
+          "lines": 68,
+          "sha256": "29aff3f58d268152e950a6045d018c3985f60aa2c432549ce336e3e91175f3eb"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/RandomEvictionsBuffer.cc",
+          "lines": 101,
+          "sha256": "b512f7ccfa509dc6ae9f7f0e693171ea88b388ebb808cc11eb7e929609d28174"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/storagemanager/RandomEvictionsBuffer.h",
+          "lines": 48,
+          "sha256": "808ee362b38c2f6fab9f9759efe08e4ba67ef7e1f376e092a64c825b7e335335"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tools/Tools.cc",
+          "lines": 1296,
+          "sha256": "ba08a27668731b52d4fac3ba510b2c255123306f5d60b629f4efcc55fc8f59e7"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tools/rand48.cc",
+          "lines": 150,
+          "sha256": "8e80779bf7be9951622c5b811ef66b1e1c815ca05c4b418e97fb95ef6f3eaf43"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Index.cc",
+          "lines": 393,
+          "sha256": "d94db7670bc77f1b48f4055fc1a84f1f69cae80755e96254abc693adc2225acb"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Index.h",
+          "lines": 81,
+          "sha256": "29bc7afa9e1ddb32512ba4ebf32d3812219cb5783526cd7f25c002bc075c99b3"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Leaf.cc",
+          "lines": 142,
+          "sha256": "72b1c5478b4f1f563d8b18d3a8d9fdc2185c71a943d5c3557ec1825032d483fd"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Leaf.h",
+          "lines": 53,
+          "sha256": "6b802c7016483b3b278a515f4f2fa2ac8c868869a0642a8e48517b34c7e6d6cb"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Node.cc",
+          "lines": 1205,
+          "sha256": "f6378fa39bec9dcee020749ce264f15452eeefd0c64eb6b5c916462f472236e3"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Node.h",
+          "lines": 209,
+          "sha256": "2d6c5009cd4f6fa36dc65f28d06fd8e0a8ad31cee717352698c47bdc0cf093b1"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/PointerPoolNode.h",
+          "lines": 105,
+          "sha256": "578c0e3feb85b258c57fd51e6f8393930f850b388d44850187de8a431607abfa"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Statistics.cc",
+          "lines": 177,
+          "sha256": "c3f355facdbee7c1e2b4592719bee387ef12c38314e81118b7f2c47533016c07"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/Statistics.h",
+          "lines": 99,
+          "sha256": "a68eecc2cc88fbe10e3449c1aefb1d019cf98089852aef7290d6d9c57e1f738d"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/TPRTree.cc",
+          "lines": 1257,
+          "sha256": "aebe2032f0134bd2050b2dfc059b08dce279f28121dede3ebaa5681eb1df5b83"
+        },
+        {
+          "path": "src/third_party/libspatialindex/src/tprtree/TPRTree.h",
+          "lines": 198,
+          "sha256": "82413c83645d8e529c132f855f01524cbc6ee63f0461d6e5753d2dba9360375c"
+        }
+      ],
+      "lines": 28316
+    },
+    "PMQ": {
+      "location": "repository",
+      "scope": "PMQ class header only; missing external PMA and application helpers excluded",
+      "files": [
+        {
+          "path": "src/third_party/pmq/include/PMQ.h",
+          "lines": 648,
+          "sha256": "84cadf542115be0e52a21827dc9abf3cf0094046ae1bf725e535bae3dd18f790"
+        }
+      ],
+      "lines": 648
+    },
+    "Sugiura": {
+      "location": "repository",
+      "scope": "Original SQL function sources, including naive refinement variant",
+      "files": [
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_FindMaxOneBit.sql",
+          "lines": 19,
+          "sha256": "8ce6e4f66f6e8fd8cc489ea225783527101c5b2851596f53a74f49b2ddea3941"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_FindMinOneBit.sql",
+          "lines": 19,
+          "sha256": "f1e1ba98f0c212962f9a4975ea6dd9bb298601e6ad4d47029d0205d89ef0e4d1"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_FindMinZeroBit.sql",
+          "lines": 20,
+          "sha256": "2252690a28ae503231ac54492186a74ace2e8021a4866a859d9a539e2876243f"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_GenBitMask.sql",
+          "lines": 33,
+          "sha256": "3cdad3c273016ce8f5c8991ebcebdbedacc391ea645271ede857bd78dcbae727"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_GenOneDimZOrderCode.sql",
+          "lines": 77,
+          "sha256": "b5a988b881654e28b00428db6f711ed7bbf40b081c4ba98a1b699c4ab3226763"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_GenZOrderCode.sql",
+          "lines": 108,
+          "sha256": "1a72b434b19d8f667baf6936fc6b3e29ae86009e94bd013da06390286f6a7088"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_GetNextJumpIn.sql",
+          "lines": 51,
+          "sha256": "96338a0f8a676598951eeaff5f41cf04e25c6fcf7322167be09aef3d98c4ba40"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_GetNextJumpOut.sql",
+          "lines": 60,
+          "sha256": "acb13914846a773f84f1d3519b49bf57be7de53b473bec29031b183c43678c73"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_IsInBoundingBox.sql",
+          "lines": 25,
+          "sha256": "7611db0d6a3b28b2ec8fdb1ef5afca45b00b14479025b76e5dd9c6b3ec53db59"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_LoosenZOrderRange.sql",
+          "lines": 80,
+          "sha256": "85fd07421269bd394c3a814e26883bb5e534b231bf4ed79417a7819e46e0630e"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_RefineZOrderRange.sql",
+          "lines": 45,
+          "sha256": "982653d18cec75dae32ac125a0c75adc42b1e46f76f37c084a46d1c2126ad7d0"
+        },
+        {
+          "path": "src/third_party/psql-refine-z-range/src/udf_RefineZOrderRangeNaive.sql",
+          "lines": 38,
+          "sha256": "3e22c17a0be3e3bfe7260a1f7fbafeb121c9c34c5797a9bbfc078516b329b021"
+        }
+      ],
+      "lines": 575
+    },
+    "Brute 2D": {
+      "location": "repository",
+      "scope": "2D scan implementation header; shared geometry types/predicate excluded",
+      "files": [
+        {
+          "path": "src/app/algorithms/static/naive.hh",
+          "lines": 21,
+          "sha256": "ef49738b7c801944e5556023b52c1535acc33a99eaab272107cd0493440df223"
+        }
+      ],
+      "lines": 21
+    },
+    "Brute dimensional": {
+      "location": "repository",
+      "scope": "Entire shared Python runner; the exact brute-force query itself is one list comprehension",
+      "files": [
+        {
+          "path": "src/runner/dimensional/python_check.py",
+          "lines": 57,
+          "sha256": "a5b69f8552eae3b5c2a501f0d6df32e5e56606c57cd0cd0bfe987b8b1d03ba65"
+        }
+      ],
+      "lines": 57
+    }
+  },
+  "table": [
+    {
+      "implementation": "Morton (2D)",
+      "source": "[This repository](src/morton/2d/morton.cc)",
+      "language": "C++",
+      "count_key": "Morton 2D",
+      "lines_display": "159",
+      "reports": "Integer points",
+      "machine_ids": [
+        "Morton"
+      ]
+    },
+    {
+      "implementation": "Morton (simd, 2D)",
+      "source": "[This repository](src/morton/2d/mortonSIMD.cc)",
+      "language": "C++",
+      "count_key": "Morton SIMD 2D",
+      "lines_display": "259",
+      "reports": "Integer points",
+      "machine_ids": [
+        "MortonSIMD"
+      ]
+    },
+    {
+      "implementation": "Morton (plus, 2D)",
+      "source": "[Local C++ implementation of ESA MortonPlus](src/morton/2d/mortonplus.hpp)",
+      "language": "C++",
+      "count_key": "Morton plus 2D",
+      "lines_display": "294",
+      "reports": "Integer points",
+      "machine_ids": [
+        "MortonPlusCPP"
+      ]
+    },
+    {
+      "implementation": "Morton (3D)",
+      "source": "[This repository](src/morton/3d/morton3D.cc)",
+      "language": "C++",
+      "count_key": "Morton 3D",
+      "lines_display": "94",
+      "reports": "Integer points",
+      "machine_ids": [
+        "Morton3D"
+      ]
+    },
+    {
+      "implementation": "Morton (simd, 3D)",
+      "source": "[This repository](src/morton/3d/mortonSIMD3D.hpp)",
+      "language": "C++",
+      "count_key": "Morton SIMD 3D",
+      "lines_display": "269",
+      "reports": "Integer points",
+      "machine_ids": [
+        "MortonSIMD3D"
+      ]
+    },
+    {
+      "implementation": "Morton (plus, 3D)",
+      "source": "[Local C++ implementation of ESA MortonPlus](src/morton/3d/mortonplus3d.hpp)",
+      "language": "C++",
+      "count_key": "Morton plus 3D",
+      "lines_display": "271",
+      "reports": "Integer points",
+      "machine_ids": [
+        "MortonPlus3D"
+      ]
+    },
+    {
+      "implementation": "Morton (d-dimensional)",
+      "source": "[This repository](src/morton/d_dim/morton_d_dim.cc)",
+      "language": "C++",
+      "count_key": "Morton dD",
+      "lines_display": "324",
+      "reports": "Integer points",
+      "machine_ids": [
+        "morton_d_dim"
+      ]
+    },
+    {
+      "implementation": "Morton (plus, d-dimensional)",
+      "source": "[Local C++ implementation of ESA MortonPlus](src/morton/d_dim/mortonplus_d_dim.hpp)",
+      "language": "C++",
+      "count_key": "Morton plus dD",
+      "lines_display": "348",
+      "reports": "Integer points",
+      "machine_ids": [
+        "MortonPlusDDim"
+      ]
+    },
+    {
+      "implementation": "SPRK (original)",
+      "source": "[SPRK 0.2.0](https://github.com/wembed-pdf/sprk)",
+      "language": "Rust",
+      "count_key": "SPRK original",
+      "lines_display": "3,237 (library)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_sprk_CHEATING_IDS_ONLY"
+      ]
+    },
+    {
+      "implementation": "SPRK (adapted, 2D)",
+      "source": "[ESA authors’ adaptation](https://github.com/TrueDoctor/DiskReportingDataStructure/tree/sprk-exact-point-reporting)",
+      "language": "Rust",
+      "count_key": "SPRK adapted 2D",
+      "lines_display": "3,625 (library + extension)",
+      "reports": "Integer points",
+      "machine_ids": [
+        "esa_sprk_RUST_EXACT"
+      ]
+    },
+    {
+      "implementation": "SPRK (adapted, no explicit SIMD)",
+      "source": "[ESA adaptation with local compiler-only option](src/third_party/esa2026/sprk/src/integer_reporting.rs)",
+      "language": "Rust",
+      "count_key": "SPRK adapted 2D",
+      "lines_display": "3,625 (library + extension)",
+      "reports": "Integer points",
+      "machine_ids": [
+        "esa_sprk_RUST_EXACT_NOSIMD"
+      ]
+    },
+    {
+      "implementation": "SPRK (adapted, 3D)",
+      "source": "[Local 3D extension](src/third_party/esa2026/sprk/src/integer_reporting_3d.rs)",
+      "language": "Rust",
+      "count_key": "SPRK adapted 3D",
+      "lines_display": "3,789 (library + extensions)",
+      "reports": "Integer points",
+      "machine_ids": [
+        "esa_sprk_RUST_EXACT_3D"
+      ]
+    },
+    {
+      "implementation": "Boost linear (static and dynamic)",
+      "source": "[Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index)",
+      "language": "C++",
+      "count_key": "Boost",
+      "lines_display": "20,748 (shared index headers)",
+      "reports": "Points",
+      "machine_ids": [
+        "boost_lin",
+        "boost_lin_dyn"
+      ]
+    },
+    {
+      "implementation": "Boost quadratic (static and dynamic)",
+      "source": "[Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index)",
+      "language": "C++",
+      "count_key": "Boost",
+      "lines_display": "20,748 (shared index headers)",
+      "reports": "Points",
+      "machine_ids": [
+        "boost_quad",
+        "boost_quad_dyn"
+      ]
+    },
+    {
+      "implementation": "Boost R-star (static and dynamic)",
+      "source": "[Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index)",
+      "language": "C++",
+      "count_key": "Boost",
+      "lines_display": "20,748 (shared index headers)",
+      "reports": "Points",
+      "machine_ids": [
+        "boost_star",
+        "boost_star_dyn"
+      ]
+    },
+    {
+      "implementation": "CGAL range tree",
+      "source": "[Upstream source](https://github.com/CGAL/cgal/tree/v6.0.1/Range_segment_trees)",
+      "language": "C++",
+      "count_key": "CGAL range tree",
+      "lines_display": "1,649 (component)",
+      "reports": "Points, then disk filtering",
+      "machine_ids": [
+        "cgal_rt"
+      ]
+    },
+    {
+      "implementation": "CGAL k-d tree",
+      "source": "[Upstream source](https://github.com/CGAL/cgal/tree/v6.0.1/Spatial_searching)",
+      "language": "C++",
+      "count_key": "CGAL k-d tree",
+      "lines_display": "3,503 (component)",
+      "reports": "Floating-point points",
+      "machine_ids": [
+        "cgal_kd"
+      ]
+    },
+    {
+      "implementation": "THST quadtree",
+      "source": "[Upstream source](https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST)",
+      "language": "C++",
+      "count_key": "THST quadtree",
+      "lines_display": "1,998 (component)",
+      "reports": "Points, then disk filtering",
+      "machine_ids": [
+        "thst_quad"
+      ]
+    },
+    {
+      "implementation": "THST R-tree",
+      "source": "[Upstream source](https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST)",
+      "language": "C++",
+      "count_key": "THST R-tree",
+      "lines_display": "2,630 (component)",
+      "reports": "Points, then disk filtering",
+      "machine_ids": [
+        "thst_rtree"
+      ]
+    },
+    {
+      "implementation": "Pkd-tree",
+      "source": "[Upstream source](https://github.com/ucrparlay/Pkd-tree/tree/62c8839aa6e87b8cbf652a341a472f1fcf789ec0/include)",
+      "language": "C++",
+      "count_key": "Pkd-tree",
+      "lines_display": "2,813 (component)",
+      "reports": "Points, then disk filtering",
+      "machine_ids": [
+        "pkd"
+      ]
+    },
+    {
+      "implementation": "PAM",
+      "source": "[Upstream source](https://github.com/cmuparlay/PAM/tree/3574543ad84c34acb22edbeecb9d11a97a5eb87d)",
+      "language": "C++",
+      "count_key": "PAM",
+      "lines_display": "3,218 (component)",
+      "reports": "Coordinate pairs, then disk filtering",
+      "machine_ids": [
+        "pam"
+      ]
+    },
+    {
+      "implementation": "ParGeo",
+      "source": "[Upstream source](https://github.com/wangyiqiu/pargeo/tree/b87077ca253d28595e6887bb369501a64774712a)",
+      "language": "C++",
+      "count_key": "ParGeo",
+      "lines_display": "698 (component)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "pargeo"
+      ]
+    },
+    {
+      "implementation": "Chan (original)",
+      "source": "[Chan’s SSS source](src/third_party/chan_sss/sss-original.cc)",
+      "language": "C++",
+      "count_key": "Chan",
+      "lines_display": "98",
+      "reports": "One approximate nearest-neighbour point; range reporting unsupported here",
+      "machine_ids": [
+        "chan_sss",
+        "chan_sss_ddim_MANUALLY_ADAPTED"
+      ]
+    },
+    {
+      "implementation": "STANN (original)",
+      "source": "[Recovered STANN source](src/third_party/stann/upstream)",
+      "language": "C++",
+      "count_key": "STANN",
+      "lines_display": "6,204 (headers)",
+      "reports": "Nearest-neighbour indices (optional distances); range reporting unsupported here",
+      "machine_ids": [
+        "stann_fr",
+        "stann_fr_ddim_MANUALLY_ADAPTED"
+      ]
+    },
+    {
+      "implementation": "ANN",
+      "source": "[ANN](https://www.cs.umd.edu/~mount/ANN/)",
+      "language": "C++",
+      "count_key": "ANN",
+      "lines_display": "5,496 (library)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "ann_fr"
+      ]
+    },
+    {
+      "implementation": "nanoflann",
+      "source": "[Vendored upstream header](src/third_party/esa2026/nanoflann.hpp)",
+      "language": "C++",
+      "count_key": "nanoflann",
+      "lines_display": "2,721",
+      "reports": "Point indices and squared distances",
+      "machine_ids": [
+        "esa_nanoflann"
+      ]
+    },
+    {
+      "implementation": "Kiddo",
+      "source": "[Upstream crate](https://github.com/sdd/kiddo)",
+      "language": "Rust",
+      "count_key": "kiddo",
+      "lines_display": "16,027 (crate source)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_kiddo"
+      ]
+    },
+    {
+      "implementation": "Nabo",
+      "source": "[Upstream crate](https://github.com/enlightware/nabo-rs)",
+      "language": "Rust",
+      "count_key": "nabo",
+      "lines_display": "1,213 (crate source)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_nabo"
+      ]
+    },
+    {
+      "implementation": "Neighbourhood",
+      "source": "[Upstream crate](https://github.com/HOminus/neighbourhood)",
+      "language": "Rust",
+      "count_key": "neighbourhood",
+      "lines_display": "466 (crate source)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_neighbourhood"
+      ]
+    },
+    {
+      "implementation": "Acap VP-tree",
+      "source": "[Upstream crate](https://github.com/tavianator/acap)",
+      "language": "Rust",
+      "count_key": "acap",
+      "lines_display": "3,674 (crate source)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_vptree"
+      ]
+    },
+    {
+      "implementation": "Orthtree",
+      "source": "[Original ESA module](src/third_party/esa2026-workloads/src/orthtree.rs)",
+      "language": "Rust",
+      "count_key": "Orthtree",
+      "lines_display": "367 (module)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_orthtree"
+      ]
+    },
+    {
+      "implementation": "Grid",
+      "source": "[Original ESA module](src/third_party/esa2026-workloads/src/grid.rs)",
+      "language": "Rust",
+      "count_key": "Grid",
+      "lines_display": "249 (module)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_grid"
+      ]
+    },
+    {
+      "implementation": "SNN (Rust)",
+      "source": "[Original ESA module](src/third_party/esa2026-workloads/src/snn.rs)",
+      "language": "Rust",
+      "count_key": "SNN Rust",
+      "lines_display": "204 (module)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_snn_rust"
+      ]
+    },
+    {
+      "implementation": "scikit-learn k-d tree",
+      "source": "[scikit-learn 1.9.1](https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors)",
+      "language": "Python / Cython",
+      "count_key": "sklearn kd",
+      "lines_display": "2,945 (tree + shared templates)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_sklearn_kd"
+      ]
+    },
+    {
+      "implementation": "scikit-learn ball tree",
+      "source": "[scikit-learn 1.9.1](https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors)",
+      "language": "Python / Cython",
+      "count_key": "sklearn ball",
+      "lines_display": "2,893 (tree + shared templates)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_sklearn_ball"
+      ]
+    },
+    {
+      "implementation": "SNN (Python)",
+      "source": "[Original SNN package](src/third_party/esa2026/snnpy)",
+      "language": "Python / Cython",
+      "count_key": "SNN Python",
+      "lines_display": "186 (package)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "esa_snn"
+      ]
+    },
+    {
+      "implementation": "PH-tree",
+      "source": "[Author-maintained C++ implementation](https://github.com/tzaeschke/phtree-cpp)",
+      "language": "C++",
+      "count_key": "PH-tree",
+      "lines_display": "8,441 (library headers)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "phtree"
+      ]
+    },
+    {
+      "implementation": "Multidimensional PGM-index",
+      "source": "[PGM-index](https://github.com/gvinciguerra/PGM-index)",
+      "language": "C++",
+      "count_key": "PGM",
+      "lines_display": "13,977 (shared library headers)",
+      "reports": "Decoded integer points; coordinate limits and empty-input failure",
+      "machine_ids": [
+        "pgm_multidimensional"
+      ]
+    },
+    {
+      "implementation": "PSI k-d tree",
+      "source": "[SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib)",
+      "language": "C++",
+      "count_key": "PSI",
+      "lines_display": "20,259 (shared PSI library)",
+      "reports": "Integer points with ID/curve-code fields",
+      "machine_ids": [
+        "psi_kd"
+      ]
+    },
+    {
+      "implementation": "P-Orth tree",
+      "source": "[SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib)",
+      "language": "C++",
+      "count_key": "PSI",
+      "lines_display": "20,259 (shared PSI library)",
+      "reports": "Integer points with ID/curve-code fields",
+      "machine_ids": [
+        "psi_orth"
+      ]
+    },
+    {
+      "implementation": "SPaC-Z tree",
+      "source": "[SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib)",
+      "language": "C++",
+      "count_key": "PSI",
+      "lines_display": "20,259 (shared PSI library)",
+      "reports": "Integer points with ID/curve-code fields",
+      "machine_ids": [
+        "psi_spac_z"
+      ]
+    },
+    {
+      "implementation": "SPaC-H tree",
+      "source": "[SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib)",
+      "language": "C++",
+      "count_key": "PSI",
+      "lines_display": "20,259 (shared PSI library)",
+      "reports": "Integer points with ID/curve-code fields",
+      "machine_ids": [
+        "psi_spac_h"
+      ]
+    },
+    {
+      "implementation": "libspatialindex linear",
+      "source": "[libspatialindex](https://github.com/libspatialindex/libspatialindex)",
+      "language": "C++",
+      "count_key": "libspatialindex",
+      "lines_display": "28,316 (shared library)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "lsi_linear"
+      ]
+    },
+    {
+      "implementation": "libspatialindex quadratic",
+      "source": "[libspatialindex](https://github.com/libspatialindex/libspatialindex)",
+      "language": "C++",
+      "count_key": "libspatialindex",
+      "lines_display": "28,316 (shared library)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "lsi_quadratic"
+      ]
+    },
+    {
+      "implementation": "libspatialindex R-star",
+      "source": "[libspatialindex](https://github.com/libspatialindex/libspatialindex)",
+      "language": "C++",
+      "count_key": "libspatialindex",
+      "lines_display": "28,316 (shared library)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "lsi_rstar"
+      ]
+    },
+    {
+      "implementation": "libspatialindex STR",
+      "source": "[libspatialindex](https://github.com/libspatialindex/libspatialindex)",
+      "language": "C++",
+      "count_key": "libspatialindex",
+      "lines_display": "28,316 (shared library)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "lsi_str"
+      ]
+    },
+    {
+      "implementation": "Brute force (2D control)",
+      "source": "[This repository](src/app/algorithms/static/naive.hh)",
+      "language": "C++",
+      "count_key": "Brute 2D",
+      "lines_display": "21",
+      "reports": "Integer points",
+      "machine_ids": [
+        "naive"
+      ]
+    },
+    {
+      "implementation": "Brute force (dimensional control)",
+      "source": "[Python runner](src/runner/dimensional/python_check.py)",
+      "language": "Python",
+      "count_key": "Brute dimensional",
+      "lines_display": "57 (shared runner; scan is one expression)",
+      "reports": "Point indices",
+      "machine_ids": [
+        "brute_force"
+      ]
+    },
+    {
+      "implementation": "PMQ — integration blocked",
+      "source": "[Original PMQ](https://github.com/cicerolp/pmq)",
+      "language": "C++",
+      "count_key": "PMQ",
+      "lines_display": "648 (PMQ.h only)",
+      "reports": "Records through a callback; external PMA dependency missing",
+      "machine_ids": []
+    },
+    {
+      "implementation": "Sugiura–Ishikawa — integration pending",
+      "source": "[Original PostgreSQL implementation](https://github.com/dbgroup-nagoya-u/psql-refine-z-range)",
+      "language": "PL/pgSQL",
+      "count_key": "Sugiura",
+      "lines_display": "575 (SQL functions)",
+      "reports": "Z-order interval endpoints; not materialized points",
+      "machine_ids": []
+    }
+  ]
+}

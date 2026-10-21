@@ -19,23 +19,81 @@ are recorded in [publication status](docs/PUBLICATION.md).
 ## Active algorithms (21 October 2026)
 
 The 2D roster has 40 entries and the 3D roster has 34, including controls and
-entries with explicit unsupported outcomes. The retained Morton, SPRK and Boost
-configurations are listed below. The other original competitors are described in
+entries with explicit unsupported outcomes. All implementations are listed below; native-output policy is described in
 [the original-API campaign](docs/ORIGINAL-CAMPAIGN.md).
 The ten newly integrated entries, their output types, and validation limitations
 are listed in [additional competitors](docs/ADDITIONAL-COMPETITORS.md).
 
-| Name | Machine ID | Implementation |
-|---|---|---|
-| Morton | `Morton` | Readable 32-point batches; compiler-vectorized membership tests |
-| Morton (simd) | `MortonSIMD` | Explicit AVX-512 filtering and output compression |
-| Morton (plus) | `MortonPlusCPP` | C++ port of the ESA authors' MortonPlus, with AVX-512 |
-| SPRK (original) | `esa_sprk_CHEATING_IDS_ONLY` | Original f64 SPRK; materialized IDs |
-| SPRK (adapted) | `esa_sprk_RUST_EXACT` | Authors' Rust adaptation; exact integer points |
-| SPRK (adapted, no SIMD) | `esa_sprk_RUST_EXACT_NOSIMD` | Ordinary Rust fallbacks; compiler vectorization remains enabled |
-| Boost (linear) | `boost_lin` | Linear R-tree |
-| Boost (quadratic) | `boost_quad` | Quadratic R-tree |
-| Boost (R-star) | `boost_star` | R-star tree |
+## Competitor implementations
+
+The table covers every implementation in the current 2D, 3D, higher-dimensional
+and dynamic rosters, plus the two upstream integrations still pending. Variants
+that share source have the same count; their counts must not be added together.
+Point indices identify stored points rather than containing their coordinates. The output column
+describes what our timed query materializes. For rectangle-query APIs, the timed
+query also filters the candidates against the disk or sphere.
+
+Line counts include comments and blank lines. Single-file implementations are
+counted directly; for libraries, the counted component is indicated in the table.
+Separate benchmarks, tests and external dependencies are excluded, while inline
+tests/examples remain part of their source files. These are source-size figures,
+not a comparison of equivalent standalone programs or of code executed per query.
+The [counting record](docs/competitor-source-counts.json) lists every counted file,
+its line count and hash, together with the scope of each total. Sources available
+only in the build environment were read from Archie's pinned dependency caches.
+
+| Implementation | Source | Language | Lines of code | What it reports |
+|---|---|---|---:|---|
+| Morton (2D) | [This repository](src/morton/2d/morton.cc) | C++ | 159 | Integer points |
+| Morton (simd, 2D) | [This repository](src/morton/2d/mortonSIMD.cc) | C++ | 259 | Integer points |
+| Morton (plus, 2D) | [Local C++ implementation of ESA MortonPlus](src/morton/2d/mortonplus.hpp) | C++ | 294 | Integer points |
+| Morton (3D) | [This repository](src/morton/3d/morton3D.cc) | C++ | 94 | Integer points |
+| Morton (simd, 3D) | [This repository](src/morton/3d/mortonSIMD3D.hpp) | C++ | 269 | Integer points |
+| Morton (plus, 3D) | [Local C++ implementation of ESA MortonPlus](src/morton/3d/mortonplus3d.hpp) | C++ | 271 | Integer points |
+| Morton (d-dimensional) | [This repository](src/morton/d_dim/morton_d_dim.cc) | C++ | 324 | Integer points |
+| Morton (plus, d-dimensional) | [Local C++ implementation of ESA MortonPlus](src/morton/d_dim/mortonplus_d_dim.hpp) | C++ | 348 | Integer points |
+| SPRK (original) | [SPRK 0.2.0](https://github.com/wembed-pdf/sprk) | Rust | 3,237 (library) | Point indices |
+| SPRK (adapted, 2D) | [ESA authors’ adaptation](https://github.com/TrueDoctor/DiskReportingDataStructure/tree/sprk-exact-point-reporting) | Rust | 3,625 (library + extension) | Integer points |
+| SPRK (adapted, no explicit SIMD) | [ESA adaptation with local compiler-only option](src/third_party/esa2026/sprk/src/integer_reporting.rs) | Rust | 3,625 (library + extension) | Integer points |
+| SPRK (adapted, 3D) | [Local 3D extension](src/third_party/esa2026/sprk/src/integer_reporting_3d.rs) | Rust | 3,789 (library + extensions) | Integer points |
+| Boost linear (static and dynamic) | [Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index) | C++ | 20,748 (shared index headers) | Points |
+| Boost quadratic (static and dynamic) | [Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index) | C++ | 20,748 (shared index headers) | Points |
+| Boost R-star (static and dynamic) | [Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index) | C++ | 20,748 (shared index headers) | Points |
+| CGAL range tree | [Upstream source](https://github.com/CGAL/cgal/tree/v6.0.1/Range_segment_trees) | C++ | 1,649 (component) | Points, then disk filtering |
+| CGAL k-d tree | [Upstream source](https://github.com/CGAL/cgal/tree/v6.0.1/Spatial_searching) | C++ | 3,503 (component) | Floating-point points |
+| THST quadtree | [Upstream source](https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST) | C++ | 1,998 (component) | Points, then disk filtering |
+| THST R-tree | [Upstream source](https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST) | C++ | 2,630 (component) | Points, then disk filtering |
+| Pkd-tree | [Upstream source](https://github.com/ucrparlay/Pkd-tree/tree/62c8839aa6e87b8cbf652a341a472f1fcf789ec0/include) | C++ | 2,813 (component) | Points, then disk filtering |
+| PAM | [Upstream source](https://github.com/cmuparlay/PAM/tree/3574543ad84c34acb22edbeecb9d11a97a5eb87d) | C++ | 3,218 (component) | Coordinate pairs, then disk filtering |
+| ParGeo | [Upstream source](https://github.com/wangyiqiu/pargeo/tree/b87077ca253d28595e6887bb369501a64774712a) | C++ | 698 (component) | Point indices |
+| Chan (original) | [Chan’s SSS source](src/third_party/chan_sss/sss-original.cc) | C++ | 98 | One approximate nearest-neighbour point; range reporting unsupported here |
+| STANN (original) | [Recovered STANN source](src/third_party/stann/upstream) | C++ | 6,204 (headers) | Nearest-neighbour indices (optional distances); range reporting unsupported here |
+| ANN | [ANN](https://www.cs.umd.edu/~mount/ANN/) | C++ | 5,496 (library) | Point indices |
+| nanoflann | [Vendored upstream header](src/third_party/esa2026/nanoflann.hpp) | C++ | 2,721 | Point indices and squared distances |
+| Kiddo | [Upstream crate](https://github.com/sdd/kiddo) | Rust | 16,027 (crate source) | Point indices |
+| Nabo | [Upstream crate](https://github.com/enlightware/nabo-rs) | Rust | 1,213 (crate source) | Point indices |
+| Neighbourhood | [Upstream crate](https://github.com/HOminus/neighbourhood) | Rust | 466 (crate source) | Point indices |
+| Acap VP-tree | [Upstream crate](https://github.com/tavianator/acap) | Rust | 3,674 (crate source) | Point indices |
+| Orthtree | [Original ESA module](src/third_party/esa2026-workloads/src/orthtree.rs) | Rust | 367 (module) | Point indices |
+| Grid | [Original ESA module](src/third_party/esa2026-workloads/src/grid.rs) | Rust | 249 (module) | Point indices |
+| SNN (Rust) | [Original ESA module](src/third_party/esa2026-workloads/src/snn.rs) | Rust | 204 (module) | Point indices |
+| scikit-learn k-d tree | [scikit-learn 1.9.1](https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors) | Python / Cython | 2,945 (tree + shared templates) | Point indices |
+| scikit-learn ball tree | [scikit-learn 1.9.1](https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors) | Python / Cython | 2,893 (tree + shared templates) | Point indices |
+| SNN (Python) | [Original SNN package](src/third_party/esa2026/snnpy) | Python / Cython | 186 (package) | Point indices |
+| PH-tree | [Author-maintained C++ implementation](https://github.com/tzaeschke/phtree-cpp) | C++ | 8,441 (library headers) | Point indices |
+| Multidimensional PGM-index | [PGM-index](https://github.com/gvinciguerra/PGM-index) | C++ | 13,977 (shared library headers) | Decoded integer points; coordinate limits and empty-input failure |
+| PSI k-d tree | [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | C++ | 20,259 (shared PSI library) | Integer points with ID/curve-code fields |
+| P-Orth tree | [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | C++ | 20,259 (shared PSI library) | Integer points with ID/curve-code fields |
+| SPaC-Z tree | [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | C++ | 20,259 (shared PSI library) | Integer points with ID/curve-code fields |
+| SPaC-H tree | [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | C++ | 20,259 (shared PSI library) | Integer points with ID/curve-code fields |
+| libspatialindex linear | [libspatialindex](https://github.com/libspatialindex/libspatialindex) | C++ | 28,316 (shared library) | Point indices |
+| libspatialindex quadratic | [libspatialindex](https://github.com/libspatialindex/libspatialindex) | C++ | 28,316 (shared library) | Point indices |
+| libspatialindex R-star | [libspatialindex](https://github.com/libspatialindex/libspatialindex) | C++ | 28,316 (shared library) | Point indices |
+| libspatialindex STR | [libspatialindex](https://github.com/libspatialindex/libspatialindex) | C++ | 28,316 (shared library) | Point indices |
+| Brute force (2D control) | [This repository](src/app/algorithms/static/naive.hh) | C++ | 21 | Integer points |
+| Brute force (dimensional control) | [Python runner](src/runner/dimensional/python_check.py) | Python | 57 (shared runner; scan is one expression) | Point indices |
+| PMQ — integration blocked | [Original PMQ](https://github.com/cicerolp/pmq) | C++ | 648 (PMQ.h only) | Records through a callback; external PMA dependency missing |
+| Sugiura–Ishikawa — integration pending | [Original PostgreSQL implementation](https://github.com/dbgroup-nagoya-u/psql-refine-z-range) | PL/pgSQL | 575 (SQL functions) | Z-order interval endpoints; not materialized points |
 
 Morton is the former Morton (compiler SIMD), promoted without changing its
 four-cell search or reporting semantics. The old scalar Morton and experimental
@@ -87,10 +145,10 @@ An experiment **theater** contains campaigns. A **campaign** studies a related q
 | [d-dim](theaters/d-dim/README.md) | Four imported families, restricted to dimensions above two | 279 |
 | [dynamic](theaters/dynamic/README.md) | 2D insertions, deletions and disk queries | 90 |
 
-Default rosters contain only the retained Morton, SPRK and Boost families:
-30 2D configurations, 24 static 3D configurations, seven dimensional
-configurations (subject to supported dimensions), and three dynamic Boost
-configurations. Static 3D includes Morton, Morton (simd) and Morton (plus).
+Default rosters contain 40 2D configurations, 34 static 3D configurations,
+23 higher-dimensional configurations (subject to supported dimensions), and three
+dynamic Boost configurations. These totals include controls and unsupported entries.
+Static 3D includes Morton, Morton (simd) and Morton (plus).
 See [competitor rosters](docs/COMPETITORS.md) and the
 [3D upgrade evidence](docs/MORTON-3D-UPGRADE.md).
 
