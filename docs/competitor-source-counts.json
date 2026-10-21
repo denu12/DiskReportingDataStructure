@@ -1,10 +1,10 @@
 {
   "date": "2026-10-21",
-  "method": "Physical source lines, including blank lines, comments and inline examples/tests. Separate tests/drivers and external dependencies excluded except where scope explicitly says otherwise.",
+  "method": "Physical source lines, including blank lines, comments and inline examples/tests. Separate tests/drivers and external dependencies excluded except where scope explicitly says otherwise. scope_root identifies the directory within the upstream source or package; local machine paths are omitted.",
   "counts": {
     "Boost": {
       "source": "https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/boost.geometry+/include/boost/geometry/index",
+      "scope_root": "include/boost/geometry/index",
       "files": [
         {
           "path": "adaptors/query.hpp",
@@ -448,7 +448,7 @@
     },
     "CGAL range tree": {
       "source": "https://github.com/CGAL/cgal/tree/v6.0.1/Range_segment_trees",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules2+CGAL/include/CGAL",
+      "scope_root": "include/CGAL",
       "files": [
         {
           "path": "Range_segment_tree_traits.h",
@@ -477,7 +477,7 @@
     },
     "CGAL k-d tree": {
       "source": "https://github.com/CGAL/cgal/tree/v6.0.1/Spatial_searching",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules2+CGAL/include/CGAL",
+      "scope_root": "include/CGAL",
       "files": [
         {
           "path": "Fuzzy_sphere.h",
@@ -556,7 +556,7 @@
     },
     "THST quadtree": {
       "source": "https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules+thst/include/THST",
+      "scope_root": "include/THST",
       "files": [
         {
           "path": "QuadTree.h",
@@ -600,7 +600,7 @@
     },
     "THST R-tree": {
       "source": "https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules+thst/include/THST",
+      "scope_root": "include/THST",
       "files": [
         {
           "path": "RTree.h",
@@ -644,7 +644,7 @@
     },
     "Pkd-tree": {
       "source": "https://github.com/ucrparlay/Pkd-tree/tree/62c8839aa6e87b8cbf652a341a472f1fcf789ec0/include",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/src/bazel-src/external/+_repo_rules+pkd_tree/include",
+      "scope_root": "include",
       "files": [
         {
           "path": "cpdd/basic_point.h",
@@ -743,7 +743,7 @@
     },
     "PAM": {
       "source": "https://github.com/cmuparlay/PAM/tree/3574543ad84c34acb22edbeecb9d11a97a5eb87d",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/results/_queue-native-output-2d-3d-20261015/workspace/build/original-deps/PAM",
+      "scope_root": "PAM",
       "files": [
         {
           "path": "examples/range_query/range_tree.h",
@@ -852,7 +852,7 @@
     },
     "ParGeo": {
       "source": "https://github.com/wangyiqiu/pargeo/tree/b87077ca253d28595e6887bb369501a64774712a",
-      "scope_root": "/home/jacobus/Projects/DiskRangeReport/results/_queue-native-output-2d-3d-20261015/workspace/build/original-deps/pargeo",
+      "scope_root": "pargeo",
       "files": [
         {
           "path": "include/pargeo/kdTree.h",
@@ -876,7 +876,7 @@
     },
     "kiddo": {
       "source": "https://github.com/sdd/kiddo",
-      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/kiddo-5.0.3",
+      "scope_root": "kiddo-5.0.3",
       "files": [
         {
           "path": "src/best_neighbour.rs",
@@ -1290,7 +1290,7 @@
     },
     "nabo": {
       "source": "https://github.com/enlightware/nabo-rs",
-      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/nabo-0.5.0",
+      "scope_root": "nabo-0.5.0",
       "files": [
         {
           "path": "src/heap.rs",
@@ -1334,7 +1334,7 @@
     },
     "neighbourhood": {
       "source": "https://github.com/HOminus/neighbourhood",
-      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/neighbourhood-0.0.1",
+      "scope_root": "neighbourhood-0.0.1",
       "files": [
         {
           "path": "src/kd_index_tree.rs",
@@ -1358,7 +1358,7 @@
     },
     "acap": {
       "source": "https://github.com/tavianator/acap",
-      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/acap-0.4.0",
+      "scope_root": "acap-0.4.0",
       "files": [
         {
           "path": "src/chebyshev.rs",
@@ -1437,7 +1437,7 @@
     },
     "sklearn kd": {
       "source": "https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors",
-      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/esa-python/lib/python3.14/site-packages/sklearn/neighbors",
+      "scope_root": "sklearn/neighbors",
       "files": [
         {
           "path": "_binary_tree.pxi.tp",
@@ -1466,7 +1466,7 @@
     },
     "sklearn ball": {
       "source": "https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors",
-      "scope_root": "/home/jacobus/Projects/SFC-Index/toolchains/esa-python/lib/python3.14/site-packages/sklearn/neighbors",
+      "scope_root": "sklearn/neighbors",
       "files": [
         {
           "path": "_ball_tree.pyx.tp",

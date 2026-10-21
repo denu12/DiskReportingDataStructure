@@ -19,3 +19,21 @@ src/third_party/esa2026-workloads/benchmark/snn_datasets/csv_output/
 
 # Retired local research must never enter the publication tree.
 /deprecated/
+
+# Private manuscripts and correspondence belong outside this repository.
+/[Ss][Oo][Cc][Gg]*
+/[Aa][Ll][Ee][Nn][Ee][Xx]*
+/[Oo]verleaf*
+/paper/
+/papers/
+/drafts/
+/private/
+/correspondence/
+**/[Ss][Oo][Cc][Gg]*
+**/[Oo]verleaf*
+*.eml
+*.msg
+.env
+.env.*
+*.pem
+*.key
