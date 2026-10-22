@@ -3,6 +3,7 @@
 Includes duplicates, boundary points, uint32 extremes, empty inputs and varied
 distributions. Records upstream failures rather than repairing their searches.
 """
+import argparse
 import json
 from pathlib import Path
 import random
@@ -13,7 +14,7 @@ import tempfile
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from additional_competitors import BACKENDS
+from additional_competitors import BACKENDS, supported
 
 def write_case(path,d,points,queries):
     with path.open('wb') as out:
@@ -40,13 +41,17 @@ def cases(d):
     yield 'singleton',[zero],[(zero,0),(maximum,0)]
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dimensions", type=int, nargs="+", default=[2,3])
+    args=parser.parse_args()
     results=[]
     with tempfile.TemporaryDirectory(prefix='additional-check-') as folder:
-        for d in [2,3]:
+        for d in args.dimensions:
             for name,points,queries in cases(d):
                 path=Path(folder)/'case.bin';write_case(path,d,points,queries)
                 expected=sum(sum(sum((x-y)**2 for x,y in zip(p,c))<=r for p in points) for c,r in queries)
                 for algorithm,backend in BACKENDS.items():
+                    if not supported(algorithm,d): continue
                     for mode in ['check','bench']:
                         cmd=[str(ROOT/'build/dimensional'/('check_'+backend)),str(path),algorithm]
                         if mode=='bench':cmd.append('--bench')

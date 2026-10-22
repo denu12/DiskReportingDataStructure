@@ -110,9 +110,9 @@ template<unsigned D> Query make_index(Data& d,const std::string& algorithm) {
     using Z=psi::spatial_filling_curve<psi::morton_curve<P>>;
     using H=psi::spatial_filling_curve<psi::hilbert_curve<P>>;
     if(algorithm=="psi_kd")return psi_index<D,psi::kd_tree<psi::tree_traits<P,K>>>(d);
-    if(algorithm=="psi_orth")return psi_index<D,psi::orth_tree<psi::orth_tree_traits<P,O,psi::box_leaf_aug<B>,psi::box_interior_aug<B>>>>(d);
-    if(algorithm=="psi_spac_z")return psi_index<D,psi::p_tree<psi::tree_traits<P,Z>>>(d);
-    if(algorithm=="psi_spac_h")return psi_index<D,psi::p_tree<psi::tree_traits<P,H>>>(d);
+    if constexpr(D<=8) if(algorithm=="psi_orth")return psi_index<D,psi::orth_tree<psi::orth_tree_traits<P,O,psi::box_leaf_aug<B>,psi::box_interior_aug<B>>>>(d);
+    if constexpr(D<=3) if(algorithm=="psi_spac_z")return psi_index<D,psi::p_tree<psi::tree_traits<P,Z>>>(d);
+    if constexpr(D<=3) if(algorithm=="psi_spac_h")return psi_index<D,psi::p_tree<psi::tree_traits<P,H>>>(d);
     throw std::runtime_error("Unknown PSI algorithm");
 }
 #elif defined(ADDITIONAL_SPATIALINDEX)
@@ -162,6 +162,18 @@ Query create(Data& d,const std::string& algorithm) {
 Query create(Data& d,const std::string& algorithm) {
     if(d.d==2)return make_index<2>(d,algorithm);
     if(d.d==3)return make_index<3>(d,algorithm);
-    throw std::runtime_error("Additional backend currently supports 2D and 3D");
+#if defined(ADDITIONAL_PHTREE) || defined(ADDITIONAL_PSI)
+    switch(d.d) {
+#define DIMENSION(N) case N: return make_index<N>(d,algorithm);
+    DIMENSION(4) DIMENSION(5) DIMENSION(6) DIMENSION(7) DIMENSION(8)
+    DIMENSION(9) DIMENSION(10) DIMENSION(11) DIMENSION(12) DIMENSION(13)
+    DIMENSION(14) DIMENSION(15) DIMENSION(16) DIMENSION(32) DIMENSION(34)
+#if defined(ADDITIONAL_PSI)
+    DIMENSION(96) DIMENSION(100) DIMENSION(128)
+#endif
+#undef DIMENSION
+    }
+#endif
+    throw std::runtime_error("Unsupported dimension for additional backend");
 }
 #endif

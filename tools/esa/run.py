@@ -35,6 +35,8 @@ DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
 
 def supported(algorithm, case, format2d):
     from original_runner import UNSUPPORTED
+    from additional_competitors import BACKENDS, supported as additional_supported
+    if algorithm in BACKENDS: return additional_supported(algorithm, 2 if format2d else case["dimension"])
     if algorithm in UNSUPPORTED: return False
     if algorithm == 'esa_sprk_CHEATING_IDS_ONLY': return format2d or case['dimension'] in COMPILED_DIMS
     if algorithm in {'Morton','MortonSIMD','MortonPlusCPP','esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_NOSIMD'}: return format2d
@@ -211,6 +213,7 @@ def run_phase(args, manifest):
                 elif 'timeout' in text.lower() or time.monotonic()-start > stage['timeout_seconds']: outcome = 'timeout'
                 elif 'oom-kill' in text.lower(): outcome = 'memory'
                 elif 'core-dump' in text.lower() or 'code=dumped' in text.lower(): outcome = 'crash'
+                elif report and report.get('status') == 'unsupported_input': outcome = 'unsupported_input'
                 elif report and report.get('status') == 'incorrect': outcome = 'incorrect'
                 elif process.returncode == 0 and report and report.get('queries') == expected and report.get('status') == 'success': outcome = 'success'
                 else: outcome = 'error'

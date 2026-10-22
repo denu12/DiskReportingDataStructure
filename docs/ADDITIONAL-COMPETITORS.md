@@ -28,7 +28,8 @@ identified implementation/version, not a new algorithm distinct from Pkd.
 
 The defaults include these entries in newly prepared static 2D/3D and small 2D
 campaigns. Existing prepared manifests and completed measurements are unchanged.
-They have not yet been added to higher-dimensional or dynamic campaigns.
+Higher-dimensional runs use the capabilities below and explicit campaign rosters.
+Dynamic update streams are not wired to these adapters.
 
 ## Build and validate
 
@@ -92,3 +93,39 @@ these ten entries.
 
 See [third-party credits](THIRD_PARTY.md#additional-original-implementations)
 for source URLs and [the revision record](../config/additional-sources.json) for pins.
+
+## Campaign coverage (22 October 2026)
+
+The additional-competitor queue runs the static 2D, static 3D, small 2D and
+higher-dimensional theaters: 14 campaigns and 819 existing input cases. It uses
+separate manifests and result labels (`additional-<theater>-20261022`), with
+checksums and references to the existing input files. Earlier measurements and
+inputs remain unchanged. All stages have unlimited aggregate campaign budgets;
+individual job timeouts and memory limits remain enabled. Runs use one CPU,
+three final repetitions, and retain correctness failures as previously requested.
+
+| Implementation | Dimensions enabled in these campaigns |
+|---|---|
+| PH-tree | 2–16, 32, 34; upstream hypercube positions use at most 64 bits |
+| PSI k-d tree | 2–16, 32, 34, 96, 100, 128; upstream dimension type is 8-bit |
+| P-Orth tree | 2–8; upstream default skeleton heights only cover these dimensions |
+| SPaC-Z / SPaC-H | 2 and 3; upstream curve encoders support only these dimensions |
+| Multidimensional PGM-index | 2 and 3, subject to the coordinate-width limits above |
+| Four libspatialindex variants | All dimensions in the campaigns, through 960 |
+
+These changes instantiate the upstream indexes in more dimensions; they do not
+modify upstream search or construction code. PGM's existing adapter remains
+limited to 2D/3D; its shrinking coordinate-width allowance also prevents using
+the full-width coordinates of our higher-dimensional inputs without rescaling.
+No rescaling is performed.
+
+Validation on Archie exercised dimensions 2, 3, 8, 34, 128 and 960: 724 successful
+checks, 16 unsupported-input outcomes and 16 process failures. Four failures are
+PGM's previously observed empty-input queries; twelve are P-Orth in dimension 8.
+The latter remains scheduled, with its failures recorded separately from valid
+measurements. Full records and the queue scripts are retained under
+`results/_queue-additional-all-20261022/` on the experiment machine.
+
+The dynamic theater is not scheduled: these adapters consume static point sets,
+not insertion/deletion streams. PMQ and the PostgreSQL implementation also remain
+blocked as described above; neither is represented as a completed measurement.
