@@ -21,10 +21,11 @@ DIMENSIONAL_EXTERNAL = [
 STATIC_3D = ['Morton3D','MortonSIMD3D','MortonPlus3D','esa_sprk_CHEATING_IDS_ONLY',
              'esa_sprk_RUST_EXACT_3D'] + DIMENSIONAL_EXTERNAL
 from additional_competitors import BACKENDS as ADDITIONAL_BACKENDS
-STATIC += list(ADDITIONAL_BACKENDS)
-STATIC_3D += list(ADDITIONAL_BACKENDS)
+STATIC += list(ADDITIONAL_BACKENDS) + ['postgres_zrange']
+STATIC_3D += list(ADDITIONAL_BACKENDS) + ['postgres_zrange']
 DIMENSIONAL = ['morton_d_dim','MortonPlusDDim','esa_sprk_CHEATING_IDS_ONLY',
                'esa_sprk_RUST_EXACT_3D'] + DIMENSIONAL_EXTERNAL
+DIMENSIONAL += ['postgres_zrange']
 
 
 def validate_roster(algorithms):

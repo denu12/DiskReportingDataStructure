@@ -6,7 +6,7 @@ Kento Sugiura and Yoshiharu Ishikawa, *Z-ordered Range Refinement for Multi-dime
 
 The original source is included unchanged as the Git submodule `src/third_party/psql-refine-z-range`, pinned to `5162f8700a150cdb0dba77159c5cc9b6bbb47a82`. Run `git submodule update --init src/third_party/psql-refine-z-range` after cloning this repository. No C++ translation or replacement implementation has been added.
 
-Upstream provides PostgreSQL PL/pgSQL functions, including `GetNextJumpIn`, `GetNextJumpOut`, `RefineZOrderRange`, and `LoosenZOrderRange`, plus pgTAP tests and installation scripts. `RefineZOrderRange` returns Z-order interval endpoints, rather than materialized distance-query answers. It limits the combined coordinate encoding to 63 bits. A PostgreSQL benchmark integration must preserve these semantics and disclose its precision and distance-filtering wrapper.
+Upstream provides PostgreSQL PL/pgSQL functions, including `GetNextJumpIn`, `GetNextJumpOut`, `RefineZOrderRange`, and `LoosenZOrderRange`, plus pgTAP tests and installation scripts. `RefineZOrderRange` returns Z-order interval endpoints, rather than materialized distance-query answers. It limits the combined coordinate encoding to 63 bits. The `postgres_zrange` integration preserves the original functions and retains full input coordinates alongside coarser index cells. See [PostgreSQL integration](POSTGRESQL.md) for key precision, exact filtering and timing.
 
 Status: original source acquired; no benchmark runner, correctness validation, or timings yet. This is not an additional measured competitor. The pinned upstream revision contains no explicit license file; this project's license does not apply to it.
 

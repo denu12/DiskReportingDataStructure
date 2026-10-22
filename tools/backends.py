@@ -4,8 +4,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 def command(algorithm):
-    from original_runner import RUST, PYTHON, UNSUPPORTED, FOREIGN
-    if algorithm in RUST | PYTHON | UNSUPPORTED | set(FOREIGN):
+    from original_runner import RUST, PYTHON, UNSUPPORTED, FOREIGN, POSTGRES
+    if algorithm in RUST | PYTHON | UNSUPPORTED | set(FOREIGN) | POSTGRES:
         return [sys.executable,str(ROOT/"tools/original_runner.py"),"--dimensional"]
     if algorithm == "MortonPlusDDim":return [str(ROOT/"build/dimensional/morton_plus_ddim_check")]
     if algorithm == "MortonPlus3D":return [str(ROOT/"build/dimensional/morton_plus_3d_check")]

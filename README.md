@@ -9,16 +9,16 @@ are recorded in [publication status](docs/PUBLICATION.md).
 
 ## Start here
 
-- **Sugiura–Ishikawa original implementation:** [upstream PostgreSQL code](src/third_party/psql-refine-z-range/README.md), included unchanged as a pinned Git submodule. Initialise it with `git submodule update --init src/third_party/psql-refine-z-range`. Source is available locally; benchmark integration is pending. See [third-party credits](docs/THIRD_PARTY.md#sugiuraishikawa-z-ordered-range-refinement).
+- **Sugiura–Ishikawa original implementation:** [upstream PostgreSQL code](src/third_party/psql-refine-z-range/README.md), included unchanged as a pinned Git submodule. Initialise it with `git submodule update --init src/third_party/psql-refine-z-range`. The `postgres_zrange` adapter runs their unchanged SQL with a PostgreSQL B-tree and exact distance filtering. See [PostgreSQL setup and timing](docs/POSTGRESQL.md). See [third-party credits](docs/THIRD_PARTY.md#sugiuraishikawa-z-ordered-range-refinement).
 
 - **Our code:** Morton variants and tests in [2d](src/morton/2d/README.md), [3d](src/morton/3d/README.md), [d_dim](src/morton/d_dim/README.md), and [dynamic](src/morton/dynamic/README.md).
 - **Use an index directly:** [standalone 2D example](docs/MORTON.md) and [Morton directory guide](src/morton/README.md).
 - **Run experiments:** [`run_theater.py`](run_theater.py) is the single top-level entry point. [Build and preparation instructions](docs/RUNNING.md) explain how to supply its inputs.
 - **Understand the comparison:** [reporting contract and adaptations](docs/REPORTING.md), [experimental protocol](docs/EXPERIMENTS.md), and [third-party credits](docs/THIRD_PARTY.md).
 
-## Active algorithms (21 October 2026)
+## Active algorithms (22 October 2026)
 
-The 2D roster has 40 entries and the 3D roster has 34, including controls and
+The 2D roster has 41 entries and the 3D roster has 35, including controls and
 entries with explicit unsupported outcomes. All implementations are listed below; native-output policy is described in
 [the original-API campaign](docs/ORIGINAL-CAMPAIGN.md).
 The ten newly integrated entries, their output types, and validation limitations
@@ -27,7 +27,7 @@ are listed in [additional competitors](docs/ADDITIONAL-COMPETITORS.md).
 ## Competitor implementations
 
 The table covers every implementation in the current 2D, 3D, higher-dimensional
-and dynamic rosters, plus the two upstream integrations still pending. Variants
+and dynamic rosters, plus the PMQ integration still pending. Variants
 that share source have the same count; their counts must not be added together.
 Point indices identify stored points rather than containing their coordinates. The output column
 describes what our timed query materializes. For rectangle-query APIs, the timed
@@ -93,7 +93,7 @@ only in the build environment were read from Archie's pinned dependency caches.
 | Brute force (2D control) | [This repository](src/app/algorithms/static/naive.hh) | C++ | 21 | Integer points |
 | Brute force (dimensional control) | [Python runner](src/runner/dimensional/python_check.py) | Python | 57 (shared runner; scan is one expression) | Point indices |
 | PMQ — integration blocked | [Original PMQ](https://github.com/cicerolp/pmq) | C++ | 648 (PMQ.h only) | Records through a callback; external PMA dependency missing |
-| Sugiura–Ishikawa — integration pending | [Original PostgreSQL implementation](https://github.com/dbgroup-nagoya-u/psql-refine-z-range) | PL/pgSQL | 575 (SQL functions) | Z-order interval endpoints; not materialized points |
+| Sugiura–Ishikawa PostgreSQL Z-range refinement | [Original PostgreSQL implementation](https://github.com/dbgroup-nagoya-u/psql-refine-z-range) | PL/pgSQL | 575 (SQL functions) | Point IDs through the database adapter; original SQL returns interval endpoints |
 
 Morton is the former Morton (compiler SIMD), promoted without changing its
 four-cell search or reporting semantics. The old scalar Morton and experimental

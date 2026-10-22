@@ -22,6 +22,7 @@ LABELS = {
 }
 from additional_competitors import LABELS as ADDITIONAL_LABELS, metadata as additional_metadata
 LABELS.update(ADDITIONAL_LABELS)
+LABELS['postgres_zrange']='PostgreSQL Z-range refinement'
 LOCAL = {'Morton','MortonSIMD','MortonSIMD3D','Morton3D','morton_d_dim','naive','brute_force'}
 REIMPLEMENTED = {'chan_sss','chan_sss_ddim_MANUALLY_ADAPTED','chan_sss_dyn_ADAPTED_DYNAMIC'}
 MODIFIED = {'pargeo','stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
@@ -29,6 +30,8 @@ MODIFIED = {'pargeo','stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
 PATCHED = {'esa_kiddo','esa_grid','esa_neighbourhood'}
 
 def metadata(algorithm):
+    if algorithm == 'postgres_zrange':
+        return dict(display_name=LABELS[algorithm], provenance='unmodified Sugiura-Ishikawa SQL with PostgreSQL B-tree and exact ball-filter adapter', source_repairs=False, output_contract='point_ids_only', membership_contract='original_sql_refinement_with_exact_integer_ball_filter')
     if algorithm in ADDITIONAL_LABELS: return additional_metadata(algorithm)
     from original_runner import RUST, PYTHON, UNSUPPORTED
     label = LABELS[algorithm]

@@ -87,9 +87,9 @@ tree and `pma-exports.cmake`; this dependency is not supplied in that repository
 and a verified original source for it has not been located. PMQ is not counted
 among the runnable entries. No substitute packed-memory array was written.
 
-The previously added Sugiura–Ishikawa PostgreSQL source remains available as a
-submodule; its database integration is still pending. It is not counted among
-these ten entries.
+The Sugiura–Ishikawa PostgreSQL implementation is now integrated separately as
+`postgres_zrange`; see [its adapter documentation](POSTGRESQL.md). It is not
+counted among these ten C++ entries.
 
 See [third-party credits](THIRD_PARTY.md#additional-original-implementations)
 for source URLs and [the revision record](../config/additional-sources.json) for pins.
@@ -127,5 +127,5 @@ measurements. Full records and the queue scripts are retained under
 `results/_queue-additional-all-20261022/` on the experiment machine.
 
 The dynamic theater is not scheduled: these adapters consume static point sets,
-not insertion/deletion streams. PMQ and the PostgreSQL implementation also remain
-blocked as described above; neither is represented as a completed measurement.
+not insertion/deletion streams. PMQ remains blocked as described above. PostgreSQL is integrated separately;
+its measurements are kept under separate run labels.

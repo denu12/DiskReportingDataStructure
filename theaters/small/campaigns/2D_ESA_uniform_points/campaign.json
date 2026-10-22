@@ -58,7 +58,8 @@
     "lsi_linear",
     "lsi_quadratic",
     "lsi_rstar",
-    "lsi_str"
+    "lsi_str",
+    "postgres_zrange"
   ],
   "comparison_contract": {
     "coordinates": "common uint32 grid",

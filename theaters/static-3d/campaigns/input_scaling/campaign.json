@@ -78,7 +78,8 @@
     "lsi_linear",
     "lsi_quadratic",
     "lsi_rstar",
-    "lsi_str"
+    "lsi_str",
+    "postgres_zrange"
   ],
   "source_campaign": "input_scaling",
   "geometry": "closed Euclidean spheres on uint32 grid",

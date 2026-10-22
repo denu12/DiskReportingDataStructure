@@ -15,9 +15,16 @@ FOREIGN = {'ann_fr':'ann','esa_nanoflann':'nano','cgal_kd':'cgal','pargeo':'parg
 from additional_competitors import BACKENDS
 FOREIGN.update(BACKENDS)
 TWO_D = RUST | PYTHON | UNSUPPORTED | {'ann_fr','esa_nanoflann','pargeo','pam','cgal_kd'}
-TWO_D |= set(BACKENDS)
+POSTGRES = {'postgres_zrange'}
+TWO_D |= set(BACKENDS) | POSTGRES
 
 def dependency_files(algorithm):
+    if algorithm in POSTGRES:
+        import importlib.util
+        path=ROOT/'src/runner/dimensional/postgres_check.py'
+        spec=importlib.util.spec_from_file_location('postgres_check',path)
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        return module.dependency_files()
     if algorithm in BACKENDS and BACKENDS[algorithm]=='spatialindex':
         return [ROOT/'build/dimensional/check_spatialindex',ROOT/'build/libspatialindex/src/libspatialindex.so']
     if algorithm in UNSUPPORTED:return [ROOT/'tools/original_runner.py']
@@ -53,7 +60,9 @@ def main():
                     with path.open('wb') as target:
                         target.write(struct.pack('<IQQ', 2, n, q))
                         shutil.copyfileobj(source, target)
-        if algorithm in RUST:
+        if algorithm in POSTGRES:
+            command = [sys.executable, str(ROOT/'src/runner/dimensional/postgres_check.py')]
+        elif algorithm in RUST:
             command = [str(ROOT/'build/original-rust/release/original-range-check')]
         elif algorithm in PYTHON:
             command = [sys.executable, str(ROOT/'src/runner/dimensional/python_check.py')]

@@ -34,6 +34,7 @@ DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
 
 
 def supported(algorithm, case, format2d):
+    if algorithm == 'postgres_zrange': return format2d or 2 <= case['dimension'] <= 63
     from original_runner import UNSUPPORTED
     from additional_competitors import BACKENDS, supported as additional_supported
     if algorithm in BACKENDS: return additional_supported(algorithm, 2 if format2d else case["dimension"])

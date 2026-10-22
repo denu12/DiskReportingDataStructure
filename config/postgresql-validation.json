@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-22",
+  "postgresql_version": "18.4",
+  "upstream_revision": "5162f8700a150cdb0dba77159c5cc9b6bbb47a82",
+  "environment": "WSL Ubuntu 24.04; ordinary non-root user",
+  "original_readme_example": "passed",
+  "answer_checks": 24,
+  "success": 20,
+  "unsupported_dimension": 4,
+  "dimensions": [
+    2,
+    3,
+    8,
+    32,
+    63,
+    64
+  ],
+  "campaign_route_checks": 4,
+  "roster_tests": 5,
+  "adapter_sha256": "c3eb0f4a76cf6390cc8bec2ac3de561f01750b42b47f8ae5e789e66225bbc1d6",
+  "notes": "Validation only, not campaign performance data. Both check and bench modes tested; client/server library relocation verified by campaign routes."
+}

@@ -40,7 +40,7 @@ class Rosters(unittest.TestCase):
         for name in DIMENSIONAL+STATIC_3D:self.assertTrue(command(name))
     def test_retained_2d(self):
         from algorithm_backends_2d import binary
-        self.assertEqual(len(STATIC),30)
+        self.assertEqual(len(STATIC),41)
         self.assertTrue({'Morton','MortonSIMD','MortonPlusCPP',
             'esa_sprk_CHEATING_IDS_ONLY','esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_NOSIMD',
             'boost_lin','boost_quad','boost_star'} <= set(STATIC))

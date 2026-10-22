@@ -16,7 +16,7 @@ from original_runner import dependency_files
 from workloads import STATIC, STATIC_3D, validate_roster
 
 validate_roster(STATIC);validate_roster(STATIC_3D)
-assert len(STATIC)==40 and len(STATIC_3D)==34
+assert len(STATIC)==41 and len(STATIC_3D)==35
 with tempfile.TemporaryDirectory() as directory:
     for d in [2,3]:
         case=boundary_case(directory,d,format2d=d==2)

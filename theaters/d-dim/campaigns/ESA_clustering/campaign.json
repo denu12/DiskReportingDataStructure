@@ -41,7 +41,8 @@
     "esa_snn_rust",
     "esa_nanoflann",
     "cgal_kd",
-    "brute_force"
+    "brute_force",
+    "postgres_zrange"
   ],
   "comparison_contract": {
     "coordinates": "common uint32 grid",
