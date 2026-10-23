@@ -10,11 +10,13 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 RUST = {'esa_kiddo','esa_nabo','esa_neighbourhood','esa_vptree','esa_orthtree','esa_grid','esa_snn_rust'}
 PYTHON = {'esa_sklearn_kd','esa_sklearn_ball','esa_snn','brute_force'}
-UNSUPPORTED = {'chan_sss','stann_fr','chan_sss_ddim_MANUALLY_ADAPTED','stann_fr_ddim_MANUALLY_ADAPTED'}
+UNSUPPORTED = set()
+REPORTING = {'chan_sss','stann_fr','chan_sss_ddim_MANUALLY_ADAPTED','stann_fr_ddim_MANUALLY_ADAPTED'}
 FOREIGN = {'ann_fr':'ann','esa_nanoflann':'nano','cgal_kd':'cgal','pargeo':'pargeo','pam':'pam'}
 from additional_competitors import BACKENDS
 FOREIGN.update(BACKENDS)
-TWO_D = RUST | PYTHON | UNSUPPORTED | {'ann_fr','esa_nanoflann','pargeo','pam','cgal_kd'}
+FOREIGN.update({name: 'reporting' for name in REPORTING})
+TWO_D = RUST | PYTHON | REPORTING | UNSUPPORTED | {'ann_fr','esa_nanoflann','pargeo','pam','cgal_kd'}
 POSTGRES = {'postgres_zrange'}
 TWO_D |= set(BACKENDS) | POSTGRES
 

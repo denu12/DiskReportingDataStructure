@@ -34,11 +34,14 @@ DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
 
 
 def supported(algorithm, case, format2d):
+    if algorithm == 'pam': return format2d or case['dimension']==2
     if algorithm == 'postgres_zrange': return format2d or 2 <= case['dimension'] <= 63
     from original_runner import UNSUPPORTED
     from additional_competitors import BACKENDS, supported as additional_supported
     if algorithm in BACKENDS: return additional_supported(algorithm, 2 if format2d else case["dimension"])
     if algorithm in UNSUPPORTED: return False
+    if algorithm in {'chan_sss','chan_sss_ddim_MANUALLY_ADAPTED'}: return True
+    if algorithm in {'stann_fr','stann_fr_ddim_MANUALLY_ADAPTED'}: return format2d or case['dimension'] in COMPILED_DIMS | {34,96,100,128,784,960}
     if algorithm == 'esa_sprk_CHEATING_IDS_ONLY': return format2d or case['dimension'] in COMPILED_DIMS
     if algorithm in {'Morton','MortonSIMD','MortonPlusCPP','esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_NOSIMD'}: return format2d
     if algorithm in {'MortonPlus3D','esa_sprk_RUST_EXACT_3D'}: return not format2d and case['dimension']==3

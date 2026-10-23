@@ -30,6 +30,11 @@ MODIFIED = {'pargeo','stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
 PATCHED = {'esa_kiddo','esa_grid','esa_neighbourhood'}
 
 def metadata(algorithm):
+    if algorithm == 'pam':
+        return dict(display_name='PAM (repaired)', provenance='original PAM range tree with documented example repairs and full-width coordinates', source_repairs=True, output_contract='integer_points', membership_contract='closed_integer_ball')
+    from original_runner import REPORTING
+    if algorithm in REPORTING:
+        return dict(display_name=LABELS[algorithm]+' (adapted)', provenance='original search adapted for fixed-radius point-ID reporting; exact integer arithmetic', source_repairs=True, output_contract='point_ids_only', membership_contract='closed_integer_ball')
     if algorithm == 'postgres_zrange':
         return dict(display_name=LABELS[algorithm], provenance='unmodified Sugiura-Ishikawa SQL with PostgreSQL B-tree and exact ball-filter adapter', source_repairs=False, output_contract='point_ids_only', membership_contract='original_sql_refinement_with_exact_integer_ball_filter')
     if algorithm in ADDITIONAL_LABELS: return additional_metadata(algorithm)

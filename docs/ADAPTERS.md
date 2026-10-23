@@ -47,9 +47,9 @@ Local adapter corrections from the audit are recorded below; upstream limitation
 | `pargeo` | ParGeo (adapted) | modified upstream source and local adapter |
 | `pam` | PAM (adapted) | upstream index with local adapter |
 | `pkd` | Pkd-tree (adapted) | upstream index with local adapter |
-| `chan_sss` | Chan (adapted) | local implementation of published technique |
-| `chan_sss_ddim_MANUALLY_ADAPTED` | Chan (adapted) | local implementation of published technique |
-| `chan_sss_dyn_ADAPTED_DYNAMIC` | Chan (adapted) | local implementation of published technique |
+| `chan_sss` | Chan (adapted) | direct fixed-radius adaptation of original SSS (static routes) |
+| `chan_sss_ddim_MANUALLY_ADAPTED` | Chan (adapted) | direct fixed-radius adaptation of original SSS (static routes) |
+| `chan_sss_dyn_ADAPTED_DYNAMIC` | Chan (adapted) | direct fixed-radius adaptation of original SSS (static routes) |
 | `ann_fr` | ANN (adapted) | upstream index with local adapter |
 | `stann_fr` | STANN (adapted) | modified upstream source and local adapter |
 | `stann_fr_ddim_MANUALLY_ADAPTED` | STANN (adapted) | modified upstream source and local adapter |
@@ -104,3 +104,5 @@ including duplicates, under an exact unsigned-128 squared-radius predicate.
 They are local extensions of the retained C++ MortonPlus port and the authors'
 Rust SPRK adaptation. They use the same display names as their 2D counterparts;
 results must retain dimension and machine ID. See [implementation notes](MORTONPLUS-VERSIONS.md).
+
+For the current static Chan/STANN and PGM routes, see [reporting adaptations](REPORTING-ADAPTATIONS.md).

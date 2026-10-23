@@ -1,7 +1,9 @@
 # Additional original competitors (21 October 2026)
 
 These are pinned upstream implementations, not local reimplementations. Their
-source files are unmodified. The adapters load our integer data, call the native
+pinned source files are unmodified. Since 23 October, the PGM build uses a separate
+[documented reporting patch](REPORTING-ADAPTATIONS.md); historical results below
+refer to the earlier unmodified build. The adapters load our integer data, call the native
 rectangular query, and filter returned candidates with the closed integer-ball
 predicate. Both candidate reporting and filtering are timed. Output is materialized.
 Conversion, index construction and initial buffer allocation enter construction time.
@@ -9,7 +11,7 @@ Conversion, index construction and initial buffer allocation enter construction 
 | Machine ID | Implementation | Timed output | Construction |
 |---|---|---|---|
 | `phtree` | Author-maintained C++ PH-tree multimap | IDs | Native insertion; duplicate coordinates retain distinct IDs |
-| `pgm_multidimensional` | Multidimensional PGM-index, epsilon 64 | Decoded integer points | Native Morton sorting and PGM construction |
+| `pgm_multidimensional` | Multidimensional PGM-index, epsilon 64 | Original point IDs (adapted) | Native Morton sorting and PGM construction, plus ID mapping |
 | `psi_kd` | SpaceTreeLib k-d tree | Native augmented points | Native build, max-stretch/object-median split |
 | `psi_orth` | P-Orth tree | Native augmented points | Native build, rotate-dimension/spatial-median split |
 | `psi_spac_z` | SPaC-Z tree | Native augmented points | Native Morton-based build |
@@ -41,7 +43,7 @@ python3 tools/build_additional.py
 python3 tests/check_additional_competitors.py
 ```
 
-The build writes four backend executables under `build/dimensional/` and retains
+The build writes six backend executables under `build/dimensional/` and retains
 per-backend logs. It uses the pinned libspatialindex source, not a system package.
 The shared library is included in benchmark dependency fingerprints. The main
 Arch build invokes this additional build too. BMI2 is required for PGM. Upstream

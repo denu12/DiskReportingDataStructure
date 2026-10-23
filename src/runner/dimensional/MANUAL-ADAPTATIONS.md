@@ -2,13 +2,13 @@
 
 The campaign IDs deliberately expose local changes:
 
-* `chan_sss_ddim_MANUALLY_ADAPTED`: Timothy M. Chan's static SSS technique,
-  generalized from our existing 2D reporting adaptation. Chan's original code
-  is already d-dimensional but solves approximate nearest-neighbour search.
-  This adaptation retains its shifted Morton comparator and recursive sorted
-  array search. It uses a fixed seed (12121), widened shift arithmetic,
-  inclusive bounding-box pruning, a fixed ball radius and exact integer
-  membership. Original indices preserve duplicate occurrences.
+* `chan_sss` and `chan_sss_ddim_MANUALLY_ADAPTED`: the campaign route now uses
+  `chan_reporting.h`, derived directly from Chan's original SSS source. It keeps
+  qsort, the original random-shift generator and seed formula, midpoint-first
+  examination, distance-to-cell pruning, and center-first recursion. A fixed
+  exact radius replaces nearest-neighbour selection; inclusive comparisons
+  preserve boundary duplicates. Arithmetic is widened for uint32 coordinates.
+  The older `ChanManuallyAdapted` class is not used by this campaign route.
 * `stann_fr_ddim_MANUALLY_ADAPTED`: Michael Connor and Piyush Kumar's STANN,
   using the existing locally modified `init_reporting`/`box_report` traversal.
   The dimensional wrapper instantiates d-dimensional points, carries original

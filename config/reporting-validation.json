@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-23",
+  "compiler": "GCC 13.3.0 (WSL Ubuntu 24.04)",
+  "checks": {
+    "chan_sss": {
+      "passed": 148,
+      "failed": 0,
+      "dimensions": [
+        2,
+        3,
+        8,
+        16,
+        32,
+        34,
+        128,
+        960
+      ]
+    },
+    "stann_fr": {
+      "passed": 148,
+      "failed": 0,
+      "dimensions": [
+        2,
+        3,
+        8,
+        16,
+        32,
+        34,
+        128,
+        960
+      ]
+    },
+    "pgm_multidimensional": {
+      "passed": 94,
+      "failed": 0,
+      "dimensions": [
+        2,
+        3,
+        8,
+        16,
+        32
+      ]
+    },
+    "pam": {
+      "passed": 20,
+      "failed": 0,
+      "dimensions": [
+        2
+      ]
+    }
+  },
+  "campaign_route_checks": 9,
+  "roster_tests": 5,
+  "pam_sanitizer_checks": 20,
+  "chan_after_wrapper_review_checks": 40,
+  "source_sha256": {
+    "src/third_party/chan_sss/sss-original.cc": "12fccc5e6557699594c2c78868e79031b59f7c5c4595c120469e6a4c55e56da2",
+    "src/third_party/stann/upstream/include/sfcnn.hpp": "e2c37a71b15488dc3cb112b4d2a5c9895e5e74bf15111d49500d3b31664a099a",
+    "src/third_party/pgm-index/include/pgm/pgm_index_variants.hpp": "950fb9606c55ad3b01de9a87449ff569b66410cf023fecaaa5359893a5137ef1",
+    "build/original-deps/PAM/examples/range_query/range_tree.h": "a2dda8d562537da024803d6f439b1e8133cb4148ac38d40db9468a7f0fcfabc9",
+    "build/original-deps/PAM/examples/range_query/range_utils.h": "6181605f6666b12e241b1bcd2fef1bb90014a612a2fba05842c1caf271ccf8ed"
+  }
+}

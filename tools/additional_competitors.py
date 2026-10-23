@@ -13,6 +13,8 @@ LABELS = {
     'lsi_rstar':'libspatialindex R-star', 'lsi_str':'libspatialindex STR',
 }
 def metadata(name):
+    if name == 'pgm_multidimensional':
+        return dict(display_name=LABELS[name]+' (adapted)', provenance='original PGM index with coarse coordinate cells, original-ID mapping and documented iterator fixes', source_repairs=True, output_contract='point_ids_only', membership_contract='closed_integer_ball')
     return dict(display_name=LABELS[name],
                 provenance='pinned unmodified upstream index with file-format and box-to-ball adapter',
                 source_repairs=False,
@@ -22,6 +24,7 @@ def metadata(name):
 # Dimensions present in the prepared campaigns. Upstream SPaC encoders are 2D/3D.
 COMPILED_DIMS = set(range(2,17)) | {32,34,96,100,128,784,960}
 def supported(name, dimension):
+    if name == 'pgm_multidimensional': return dimension in set(range(2,17)) | {32}
     if name.startswith('lsi_'): return dimension >= 2
     if name == 'phtree': return dimension in COMPILED_DIMS and dimension < 64
     if name == 'psi_kd': return dimension in COMPILED_DIMS and dimension < 256

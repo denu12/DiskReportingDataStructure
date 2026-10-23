@@ -1,4 +1,4 @@
-// File-format and box-to-ball adapters. All index/search code is upstream.
+// File-format and box-to-ball adapters; PGM iterator fixes are documented separately.
 #pragma once
 
 std::pair<Point,Point> query_box(const Data& d, std::size_t q) {
@@ -48,31 +48,35 @@ template<unsigned D> Query make_index(Data& d,const std::string&) {
 }
 #elif defined(ADDITIONAL_PGM)
 #include "pgm/pgm_index_variants.hpp"
-const char* output_contract="integer_points";
-const char* output_representation="native_pgm_decoded_points";
+const char* output_contract="point_ids_only";
+const char* output_representation="pgm_iterator_original_ids";
+
 template<unsigned D> Query make_index(Data& d,const std::string&) {
     using Tree=pgm::MultidimensionalPGMIndex<D,std::uint64_t,64>;
     using P=typename Tree::value_type;
-    // The upstream constructor rejects bit widths >= floor(64/D).
-    constexpr std::uint64_t limit=(std::uint64_t(1)<<(64/D-1))-1;
-    for(const auto& p:d.points)for(auto x:p)if(x>limit) {
-        std::cout<<"{\"status\":\"unsupported_input\",\"reason\":\"Original multidimensional PGM coordinate width exceeded; no quantization applied\"}\n";
-        std::exit(0);
+    using Morton=mortonnd::MortonNDBmi<D,std::uint64_t>;
+    constexpr unsigned shift=32-(64/D-1);
+    auto cell=[](const Point& p) {
+        P v;[&]<std::size_t... A>(std::index_sequence<A...>){((std::get<A>(v)=std::uint64_t(p[A])>>shift),...);}(std::make_index_sequence<D>{});return v;
+    };
+    std::vector<P> cells;std::vector<std::pair<std::uint64_t,std::size_t>> records;
+    for(std::size_t i=0;i<d.points.size();++i) {
+        auto p=cell(d.points[i]);cells.push_back(p);
+        records.emplace_back(std::apply([](auto... x){return Morton::Encode(x...);},p),i);
     }
-    std::vector<P> points;
-    for(const auto& p:d.points) { P v;[&]<std::size_t... A>(std::index_sequence<A...>){((std::get<A>(v)=p[A]),...);}(std::make_index_sequence<D>{});points.push_back(v); }
-    auto tree=std::make_shared<Tree>(points.begin(),points.end());
-    auto hits=std::make_shared<std::vector<std::array<std::uint64_t,D>>>();
-    return {[&,tree,hits,limit](std::size_t q) {
-        hits->clear();auto [lower,upper]=query_box(d,q);P lo,hi;
-        for(auto x:lower)if(x>limit)return;
-        [&]<std::size_t... A>(std::index_sequence<A...>){((std::get<A>(lo)=lower[A],std::get<A>(hi)=std::min<std::uint64_t>(upper[A],limit)),...);}(std::make_index_sequence<D>{});
-        for(auto it=tree->range(lo,hi);it!=tree->end();++it) {
-            std::array<std::uint64_t,D> p;
-            [&]<std::size_t... A>(std::index_sequence<A...>){((p[A]=std::get<A>(*it)),...);}(std::make_index_sequence<D>{});
-            if(inside_point(d,q,p))hits->push_back(p);
+    // Mirror native Morton-key order to attach IDs; equal keys may use any order.
+    std::sort(records.begin(),records.end());
+    auto ids=std::make_shared<std::vector<std::size_t>>();
+    for(auto [key,id]:records)ids->push_back(id);
+    auto tree=std::make_shared<Tree>(cells.begin(),cells.end());
+    auto hits=std::make_shared<std::vector<std::size_t>>();
+    return {[&,tree,hits,ids,cell](std::size_t q) {
+        hits->clear();auto [lower,upper]=query_box(d,q);
+        for(auto it=tree->range(cell(lower),cell(upper));it!=tree->end();++it) {
+            auto id=ids->at(it.source_position());
+            if(d.contains(id,q))hits->push_back(id);
         }
-    },[hits]{return hits->size();},[&,hits](std::size_t q){return verify_points(d,q,*hits);}};
+    },[hits]{return hits->size();},[&,hits](std::size_t q){return verify_ids(d,q,*hits);}};
 }
 #elif defined(ADDITIONAL_PSI)
 #include "psi/kd_tree.h"
@@ -162,12 +166,15 @@ Query create(Data& d,const std::string& algorithm) {
 Query create(Data& d,const std::string& algorithm) {
     if(d.d==2)return make_index<2>(d,algorithm);
     if(d.d==3)return make_index<3>(d,algorithm);
-#if defined(ADDITIONAL_PHTREE) || defined(ADDITIONAL_PSI)
+#if defined(ADDITIONAL_PHTREE) || defined(ADDITIONAL_PSI) || defined(ADDITIONAL_PGM)
     switch(d.d) {
 #define DIMENSION(N) case N: return make_index<N>(d,algorithm);
     DIMENSION(4) DIMENSION(5) DIMENSION(6) DIMENSION(7) DIMENSION(8)
     DIMENSION(9) DIMENSION(10) DIMENSION(11) DIMENSION(12) DIMENSION(13)
-    DIMENSION(14) DIMENSION(15) DIMENSION(16) DIMENSION(32) DIMENSION(34)
+    DIMENSION(14) DIMENSION(15) DIMENSION(16) DIMENSION(32)
+#if !defined(ADDITIONAL_PGM)
+    DIMENSION(34)
+#endif
 #if defined(ADDITIONAL_PSI)
     DIMENSION(96) DIMENSION(100) DIMENSION(128)
 #endif

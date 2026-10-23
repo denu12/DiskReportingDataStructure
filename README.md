@@ -64,10 +64,10 @@ only in the build environment were read from Archie's pinned dependency caches.
 | THST quadtree | [Upstream source](https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST) | C++ | 1,998 (component) | Points, then disk filtering |
 | THST R-tree | [Upstream source](https://github.com/tuxalin/THST/tree/4ff6aa575f87dce4321754981314a923b0b4bbb6/include/THST) | C++ | 2,630 (component) | Points, then disk filtering |
 | Pkd-tree | [Upstream source](https://github.com/ucrparlay/Pkd-tree/tree/62c8839aa6e87b8cbf652a341a472f1fcf789ec0/include) | C++ | 2,813 (component) | Points, then disk filtering |
-| PAM | [Upstream source](https://github.com/cmuparlay/PAM/tree/3574543ad84c34acb22edbeecb9d11a97a5eb87d) | C++ | 3,218 (component) | Coordinate pairs, then disk filtering |
+| PAM (repaired) | [Upstream source](https://github.com/cmuparlay/PAM/tree/3574543ad84c34acb22edbeecb9d11a97a5eb87d) | C++ | 3,218 (component) | Coordinate pairs, then disk filtering |
 | ParGeo | [Upstream source](https://github.com/wangyiqiu/pargeo/tree/b87077ca253d28595e6887bb369501a64774712a) | C++ | 698 (component) | Point indices |
-| Chan (original) | [Chan’s SSS source](src/third_party/chan_sss/sss-original.cc) | C++ | 98 | One approximate nearest-neighbour point; range reporting unsupported here |
-| STANN (original) | [Recovered STANN source](src/third_party/stann/upstream) | C++ | 6,204 (headers) | Nearest-neighbour indices (optional distances); range reporting unsupported here |
+| Chan (adapted) | [Chan’s SSS source](src/third_party/chan_sss/sss-original.cc) | C++ | 98 | Original point IDs; fixed-radius adaptation of the original SSS search |
+| STANN (adapted) | [Recovered STANN source](src/third_party/stann/upstream) | C++ | 6,204 (headers) | Original point IDs; fixed-box traversal and exact ball filter |
 | ANN | [ANN](https://www.cs.umd.edu/~mount/ANN/) | C++ | 5,496 (library) | Point indices |
 | nanoflann | [Vendored upstream header](src/third_party/esa2026/nanoflann.hpp) | C++ | 2,721 | Point indices and squared distances |
 | Kiddo | [Upstream crate](https://github.com/sdd/kiddo) | Rust | 16,027 (crate source) | Point indices |
@@ -81,7 +81,7 @@ only in the build environment were read from Archie's pinned dependency caches.
 | scikit-learn ball tree | [scikit-learn 1.9.1](https://github.com/scikit-learn/scikit-learn/tree/1.9.1/sklearn/neighbors) | Python / Cython | 2,893 (tree + shared templates) | Point indices |
 | SNN (Python) | [Original SNN package](src/third_party/esa2026/snnpy) | Python / Cython | 186 (package) | Point indices |
 | PH-tree | [Author-maintained C++ implementation](https://github.com/tzaeschke/phtree-cpp) | C++ | 8,441 (library headers) | Point indices |
-| Multidimensional PGM-index | [PGM-index](https://github.com/gvinciguerra/PGM-index) | C++ | 13,977 (shared library headers) | Decoded integer points; coordinate limits and empty-input failure |
+| Multidimensional PGM-index | [PGM-index](https://github.com/gvinciguerra/PGM-index) | C++ | 13,977 (shared library headers) | Original point IDs; coarse indexing cells, exact ball filter, iterator fixes |
 | PSI k-d tree | [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | C++ | 20,259 (shared PSI library) | Integer points with ID/curve-code fields |
 | P-Orth tree | [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | C++ | 20,259 (shared PSI library) | Integer points with ID/curve-code fields |
 | SPaC-Z tree | [SpaceTreeLib](https://github.com/ucrparlay/SpaceTreeLib) | C++ | 20,259 (shared PSI library) | Integer points with ID/curve-code fields |
@@ -193,7 +193,7 @@ Original arithmetic, boundary conventions, duplicate behavior and bugs are not r
 | CGAL k-d tree | Native floating-point points |
 | CGAL range tree; THST quad/R-tree; Pkd | Native points, with box-to-disk filtering |
 | ParGeo | Native indices into its stored point sequence |
-| PAM | Native coordinate pairs from the original range-query example, with disk filtering |
+| PAM (repaired) | Native coordinate pairs from the original range-query example, with disk filtering |
 | ANN | Native indices |
 | nanoflann | Native index/distance pairs |
 | Kiddo, Nabo, Neighbourhood, VP-tree, Orthtree, Grid | Indices from the original ESA wrappers |
@@ -201,7 +201,7 @@ Original arithmetic, boundary conventions, duplicate behavior and bugs are not r
 | Brute-force controls | 2D points; dimensional indices |
 | SPRK (original), unchanged | Indices |
 | SPRK (adapted), including no-explicit-SIMD, unchanged | Integer points |
-| Chan and STANN originals | No original range-reporting API wired here; explicitly unsupported, no adapted substitute |
+| Chan and STANN (adapted) | Original construction and search adapted for fixed-radius reporting; original point IDs |
 
 The original ESA Rust search modules are included directly from the vendored
 upstream source; their f32 arithmetic is retained. Kiddo uses the unpatched registry
@@ -258,3 +258,7 @@ in the implementation files.
 The current 2D Morton (plus), Morton (simd), and Morton (blocks+simd) require AVX512F/BMI2.
 See [the optimization study](docs/MORTONPLUS-AVX512.md) for measured gains and
 validation; historical PDF results retain their frozen implementation versions.
+
+The minimally adapted Chan, STANN and Multidimensional PGM entries are documented
+in [reporting adaptations](docs/REPORTING-ADAPTATIONS.md). Earlier original-only
+measurements remain unchanged; new adapters require fresh runs.

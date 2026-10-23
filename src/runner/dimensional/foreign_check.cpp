@@ -1,4 +1,4 @@
-// Dimensional interfaces only; competitor source is not repaired.
+// Dimensional interfaces. Reporting adaptations are documented in docs/REPORTING-ADAPTATIONS.md.
 #include <algorithm>
 #include <array>
 #include <bit>
@@ -8,6 +8,7 @@
 #include <functional>
 #include <iostream>
 #include <map>
+#include <unordered_map>
 #include <memory>
 #include <limits>
 #include <numeric>
@@ -125,21 +126,39 @@ Query create(Data& d,const std::string&){if(d.d==2)return pargeo_index<2>(d);if(
 #include "range_utils.h"
 #include "range_tree.h"
 #undef Point
-const char* output_contract="integer_points";const char* output_representation="native_pam_yx_pairs";const char* membership_contract="original_pam_api";
+const char* output_contract="integer_points";const char* output_representation="native_pam_yx_pairs";const char* membership_contract="closed_integer_ball";
 Query create(Data& d,const std::string&){
  if(d.d!=2)throw std::runtime_error("Original PAM example is 2D");
- using P=::PamPoint<int,float>;using Tree=::RangeQuery<int,float>;using Out=parlay::sequence<Tree::point_y>;
- parlay::sequence<P> points(d.points.size());for(std::size_t i=0;i<d.points.size();++i)points[i]=P(int(d.points[i][0]),int(d.points[i][1]),1);
- auto tree=std::make_shared<Tree>(points);auto hits=std::make_shared<Out>();
- return {[&,tree,hits](std::size_t q){
-  auto radius=std::uint64_t(std::ceil(std::sqrt(double(d.radii[q]))));
-  auto low=[&](unsigned a){return int(radius>d.centers[q][a]?0:d.centers[q][a]-radius);};
-  auto high=[&](unsigned a){return int(radius>UINT32_MAX-d.centers[q][a]?UINT32_MAX:d.centers[q][a]+radius);};
-  auto candidates=tree->query_range(low(0),low(1),high(0),high(1));
-  *hits=parlay::filter(candidates,[&](auto p){auto dx=std::int64_t(std::uint32_t(p.second))-d.centers[q][0],dy=std::int64_t(std::uint32_t(p.first))-d.centers[q][1];auto x=std::uint64_t(dx<0?-dx:dx),y=std::uint64_t(dy<0?-dy:dy);return Wide(x)*x+Wide(y)*y<=d.radii[q];});
+ using P=::PamPoint<std::int64_t,float>;using Tree=::RangeQuery<std::int64_t,float>;
+ parlay::sequence<P> points(d.points.size());
+ for(std::size_t i=0;i<d.points.size();++i)points[i]=P(d.points[i][0],d.points[i][1],1);
+ auto tree=std::make_shared<Tree>(points);
+ // The upstream map stores one entry per coordinate pair. Preserve multiplicity
+ // only when needed, leaving the usual distinct-point path free of hash lookups.
+ auto counts=std::make_shared<std::unordered_map<std::uint64_t,std::size_t>>();
+ auto key=[](auto x,auto y){return (std::uint64_t(x)<<32)|std::uint64_t(y);};
+ if(tree->range_tree.size()<d.points.size())for(const auto& p:d.points)++(*counts)[key(p[0],p[1])];
+ auto hits=std::make_shared<std::vector<typename Tree::point_y>>();
+ return {[&,tree,hits,counts,key](std::size_t q){
+  hits->clear();
+  std::uint64_t low=0,high=UINT64_MAX;
+  while(low<high){auto m=low+(high-low)/2;if(Wide(m)*m<d.radii[q])low=m+1;else high=m;}
+  auto lower=[&](unsigned a){return std::int64_t(low>d.centers[q][a]?0:d.centers[q][a]-low);};
+  auto upper=[&](unsigned a){return std::int64_t(low>UINT32_MAX-d.centers[q][a]?UINT32_MAX:d.centers[q][a]+low);};
+  auto candidates=tree->query_range(lower(0),lower(1),upper(0),upper(1));
+  for(auto p:candidates){
+    auto dx=p.second-d.centers[q][0],dy=p.first-d.centers[q][1];
+    auto x=std::uint64_t(dx<0?-dx:dx),y=std::uint64_t(dy<0?-dy:dy);
+    if(Wide(x)*x+Wide(y)*y<=d.radii[q]){
+      auto count=counts->empty()?1:counts->at(key(p.second,p.first));
+      hits->insert(hits->end(),count,p);
+    }
+  }
   asm volatile(""::"r"(hits->data()),"r"(hits->size()):"memory");
  },[hits]{return hits->size();},[&,hits](std::size_t q){std::vector<Point> actual,expected;for(auto p:*hits)actual.push_back({std::uint32_t(p.second),std::uint32_t(p.first)});for(std::size_t i=0;i<d.points.size();++i)if(d.contains(i,q))expected.push_back(d.points[i]);std::sort(actual.begin(),actual.end());std::sort(expected.begin(),expected.end());return actual==expected;}};
 }
+#elif defined(BACKEND_REPORTING)
+#include "reporting_adapters.h"
 #elif defined(BACKEND_ADDITIONAL)
 #include "additional_indexes.h"
 #elif defined(BACKEND_BRUTE)

@@ -21,7 +21,7 @@ with tempfile.TemporaryDirectory() as directory:
     for d in [2,3]:
         case=boundary_case(directory,d,format2d=d==2)
         for name in BACKENDS:
-            assert metadata(name)['source_repairs'] is False
+            assert metadata(name)['source_repairs'] is (name=='pgm_multidimensional')
             assert all(path.is_file() for path in dependency_files(name))
             output=Path(directory)/'result.json'
             if d==2:
@@ -30,6 +30,6 @@ with tempfile.TemporaryDirectory() as directory:
             result=subprocess.run(args,text=True,capture_output=True,timeout=30)
             row=json.loads(result.stdout)
             assert result.returncode==0,(name,d,result.stderr,row)
-            assert row['status']==('unsupported_input' if name=='pgm_multidimensional' else 'success'),(name,d,row)
+            assert row['status']=='success',(name,d,row)
             if d==2:assert json.loads(output.read_text())['status']==row['status']
 print('20 campaign-route checks passed; rosters and dependencies verified')
