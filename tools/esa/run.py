@@ -22,6 +22,7 @@ from catalog import ROOT, save, sha
 sys.path.insert(0, str(ROOT/'tools'))
 from budget import budget, policy, policy_path
 from campaign_paths import campaign_directory
+from job_temporary import properties as temporary_properties
 from backends import command as ddim_command
 from algorithm_labels import metadata, display_name
 from algorithm_backends_2d import binary
@@ -194,7 +195,7 @@ def run_phase(args, manifest):
                 unit = f'esa-family-{os.getpid()}-{key}'
                 cmd = ['systemd-run', '--user', '--wait', '--pipe', '--collect', '--unit='+unit, '--slice=esa2d-bench.slice',
                        '-p', f'CPUAffinity={cpu}', '-p', f'MemoryMax={config["memory_gib"]}G', '-p', 'MemorySwapMax=0',
-                       '-p', 'OOMPolicy=kill', '-p', 'KillMode=control-group', '-p', 'TimeoutStopSec=2',
+                       '-p', 'OOMPolicy=kill', '-p', 'KillMode=control-group', '-p', 'TimeoutStopSec=2', *temporary_properties(unit),
                        '-p', f'RuntimeMaxSec={stage["timeout_seconds"]}s', '/usr/bin/env']
                 cmd += [k+'='+v for k, v in env.items() if k.endswith('_NUM_THREADS') or k in ['OMP_THREAD_LIMIT', 'PYTHONPATH', 'LD_LIBRARY_PATH', 'SFC_ESA_LIBRARY']]+native
                 start = time.monotonic()

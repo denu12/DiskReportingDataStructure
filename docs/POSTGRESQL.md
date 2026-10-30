@@ -76,3 +76,13 @@ The static campaign definitions include this entry. Existing prepared manifests
 must be regenerated or copied into an explicitly recorded new run; completed
 measurements and already running campaign workspaces must not be changed.
 The dynamic update-stream adapter is not implemented.
+
+## Temporary-storage cleanup (30 October 2026)
+
+Systemd jobs now receive a separate TMPDIR created before execution and removed
+by ExecStopPost after normal exit, timeout, cancellation or process failure.
+This covers both the input-format conversion and PostgreSQL cluster files,
+including cases where Python finally blocks cannot run. Temporary storage
+remains on the same RAM-backed /tmp filesystem. Normal-exit and forced-timeout
+cleanup were verified on Archie. The interrupted October 22 PostgreSQL results
+are preserved; fresh runs use October 30 labels and do not reuse failed rows.

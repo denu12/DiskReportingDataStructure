@@ -3,6 +3,7 @@
 Run correctness first. Only passing, unchanged binaries may enter timing runs.
 Jobs use one physical CPU and one library thread; budgets span campaigns.
 """
+from job_temporary import properties as temporary_properties
 import argparse
 import concurrent.futures
 import datetime
@@ -103,7 +104,7 @@ class Campaign:
    cmd=['systemd-run','--user','--wait','--pipe','--collect','--unit='+unit,'--slice=esa2d-bench.slice',
     '-p',f'CPUAffinity={cpu}','-p','MemoryMax=16G','-p','MemorySwapMax=0','-p','MemoryAccounting=yes',
     '-p','OOMPolicy=kill','-p','KillMode=control-group','-p','TimeoutStopSec=2','-p','RuntimeMaxSec=60s',
-    '/usr/bin/env']+[k+'='+v for k,v in self.env.items() if k in ['SFC_ESA_LIBRARY','SFC_DYNAMIC_LIBRARY','LD_LIBRARY_PATH','PYTHONPATH'] or k.endswith('_NUM_THREADS') or k in ['OMP_THREAD_LIMIT','MKL_NUM_THREADS','RAYON_NUM_THREADS','NUMEXPR_NUM_THREADS','VECLIB_MAXIMUM_THREADS']]+command
+    *temporary_properties(unit), '/usr/bin/env']+[k+'='+v for k,v in self.env.items() if k in ['SFC_ESA_LIBRARY','SFC_DYNAMIC_LIBRARY','LD_LIBRARY_PATH','PYTHONPATH'] or k.endswith('_NUM_THREADS') or k in ['OMP_THREAD_LIMIT','MKL_NUM_THREADS','RAYON_NUM_THREADS','NUMEXPR_NUM_THREADS','VECLIB_MAXIMUM_THREADS']]+command
    timeout=self.timeout
    cmd=[x.replace('MemoryMax=16G',f"MemoryMax={self.manifest['policy']['memory_gib']}G").replace('RuntimeMaxSec=60s',f'RuntimeMaxSec={timeout}s') for x in cmd]
    if self.backend=='process':cmd=[sys.executable,str(self.base/'tools/worker.py'),str(cpu),str(self.manifest['policy']['memory_gib']*2**30),str(timeout)]+command
