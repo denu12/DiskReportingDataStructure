@@ -33,3 +33,5 @@ deprecated
 .env.*
 *.pem
 *.key
+
+/measurements/

@@ -1,5 +1,7 @@
 ## Original-API campaign (15 October 2026)
 
+This document describes the original October campaign. Subsequent Chan, STANN and Multidimensional PGM adaptations and PAM repairs are documented in [reporting adaptations](REPORTING-ADAPTATIONS.md). Older measurements retain their original implementation and contract.
+
 **21 October extension:** newly prepared 2D/3D campaigns add ten entries from
 PH-tree, PGM-index, SpaceTreeLib and libspatialindex. The roster is now 40 in 2D
 and 34 in 3D, including controls and explicitly unsupported entries. Nine new

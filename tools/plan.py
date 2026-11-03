@@ -58,8 +58,10 @@ def main():
             estimated_seconds=estimate, screen_sha256=file_hash(path))
     ledger_path = args.base / 'results/_budgets' / (args.run + '.json')
     used = json.loads(ledger_path.read_text())['stages'].get('final', 0) if ledger_path.exists() else 0
-    output['remaining_seconds'] = max(0, output['budget_seconds'] - used)
-    output['fits_budget'] = output['estimated_seconds'] <= output['remaining_seconds']
+    output['remaining_seconds'] = (None if output['budget_seconds'] is None
+                                   else max(0, output['budget_seconds'] - used))
+    output['fits_budget'] = (output['remaining_seconds'] is None
+                             or output['estimated_seconds'] <= output['remaining_seconds'])
     save(args.base / 'results/_plans' / (args.run + '.json'), output)
     print(json.dumps(output, indent=2))
     if not output['fits_budget']:

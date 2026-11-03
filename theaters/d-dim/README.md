@@ -17,18 +17,9 @@ here. Unsupported jobs are labelled, not treated as incorrect. See
 [competitor rosters](../../docs/COMPETITORS.md).
 
 
-## Protected time budgets
+## Time limits
 
-| Campaign | Screening | Final measurements |
-|---|---:|---:|
-| Graph embeddings | 12 hours | 12 hours |
-| Uniform points | 4 hours | 4 hours |
-| High-dimensional data | 4 hours | 4 hours |
-| Clustering | 4 hours | 4 hours |
-
-The theater has a 24-hour screening allocation and a 24-hour final allocation, for a 48-hour active-time ceiling. Each campaign has its own protected share; graph embeddings cannot spend the others' time. Existing usage stays charged to the campaign that consumed it. Whole-job caps remain 60 seconds for screening and 180 seconds for final measurements.
-
-When a campaign exhausts screening, the controller proceeds to the next campaign. Successfully screened implementation/instance pairs still receive up to three final repetitions, even when screening coverage is incomplete. Finals stop at that campaign's own budget; unexecuted work remains explicitly unmeasured. A final estimate larger than its protected allocation does not block all measurements.
+Campaigns have no aggregate time cap. Whole-job limits remain 60 seconds for screening and 180 seconds for final measurements. Eligible pairs receive three final repetitions. Timeouts and unexecuted work remain explicit in the records; historical runs retain their original policies.
 
 ## Prepare and run
 

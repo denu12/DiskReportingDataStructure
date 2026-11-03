@@ -58,15 +58,17 @@ def budget(args):
                                          for s in sessions)
             ledger['protected_campaign_budgets'] = config['protected_campaign_budgets']
         used = ledger['stages'].get(pool, 0)
-        remaining = stage['budget_seconds'] - used
+        cap = stage['budget_seconds']
+        remaining = float('inf') if cap is None else cap - used
         if remaining < stage['timeout_seconds']:
             raise RuntimeError(f'Shared {pool} budget exhausted for run {args.run}')
         start = time.monotonic()
         session = dict(campaign=args.campaign, phase=args.phase, pid=os.getpid(),
-                       started_unix=time.time(), reserved_seconds=remaining, status='reserved')
+                       started_unix=time.time(), reserved_seconds=remaining if cap is not None else 0,
+                       unlimited=cap is None, status='reserved')
         ledger['sessions'].append(session)
         # Charge the reservation first. An uncatchable crash cannot reset the budget.
-        ledger['stages'][pool] = used + remaining
+        ledger['stages'][pool] = used + remaining if cap is not None else used
         save(path, ledger)
         args.deadline = start + remaining
         try:

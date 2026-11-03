@@ -1,6 +1,6 @@
 # Publication status
 
-The repository was published at commit `0067462`. The audit repair is a new working-tree revision; its findings, changes and validation are recorded in [audit resolution](AUDIT-RESOLUTION.md). Preparing these changes does not push them or rerun publication campaigns. Existing Git history is retained.
+The repository includes the source, documented adaptations and [dated measurement snapshots](../measurements/README.md). Audit findings and validation are recorded in [audit resolution](AUDIT-RESOLUTION.md). Existing Git history is retained.
 
 ## Remaining source-permission question
 
@@ -20,8 +20,7 @@ See [third-party credits](THIRD_PARTY.md) and the corresponding `NOTICE.txt` fil
 - Explicit adapter provenance and both SPRK output contracts.
 - Arch build scripts, dependency pins, Dockerfile and upstream notices.
 
-Private historical data, generated inputs, results, binaries and local toolchains
-are excluded from Git and Docker. The tracked file list contains none of these.
+Generated inputs, private documents, binaries and local toolchains are excluded from Git and Docker. Recorded measurements and logs are published separately under `measurements/`, with local machine identities redacted. Measurement bundles are excluded from Docker builds.
 The checked Git history has no paths under `historical_data/`, `data/` or `results/`.
 A source snapshot does not erase older source revisions from Git history.
 
@@ -31,6 +30,4 @@ Repository checks cover Python syntax, JSON definitions, documentation links and
 
 The Dockerfile builds the 2D programs; full imported and dimensional theaters use native user systemd as documented in [RUNNING.md](RUNNING.md).
 
-Existing experiment results predate some source changes. They remain private and
-must not be presented as measurements of the current source without identifying
-the recorded source revision. Preparing this release does not start experiments.
+Many published experiment results predate current source changes. Identify each recorded revision and reporting contract before comparing runs. Historical failures and partial runs are retained; their presence does not establish correctness or completed coverage. Publishing a snapshot does not restart or alter experiments.

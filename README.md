@@ -16,7 +16,11 @@ are recorded in [publication status](docs/PUBLICATION.md).
 - **Run experiments:** [`run_theater.py`](run_theater.py) is the single top-level entry point. [Build and preparation instructions](docs/RUNNING.md) explain how to supply its inputs.
 - **Understand the comparison:** [reporting contract and adaptations](docs/REPORTING.md), [experimental protocol](docs/EXPERIMENTS.md), and [third-party credits](docs/THIRD_PARTY.md).
 
-## Active algorithms (22 October 2026)
+## Recorded measurements
+
+The [3 November 2026 snapshot](measurements/2026-11-03/README.md) includes current and historical experiment records, including failures and partial runs. It contains raw observations, not a single combined comparison: reporting contracts, source revisions and workloads differ between runs. PostgreSQL and the queued coverage runs are not yet complete.
+
+## Active algorithms (3 November 2026)
 
 The 2D roster has 41 entries and the 3D roster has 35, including controls and
 entries with explicit unsupported outcomes. All implementations are listed below; native-output policy is described in
@@ -170,7 +174,7 @@ python run_theater.py small --run paper-small --stop
 
 Replace `small` with any theater ID from the table. One command executes fresh correctness admission across that theater, screening, and three final repetitions of eligible pairs. It does not download data or build code implicitly. Use a fresh run label for each theater execution; existing measurements and stop markers are never overwritten.
 
-The top-level runner uses **one worker on one physical core**, with CPU 1 selected by default (`--cpu` changes it). Serial jobs have a **64 GiB memory cap**, with swap disabled on native Arch execution. Correctness and screening have 60-second whole-job limits; final measurements have 180 seconds. Each theater has separate phase budgets: 30 minutes for correctness, eight hours for screening and 24 hours for final measurements. Campaigns within a theater share those budgets; different theaters do not. The d-dimensional theater has a separate 24-hour screening total and 24-hour final total, with [protected campaign allocations](theaters/d-dim/README.md). These are caps, not promised completion times. Each run records its own policy; the low-level concurrent-job cap remains 16 GiB per job.
+The top-level runner uses **one worker on one physical core**, with CPU 1 selected by default (`--cpu` changes it). Serial jobs have a **64 GiB memory cap**, with swap disabled on native Arch execution. Correctness and screening have 60-second whole-job limits; final measurements have 180 seconds. There is no aggregate campaign or theater time cap. The per-job limits remain in force. Each run records its own policy; the low-level concurrent-job cap remains 16 GiB per job.
 
 The [Arch Docker image](Dockerfile) builds the 2D programs. Native user systemd is the supported route for whole theaters containing imported or dimensional workloads. The container's process backend currently supports synthetic campaigns only; [details](docs/RUNNING.md#docker).
 
@@ -218,7 +222,7 @@ retain their previous contracts and are not relabeled as original-API results.
 
 The ESA authors' Rust **SPRK (adapted)** implementation follows this coordinate-reporting contract. **SPRK (original)** restores the historical f64 floating-point radius search and materializes only point IDs. It omits exact integer membership filtering and coordinate output from query timing. It measures a different output contract and must be identified separately in tables. [Reporting details](docs/REPORTING.md) explain the distinction.
 
-Correctness admission includes ordinary workloads and mandatory boundary/duplicate fixtures for every entry. Successful answer counts are compared across implementations and repetitions in every phase; disagreements block the run. A failure means an implementation or adapter did not satisfy this experiment's contract on the tested inputs; it is not automatically evidence of an upstream defect. Incorrect outputs, timeouts, crashes and unsupported dimensions remain explicit in the results.
+Correctness admission includes ordinary workloads and mandatory boundary/duplicate fixtures for every entry. Successful answer counts are compared across implementations and repetitions in every phase. Disagreements remain flagged; the current policy permits timing failed entries. A failure means an implementation or adapter did not satisfy this experiment's contract on the tested inputs; it is not automatically evidence of an upstream defect. Incorrect outputs, timeouts, crashes and unsupported dimensions remain explicit in the results.
 
 ## Repository map
 
@@ -236,14 +240,15 @@ src/
   third_party/              vendored libraries and imported ESA dataset tools
 tools/                       our build, data preparation and orchestration scripts
 docs/                        usage, methodology, adaptation records and credits
-historical_data/             private previous datasets/results; never published
+measurements/                dated, compressed public result snapshots
+historical_data/             ignored working copies of previous datasets/results
 data/, results/             generated inputs and new measurements (not committed)
 bin/, build/                 generated programs (not committed)
 ```
 
 See the [source map](src/README.md) to distinguish algorithm code from benchmark adapters. Generated inputs may be shared between campaigns; do not copy only a campaign's `prepared/` folder without resolving the paths in its manifest.
 
-The [project license](LICENSE) applies to project code. Third-party code retains its own licenses, notices and attribution. [Modification records](docs/THIRD_PARTY.md) identify local adaptations. Previous datasets, results, logs and measurement metadata are kept only in the ignored `historical_data/` folder for correspondence and paper drafting. That folder is excluded from Git, Git exports and Docker builds. Old project code, obsolete campaign definitions and obsolete runners are removed. New experiments use fresh `data/` and `results/` directories; the runners never read `historical_data/` implicitly.
+The [project license](LICENSE) applies to project code. Third-party code retains its own licenses, notices and attribution. [Modification records](docs/THIRD_PARTY.md) identify local adaptations. Recorded results, logs and measurement metadata are published in [dated snapshots](measurements/README.md). Raw input datasets, private documents and local working copies in `historical_data/` remain excluded from Git and Docker. Old project code, obsolete campaign definitions and obsolete runners are removed. New experiments use fresh `data/` and `results/` directories; the runners never read `historical_data/` implicitly.
 
 Publication labels and modification categories are specified in the [adapter catalog](docs/ADAPTERS.md). Use **STANN (adapted)** and **Chan (adapted)** consistently across dimensions; machine IDs remain unchanged.
 
