@@ -4,6 +4,11 @@ Research code and experiments for **Practical Distance Reporting by Sorting Alon
 
 Distance reporting asks which stored points lie within a given distance of a query location. In two dimensions, this means listing every point inside a disk. This project studies a simple index: sort integer points in Morton (Z-)order, locate short contiguous ranges of candidates, and scan those ranges while checking the actual distance. We compare construction and query costs with established spatial indexes. A separate dynamic theater studies updates in external indexes; there is no dynamic Morton implementation.
 
+For closed, axis-aligned squares in 2D and cubes in 3D, see the companion
+[SquareReportingDataStructure](https://github.com/denu12/SquareReportingDataStructure).
+It benchmarks native box queries with points or IDs as output. This repository
+benchmarks Euclidean distance reporting and retains the disk and ball measurements.
+
 Publication preparation and the outstanding Chan/STANN source-permission question
 are recorded in [publication status](docs/PUBLICATION.md).
 

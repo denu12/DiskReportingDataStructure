@@ -1,5 +1,9 @@
 # Documentation
 
+These guides describe Euclidean disk and ball reporting. For native box queries
+on squares and cubes, see the separate
+[SquareReportingDataStructure benchmark](https://github.com/denu12/SquareReportingDataStructure).
+
 - [RUNNING.md](RUNNING.md): Arch setup, input preparation and the single theater command.
 - [EXPERIMENTS.md](EXPERIMENTS.md): admission, timing, resource policy, outputs and fair aggregation.
 - [ADAPTERS.md](ADAPTERS.md): canonical competitor labels, source provenance and adapter costs.
