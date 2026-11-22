@@ -1,0 +1,10 @@
+[package]
+name="requested-sprk-ddim"
+version="0.1.0"
+edition="2024"
+[workspace]
+[[bin]]
+name="sprk-ddim"
+path="main.rs"
+[dependencies]
+sprk={path="@PROJECTS_ROOT@/DiskRangeReport/results/_queue-coverage-completion-20261030/workspace/src/third_party/esa2026/sprk"}

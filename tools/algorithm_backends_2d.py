@@ -2,7 +2,7 @@
 def binary(algorithm):
     from original_runner import TWO_D
     if algorithm in TWO_D: return "original_runner"
-    if algorithm in {'Morton3D', 'MortonSIMD3D', 'MortonPlus3D', 'esa_sprk_RUST_EXACT_3D', 'MortonPlusDDim'}:
+    if algorithm in {'Morton3D', 'MortonSIMD3D', 'MortonPlus3D', 'esa_sprk_RUST_EXACT_3D', 'esa_sprk_RUST_EXACT_DDIM', 'MortonPlusDDim'}:
         raise ValueError("Dimensional-runner algorithm: " + algorithm)
     if algorithm in {'Morton', 'MortonSIMD', 'MortonPlusCPP'}:
         return 'morton_cpp'

@@ -172,6 +172,7 @@ def execute(args, campaigns, plan, folder):
                      started_unix=time.time(), completed=[], needs_attention=False)
         save(folder / 'status.json', state)
         stopped = False
+        paused = {}
 
         def stop(*_):
             nonlocal stopped
@@ -185,6 +186,11 @@ def execute(args, campaigns, plan, folder):
                 if stopped or (folder / 'STOP').exists():
                     state['status'] = 'stopped'
                     break
+                if name in paused:
+                    state.setdefault('skipped_phases', []).append({'phase':phase,'campaign':name,
+                                                                  'reason':paused[name]})
+                    save(folder/'status.json',state)
+                    continue
                 state.update(phase=phase, campaign=name)
                 save(folder / 'status.json', state)
                 print(shlex.join(command), flush=True)
@@ -198,24 +204,35 @@ def execute(args, campaigns, plan, folder):
                     state['status'] = 'stopped'
                     break
                 result_path = ROOT / 'results' / str(name) / args.run / phase / 'state.json'
-                result = read(result_path) if name and result_path.exists() else None
+                try:result = read(result_path) if name and result_path.exists() else None
+                except (ValueError,OSError):result = None
+                if result is not None and not isinstance(result,dict):result=None
                 budget_limited = (name in config.get('protected_campaign_budgets', {})
                                   and phase in ('screen', 'final') and result
-                                  and result['status'] == 'budget_exhausted')
+                                  and result.get('status') == 'budget_exhausted')
+                failure = None
                 if child.returncode and not budget_limited:
-                    raise RuntimeError(f'{phase}/{name}: exit {child.returncode}; see controller log')
+                    failure = f'{phase}/{name}: exit {child.returncode}; see controller log'
                 if name:
-                    if result['status'] != 'complete' and not budget_limited:
-                        raise RuntimeError(f'{phase}/{name}: {result["status"]}')
+                    if result is None:
+                        failure = failure or f'{phase}/{name}: no readable phase state'
+                    elif result.get('status') != 'complete' and not budget_limited:
+                        failure = failure or f'{phase}/{name}: {result.get("status","invalid state")}'
                     if budget_limited:
                         state.setdefault('budget_limited_phases', []).append({'phase': phase, 'campaign': name})
-                    if any(v == 'blocked' for v in result.get('eligibility', {}).values()):
-                        raise RuntimeError(f'{phase}/{name}: infrastructure blocked admission')
-                    state['needs_attention'] |= result.get('needs_attention', False)
+                    if result and not config.get('measure_failed_correctness',False) and any(v == 'blocked' for v in result.get('eligibility', {}).values()):
+                        failure = failure or f'{phase}/{name}: infrastructure blocked admission'
+                    state['needs_attention'] |= bool(result and result.get('needs_attention', False))
+                if failure:
+                    affected = [name] if name else [c for c in campaigns if c in SYNTHETIC]
+                    for campaign in affected:paused[campaign]=failure
+                    state.update(needs_attention=True,paused_campaigns=paused)
+                    save(folder/'status.json',state)
+                    continue
                 state['completed'].append({'phase': phase, 'campaign': name})
                 save(folder / 'status.json', state)
             else:
-                state['status'] = 'complete'
+                state['status'] = 'complete_with_errors' if paused else 'complete'
         except Exception as error:
             state.update(status='needs_attention', error=str(error))
             raise

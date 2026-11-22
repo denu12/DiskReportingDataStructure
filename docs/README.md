@@ -12,5 +12,6 @@ on squares and cubes, see the separate
 - [FORMATS.md](FORMATS.md): binary input formats.
 - [SIMD-reporting.md](SIMD-reporting.md): current SIMD implementation details.
 - [correctness-admission.md](correctness-admission.md): ordinary-workload admission policy.
+- [Repository audit, 22 November 2026](REPOSITORY-AUDIT-2026-11-22.md): source/result coverage, scheduling gaps and local validation limits.
 
 The [theater index](../theaters/README.md) lists current workload collections. [Third-party credits](THIRD_PARTY.md) retain sources, licenses and modification disclosures.

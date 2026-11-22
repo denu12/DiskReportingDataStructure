@@ -13,6 +13,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 from workloads import STATIC, DIMENSIONAL
+from indexicon_competitors import VARIANTS as INDEXICON, supported as indexicon_supported
 from campaign_paths import campaign_directory
 
 REVISION = 'a81b216a2a63bde3d4447e4053b4ca31081fe286'
@@ -109,8 +110,9 @@ def main():
                 parent=None,
                 selection='native dimension == 2, no projection' if only2d else 'upstream workload family restricted to dimension > 2; native 2D cases belong to the small theater',
                 input_format='ESA2D01' if only2d else 'ddim-u32',
-                algorithms=STATIC if only2d else ndim,
-                comparison_contract=dict(coordinates='common uint32 grid', output='explicit original integer coordinates',
+                algorithms=STATIC if only2d else [a for a in ndim if a not in INDEXICON
+                    or any(indexicon_supported(a, c['dimension']) for c in selected)],
+                comparison_contract=dict(coordinates='common uint32 grid', output='materialized native points or point IDs; consult algorithm metadata',
                     exceptions={'esa_sprk_CHEATING_IDS_ONLY': 'SPRK (original): floating-point radius search, materialized IDs only; no timed exact integer filter or coordinate output'},
                     measurement='bounded single-core jobs; separate build/query timing; three final repetitions',
                     claim='upstream workload matrix; not a floating-point/Criterion timing reproduction'),

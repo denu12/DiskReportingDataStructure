@@ -1,0 +1,10 @@
+[package]
+name="requested-sprk-ddim"
+version="0.1.0"
+edition="2024"
+[workspace]
+[[bin]]
+name="sprk-ddim"
+path="main.rs"
+[dependencies]
+sprk={path="../../../third_party/esa2026/sprk"}

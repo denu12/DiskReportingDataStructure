@@ -79,6 +79,12 @@
     "lsi_quadratic",
     "lsi_rstar",
     "lsi_str",
+    "indexicon_rtree_point",
+    "indexicon_rtree_mbr",
+    "indexicon_kdtree_adaptive",
+    "indexicon_kdtree_round_robin",
+    "indexicon_kdtree_longest_axis",
+    "indexicon_octree",
     "postgres_zrange"
   ],
   "source_campaign": "input_scaling",

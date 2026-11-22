@@ -16,11 +16,13 @@ from original_runner import dependency_files
 from workloads import STATIC, STATIC_3D, validate_roster
 
 validate_roster(STATIC);validate_roster(STATIC_3D)
-assert len(STATIC)==41 and len(STATIC_3D)==35
+assert len(STATIC)==50 and len(STATIC_3D)==41
 with tempfile.TemporaryDirectory() as directory:
     for d in [2,3]:
         case=boundary_case(directory,d,format2d=d==2)
         for name in BACKENDS:
+            from additional_competitors import supported
+            if not supported(name,d):continue
             assert metadata(name)['source_repairs'] is (name=='pgm_multidimensional')
             assert all(path.is_file() for path in dependency_files(name))
             output=Path(directory)/'result.json'

@@ -1,6 +1,11 @@
 > Current policy: [original implementations and native outputs](ORIGINAL-CAMPAIGN.md). Correctness failures are recorded but do not suppress measurements in this campaign. Older adaptation descriptions below describe historical runs.
 
-## Current Morton/SPRK roster
+The November 22 integration adds pinned Indexicon backends and the separate native
+f64 exact dimensional SPRK bridge. Their current metadata is defined in
+`tools/indexicon_competitors.py` and `tools/algorithm_labels.py`. Older profile
+sources are retained in the [frozen source collection](../reproducibility/2026-11-22/README.md).
+
+## 14 October Morton/SPRK baseline
 
 The 14 October 2026 roster supersedes older SPRK adapter descriptions below.
 `esa_sprk_RUST_EXACT` is **SPRK (adapted)**, their Rust IntegerPointSprk (2D).
@@ -27,7 +32,7 @@ Kiddo, Grid and Neighbourhood have previously applied source repairs. Their name
 still end in `(adapted)`; `source_repairs=true` and the notices disclose the repairs.
 Local adapter corrections from the audit are recorded below; upstream limitations remain explicit.
 
-## Current mapping
+## Historical mapping and adaptations
 
 | Machine ID | Display name | Provenance |
 |---|---|---|

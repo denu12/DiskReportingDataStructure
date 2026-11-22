@@ -22,6 +22,7 @@ LABELS = {
 }
 from additional_competitors import LABELS as ADDITIONAL_LABELS, metadata as additional_metadata
 LABELS.update(ADDITIONAL_LABELS)
+LABELS['esa_sprk_RUST_EXACT_DDIM']='SPRK (native f64, exact d-dimensional)'
 LABELS['postgres_zrange']='PostgreSQL Z-range refinement'
 LOCAL = {'Morton','MortonSIMD','MortonSIMD3D','Morton3D','morton_d_dim','naive','brute_force'}
 REIMPLEMENTED = {'chan_sss','chan_sss_ddim_MANUALLY_ADAPTED','chan_sss_dyn_ADAPTED_DYNAMIC'}
@@ -30,6 +31,10 @@ MODIFIED = {'pargeo','stann_fr','stann_fr_ddim_MANUALLY_ADAPTED',
 PATCHED = {'esa_kiddo','esa_grid','esa_neighbourhood'}
 
 def metadata(algorithm):
+    if algorithm == 'esa_sprk_RUST_EXACT_DDIM':
+        return dict(display_name=LABELS[algorithm],
+                    provenance='unchanged native f64 SPRK with timed exact integer filter and coordinate output',
+                    source_repairs=False, output_contract='integer_points', membership_contract='closed_integer_ball')
     if algorithm == 'pam':
         return dict(display_name='PAM (repaired)', provenance='original PAM range tree with documented example repairs and full-width coordinates', source_repairs=True, output_contract='integer_points', membership_contract='closed_integer_ball')
     from original_runner import REPORTING

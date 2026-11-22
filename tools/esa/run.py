@@ -27,6 +27,7 @@ from backends import command as ddim_command
 from algorithm_labels import metadata, display_name
 from algorithm_backends_2d import binary
 from workloads import validate_roster
+from job_policy import PairPolicy
 from experiment_integrity import boundary_case, machine_identity, check_answer_counts, prior_phases, SCHEDULE_SEED
 
 COMPILED_DIMS = set(range(2, 17)) | {32}
@@ -35,6 +36,8 @@ DYNAMIC_DIMENSION = {'ann_fr', 'cgal_kd', 'esa_nanoflann', 'esa_sklearn_kd',
 
 
 def supported(algorithm, case, format2d):
+    if algorithm == 'esa_sprk_RUST_EXACT_DDIM':
+        return not format2d and case['dimension'] in set(range(3,17)) | {32,34,96,100,128,784,960}
     if algorithm == 'pam': return format2d or case['dimension']==2
     if algorithm == 'postgres_zrange': return format2d or 2 <= case['dimension'] <= 63
     from original_runner import UNSUPPORTED
@@ -114,6 +117,8 @@ def run_phase(args, manifest):
         harness={str(p.relative_to(ROOT)): sha(p) for p in sorted((ROOT/'tools/esa').glob('*.py'))})
     for p in [ROOT/'tools/experiment_integrity.py', ROOT/'tools/campaign_paths.py', ROOT/'tools/budget.py', ROOT/'tools/backends.py', ROOT/'tools/algorithm_labels.py', ROOT/'tools/algorithm_backends_2d.py', ROOT/'src/third_party/esa2026/snnpy.py']:
         if p.is_file(): identity['harness'][str(p.relative_to(ROOT))] = sha(p)
+    for p in (ROOT/'tools').glob('*.py'):
+        identity['harness'][str(p.relative_to(ROOT))] = sha(p)
     for p in (ROOT/'src/third_party/esa2026/snnpy').rglob('*.py'):
         identity['harness'][str(p.relative_to(ROOT))] = sha(p)
     identity['disabled_algorithms'] = sorted(disabled)
@@ -163,6 +168,7 @@ def run_phase(args, manifest):
     state = dict(measure_failed_correctness=config.get('measure_failed_correctness',False),configured_cases=[c['id'] for c in selected],status='running', phase=args.phase, identity=identity, results=[], eligibility={},
                  started_unix=time.time(), current={})
     lock = threading.Lock(); stopped = threading.Event()
+    case_policy = PairPolicy(screen['results'] if args.phase=='final' else ())
     signal.signal(signal.SIGTERM, lambda *_: stopped.set()); signal.signal(signal.SIGINT, lambda *_: stopped.set())
     save(target, state)
     def record(row):
@@ -173,20 +179,22 @@ def run_phase(args, manifest):
         checked = []
         for c in ([only_case] if only_case is not None else selected):
             for rep in ([only_rep] if only_rep is not None else range(repetitions)):
-                row = dict(algorithm=a, case=c['id'], dimension=c['dimension'], repetition=rep, cpu=cpu, execution_backend='systemd', **metadata(a))
-                if args.phase!='correctness':row['correctness_admission']=gate['eligibility'].get(a,'unknown')
-                status = None
-                if a in disabled: status = 'disabled_by_user'
-                elif not supported(a, c, format2d): status = 'unsupported_dimension'
-                elif a not in eligible: status = 'excluded_by_correctness'
-                elif measured is not None and (a, c['id']) not in measured: status = 'not_selected_after_screen'
-                elif stopped.is_set() or (folder/'STOP').exists(): status = 'stopped'
-                elif time.monotonic()+stage['timeout_seconds'] > args.deadline: status = 'not_run_budget'
-                if status:
-                    row['status'] = status; record(row); continue
-                key = hashlib.sha256(json.dumps([a, c['id'], rep]).encode()).hexdigest()[:16]
-                job = folder/args.phase/'jobs'/key; job.mkdir(parents=True)
-                input_path = data/c['path']; expected = c['queries']
+                with case_policy.lock_for(a,c['id']):
+                    row = dict(algorithm=a, case=c['id'], dimension=c['dimension'], repetition=rep, cpu=cpu, execution_backend='systemd', **metadata(a))
+                    if args.phase!='correctness':row['correctness_admission']=gate['eligibility'].get(a,'unknown')
+                    status = None
+                    if a in disabled: status = 'disabled_by_user'
+                    elif not supported(a, c, format2d): status = 'unsupported_dimension'
+                    elif a not in eligible: status = 'excluded_by_correctness'
+                    elif args.phase!='correctness' and case_policy.skip_status(a,c['id']): status = case_policy.skip_status(a,c['id'])
+                    elif measured is not None and (a, c['id']) not in measured: status = 'not_selected_after_screen'
+                    elif stopped.is_set() or (folder/'STOP').exists(): status = 'stopped'
+                    elif time.monotonic()+stage['timeout_seconds'] > args.deadline: status = 'not_run_budget'
+                    if status:
+                        row['status'] = status; record(row); continue
+                    key = hashlib.sha256(json.dumps([a, c['id'], rep]).encode()).hexdigest()[:16]
+                    job = folder/args.phase/'jobs'/key; job.mkdir(parents=True)
+                    input_path = data/c['path']; expected = c['queries']
                 if args.phase == 'correctness':
                     input_path = job/'ordinary-input.bin'; expected = sample(data/c['path'], input_path, format2d)
                 result = job/'result.json'; native = backend(a, format2d, args.bin_dir)
@@ -207,7 +215,9 @@ def run_phase(args, manifest):
                             subprocess.run(['systemctl', '--user', 'stop', unit], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                         time.sleep(.15)
                 text = (job/'run.log').read_text(); report = None
-                if result.exists(): report = json.loads(result.read_text())
+                if result.exists():
+                    try: report = json.loads(result.read_text())
+                    except (ValueError,OSError): report = None
                 elif not format2d:
                     for line in reversed(text.splitlines()):
                         try:
@@ -227,6 +237,7 @@ def run_phase(args, manifest):
                 measurements = ({k: v for k, v in report.items() if k != 'status'} if report else None)
                 row.update(status=outcome, wall_seconds=time.monotonic()-start, result=measurements,
                            backend_status=report.get('status') if report else None, returncode=process.returncode)
+                case_policy.observe(row)
                 save(job/'outcome.json', row); record(row); checked.append(outcome)
                 with lock: state['current'].pop(str(cpu), None); save(target, state)
                 print(args.phase, display_name(a), c['id'], outcome, flush=True)
@@ -246,7 +257,18 @@ def run_phase(args, manifest):
         while True:
             try:a,c,rep=pending.get_nowait()
             except queue.Empty:return
-            algorithm_task(a,cpus[i],c,rep)
+            try:
+                algorithm_task(a,cpus[i],c,rep)
+            except Exception as error:
+                row=dict(algorithm=a,case=c['id'] if c else 'admission',repetition=rep,
+                         status='error',detail=f'{type(error).__name__}: {error}',cpu=cpus[i],
+                         execution_backend='systemd',**metadata(a))
+                case_policy.observe(row)
+                record(row)
+                with lock:
+                    state['current'].pop(str(cpus[i]),None)
+                    if args.phase=='correctness':state['eligibility'][a]='excluded'
+                    save(target,state)
     with ThreadPoolExecutor(max_workers=workers) as pool:
         list(pool.map(worker,range(workers)))
     statuses = {r['status'] for r in state['results']}

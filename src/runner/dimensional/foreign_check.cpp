@@ -161,6 +161,8 @@ Query create(Data& d,const std::string&){
 #include "reporting_adapters.h"
 #elif defined(BACKEND_ADDITIONAL)
 #include "additional_indexes.h"
+#elif defined(BACKEND_INDEXICON)
+#include "indexicon_adapter.hpp"
 #elif defined(BACKEND_BRUTE)
 const char* output_contract="point_ids_only";const char* output_representation="indices";const char* membership_contract="closed_integer_ball";
 Query create(Data& d,const std::string&){auto hits=std::make_shared<std::vector<std::size_t>>();return {[&,hits](std::size_t q){hits->clear();for(std::size_t i=0;i<d.points.size();++i)if(d.contains(i,q))hits->push_back(i);},[hits]{return hits->size();},[&,hits](std::size_t q){return verify_ids(d,q,*hits);}};}

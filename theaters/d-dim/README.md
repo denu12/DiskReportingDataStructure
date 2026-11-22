@@ -12,14 +12,16 @@ This theater contains the imported workload instances with dimension greater tha
 The default roster includes all external competitors, a scan control, dimensional
 Morton and dimensional MortonPlus. Both Morton entries support dimensions 1-16;
 specialized Morton3D belongs to the static-3d theater. Original SPRK supports
-compiled dimensions 2-16 and 32; adapted SPRK is available only in dimension 3
-here. Unsupported jobs are labelled, not treated as incorrect. See
+compiled dimensions 2-16 and 32. The separate native f64 exact SPRK bridge
+supports 3-16, 32, 34, 96, 100, 128, 784 and 960 dimensions. Indexicon supplies
+five arbitrary-dimensional variants and an octree for the 3D cases. Its 2D-only
+variants are absent from this theater. Unsupported jobs are labelled, not treated as incorrect. See
 [competitor rosters](../../docs/COMPETITORS.md).
 
 
 ## Time limits
 
-Campaigns have no aggregate time cap. Whole-job limits remain 60 seconds for screening and 180 seconds for final measurements. Eligible pairs receive three final repetitions. Timeouts and unexecuted work remain explicit in the records; historical runs retain their original policies.
+Campaigns have no aggregate time cap. Whole-job limits remain 60 seconds for screening and 180 seconds for final measurements. Eligible pairs receive up to three final repetitions. A screening timeout skips final measurements; a final timeout skips remaining repeats. Timeouts and unexecuted work remain explicit in the records; historical runs retain their original policies.
 
 ## Prepare and run
 

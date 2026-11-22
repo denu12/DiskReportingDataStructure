@@ -19,7 +19,11 @@ class Rosters(unittest.TestCase):
             for path in (ROOT/'theaters'/theater/'campaigns').glob('*/campaign.json'):
                 with self.subTest(path=path):
                     definition=json.loads(path.read_text())
-                    if 'algorithms' in definition:self.assertEqual(definition['algorithms'],expected)
+                    if 'algorithms' in definition:
+                        from indexicon_competitors import VARIANTS, supported
+                        dims=definition.get('dimensions',[c['dimension'] for c in definition.get('cases',[])])
+                        roster=[a for a in expected if theater!='d-dim' or a not in VARIANTS or any(supported(a,d) for d in dims)]
+                        self.assertEqual(definition['algorithms'],roster)
             for name in expected:self.assertTrue(metadata(name)['display_name'])
     def test_invalid_rosters(self):
         for names in [['Morton','Morton'], ['esa_sprk_FAST_EXACT'], ['esa_sprk'], ['MortonPlusRust'], ['Morton','MortonSIMD','MortonPlusCPP','MortonSplit','MortonTable','MortonBlocks','MortonBlocksSIMD','MortonLookupSplit','Morton3D'], ['esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_3D','esa_sprk_CHEATING_IDS_ONLY','esa_sprk_RUST_EXACT_NOSIMD']]:
@@ -40,7 +44,7 @@ class Rosters(unittest.TestCase):
         for name in DIMENSIONAL+STATIC_3D:self.assertTrue(command(name))
     def test_retained_2d(self):
         from algorithm_backends_2d import binary
-        self.assertEqual(len(STATIC),41)
+        self.assertEqual(len(STATIC),50)
         self.assertTrue({'Morton','MortonSIMD','MortonPlusCPP',
             'esa_sprk_CHEATING_IDS_ONLY','esa_sprk_RUST_EXACT','esa_sprk_RUST_EXACT_NOSIMD',
             'boost_lin','boost_quad','boost_star'} <= set(STATIC))

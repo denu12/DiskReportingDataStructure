@@ -44,5 +44,7 @@
   "budget_scope": "theater",
   "protected_campaign_budgets": {},
   "measure_failed_correctness": true,
+  "skip_repeats_after_timeout": true,
+  "continue_after_case_failure": true,
   "measure_failed_correctness_reason": "Explicit user request: run every original competitor even if wrong; preserve correctness flags and failures."
 }

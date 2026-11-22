@@ -30,6 +30,12 @@ python tools/build_ddim.py
 
 This builds all dimensional C++, Rust and Python-facing adapters, including MortonPlus and the 3D SPRK adaptation. The 2D build must have fetched the external headers first. Python-backed competitors need the active scientific environment. Retain the generated build logs if a backend is unavailable; preflight refuses missing programs.
 
+The build also invokes `tools/build_indexicon.py` and `tools/build_sprk_ddim.py`.
+These can be run separately to build the pinned Indexicon variants or the native
+f64 exact SPRK bridge. See [Indexicon integration](INDEXICON.md) and the
+[frozen source collection](../reproducibility/2026-11-22/README.md) for versioned
+adapters and explicit build-only reproduction commands.
+
 ## Prepare inputs
 
 | Theater | Preparation instructions |
@@ -63,7 +69,7 @@ python run_theater.py small --run paper-small --status
 python run_theater.py small --run paper-small --stop
 ```
 
-Status prints the controller record, not a fabricated count of successful jobs. Inspect the campaign phase states and raw logs for outcomes. On failure, preserve the result directory, resolve the preparation/environment problem, then choose a fresh run label. The public runner does not resume or overwrite partial runs.
+Status prints the controller record, not a fabricated count of successful jobs. Inspect the campaign phase states and raw logs for outcomes. A timeout suppresses remaining repetitions of that algorithm/case pair; an incorrect answer can still be timed with its admission flag. Other cases continue after a case failure. A failed phase controller pauses its campaign while other campaigns continue, ending with `complete_with_errors`. Preserve failed results and choose a fresh run label after repairs; the public runner does not resume or overwrite partial runs.
 
 ## Docker
 

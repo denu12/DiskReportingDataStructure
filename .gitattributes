@@ -5,3 +5,5 @@ Dockerfile text eol=lf
 /historical_data export-ignore
 /data export-ignore
 /results export-ignore
+reproducibility/** -text -whitespace
+src/third_party/indexicon/** -whitespace

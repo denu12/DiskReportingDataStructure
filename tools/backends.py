@@ -4,6 +4,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 def command(algorithm):
+    if algorithm == 'esa_sprk_RUST_EXACT_DDIM':
+        return [str(ROOT/'build/sprk-ddim/release/sprk-ddim')]
     from original_runner import RUST, PYTHON, UNSUPPORTED, FOREIGN, POSTGRES
     if algorithm in RUST | PYTHON | UNSUPPORTED | set(FOREIGN) | POSTGRES:
         return [sys.executable,str(ROOT/"tools/original_runner.py"),"--dimensional"]

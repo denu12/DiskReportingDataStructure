@@ -82,6 +82,15 @@
     "lsi_quadratic",
     "lsi_rstar",
     "lsi_str",
+    "indexicon_rtree_point",
+    "indexicon_rtree_mbr",
+    "indexicon_kdtree_adaptive",
+    "indexicon_kdtree_round_robin",
+    "indexicon_kdtree_longest_axis",
+    "indexicon_quadtree_pr",
+    "indexicon_quadtree_pseudo_median",
+    "indexicon_quadtree_longest_axis",
+    "indexicon_mxcif_quadtree",
     "postgres_zrange"
   ]
 }

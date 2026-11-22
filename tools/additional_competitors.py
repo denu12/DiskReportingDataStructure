@@ -1,4 +1,6 @@
 """Original implementations added October 2026; no replacement algorithms."""
+import indexicon_competitors as indexicon
+
 BACKENDS = {
     'phtree':'phtree', 'pgm_multidimensional':'pgm',
     'psi_kd':'psi', 'psi_orth':'psi', 'psi_spac_z':'psi', 'psi_spac_h':'psi',
@@ -12,7 +14,11 @@ LABELS = {
     'lsi_linear':'libspatialindex linear', 'lsi_quadratic':'libspatialindex quadratic',
     'lsi_rstar':'libspatialindex R-star', 'lsi_str':'libspatialindex STR',
 }
+BACKENDS.update(indexicon.BACKENDS)
+LABELS.update(indexicon.LABELS)
+
 def metadata(name):
+    if name in indexicon.BACKENDS: return indexicon.metadata(name)
     if name == 'pgm_multidimensional':
         return dict(display_name=LABELS[name]+' (adapted)', provenance='original PGM index with coarse coordinate cells, original-ID mapping and documented iterator fixes', source_repairs=True, output_contract='point_ids_only', membership_contract='closed_integer_ball')
     return dict(display_name=LABELS[name],
@@ -24,6 +30,7 @@ def metadata(name):
 # Dimensions present in the prepared campaigns. Upstream SPaC encoders are 2D/3D.
 COMPILED_DIMS = set(range(2,17)) | {32,34,96,100,128,784,960}
 def supported(name, dimension):
+    if name in indexicon.BACKENDS: return indexicon.supported(name, dimension)
     if name == 'pgm_multidimensional': return dimension in set(range(2,17)) | {32}
     if name.startswith('lsi_'): return dimension >= 2
     if name == 'phtree': return dimension in COMPILED_DIMS and dimension < 64

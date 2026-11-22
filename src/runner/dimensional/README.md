@@ -30,3 +30,12 @@ Boost writes its native point objects directly into a reusable vector, using
 after timing. SPRK configurations are unchanged; see the current
 [reporting contract](../../../docs/REPORTING.md) and root README output table.
 Validate Boost with `python tools/check_native_boost.py`.
+# Source integration, November 2026
+
+`indexicon_adapter.hpp` and `tools/build_indexicon.py` provide the pinned native
+box-query variants with exact disk/ball filtering. `sprk_ddim/` contains the
+native f64 SPRK bridge, built by `tools/build_sprk_ddim.py`, with exact integer
+filtering and materialized coordinate output. These are separate from the
+historical IDs-only diagnostic and the specialized 3D coordinate adaptation.
+The [frozen source collection](../../../reproducibility/2026-11-22/README.md)
+preserves later adapter/traversal versions without relabelling old results.

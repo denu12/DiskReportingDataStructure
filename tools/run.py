@@ -1,6 +1,6 @@
 """Explicit, bounded ESA campaign runner. No queue or automatic startup.
 
-Run correctness first. Only passing, unchanged binaries may enter timing runs.
+Run correctness first. Preserve failed admission when timing is explicitly enabled.
 Jobs use one physical CPU and one library thread; budgets span campaigns.
 """
 from job_temporary import properties as temporary_properties
@@ -23,6 +23,7 @@ from experiment_integrity import boundary_case, machine_identity, check_answer_c
 from budget import budget,policy,policy_path
 from algorithm_labels import metadata,display_name
 from workloads import validate_roster
+from job_policy import PairPolicy
 
 def atomic(path,obj):
  path.parent.mkdir(parents=True,exist_ok=True)
@@ -119,7 +120,8 @@ class Campaign:
        try:os.killpg(process.pid,signal.SIGKILL)
        except ProcessLookupError:pass
      time.sleep(.15)
-   result=json.loads(resultpath.read_text()) if resultpath.exists() else None
+   try:result=json.loads(resultpath.read_text()) if resultpath.exists() else None
+   except (ValueError,OSError):result=None
    status=classify(process.returncode,(directory/'run.log').read_text(),result)
    if timed_out:status='timeout'
    if self.stop.is_set() or self.stop_file.exists():status='interrupted_user'
@@ -143,7 +145,7 @@ class Campaign:
   fingerprint['selected_algorithms']=[a['name'] for a in selected]
   fingerprint['disabled_algorithms']=sorted(disabled)
   if not selected:raise ValueError('No selected algorithms')
-  results=[]
+  results=[];case_policy=PairPolicy()
   if self.args.phase!='correctness':
    gate=json.loads((self.runroot/'correctness/state.json').read_text())
    if gate['identity']!=fingerprint or gate['status']!='complete':raise RuntimeError('Correctness gate is stale: manifest or binaries changed')
@@ -156,6 +158,7 @@ class Campaign:
   measured=None;planned_cases=None
   if self.args.phase in ('final','contention','followup'):
    screen=json.loads((self.runroot/'screen/state.json').read_text())
+   if self.args.phase=='final':case_policy=PairPolicy(screen['results'])
    if screen['identity']!=fingerprint or screen['status']!='complete':raise RuntimeError('Screening results are stale')
    measured={(r['algorithm'],r['case']) for r in screen['results'] if r['status']=='success' or self.manifest['policy'].get('measure_failed_correctness',False)}
    if self.args.phase=='final':
@@ -183,7 +186,7 @@ class Campaign:
    local=[];streak=0
    if self.args.phase=='correctness':
     for case in self.manifest['correctness']:
-     r=self.job(a,case,'verify');local.append(r)
+     r=case_policy.execute(a['name'],case['id'],0,lambda:self.job(a,case,'verify'));local.append(r)
      if r['status']!='success':break
    return a['name'],local
   signal.signal(signal.SIGTERM,lambda *_:self.stop.set());signal.signal(signal.SIGINT,lambda *_:self.stop.set())
@@ -202,7 +205,8 @@ class Campaign:
       for rep in range(repetitions):jobs.append((a,case,rep))
     random.Random(fingerprint['schedule_seed']).shuffle(jobs)
     atomic(self.out/'schedule.json',[[a['name'],c['id'],rep] for a,c,rep in jobs])
-    def one_job(a,c,rep):return a['name'],[self.job(a,c,'bench',rep)]
+    def one_job(a,c,rep):
+     return a['name'],[case_policy.execute(a['name'],c['id'],rep,lambda:self.job(a,c,'bench',rep))]
     futures=[pool.submit(one_job,*job) for job in jobs]
    for future in concurrent.futures.as_completed(futures):
     name,rows=future.result()
@@ -215,7 +219,7 @@ class Campaign:
     atomic(self.out/'state.json',state);print(display_name(name),[(r.get('case'),r['status']) for r in rows],flush=True)
   state['status']='stopped' if self.stop.is_set() or self.stop_file.exists() else 'budget_exhausted' if time.monotonic()>self.deadline-self.timeout else 'complete'
   state['needs_attention']=any(r['status'] not in ('success','not_selected_after_screen','excluded_by_correctness') for r in results)
-  if 'blocked' in state['eligibility'].values():state['status']='needs_attention'
+  if 'blocked' in state['eligibility'].values() and not self.manifest['policy'].get('measure_failed_correctness',False):state['status']='needs_attention'
   mismatches=check_answer_counts(state,prior_phases(self.runroot,self.args.phase))
   atomic(self.out/'state.json',state)
   if state['status']!='complete':raise RuntimeError('Phase incomplete or needs attention; see state.json')

@@ -23,15 +23,22 @@ are recorded in [publication status](docs/PUBLICATION.md).
 
 ## Recorded measurements
 
-The [3 November 2026 snapshot](measurements/2026-11-03/README.md) includes current and historical experiment records, including failures and partial runs. It contains raw observations, not a single combined comparison: reporting contracts, source revisions and workloads differ between runs. PostgreSQL and the queued coverage runs are not yet complete.
+The latest [22 November 2026 snapshot](measurements/2026-11-22/README.md) includes current and historical experiment records, including failures and partial runs. The [3 November snapshot](measurements/2026-11-03/README.md) remains available as an earlier capture. These are raw observations, not a single combined comparison: reporting contracts, source revisions and workloads differ between runs. Read each snapshot's captured queue status rather than treating an older status as current.
 
-## Active algorithms (3 November 2026)
+Indexicon and the native f64 exact higher-dimensional SPRK bridge are integrated.
+The [frozen source collection](reproducibility/2026-11-22/README.md) preserves later
+disk adapters and controllers with hashes and dependency references. Use the
+recorded version for each historical run; the current harness has newer failure
+handling. The [repository audit](docs/REPOSITORY-AUDIT-2026-11-22.md) records the repairs.
 
-The 2D roster has 41 entries and the 3D roster has 35, including controls and
+## Checked-in algorithm rosters
+
+The checked-in 2D roster has 50 entries and the 3D roster has 41, including controls and
 entries with explicit unsupported outcomes. All implementations are listed below; native-output policy is described in
 [the original-API campaign](docs/ORIGINAL-CAMPAIGN.md).
-The ten newly integrated entries, their output types, and validation limitations
-are listed in [additional competitors](docs/ADDITIONAL-COMPETITORS.md).
+The October additions, their output types and validation limitations are listed
+in [additional competitors](docs/ADDITIONAL-COMPETITORS.md). The later Indexicon
+integration is described [separately](docs/INDEXICON.md).
 
 ## Competitor implementations
 
@@ -65,6 +72,8 @@ only in the build environment were read from Archie's pinned dependency caches.
 | SPRK (adapted, 2D) | [ESA authors’ adaptation](https://github.com/TrueDoctor/DiskReportingDataStructure/tree/sprk-exact-point-reporting) | Rust | 3,625 (library + extension) | Integer points |
 | SPRK (adapted, no explicit SIMD) | [ESA adaptation with local compiler-only option](src/third_party/esa2026/sprk/src/integer_reporting.rs) | Rust | 3,625 (library + extension) | Integer points |
 | SPRK (adapted, 3D) | [Local 3D extension](src/third_party/esa2026/sprk/src/integer_reporting_3d.rs) | Rust | 3,789 (library + extensions) | Integer points |
+| SPRK (native f64, exact d-dimensional) | [Native-tree bridge](src/runner/dimensional/sprk_ddim/main.rs) | Rust | Not included in the October source-size snapshot | Integer points after timed exact filtering |
+| Indexicon (ten variants) | [Pinned headers and adapter guide](docs/INDEXICON.md) | C++ | Not included in the October source-size snapshot | Original point IDs after exact disk/ball filtering |
 | Boost linear (static and dynamic) | [Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index) | C++ | 20,748 (shared index headers) | Points |
 | Boost quadratic (static and dynamic) | [Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index) | C++ | 20,748 (shared index headers) | Points |
 | Boost R-star (static and dynamic) | [Boost.Geometry 1.87.0](https://github.com/boostorg/geometry/tree/boost-1.87.0/include/boost/geometry/index) | C++ | 20,748 (shared index headers) | Points |
@@ -154,8 +163,8 @@ An experiment **theater** contains campaigns. A **campaign** studies a related q
 | [d-dim](theaters/d-dim/README.md) | Four imported families, restricted to dimensions above two | 279 |
 | [dynamic](theaters/dynamic/README.md) | 2D insertions, deletions and disk queries | 90 |
 
-Default rosters contain 40 2D configurations, 34 static 3D configurations,
-23 higher-dimensional configurations (subject to supported dimensions), and three
+Default rosters contain 50 2D configurations, 41 static 3D configurations,
+up to 40 higher-dimensional configurations (subject to supported dimensions), and three
 dynamic Boost configurations. These totals include controls and unsupported entries.
 Static 3D includes Morton, Morton (simd) and Morton (plus).
 See [competitor rosters](docs/COMPETITORS.md) and the

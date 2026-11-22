@@ -21,11 +21,12 @@ DIMENSIONAL_EXTERNAL = [
 STATIC_3D = ['Morton3D','MortonSIMD3D','MortonPlus3D','esa_sprk_CHEATING_IDS_ONLY',
              'esa_sprk_RUST_EXACT_3D'] + DIMENSIONAL_EXTERNAL
 from additional_competitors import BACKENDS as ADDITIONAL_BACKENDS
-STATIC += list(ADDITIONAL_BACKENDS) + ['postgres_zrange']
-STATIC_3D += list(ADDITIONAL_BACKENDS) + ['postgres_zrange']
+from indexicon_competitors import VARIANTS as INDEXICON, supported as indexicon_supported
+STATIC += [a for a in ADDITIONAL_BACKENDS if a not in INDEXICON or indexicon_supported(a, 2)] + ['postgres_zrange']
+STATIC_3D += [a for a in ADDITIONAL_BACKENDS if a not in INDEXICON or indexicon_supported(a, 3)] + ['postgres_zrange']
 DIMENSIONAL = ['morton_d_dim','MortonPlusDDim','esa_sprk_CHEATING_IDS_ONLY',
-               'esa_sprk_RUST_EXACT_3D'] + DIMENSIONAL_EXTERNAL
-DIMENSIONAL += ['postgres_zrange']
+               'esa_sprk_RUST_EXACT_DDIM'] + DIMENSIONAL_EXTERNAL
+DIMENSIONAL += ['postgres_zrange'] + [a for a in ADDITIONAL_BACKENDS if a not in INDEXICON or INDEXICON[a][2] != 2]
 
 
 def validate_roster(algorithms):
