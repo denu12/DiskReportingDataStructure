@@ -89,3 +89,18 @@ SpaceTreeLib's nested Parlay and libmorton repositories are initialized at the
 revisions specified by its own gitlinks. Benchmark adapters are separate from
 upstream code. The PH-tree C++ fork and maintained PSI revision are identified
 explicitly; neither is represented as the exact historical paper artifact.
+## November 2026 source integration
+
+[Indexicon](https://github.com/psimatis/Indexicon-Spatial-Library) is vendored at
+`69da8a364f3437a1110d89b9ebeb99473dc25807`, with unchanged upstream headers and
+its [MIT license](../src/third_party/indexicon/LICENSE). The project supplies the
+range-query adapters and exact disk/ball filtering; see [integration details](INDEXICON.md).
+The later frozen PSI/Indexicon disk-aware traversal profiles contain disclosed
+local traversal modifications and are kept separate from that native-box baseline.
+
+The added native f64 dimensional SPRK bridge calls the existing SPRK tree and
+performs exact integer filtering and coordinate materialization in query timing.
+It is a separate adapter, not a new upstream SPRK release or the original
+floating-contract IDs-only diagnostic. Existing SPRK authorship and licenses apply
+to the tree; the bridge and [frozen harness sources](../reproducibility/2026-11-22/README.md)
+retain their individual provenance.

@@ -6,6 +6,12 @@ upstream notices and imported ESA workload-generation tools.
 and reference source. `esa2026/` contains the Rust/Python integration and its
 vendored dependencies. ANN, STANN and Chan source/notices have separate folders.
 
+`indexicon/` contains the unchanged headers pinned at
+`69da8a364f3437a1110d89b9ebeb99473dc25807`, their upstream MIT license and
+source record. The [Indexicon guide](../../docs/INDEXICON.md) describes our
+native-box-to-ball adapter. Historical disk-aware traversal modifications are
+kept separately in the [frozen source collection](../../reproducibility/2026-11-22/README.md).
+
 Not every dependency is checked into this directory. Bazel downloads the
 libraries pinned in `src/MODULE.bazel`; Cargo resolves the pinned lockfiles;
 Python packages are specified by `esa2026/python-requirements.txt`.
