@@ -257,6 +257,10 @@ The [project license](LICENSE) applies to project code. Third-party code retains
 
 Publication labels and modification categories are specified in the [adapter catalog](docs/ADAPTERS.md). Use **STANN (adapted)** and **Chan (adapted)** consistently across dimensions; machine IDs remain unchanged.
 
+The latest [measurement snapshot, captured on 22 November 2026](measurements/2026-11-22/README.md),
+preserves completed campaigns and the recorded progress of ongoing queues.
+Historical, incorrect and timed-out outcomes remain labelled in the raw records.
+
 To check complete returned point multisets across a frozen queue, use the separate [output-verification script](verify_outputs.py). It compares every original query with exact integer geometry, including duplicates and the cheating diagnostic; see [usage and coverage](docs/OUTPUT-VERIFICATION.md).
 
 An experimental standalone d-dimensional Plus header is available at

@@ -3,6 +3,7 @@
 Dated snapshots preserve observations available at publication time. They include successful jobs, failures, partial runs, logs and provenance. Input datasets, binaries, private drafts and correspondence are excluded.
 
 - [3 November 2026](2026-11-03/README.md): current campaign results and historical measurements, including subsequent reporting adaptations and PAM repairs.
+- [22 November 2026](2026-11-22/README.md): refreshed current and historical results from Archie, including Indexicon, adapter reruns and the latest queue progress.
 
 Each snapshot contains an `index.json` and gzip-compressed JSONL bundles. Each line is an object with `path`, `original_sha256`, `original_bytes` and `content`. The path is relative to its named source. Content is the recorded UTF-8 text, with local home paths, host/user names and private IP addresses redacted. Original hashes describe the bytes before redaction; bundle hashes describe the published compressed files.
 

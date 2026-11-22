@@ -15,7 +15,8 @@ from pathlib import Path
 import re
 
 ALLOWED={'.json','.jsonl','.log','.txt','.csv'}
-SKIP={'workspace','data','bin','toolchains','.git','__pycache__','target','target-native','node_modules'}
+SKIP={'workspace','data','inputs','prepared','fixtures','bin','build','deps','toolchains',
+      '.git','.cargo','.cache','.venv','__pycache__','target','target-native','node_modules'}
 SECRET=re.compile(r'(?:gh[pousr]_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{25,}|sk-[A-Za-z0-9_-]{32,}|-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----)')
 
 def clean(text):
@@ -28,7 +29,7 @@ def clean(text):
 
 def files(base):
     for directory,dirs,names in os.walk(base,followlinks=False):
-        dirs[:]=sorted(d for d in dirs if d not in SKIP and not d.startswith('bazel-') and not (Path(directory)/d).is_symlink())
+        dirs[:]=sorted(d for d in dirs if d not in SKIP and not d.startswith(('bazel-','build-')) and not (Path(directory)/d).is_symlink())
         for name in sorted(names):
             p=Path(directory)/name
             if p.suffix in ALLOWED and not p.is_symlink():yield p
