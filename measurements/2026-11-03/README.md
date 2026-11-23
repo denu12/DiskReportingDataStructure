@@ -1,6 +1,12 @@
 # Measurements captured on 3 November 2026
 
-The snapshot contains **743,947 recorded files** in **308 bundles**, totaling **93.5 MB** compressed. The phase summaries contain 333,418 rows, including historical and overlapping records; this is not a count of independent successful measurements.
+After the requested removal of superseded results on 23 November, the snapshot
+contains **701,770 recorded files** in **308 bundles**, totaling **85.0 MB**
+compressed. Phase summaries contain 242,243 rows, including overlapping records;
+this is not a count of independent successful measurements. The original capture
+contained 743,947 files and 333,418 phase rows. Rewritten bundles have updated
+hashes and explicit pruning metadata. The
+[23 November selection](../selections/2026-11-23/README.md) contains newer replacements.
 
 The primary Archie export was captured between **08:45:49 and 08:46:52 UTC**. Local historical export, tuning and validation records were added separately; the index records their capture time. See [index.json](index.json) for counts, SHA-256 hashes and phase summaries, and the [format description](../README.md) for reading bundles.
 

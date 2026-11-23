@@ -14,6 +14,8 @@ where available; unchanged baselines retain their original versions.
 
 The full artifact is on the benchmark host at
 `results/_selection-disk-2d-20261123/selection.json`. Its SHA-256 is in the index.
+The [published redacted selection](../measurements/selections/2026-11-23/README.md)
+has its own published hashes.
 Validate/export it with `python3 tools/versioned_results.py selection.json`
 and `python3 tools/versioned_results.py selection.json --csv` respectively.
 Contracts, correctness admissions and version labels remain in the export.

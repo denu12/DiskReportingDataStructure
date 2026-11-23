@@ -1,8 +1,10 @@
 """Delete superseded disk observations only after a usable newer result exists."""
 import argparse
 from collections import Counter
+import csv
 import gzip
 import hashlib
+import io
 import json
 from pathlib import Path
 import re
@@ -45,12 +47,22 @@ def replacements(selection, queues):
 
 def obsolete(row,campaign,run,selected):
     newer=selected.get((row.get('campaign',campaign),row.get('algorithm'),row.get('case')))
+    if not newer:newer=selected.get(('*',row.get('algorithm'),row.get('case')))
     return newer and 0<rank(run)<rank(newer) and row.get('geometry','disk')=='disk'
 
 
 def filter_content(content,campaign,run,selected,path):
     """Return changed content and job-directory prefixes to remove."""
     deleted=[]
+    if path.endswith('.csv'):
+        reader=csv.DictReader(io.StringIO(content))
+        if not reader.fieldnames or not {'algorithm','case'}.issubset(reader.fieldnames):return content,deleted
+        rows=list(reader);deleted=[r for r in rows if obsolete(r,campaign,run,selected)]
+        if deleted:
+            output=io.StringIO();writer=csv.DictWriter(output,fieldnames=reader.fieldnames);writer.writeheader()
+            writer.writerows(r for r in rows if not obsolete(r,campaign,run,selected))
+            return output.getvalue(),deleted
+        return content,deleted
     if path.endswith('.jsonl'):
         lines=[]
         for line in content.splitlines():
@@ -62,6 +74,9 @@ def filter_content(content,campaign,run,selected,path):
     if not path.endswith('.json'):return content,deleted
     try:data=json.loads(content)
     except ValueError:return content,deleted
+    if isinstance(data,list) and all(isinstance(r,dict) for r in data):
+        deleted=[r for r in data if obsolete(r,campaign,run,selected)]
+        if deleted:return json.dumps([r for r in data if not obsolete(r,campaign,run,selected)],indent=2)+'\n',deleted
     if isinstance(data,dict) and isinstance(data.get('results'),list):
         deleted=[r for r in data['results'] if obsolete(r,campaign,run,selected)]
         if deleted:
@@ -107,6 +122,14 @@ def live(base,selected,apply):
 
 def snapshot(base,selected,apply):
     index=json.loads((base/'index.json').read_text());stats=Counter();phases=[]
+    # Archived flat exports may omit their campaign directory. Match only
+    # unambiguous algorithm/case identities, and only in older captured sources.
+    fallback={};campaigns={}
+    for (campaign,algorithm,case),run in selected.items():
+        key='*',algorithm,case
+        campaigns.setdefault(key,set()).add(campaign)
+        if key not in fallback or rank(run)>rank(fallback[key]):fallback[key]=run
+    selected={**selected,**{k:v for k,v in fallback.items() if len(campaigns[k])==1}}
     for bundle in index['bundles']:
         path=base/bundle['path']
         with gzip.open(path,'rt') as f:records=[json.loads(line) for line in f]
@@ -117,7 +140,9 @@ def snapshot(base,selected,apply):
             campaign,run=parts[:2]
             if campaign.startswith('_queue-'):
                 run=campaign;campaign=parts[1]
-            if not rank(run):continue
+            if not rank(run):
+                if bundle['path'].split('/')[0] not in ('historical','earlier-export','archived-validation'):continue
+                run='archived-export-20261001'
             new,deleted=filter_content(record['content'],campaign,run,selected,record['path'])
             if deleted:
                 stats['measurement_rows_deleted']+=len(deleted);changed=True

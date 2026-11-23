@@ -4,18 +4,18 @@
   "bundles": [
     {
       "path": "current/2D_ESA_geographical/additional-small-20261022.jsonl.gz",
-      "sha256": "e3dff927bea50409983d1416db6e1a475c4261be417e280ada1d8a1aab1885f4",
+      "sha256": "95a872db5ddc233a2d446f3981d2fab76d320458978382b1af54935778cf686a",
       "files": 3427,
       "source_bytes": 3455355,
-      "compressed_bytes": 356707,
+      "compressed_bytes": 305914,
       "unreadable": []
     },
     {
       "path": "current/2D_ESA_geographical/all-nondynamic-20261009-small.jsonl.gz",
-      "sha256": "c3d9af0ec539d3b933a312599d7661fe60a55bc518529ad5ac2c93cac545552e",
+      "sha256": "5f036bfab0f5c564fd0a5304aaa266e96153782991a58c518a28c1e6e89df244",
       "files": 9076,
       "source_bytes": 4251061,
-      "compressed_bytes": 446491,
+      "compressed_bytes": 354971,
       "unreadable": []
     },
     {
@@ -132,10 +132,10 @@
     },
     {
       "path": "current/2D_ESA_geographical/reporting-adapted-small-20261023.jsonl.gz",
-      "sha256": "a626e26c795ef37375c4a742e84348de49819023547a3d0780dbd2002a71809a",
+      "sha256": "d303754e150dddcca08c77eff2be140a1396c4c63314d63afceafeb4c9b8298e",
       "files": 1375,
       "source_bytes": 1382948,
-      "compressed_bytes": 145737,
+      "compressed_bytes": 136028,
       "unreadable": []
     },
     {
@@ -156,18 +156,18 @@
     },
     {
       "path": "current/2D_ESA_graph_embeddings/additional-small-20261022.jsonl.gz",
-      "sha256": "61719b7eff24a7b3c7a60b92102f220dbfb670a80c323c54a5ded1e7f4f2f58f",
+      "sha256": "9932122b9f0a0e4d604b03d8a6291da675c53ae22126e1ce3490d2beefdbf07d",
       "files": 1867,
       "source_bytes": 1899403,
-      "compressed_bytes": 199597,
+      "compressed_bytes": 171688,
       "unreadable": []
     },
     {
       "path": "current/2D_ESA_graph_embeddings/all-nondynamic-20261009-small.jsonl.gz",
-      "sha256": "d02561f5b8843db18af53f89b140a0d1cbb2537aaa95de9f1cb9672378a7c159",
+      "sha256": "fd19d11bd6f9be5b3014df7f00eb5614a6548d8f84f48de11de8c8075f1ac40f",
       "files": 4834,
       "source_bytes": 2293866,
-      "compressed_bytes": 239382,
+      "compressed_bytes": 190601,
       "unreadable": []
     },
     {
@@ -284,10 +284,10 @@
     },
     {
       "path": "current/2D_ESA_graph_embeddings/reporting-adapted-small-20261023.jsonl.gz",
-      "sha256": "ba4ac08bc12413e62ee6f1136746c2ff583243469859b04e194bfb886f8573ea",
+      "sha256": "8db70cac6e5be353bc1ae7ddad9237c5c90a1f7288c5710531865b32f2e9e153",
       "files": 751,
       "source_bytes": 763113,
-      "compressed_bytes": 82911,
+      "compressed_bytes": 77790,
       "unreadable": []
     },
     {
@@ -308,18 +308,18 @@
     },
     {
       "path": "current/2D_ESA_uniform_points/additional-small-20261022.jsonl.gz",
-      "sha256": "6200b1fa9e9f7ad4f06be211f26ecba757976faba96f4ff9854e1d77acbaa909",
+      "sha256": "645bcf9dd25eb4d56780ef182e6f6fdb605d1ac8d33fcd6ceaf59e9501e65f8e",
       "files": 906,
       "source_bytes": 919903,
-      "compressed_bytes": 97458,
+      "compressed_bytes": 84174,
       "unreadable": []
     },
     {
       "path": "current/2D_ESA_uniform_points/all-nondynamic-20261009-small.jsonl.gz",
-      "sha256": "09640ac11b406061285f6b92f4a213d4c2f204caf31076a9a1817e3520b00136",
+      "sha256": "5426f37eb17d3222d52521afc0893286e26fbb5324783ac4e2508bcb52ccd6ef",
       "files": 2262,
       "source_bytes": 1069127,
-      "compressed_bytes": 112027,
+      "compressed_bytes": 89830,
       "unreadable": []
     },
     {
@@ -436,10 +436,10 @@
     },
     {
       "path": "current/2D_ESA_uniform_points/reporting-adapted-small-20261023.jsonl.gz",
-      "sha256": "ad67feeaca35fc9fe1911550b4983f9e3b5c7e2fa2a1fa5fa4c476e6bcd7f434",
+      "sha256": "6da295818f2a710dceb14f155dad6af0cefb84df0acea0d0d9f4651590a4abda",
       "files": 367,
       "source_bytes": 372757,
-      "compressed_bytes": 43056,
+      "compressed_bytes": 40547,
       "unreadable": []
     },
     {
@@ -468,10 +468,10 @@
     },
     {
       "path": "current/ESA_clustering/ddim-all-three-sprk-20261012-v2.jsonl.gz",
-      "sha256": "57f90522faade77935a69e070768e5168a0fb96da072ac71efc6ae030f5b79b2",
+      "sha256": "d7842141059327f807023c09b9d88a14459e6e23599aaf7f3a50a875416f621f",
       "files": 1390,
       "source_bytes": 1402122,
-      "compressed_bytes": 172011,
+      "compressed_bytes": 171103,
       "unreadable": []
     },
     {
@@ -572,10 +572,10 @@
     },
     {
       "path": "current/ESA_high_dimensional/ddim-all-three-sprk-20261012-v2.jsonl.gz",
-      "sha256": "fa4b9b379f24b244ffdbfa07f34834c26277824bef26e913deaa328dc7bfa7a7",
+      "sha256": "d8930361989ef04e563b7535e16f37e74f3b72b86f797a9b43a9d74da032a054",
       "files": 144,
       "source_bytes": 563196,
-      "compressed_bytes": 33927,
+      "compressed_bytes": 33603,
       "unreadable": []
     },
     {
@@ -604,10 +604,10 @@
     },
     {
       "path": "current/ESA_uniform_points/ddim-all-three-sprk-20261012-v2.jsonl.gz",
-      "sha256": "4b0f70d17302119e563d74d68ca3905c56ab3c788be3b6d0e2f590a0787fd6ab",
+      "sha256": "6713362fb14649a8afadd57fbb05429eee8e5f1f2f77208e7e1011e2fac877c0",
       "files": 730,
       "source_bytes": 730677,
-      "compressed_bytes": 92869,
+      "compressed_bytes": 92274,
       "unreadable": []
     },
     {
@@ -644,18 +644,18 @@
     },
     {
       "path": "current/GeographyLarge/additional-static-20261022.jsonl.gz",
-      "sha256": "c7bc75f5ef9117a572cb6cee3d48374a8c0e7c092c38f515339d513840fa12dc",
+      "sha256": "7895dbaf527a8c6d2e044f3e538dd0cbd08e5d037d0f38e3d3048149c59a147d",
       "files": 12067,
       "source_bytes": 12331319,
-      "compressed_bytes": 1247063,
+      "compressed_bytes": 1065915,
       "unreadable": []
     },
     {
       "path": "current/GeographyLarge/all-nondynamic-20261009-static.jsonl.gz",
-      "sha256": "edb47719a31f7f8cad57b8e47f8b858a080ffc8b9d36781faa3fc6615f9b45a1",
+      "sha256": "66bd171812e525b88c86544d11da4be0deb58dad7220e3acb25597e8671951a8",
       "files": 32404,
       "source_bytes": 15492524,
-      "compressed_bytes": 1619034,
+      "compressed_bytes": 1269741,
       "unreadable": []
     },
     {
@@ -764,10 +764,10 @@
     },
     {
       "path": "current/GeographyLarge/original-all-2d-20261015.jsonl.gz",
-      "sha256": "f41195f22e9d5ebc2cd2d667bde8e4cf10053d01da15caaed76ffa5ab3f85ff5",
+      "sha256": "0b911c3f7981050d806f1cb85821cff959ed36e31656a09e2299491fe5b09c68",
       "files": 33092,
       "source_bytes": 30422206,
-      "compressed_bytes": 3932486,
+      "compressed_bytes": 3512247,
       "unreadable": []
     },
     {
@@ -788,10 +788,10 @@
     },
     {
       "path": "current/GeographyLarge/reporting-adapted-static-20261023.jsonl.gz",
-      "sha256": "1f5c23e3e924c53950812f1b5d8f9d5de58b4e50b4c7e877d381a29f9c75a054",
+      "sha256": "600d0e2ee1de0bcbb751a9991f5950109f915932f16fbe185f34ddaf3e9ead0d",
       "files": 4831,
       "source_bytes": 4920119,
-      "compressed_bytes": 495015,
+      "compressed_bytes": 458571,
       "unreadable": []
     },
     {
@@ -844,18 +844,18 @@
     },
     {
       "path": "current/Static3D/additional-static-3d-20261022.jsonl.gz",
-      "sha256": "2a2ddd2c15070414ab3314d7c233f9bf576f080b4714d41f6ae684a46cbd3d34",
+      "sha256": "82c2b0d83f0da7834a9e437918fdc99edcab5a89453acec8bf6e0971f999fc07",
       "files": 8047,
       "source_bytes": 10053996,
-      "compressed_bytes": 963626,
+      "compressed_bytes": 790539,
       "unreadable": []
     },
     {
       "path": "current/Static3D/all-nondynamic-20261009-static-3d.jsonl.gz",
-      "sha256": "889ad175ee6426f62e33b4eaf31712a9d1c8010fe8ec6a036b506460386dbd03",
+      "sha256": "43f9b786d9ef2a0c189f55d58c7aaebc7204866b570d9a3fbfa53294afdab8ef",
       "files": 9823,
       "source_bytes": 3965446,
-      "compressed_bytes": 637292,
+      "compressed_bytes": 552717,
       "unreadable": []
     },
     {
@@ -892,10 +892,10 @@
     },
     {
       "path": "current/Static3D/original-all-3d-20261015.jsonl.gz",
-      "sha256": "f2e0dd6ade14221465efe8c162c63f1ca9d3723b398e0c8058ea0235a161bae8",
+      "sha256": "25207330ebdcf04399e0353feb51b7938697f640492166319038a8a93a56bf9d",
       "files": 17695,
       "source_bytes": 20612220,
-      "compressed_bytes": 2376015,
+      "compressed_bytes": 2099577,
       "unreadable": []
     },
     {
@@ -908,18 +908,18 @@
     },
     {
       "path": "current/Static3D/reporting-adapted-static-3d-20261023.jsonl.gz",
-      "sha256": "ccabf348822d1298b68a27a87793d02a93ac21e8e7a51125eac2a661d82aaca2",
+      "sha256": "e85eb54fb28dbc33a6122cd485ae2f9401372471188effdcbafce2a9949085c0",
       "files": 2419,
       "source_bytes": 3060998,
-      "compressed_bytes": 283611,
+      "compressed_bytes": 267234,
       "unreadable": []
     },
     {
       "path": "current/Static3D/retained-all-static-3d-20261014.jsonl.gz",
-      "sha256": "105cd4e6079b5f5862879cbafdb1f7f11720893a34f8fddf55ed8e24a0ac1656",
+      "sha256": "e7d22753e69f2a6b389a9379a37e47ab573952008c5025f8adc5eba85ba4157e",
       "files": 90,
       "source_bytes": 90957,
-      "compressed_bytes": 13744,
+      "compressed_bytes": 13289,
       "unreadable": []
     },
     {
@@ -1188,10 +1188,10 @@
     },
     {
       "path": "current/input_scaling/additional-static-20261022.jsonl.gz",
-      "sha256": "f76a838e93f118d881a691f7b913871746b606621924398f8fdc36c081879894",
-      "files": 4799,
-      "source_bytes": 5287457,
-      "compressed_bytes": 533726,
+      "sha256": "cc5c8d4236f4887a11c13195cdde5cdf69bcea12bd0954055077969aad2f0306",
+      "files": 23,
+      "source_bytes": 3162553,
+      "compressed_bytes": 20853,
       "unreadable": []
     },
     {
@@ -1276,10 +1276,10 @@
     },
     {
       "path": "current/input_scaling/original-all-2d-20261015.jsonl.gz",
-      "sha256": "100dd40c2816062a1a5292eaebe8bdab3dfca2d23535874c39f2d97e3de9651a",
-      "files": 13956,
-      "source_bytes": 13645495,
-      "compressed_bytes": 1735018,
+      "sha256": "79b99056883fcb70728fcefd0c1822691a753c4f4b3d2d6995c9f2c118895826",
+      "files": 6793,
+      "source_bytes": 10965907,
+      "compressed_bytes": 775350,
       "unreadable": []
     },
     {
@@ -1300,18 +1300,18 @@
     },
     {
       "path": "current/input_scaling/reporting-adapted-static-20261023.jsonl.gz",
-      "sha256": "7363fb2b963ac71b6a7dffe4b1436415040049627c85c128e0ceded86b8b4000",
-      "files": 1941,
-      "source_bytes": 2145466,
-      "compressed_bytes": 222555,
+      "sha256": "f88f905c72666655f19c4ab8dfa4ffcc6e78daa54fc338f1cc53660cb83facf5",
+      "files": 977,
+      "source_bytes": 1713004,
+      "compressed_bytes": 117405,
       "unreadable": []
     },
     {
       "path": "current/input_scaling/scaling-four-20261011-static.jsonl.gz",
-      "sha256": "7b072fa98e158f18b65a165699a49df32886fc5f3ec268a44bf7c8723d3ebef4",
+      "sha256": "e347a28dd4c15d823775ee15c05eba10a72056903db3ac5fc6e5ea0e2439e067",
       "files": 18985,
       "source_bytes": 8844936,
-      "compressed_bytes": 946798,
+      "compressed_bytes": 753741,
       "unreadable": []
     },
     {
@@ -1332,10 +1332,10 @@
     },
     {
       "path": "current/input_scaling_3d/additional-static-3d-20261022.jsonl.gz",
-      "sha256": "2b9ffdf5bb29dd7173e8c69f648b3fe94dcfedc202604c2c06e860059d86c993",
+      "sha256": "3afcf8c5f5ad8884287694b58b50092fbfb8b14846a896a2f47c199910a91755",
       "files": 4847,
       "source_bytes": 6015555,
-      "compressed_bytes": 572293,
+      "compressed_bytes": 471865,
       "unreadable": []
     },
     {
@@ -1348,10 +1348,10 @@
     },
     {
       "path": "current/input_scaling_3d/original-all-3d-20261015.jsonl.gz",
-      "sha256": "bd46d0e3439015bba6310271b652e0de6fb42ac7a8ccad78a913644241dad7ad",
+      "sha256": "679a47932398952defa97736ecc39f0f50b4f6b0f267a7fa2f8711e58b800e59",
       "files": 10655,
       "source_bytes": 12532810,
-      "compressed_bytes": 1444234,
+      "compressed_bytes": 1281647,
       "unreadable": []
     },
     {
@@ -1372,34 +1372,34 @@
     },
     {
       "path": "current/input_scaling_3d/reporting-adapted-static-3d-20261023.jsonl.gz",
-      "sha256": "98142494c4399f23d0676084b8a39c2cea8c445c5c3f2761d85ab59ace46d0cc",
+      "sha256": "d355ad255b4d8e565a71755b026521f857f7c94436ebf025d0daa4cdbfdebe78",
       "files": 1459,
       "source_bytes": 1855433,
-      "compressed_bytes": 173269,
+      "compressed_bytes": 162684,
       "unreadable": []
     },
     {
       "path": "current/input_scaling_3d/retained-all-static-3d-20261014.jsonl.gz",
-      "sha256": "c33b34f9c7c6cb3ac07676705731616ede466f86ae810e12d612d932ccf211e0",
+      "sha256": "32ca8e4279c20e85e01c72f2d15e4f39c80d2bb673ad33b073e7f374aed45236",
       "files": 248,
       "source_bytes": 955482,
-      "compressed_bytes": 56440,
+      "compressed_bytes": 46583,
       "unreadable": []
     },
     {
       "path": "current/input_scaling_3d/scaling-four-20261011-static-3d.jsonl.gz",
-      "sha256": "528035819714aca5006492335a911e8129ec4df756dceae4f5d9cd3cc619f208",
+      "sha256": "6054898feb956a0bb499c0186ad4b458768a59fa7a3e5d68153176b47faf1fdf",
       "files": 15097,
       "source_bytes": 5840574,
-      "compressed_bytes": 993799,
+      "compressed_bytes": 861025,
       "unreadable": []
     },
     {
       "path": "current/radius_scaling/additional-static-20261022.jsonl.gz",
-      "sha256": "0a2e641b02beebc077a134b565f55d1c84191129f375aa6507f8c5e119fc4aaa",
-      "files": 2758,
-      "source_bytes": 3073404,
-      "compressed_bytes": 310468,
+      "sha256": "948524a5e2632406c990689d269cffa2de7afb9c7be48e9f65329a5a19f27a6f",
+      "files": 23,
+      "source_bytes": 1867453,
+      "compressed_bytes": 16505,
       "unreadable": []
     },
     {
@@ -1484,10 +1484,10 @@
     },
     {
       "path": "current/radius_scaling/original-all-2d-20261015.jsonl.gz",
-      "sha256": "dc44f106fa5b3fad9e834d46e3596956ba465e04d0b7d65aa5d0969c4fa765f7",
-      "files": 8160,
-      "source_bytes": 8053897,
-      "compressed_bytes": 1011301,
+      "sha256": "318b2c0df4f74d671d867db2e454f47cc4a673d4baf7c207c61df6cd9fe4f593",
+      "files": 3934,
+      "source_bytes": 6477183,
+      "compressed_bytes": 448938,
       "unreadable": []
     },
     {
@@ -1508,18 +1508,18 @@
     },
     {
       "path": "current/radius_scaling/reporting-adapted-static-20261023.jsonl.gz",
-      "sha256": "09f03a673fe9d5950ef305d3e19b43c3c607296cfa958570a04981c7552c7eac",
-      "files": 1136,
-      "source_bytes": 1272203,
-      "compressed_bytes": 133092,
+      "sha256": "deb0415d5e0fba89083f60d74344eca52d713e574be66f61d8871df7093eb7ac",
+      "files": 572,
+      "source_bytes": 1019444,
+      "compressed_bytes": 71723,
       "unreadable": []
     },
     {
       "path": "current/radius_scaling/scaling-four-20261011-static.jsonl.gz",
-      "sha256": "9e810493ebc4bed7792fa86bea879bfdf41babeb47645ca5609b99867cb930ff",
+      "sha256": "e6be323997b47a06c7e4f4e74717c08e08d0d7616e0d70e413c3dae786ff6c6c",
       "files": 11194,
       "source_bytes": 5298018,
-      "compressed_bytes": 554270,
+      "compressed_bytes": 438723,
       "unreadable": []
     },
     {
@@ -1644,18 +1644,18 @@
     },
     {
       "path": "current/static/additional-static-20261022.jsonl.gz",
-      "sha256": "a9036cc3f214bd39a7c89756f37c32a0a9a3a1f82b78455a29b27a0bd57b522b",
-      "files": 8041,
-      "source_bytes": 8793025,
-      "compressed_bytes": 889857,
+      "sha256": "6fd8e06ed08b29f8568116dfeb099bcf02db700d7756cb11395f1db5124a45c5",
+      "files": 23,
+      "source_bytes": 5214296,
+      "compressed_bytes": 28391,
       "unreadable": []
     },
     {
       "path": "current/static/all-nondynamic-20261009-static.jsonl.gz",
-      "sha256": "33868f2dbdababd6687f2c04f2884eaedaa02ffc16033700a477dc54c9948a87",
+      "sha256": "2ccd64580d9a7aa40af4f3b292ea8cc4586e3b19a14e04a0376a2e482bafda9b",
       "files": 12884,
       "source_bytes": 6212639,
-      "compressed_bytes": 644422,
+      "compressed_bytes": 505690,
       "unreadable": []
     },
     {
@@ -1772,10 +1772,10 @@
     },
     {
       "path": "current/static/original-all-2d-20261015.jsonl.gz",
-      "sha256": "c2d1a7d677525b2567f8782d9f11615584502c57ee5b52067f3cac8608975f2a",
-      "files": 23340,
-      "source_bytes": 22578782,
-      "compressed_bytes": 2877317,
+      "sha256": "230a340f808e60fb03c43cada6fba06da6fa80457df828c12b5981c4f538737e",
+      "files": 11217,
+      "source_bytes": 18045993,
+      "compressed_bytes": 1258317,
       "unreadable": []
     },
     {
@@ -1796,10 +1796,10 @@
     },
     {
       "path": "current/static/reporting-adapted-static-20261023.jsonl.gz",
-      "sha256": "6dd8b8526854e2dccfaf8573e0b712a377b9290f71d38798e25882da629dfa39",
-      "files": 3229,
-      "source_bytes": 3538716,
-      "compressed_bytes": 362008,
+      "sha256": "ce20100e578aa4c1f2970461e09912d8f62ea7d0c61a62e2849e622e2d83ddef",
+      "files": 1621,
+      "source_bytes": 2817925,
+      "compressed_bytes": 186416,
       "unreadable": []
     },
     {
@@ -1820,122 +1820,122 @@
     },
     {
       "path": "historical/2D_ESA_geographical/2d-refresh-20261007.jsonl.gz",
-      "sha256": "31aecfd67234eff430dcf281a21d9a1ac90f8462f63f4a32ccc5a30bffa5bdee",
+      "sha256": "c47e66f228d00c8c4b89ddb5ef992236ffa768d346c7591e788e900ec40c7815",
       "files": 9043,
       "source_bytes": 5351598,
-      "compressed_bytes": 863767,
+      "compressed_bytes": 800772,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_geographical/esa2d-morton-simd-20261007.jsonl.gz",
-      "sha256": "3da07d9264a60c273e3e454c307a460bfabef816e9ce0ec1d7cfb0bc62c03de9",
+      "sha256": "1668bb3d34563725445903d8c09ffe79b14902156f5fb3c7900301bd404a4295",
       "files": 9382,
       "source_bytes": 5163546,
-      "compressed_bytes": 885808,
+      "compressed_bytes": 823900,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_geographical/publication-2d-only-20261007.jsonl.gz",
-      "sha256": "6f6c5a84dda7132571d3464ec0600ad2c1ff7bf413865123dbe07f40ed49451d",
+      "sha256": "aa45e337189a99df53ef1c3144f4ff56677836a8d176bc48673fe2ff6841260a",
       "files": 9043,
       "source_bytes": 4974396,
-      "compressed_bytes": 856129,
+      "compressed_bytes": 793964,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_geographical/publication-all-static-20261007.jsonl.gz",
-      "sha256": "d3e2665d7158c9a98b8f656441f2238882be41b4e219fdfe466a7e6fa0fb3dbd",
+      "sha256": "70f467746a8b366e84cdb5acd3f0a50749f17fa076cad3a1ab2847fc2a5a4005",
       "files": 88,
       "source_bytes": 49941,
-      "compressed_bytes": 9792,
+      "compressed_bytes": 9327,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_geographical/single-core-2d-20261008.jsonl.gz",
-      "sha256": "c36532b6e9b2040fb986596548a01e96aea3197ce97e579f3bba3c58c2505f6d",
+      "sha256": "f848002039c92b7036c8814a1f7810550a690f3a0c91aeadfa4574dd8a816327",
       "files": 88,
       "source_bytes": 54519,
-      "compressed_bytes": 10165,
+      "compressed_bytes": 9722,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_graph_embeddings/2d-refresh-20261007.jsonl.gz",
-      "sha256": "682eae0aecdb9ba106b49e7b9aee0977325e673924d36735661195e9ec6d571c",
+      "sha256": "9086bbe74b7e4310d63d7454994f6765e5ea6694341ecbbad544a1786b180622",
       "files": 4781,
       "source_bytes": 2866637,
-      "compressed_bytes": 463578,
+      "compressed_bytes": 428816,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_graph_embeddings/esa2d-morton-simd-20261007.jsonl.gz",
-      "sha256": "41f64e8d2ae9d86748999e1da1274178d5ddf8f91f54737c3cefcf50a2431d26",
+      "sha256": "172cc3ce95b1426ef78ad93055f98b51ce472542d64d3f9f1a5143c9c2ab5df3",
       "files": 4964,
       "source_bytes": 2770888,
-      "compressed_bytes": 476368,
+      "compressed_bytes": 441836,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_graph_embeddings/publication-2d-only-20261007.jsonl.gz",
-      "sha256": "514e7e316a788ca419c3786035f00fbe8cdd74e6728c8f7d267b9ffb55cb3194",
+      "sha256": "8f72891004501c4428842757e769193edb9c160c0515ce9b7f134ec4c229eefd",
       "files": 4781,
       "source_bytes": 2667734,
-      "compressed_bytes": 460087,
+      "compressed_bytes": 425689,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_graph_embeddings/publication-all-static-20261007.jsonl.gz",
-      "sha256": "2b944c989841712f0e49466be13a8ad82aed46b651b928f0290829e7795c8c51",
+      "sha256": "4640d9b7af90444fb5870adccc7c0b43e4835a221a0cb36b039c166ce7ebd302",
       "files": 88,
       "source_bytes": 50437,
-      "compressed_bytes": 9860,
+      "compressed_bytes": 9360,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_graph_embeddings/single-core-2d-20261008.jsonl.gz",
-      "sha256": "db6a57a12481ecf9e34dc554b8632f79dce3cf54134b19425daf8757aa193e91",
+      "sha256": "bfd6d0c4ae485001105e6e61fe28c0878051d64b39919b06734f03c82cf595b8",
       "files": 88,
       "source_bytes": 55159,
-      "compressed_bytes": 10256,
+      "compressed_bytes": 9763,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_uniform_points/2d-refresh-20261007.jsonl.gz",
-      "sha256": "87833dd2e33ee20c261e7274434c3be23ac47c686dcf29dcdcf23f9ac161196d",
+      "sha256": "9fcffc704fc4d2f76c4d152e8567c30abdf05f76ba5c589c3dda14e0a5b627e2",
       "files": 2269,
       "source_bytes": 1356928,
-      "compressed_bytes": 218581,
+      "compressed_bytes": 202533,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_uniform_points/esa2d-morton-simd-20261007.jsonl.gz",
-      "sha256": "911213821d593a5f417dc0e2b4396922b4345cbb1a449c5f3513d88630f2c3d4",
+      "sha256": "7a4ccf21e38f8c3b4122a0b87df90a8e93978c90b0f32f01028913c21aff1570",
       "files": 2356,
       "source_bytes": 1311331,
-      "compressed_bytes": 224161,
+      "compressed_bytes": 208185,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_uniform_points/publication-2d-only-20261007.jsonl.gz",
-      "sha256": "e118562136b6cb717f98192f4797cbea57641e557fd370112fdd0fc9333af43c",
+      "sha256": "9dc2e9c50efaef5be2a4f452de83eada847091b1cb9e77a9d86824a652d7b1a6",
       "files": 2269,
       "source_bytes": 1262416,
-      "compressed_bytes": 216099,
+      "compressed_bytes": 200209,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_uniform_points/publication-all-static-20261007.jsonl.gz",
-      "sha256": "c24abfcd9b14b599fb6fb264414df63bdd39cd8ec008618e9f1dfd3271f4ced6",
+      "sha256": "a0d80a870c815a32adc3084f9b7e408c491b447852ef7046d16d1ee37a3c2023",
       "files": 88,
       "source_bytes": 50317,
-      "compressed_bytes": 9924,
+      "compressed_bytes": 9457,
       "unreadable": []
     },
     {
       "path": "historical/2D_ESA_uniform_points/single-core-2d-20261008.jsonl.gz",
-      "sha256": "7a837da22efd6463f17815e4ea599b903a9e425100cf586a8c969d603704ef7e",
+      "sha256": "9582805c5a43a8a5ca3ebf24c1e605445d3e904723722ac314242527e27ead0d",
       "files": 88,
       "source_bytes": 54790,
-      "compressed_bytes": 10255,
+      "compressed_bytes": 9817,
       "unreadable": []
     },
     {
@@ -1948,18 +1948,18 @@
     },
     {
       "path": "historical/ESA_clustering/publication-all-static-20261007.jsonl.gz",
-      "sha256": "0c4e2370ed1cebb2a784bdd8ee752ad7d18585d4f7406b5341b651fb60c8e89c",
+      "sha256": "3fff86e2b18b5940977ca33aa52f071e23f0f372ff89406acde4c636f94ab797",
       "files": 175,
       "source_bytes": 106581,
-      "compressed_bytes": 20401,
+      "compressed_bytes": 20396,
       "unreadable": []
     },
     {
       "path": "historical/ESA_clustering/publication-remaining-20261007.jsonl.gz",
-      "sha256": "7f85679aaece698f1666ccc876327e47a208403dfcb6ee611678f55e25a8a8e8",
+      "sha256": "655035d6777124c9faeee967e14236aa5fc63917982e07d44fa02efe8fd30b09",
       "files": 3028,
       "source_bytes": 1902382,
-      "compressed_bytes": 325287,
+      "compressed_bytes": 324971,
       "unreadable": []
     },
     {
@@ -1972,18 +1972,18 @@
     },
     {
       "path": "historical/ESA_geographical/publication-all-static-20261007.jsonl.gz",
-      "sha256": "a4419d7c9db4ffad0082cb589d3d7599a24c85c067e28fe10a2062d416a29605",
+      "sha256": "b8c000e363ed380bbfd247797cf19592520e0fdd6b2824bdc72c79258153b3fc",
       "files": 41,
       "source_bytes": 27215,
-      "compressed_bytes": 5986,
+      "compressed_bytes": 5832,
       "unreadable": []
     },
     {
       "path": "historical/ESA_geographical/publication-remaining-20261007.jsonl.gz",
-      "sha256": "9ca233763d171e45ea614ba1f55c41f29c2f876679206ae007e4c17a1f2ddd7d",
+      "sha256": "78bb8e0583012f2ae18c138f4cd28c5674cf7fbfc862a147e8dd77d3ac5cb5c3",
       "files": 4132,
       "source_bytes": 2536574,
-      "compressed_bytes": 447061,
+      "compressed_bytes": 402479,
       "unreadable": []
     },
     {
@@ -1996,10 +1996,10 @@
     },
     {
       "path": "historical/ESA_graph_embeddings/publication-remaining-20261007.jsonl.gz",
-      "sha256": "9d23897ddd9fc0b749933bc1eae2b1bdeba24cb2d80a6c6027892619d82acd8c",
+      "sha256": "888146dd5e5ac2c2caf6e5353e8d155d162ff4092f05dd67d42a450388b0c439",
       "files": 28571,
       "source_bytes": 19960852,
-      "compressed_bytes": 3432583,
+      "compressed_bytes": 3404266,
       "unreadable": []
     },
     {
@@ -2012,10 +2012,10 @@
     },
     {
       "path": "historical/ESA_high_dimensional/publication-remaining-20261007.jsonl.gz",
-      "sha256": "691f6b6834a6c767e366699757f359b9e5cc8921e6a198019a1aaf7589962583",
+      "sha256": "1b1680584ea716ba0fd7feac065ffbdaee8a5c737cbd7c416c73c5a92e95383e",
       "files": 64,
       "source_bytes": 481235,
-      "compressed_bytes": 23181,
+      "compressed_bytes": 22845,
       "unreadable": []
     },
     {
@@ -2028,18 +2028,18 @@
     },
     {
       "path": "historical/ESA_uniform_points/publication-remaining-20261007.jsonl.gz",
-      "sha256": "77050e335ab356400d2288c40bd70cc34b43402ffe0dee6fbc46b294386c537f",
+      "sha256": "22e344507d42be74e29f45bc97797f47ad47eb4929a36064e46fc7deb09c80e1",
       "files": 2572,
       "source_bytes": 1640801,
-      "compressed_bytes": 285278,
+      "compressed_bytes": 275119,
       "unreadable": []
     },
     {
       "path": "historical/GeographyLarge/2d-refresh-20261007.jsonl.gz",
-      "sha256": "2cf67e1e434a6985d0d4f0df2c45a8433c71347394961bdedce6c6ba769d7983",
+      "sha256": "1e9249e77bba4f200f40a8aae4cfa602bd10345fa5808e6fa6c8166a1c954b65",
       "files": 29689,
       "source_bytes": 18068455,
-      "compressed_bytes": 2861752,
+      "compressed_bytes": 2661870,
       "unreadable": []
     },
     {
@@ -2471,55 +2471,11 @@
     {
       "source": "current",
       "path": "2D_ESA_geographical/additional-small-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 10,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 2
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "2D_ESA_geographical/additional-small-20261022/final/state.json",
-      "status": "complete",
-      "rows": 840,
-      "outcomes": {
-        "success": 756,
-        "unsupported_input": 84
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "2D_ESA_geographical/additional-small-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 280,
-      "outcomes": {
-        "success": 252,
-        "unsupported_input": 28
+        "success": 9,
+        "unsupported_input": 1
       },
       "algorithms": [
         "lsi_linear",
@@ -2537,11 +2493,10 @@
     {
       "source": "current",
       "path": "2D_ESA_geographical/all-nondynamic-20261009-small/final/state.json",
-      "status": "complete",
-      "rows": 2296,
+      "status": "superseded_partial",
+      "rows": 1008,
       "outcomes": {
-        "excluded_by_existing_correctness": 28,
-        "success": 2268
+        "success": 1008
       },
       "algorithms": [
         "Morton",
@@ -2550,38 +2505,21 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "2D_ESA_geographical/all-nondynamic-20261009-small/screen/state.json",
-      "status": "complete",
-      "rows": 784,
+      "status": "superseded_partial",
+      "rows": 336,
       "outcomes": {
-        "excluded_by_existing_correctness": 28,
-        "success": 756
+        "success": 336
       },
       "algorithms": [
         "Morton",
@@ -2590,28 +2528,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -3206,10 +3128,10 @@
     {
       "source": "current",
       "path": "2D_ESA_geographical/reporting-adapted-small-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 8,
+      "status": "superseded_partial",
+      "rows": 6,
       "outcomes": {
-        "success": 8
+        "success": 6
       },
       "algorithms": [
         "chan_sss",
@@ -3221,30 +3143,26 @@
     {
       "source": "current",
       "path": "2D_ESA_geographical/reporting-adapted-small-20261023/final/state.json",
-      "status": "complete",
-      "rows": 336,
+      "status": "superseded_partial",
+      "rows": 168,
       "outcomes": {
-        "success": 336
+        "success": 168
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "2D_ESA_geographical/reporting-adapted-small-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 112,
+      "status": "superseded_partial",
+      "rows": 56,
       "outcomes": {
-        "success": 112
+        "success": 56
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
@@ -3326,55 +3244,11 @@
     {
       "source": "current",
       "path": "2D_ESA_graph_embeddings/additional-small-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 10,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 2
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "2D_ESA_graph_embeddings/additional-small-20261022/final/state.json",
-      "status": "complete",
-      "rows": 450,
-      "outcomes": {
-        "success": 405,
-        "unsupported_input": 45
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "2D_ESA_graph_embeddings/additional-small-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 150,
-      "outcomes": {
-        "success": 135,
-        "unsupported_input": 15
+        "success": 9,
+        "unsupported_input": 1
       },
       "algorithms": [
         "lsi_linear",
@@ -3392,12 +3266,11 @@
     {
       "source": "current",
       "path": "2D_ESA_graph_embeddings/all-nondynamic-20261009-small/final/state.json",
-      "status": "complete",
-      "rows": 1224,
+      "status": "superseded_partial",
+      "rows": 534,
       "outcomes": {
-        "excluded_by_existing_correctness": 15,
         "not_selected_after_screen": 3,
-        "success": 1206
+        "success": 531
       },
       "algorithms": [
         "Morton",
@@ -3406,38 +3279,21 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "2D_ESA_graph_embeddings/all-nondynamic-20261009-small/screen/state.json",
-      "status": "complete",
-      "rows": 420,
+      "status": "superseded_partial",
+      "rows": 180,
       "outcomes": {
-        "excluded_by_existing_correctness": 15,
-        "success": 402,
+        "success": 177,
         "error": 3
       },
       "algorithms": [
@@ -3447,28 +3303,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -4062,10 +3902,10 @@
     {
       "source": "current",
       "path": "2D_ESA_graph_embeddings/reporting-adapted-small-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 8,
+      "status": "superseded_partial",
+      "rows": 6,
       "outcomes": {
-        "success": 8
+        "success": 6
       },
       "algorithms": [
         "chan_sss",
@@ -4077,30 +3917,26 @@
     {
       "source": "current",
       "path": "2D_ESA_graph_embeddings/reporting-adapted-small-20261023/final/state.json",
-      "status": "complete",
-      "rows": 180,
+      "status": "superseded_partial",
+      "rows": 90,
       "outcomes": {
-        "success": 180
+        "success": 90
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "2D_ESA_graph_embeddings/reporting-adapted-small-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 60,
+      "status": "superseded_partial",
+      "rows": 30,
       "outcomes": {
-        "success": 60
+        "success": 30
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
@@ -4182,56 +4018,11 @@
     {
       "source": "current",
       "path": "2D_ESA_uniform_points/additional-small-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 10,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 2
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "2D_ESA_uniform_points/additional-small-20261022/final/state.json",
-      "status": "complete",
-      "rows": 210,
-      "outcomes": {
-        "success": 189,
-        "unsupported_input": 21
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "2D_ESA_uniform_points/additional-small-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 70,
-      "outcomes": {
-        "success": 62,
-        "timeout": 1,
-        "unsupported_input": 7
+        "success": 9,
+        "unsupported_input": 1
       },
       "algorithms": [
         "lsi_linear",
@@ -4249,12 +4040,10 @@
     {
       "source": "current",
       "path": "2D_ESA_uniform_points/all-nondynamic-20261009-small/final/state.json",
-      "status": "complete",
-      "rows": 572,
+      "status": "superseded_partial",
+      "rows": 252,
       "outcomes": {
-        "excluded_by_existing_correctness": 7,
-        "not_selected_after_screen": 1,
-        "success": 564
+        "success": 252
       },
       "algorithms": [
         "Morton",
@@ -4263,39 +4052,21 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "2D_ESA_uniform_points/all-nondynamic-20261009-small/screen/state.json",
-      "status": "complete",
-      "rows": 196,
+      "status": "superseded_partial",
+      "rows": 84,
       "outcomes": {
-        "excluded_by_existing_correctness": 7,
-        "success": 188,
-        "error": 1
+        "success": 84
       },
       "algorithms": [
         "Morton",
@@ -4304,28 +4075,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -4921,10 +4676,10 @@
     {
       "source": "current",
       "path": "2D_ESA_uniform_points/reporting-adapted-small-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 8,
+      "status": "superseded_partial",
+      "rows": 6,
       "outcomes": {
-        "success": 8
+        "success": 6
       },
       "algorithms": [
         "chan_sss",
@@ -4936,30 +4691,26 @@
     {
       "source": "current",
       "path": "2D_ESA_uniform_points/reporting-adapted-small-20261023/final/state.json",
-      "status": "complete",
-      "rows": 84,
+      "status": "superseded_partial",
+      "rows": 42,
       "outcomes": {
-        "success": 84
+        "success": 42
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "2D_ESA_uniform_points/reporting-adapted-small-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 28,
+      "status": "superseded_partial",
+      "rows": 14,
       "outcomes": {
-        "success": 28
+        "success": 14
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
@@ -5098,10 +4849,10 @@
     {
       "source": "current",
       "path": "ESA_clustering/ddim-all-three-sprk-20261012-v2/correctness/state.json",
-      "status": "complete",
-      "rows": 240,
+      "status": "superseded_partial",
+      "rows": 236,
       "outcomes": {
-        "success": 198,
+        "success": 194,
         "unsupported_dimension": 42
       },
       "algorithms": [
@@ -5134,10 +4885,10 @@
     {
       "source": "current",
       "path": "ESA_clustering/ddim-all-three-sprk-20261012-v2/screen/state.json",
-      "status": "complete",
-      "rows": 600,
+      "status": "superseded_partial",
+      "rows": 580,
       "outcomes": {
-        "success": 490,
+        "success": 470,
         "unsupported_dimension": 105,
         "timeout": 5
       },
@@ -5732,11 +5483,11 @@
     {
       "source": "current",
       "path": "ESA_high_dimensional/ddim-all-three-sprk-20261012-v2/correctness/state.json",
-      "status": "complete",
-      "rows": 240,
+      "status": "superseded_partial",
+      "rows": 235,
       "outcomes": {
-        "success": 48,
-        "timeout": 22,
+        "success": 45,
+        "timeout": 20,
         "unsupported_dimension": 170
       },
       "algorithms": [
@@ -5769,11 +5520,11 @@
     {
       "source": "current",
       "path": "ESA_high_dimensional/ddim-all-three-sprk-20261012-v2/screen/state.json",
-      "status": "complete",
-      "rows": 720,
+      "status": "superseded_partial",
+      "rows": 690,
       "outcomes": {
         "unsupported_dimension": 510,
-        "excluded_by_correctness": 210
+        "excluded_by_correctness": 180
       },
       "algorithms": [
         "Morton3D",
@@ -5787,7 +5538,6 @@
         "esa_grid",
         "esa_kiddo",
         "esa_nabo",
-        "esa_nanoflann",
         "esa_neighbourhood",
         "esa_orthtree",
         "esa_sklearn_ball",
@@ -5948,10 +5698,10 @@
     {
       "source": "current",
       "path": "ESA_uniform_points/ddim-all-three-sprk-20261012-v2/correctness/state.json",
-      "status": "complete",
-      "rows": 96,
+      "status": "superseded_partial",
+      "rows": 94,
       "outcomes": {
-        "success": 86,
+        "success": 84,
         "unsupported_dimension": 6,
         "memory": 3,
         "incorrect": 1
@@ -5986,11 +5736,11 @@
     {
       "source": "current",
       "path": "ESA_uniform_points/ddim-all-three-sprk-20261012-v2/screen/state.json",
-      "status": "complete",
-      "rows": 336,
+      "status": "superseded_partial",
+      "rows": 322,
       "outcomes": {
-        "success": 221,
-        "timeout": 52,
+        "success": 208,
+        "timeout": 51,
         "excluded_by_correctness": 42,
         "unsupported_dimension": 21
       },
@@ -6012,7 +5762,6 @@
         "esa_sklearn_ball",
         "esa_sklearn_kd",
         "esa_snn",
-        "esa_snn_rust",
         "esa_sprk",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_FAST_EXACT",
@@ -6167,55 +5916,11 @@
     {
       "source": "current",
       "path": "GeographyLarge/additional-static-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 10,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 2
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "GeographyLarge/additional-static-20261022/final/state.json",
-      "status": "complete",
-      "rows": 3000,
-      "outcomes": {
-        "success": 2700,
-        "unsupported_input": 300
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "GeographyLarge/additional-static-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 1000,
-      "outcomes": {
-        "unsupported_input": 100,
-        "success": 900
+        "success": 9,
+        "unsupported_input": 1
       },
       "algorithms": [
         "lsi_linear",
@@ -6233,11 +5938,10 @@
     {
       "source": "current",
       "path": "GeographyLarge/all-nondynamic-20261009-static/final/state.json",
-      "status": "complete",
-      "rows": 8200,
+      "status": "superseded_partial",
+      "rows": 3600,
       "outcomes": {
-        "excluded_by_existing_correctness": 100,
-        "success": 8100
+        "success": 3600
       },
       "algorithms": [
         "Morton",
@@ -6246,38 +5950,21 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "GeographyLarge/all-nondynamic-20261009-static/screen/state.json",
-      "status": "complete",
-      "rows": 2800,
+      "status": "superseded_partial",
+      "rows": 1200,
       "outcomes": {
-        "excluded_by_existing_correctness": 100,
-        "success": 2700
+        "success": 1200
       },
       "algorithms": [
         "Morton",
@@ -6286,28 +5973,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -6865,12 +6536,11 @@
     {
       "source": "current",
       "path": "GeographyLarge/original-all-2d-20261015/correctness/state.json",
-      "status": "complete",
-      "rows": 60,
+      "status": "superseded_partial",
+      "rows": 44,
       "outcomes": {
-        "success": 37,
-        "incorrect": 16,
-        "timeout": 1,
+        "success": 26,
+        "incorrect": 12,
         "crash": 1,
         "unsupported_dimension": 4,
         "error": 1
@@ -6911,14 +6581,12 @@
     {
       "source": "current",
       "path": "GeographyLarge/original-all-2d-20261015/final/state.json",
-      "status": "complete",
-      "rows": 9000,
+      "status": "superseded_partial",
+      "rows": 4200,
       "outcomes": {
-        "answer_count_mismatch": 5700,
-        "success": 2190,
-        "unsupported_dimension": 600,
-        "error": 210,
-        "timeout": 300
+        "answer_count_mismatch": 3300,
+        "success": 300,
+        "unsupported_dimension": 600
       },
       "algorithms": [
         "Morton",
@@ -6928,42 +6596,24 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "GeographyLarge/original-all-2d-20261015/screen/state.json",
-      "status": "complete",
-      "rows": 3000,
+      "status": "superseded_partial",
+      "rows": 1400,
       "outcomes": {
-        "answer_count_mismatch": 1900,
-        "success": 730,
-        "error": 70,
-        "unsupported_dimension": 200,
-        "timeout": 100
+        "answer_count_mismatch": 1100,
+        "success": 100,
+        "unsupported_dimension": 200
       },
       "algorithms": [
         "Morton",
@@ -6973,29 +6623,13 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -7061,10 +6695,10 @@
     {
       "source": "current",
       "path": "GeographyLarge/reporting-adapted-static-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 8,
+      "status": "superseded_partial",
+      "rows": 6,
       "outcomes": {
-        "success": 8
+        "success": 6
       },
       "algorithms": [
         "chan_sss",
@@ -7076,30 +6710,26 @@
     {
       "source": "current",
       "path": "GeographyLarge/reporting-adapted-static-20261023/final/state.json",
-      "status": "complete",
-      "rows": 1200,
+      "status": "superseded_partial",
+      "rows": 600,
       "outcomes": {
-        "success": 1200
+        "success": 600
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "GeographyLarge/reporting-adapted-static-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 400,
+      "status": "superseded_partial",
+      "rows": 200,
       "outcomes": {
-        "success": 400
+        "success": 200
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
@@ -7399,57 +7029,11 @@
     {
       "source": "current",
       "path": "Static3D/additional-static-3d-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 10,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 2
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "Static3D/additional-static-3d-20261022/final/state.json",
-      "status": "complete",
-      "rows": 3000,
-      "outcomes": {
-        "success": 2685,
-        "unsupported_input": 300,
-        "timeout": 15
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "Static3D/additional-static-3d-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 1000,
-      "outcomes": {
-        "unsupported_input": 100,
-        "timeout": 45,
-        "success": 855
+        "success": 9,
+        "unsupported_input": 1
       },
       "algorithms": [
         "lsi_linear",
@@ -7467,11 +7051,11 @@
     {
       "source": "current",
       "path": "Static3D/all-nondynamic-20261009-static-3d/final/state.json",
-      "status": "complete",
-      "rows": 2462,
+      "status": "superseded_partial",
+      "rows": 1182,
       "outcomes": {
-        "not_selected_after_screen": 29,
-        "success": 2433
+        "not_selected_after_screen": 9,
+        "success": 1173
       },
       "algorithms": [
         "Morton3D",
@@ -7479,32 +7063,21 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
         "esa_sprk_CHEATING_IDS_ONLY",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "current",
       "path": "Static3D/all-nondynamic-20261009-static-3d/screen/state.json",
-      "status": "complete",
-      "rows": 840,
+      "status": "superseded_partial",
+      "rows": 400,
       "outcomes": {
-        "success": 811,
-        "error": 29
+        "success": 391,
+        "error": 9
       },
       "algorithms": [
         "Morton3D",
@@ -7512,21 +7085,10 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
         "esa_sprk_CHEATING_IDS_ONLY",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
@@ -7714,13 +7276,13 @@
     {
       "source": "current",
       "path": "Static3D/original-all-3d-20261015/correctness/state.json",
-      "status": "complete",
-      "rows": 48,
+      "status": "superseded_partial",
+      "rows": 37,
       "outcomes": {
-        "incorrect": 12,
-        "success": 28,
-        "timeout": 4,
-        "unsupported_dimension": 4
+        "incorrect": 10,
+        "success": 22,
+        "unsupported_dimension": 4,
+        "timeout": 1
       },
       "algorithms": [
         "Morton3D",
@@ -7752,12 +7314,12 @@
     {
       "source": "current",
       "path": "Static3D/original-all-3d-20261015/final/state.json",
-      "status": "complete",
-      "rows": 7200,
+      "status": "superseded_partial",
+      "rows": 3900,
       "outcomes": {
-        "success": 4143,
-        "answer_count_mismatch": 2100,
+        "success": 2643,
         "unsupported_dimension": 600,
+        "answer_count_mismatch": 300,
         "timeout": 357
       },
       "algorithms": [
@@ -7769,33 +7331,22 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT_3D",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "current",
       "path": "Static3D/original-all-3d-20261015/screen/state.json",
-      "status": "complete",
-      "rows": 2400,
+      "status": "superseded_partial",
+      "rows": 1300,
       "outcomes": {
-        "answer_count_mismatch": 698,
-        "success": 1379,
-        "timeout": 123,
+        "success": 879,
+        "answer_count_mismatch": 100,
+        "timeout": 121,
         "unsupported_dimension": 200
       },
       "algorithms": [
@@ -7807,21 +7358,10 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT_3D",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
@@ -7865,10 +7405,10 @@
     {
       "source": "current",
       "path": "Static3D/reporting-adapted-static-3d-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 6,
+      "status": "superseded_partial",
+      "rows": 5,
       "outcomes": {
-        "success": 6
+        "success": 5
       },
       "algorithms": [
         "chan_sss",
@@ -7879,40 +7419,37 @@
     {
       "source": "current",
       "path": "Static3D/reporting-adapted-static-3d-20261023/final/state.json",
-      "status": "complete",
-      "rows": 900,
+      "status": "superseded_partial",
+      "rows": 600,
       "outcomes": {
-        "success": 900
+        "success": 600
       },
       "algorithms": [
         "chan_sss",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "Static3D/reporting-adapted-static-3d-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 300,
+      "status": "superseded_partial",
+      "rows": 200,
       "outcomes": {
-        "success": 298,
-        "timeout": 2
+        "success": 199,
+        "timeout": 1
       },
       "algorithms": [
         "chan_sss",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "Static3D/retained-all-static-3d-20261014/correctness/state.json",
-      "status": "complete",
-      "rows": 44,
+      "status": "superseded_partial",
+      "rows": 33,
       "outcomes": {
-        "success": 41,
-        "timeout": 3
+        "success": 33
       },
       "algorithms": [
         "Morton3D",
@@ -7942,63 +7479,16 @@
     {
       "source": "current",
       "path": "input_scaling/additional-static-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 19,
+      "status": "superseded_partial",
+      "rows": 9,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 1
+        "success": 9
       },
       "algorithms": [
         "lsi_linear",
         "lsi_quadratic",
         "lsi_rstar",
         "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "input_scaling/additional-static-20261022/final/state.json",
-      "status": "complete",
-      "rows": 1800,
-      "outcomes": {
-        "success": 1620,
-        "unsupported_input": 180
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "input_scaling/additional-static-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 600,
-      "outcomes": {
-        "success": 496,
-        "timeout": 44,
-        "unsupported_input": 60
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
         "phtree",
         "psi_kd",
         "psi_orth",
@@ -8399,15 +7889,14 @@
     {
       "source": "current",
       "path": "input_scaling/original-all-2d-20261015/correctness/state.json",
-      "status": "complete",
-      "rows": 51,
+      "status": "superseded_partial",
+      "rows": 35,
       "outcomes": {
-        "success": 33,
-        "incorrect": 11,
+        "success": 23,
+        "incorrect": 8,
         "crash": 1,
         "unsupported_input": 2,
-        "error": 1,
-        "timeout": 3
+        "error": 1
       },
       "algorithms": [
         "Morton",
@@ -8422,20 +7911,14 @@
         "chan_sss",
         "esa_grid",
         "esa_kiddo",
-        "esa_nabo",
         "esa_nanoflann",
         "esa_neighbourhood",
         "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
         "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
         "stann_fr",
         "thst_quad",
@@ -8445,15 +7928,12 @@
     {
       "source": "current",
       "path": "input_scaling/original-all-2d-20261015/final/state.json",
-      "status": "complete",
-      "rows": 5400,
+      "status": "superseded_partial",
+      "rows": 2520,
       "outcomes": {
-        "answer_count_mismatch": 3375,
+        "answer_count_mismatch": 1980,
         "unsupported_input": 360,
-        "error": 180,
-        "success": 1260,
-        "timeout": 165,
-        "memory": 60
+        "success": 180
       },
       "algorithms": [
         "Morton",
@@ -8463,43 +7943,24 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling/original-all-2d-20261015/screen/state.json",
-      "status": "complete",
-      "rows": 1800,
+      "status": "superseded_partial",
+      "rows": 840,
       "outcomes": {
-        "success": 420,
-        "answer_count_mismatch": 1118,
-        "error": 60,
-        "unsupported_input": 120,
-        "memory": 15,
-        "timeout": 67
+        "success": 60,
+        "answer_count_mismatch": 660,
+        "unsupported_input": 120
       },
       "algorithms": [
         "Morton",
@@ -8509,29 +7970,13 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -8614,10 +8059,10 @@
     {
       "source": "current",
       "path": "input_scaling/reporting-adapted-static-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 8,
+      "status": "superseded_partial",
+      "rows": 6,
       "outcomes": {
-        "success": 8
+        "success": 6
       },
       "algorithms": [
         "chan_sss",
@@ -8629,42 +8074,36 @@
     {
       "source": "current",
       "path": "input_scaling/reporting-adapted-static-20261023/final/state.json",
-      "status": "complete",
-      "rows": 720,
+      "status": "superseded_partial",
+      "rows": 360,
       "outcomes": {
-        "success": 720
+        "success": 360
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling/reporting-adapted-static-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 240,
+      "status": "superseded_partial",
+      "rows": 120,
       "outcomes": {
-        "success": 240
+        "success": 120
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling/scaling-four-20261011-static/final/state.json",
-      "status": "complete",
-      "rows": 4828,
+      "status": "superseded_partial",
+      "rows": 2160,
       "outcomes": {
-        "not_selected_after_screen": 46,
-        "excluded_by_existing_correctness": 60,
-        "success": 4722
+        "success": 2160
       },
       "algorithms": [
         "Morton",
@@ -8673,39 +8112,21 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling/scaling-four-20261011-static/screen/state.json",
-      "status": "complete",
-      "rows": 1680,
+      "status": "superseded_partial",
+      "rows": 720,
       "outcomes": {
-        "excluded_by_existing_correctness": 60,
-        "success": 1574,
-        "error": 46
+        "success": 720
       },
       "algorithms": [
         "Morton",
@@ -8714,28 +8135,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -8816,57 +8221,11 @@
     {
       "source": "current",
       "path": "input_scaling_3d/additional-static-3d-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 10,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 2
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "input_scaling_3d/additional-static-3d-20261022/final/state.json",
-      "status": "complete",
-      "rows": 1800,
-      "outcomes": {
-        "success": 1619,
-        "unsupported_input": 180,
-        "timeout": 1
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "input_scaling_3d/additional-static-3d-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 600,
-      "outcomes": {
-        "timeout": 115,
-        "unsupported_input": 60,
-        "success": 425
+        "success": 9,
+        "unsupported_input": 1
       },
       "algorithms": [
         "lsi_linear",
@@ -8929,11 +8288,11 @@
     {
       "source": "current",
       "path": "input_scaling_3d/original-all-3d-20261015/correctness/state.json",
-      "status": "complete",
-      "rows": 48,
+      "status": "superseded_partial",
+      "rows": 37,
       "outcomes": {
-        "incorrect": 12,
-        "success": 32,
+        "incorrect": 10,
+        "success": 23,
         "unsupported_dimension": 4
       },
       "algorithms": [
@@ -8966,13 +8325,13 @@
     {
       "source": "current",
       "path": "input_scaling_3d/original-all-3d-20261015/final/state.json",
-      "status": "complete",
-      "rows": 4320,
+      "status": "superseded_partial",
+      "rows": 2340,
       "outcomes": {
-        "success": 2535,
+        "success": 1635,
         "timeout": 165,
         "unsupported_dimension": 360,
-        "answer_count_mismatch": 1260
+        "answer_count_mismatch": 180
       },
       "algorithms": [
         "Morton3D",
@@ -8983,34 +8342,23 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT_3D",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling_3d/original-all-3d-20261015/screen/state.json",
-      "status": "complete",
-      "rows": 1440,
+      "status": "superseded_partial",
+      "rows": 780,
       "outcomes": {
-        "answer_count_mismatch": 420,
-        "success": 840,
         "timeout": 60,
-        "unsupported_dimension": 120
+        "success": 540,
+        "unsupported_dimension": 120,
+        "answer_count_mismatch": 60
       },
       "algorithms": [
         "Morton3D",
@@ -9021,21 +8369,10 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT_3D",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
@@ -9091,10 +8428,10 @@
     {
       "source": "current",
       "path": "input_scaling_3d/reporting-adapted-static-3d-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 6,
+      "status": "superseded_partial",
+      "rows": 5,
       "outcomes": {
-        "success": 6
+        "success": 5
       },
       "algorithms": [
         "chan_sss",
@@ -9105,38 +8442,36 @@
     {
       "source": "current",
       "path": "input_scaling_3d/reporting-adapted-static-3d-20261023/final/state.json",
-      "status": "complete",
-      "rows": 540,
+      "status": "superseded_partial",
+      "rows": 360,
       "outcomes": {
-        "success": 540
+        "success": 360
       },
       "algorithms": [
         "chan_sss",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling_3d/reporting-adapted-static-3d-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 180,
+      "status": "superseded_partial",
+      "rows": 120,
       "outcomes": {
-        "success": 180
+        "success": 120
       },
       "algorithms": [
         "chan_sss",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling_3d/retained-all-static-3d-20261014/correctness/state.json",
-      "status": "complete",
-      "rows": 44,
+      "status": "superseded_partial",
+      "rows": 33,
       "outcomes": {
-        "success": 44
+        "success": 33
       },
       "algorithms": [
         "Morton3D",
@@ -9166,11 +8501,11 @@
     {
       "source": "current",
       "path": "input_scaling_3d/retained-all-static-3d-20261014/screen/state.json",
-      "status": "stopped",
-      "rows": 1320,
+      "status": "superseded_partial",
+      "rows": 660,
       "outcomes": {
-        "success": 77,
-        "stopped": 1243
+        "success": 38,
+        "stopped": 622
       },
       "algorithms": [
         "Morton3D",
@@ -9179,32 +8514,20 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT_3D",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling_3d/scaling-four-20261011-static-3d/final/state.json",
-      "status": "complete",
-      "rows": 3774,
+      "status": "superseded_partial",
+      "rows": 1800,
       "outcomes": {
-        "not_selected_after_screen": 3,
-        "success": 3771
+        "success": 1800
       },
       "algorithms": [
         "Morton3D",
@@ -9212,32 +8535,20 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
         "esa_sprk_CHEATING_IDS_ONLY",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "current",
       "path": "input_scaling_3d/scaling-four-20261011-static-3d/screen/state.json",
-      "status": "complete",
-      "rows": 1260,
+      "status": "superseded_partial",
+      "rows": 600,
       "outcomes": {
-        "success": 1257,
-        "error": 3
+        "success": 600
       },
       "algorithms": [
         "Morton3D",
@@ -9245,85 +8556,26 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
         "esa_sprk_CHEATING_IDS_ONLY",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "current",
       "path": "radius_scaling/additional-static-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 19,
+      "status": "superseded_partial",
+      "rows": 9,
       "outcomes": {
-        "success": 18,
-        "unsupported_input": 1
+        "success": 9
       },
       "algorithms": [
         "lsi_linear",
         "lsi_quadratic",
         "lsi_rstar",
         "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "radius_scaling/additional-static-20261022/final/state.json",
-      "status": "complete",
-      "rows": 1050,
-      "outcomes": {
-        "success": 885,
-        "unsupported_input": 105,
-        "timeout": 60
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "radius_scaling/additional-static-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 350,
-      "outcomes": {
-        "success": 290,
-        "timeout": 25,
-        "unsupported_input": 35
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
         "phtree",
         "psi_kd",
         "psi_orth",
@@ -9724,12 +8976,11 @@
     {
       "source": "current",
       "path": "radius_scaling/original-all-2d-20261015/correctness/state.json",
-      "status": "complete",
-      "rows": 51,
+      "status": "superseded_partial",
+      "rows": 35,
       "outcomes": {
-        "success": 34,
-        "incorrect": 10,
-        "timeout": 4,
+        "success": 24,
+        "incorrect": 8,
         "unsupported_input": 2,
         "error": 1
       },
@@ -9746,37 +8997,30 @@
         "chan_sss",
         "esa_grid",
         "esa_kiddo",
-        "esa_nabo",
         "esa_nanoflann",
         "esa_neighbourhood",
         "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
         "esa_vptree",
         "naive",
-        "pam",
         "pargeo",
         "pkd",
         "stann_fr",
-        "thst_quad",
         "thst_rtree"
       ]
     },
     {
       "source": "current",
       "path": "radius_scaling/original-all-2d-20261015/final/state.json",
-      "status": "complete",
-      "rows": 3150,
+      "status": "superseded_partial",
+      "rows": 1470,
       "outcomes": {
-        "answer_count_mismatch": 1800,
+        "answer_count_mismatch": 990,
         "unsupported_input": 210,
-        "error": 99,
-        "success": 891,
-        "timeout": 150
+        "success": 225,
+        "timeout": 45
       },
       "algorithms": [
         "Morton",
@@ -9786,42 +9030,25 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "radius_scaling/original-all-2d-20261015/screen/state.json",
-      "status": "complete",
-      "rows": 1050,
+      "status": "superseded_partial",
+      "rows": 490,
       "outcomes": {
-        "timeout": 60,
-        "answer_count_mismatch": 595,
-        "success": 292,
+        "answer_count_mismatch": 330,
+        "success": 75,
         "unsupported_input": 70,
-        "error": 33
+        "timeout": 15
       },
       "algorithms": [
         "Morton",
@@ -9831,29 +9058,13 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -9919,10 +9130,10 @@
     {
       "source": "current",
       "path": "radius_scaling/reporting-adapted-static-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 8,
+      "status": "superseded_partial",
+      "rows": 6,
       "outcomes": {
-        "success": 8
+        "success": 6
       },
       "algorithms": [
         "chan_sss",
@@ -9934,43 +9145,38 @@
     {
       "source": "current",
       "path": "radius_scaling/reporting-adapted-static-20261023/final/state.json",
-      "status": "complete",
-      "rows": 420,
+      "status": "superseded_partial",
+      "rows": 210,
       "outcomes": {
-        "success": 420
+        "success": 210
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "radius_scaling/reporting-adapted-static-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 140,
+      "status": "superseded_partial",
+      "rows": 70,
       "outcomes": {
-        "success": 135,
+        "success": 65,
         "timeout": 5
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "radius_scaling/scaling-four-20261011-static/final/state.json",
-      "status": "complete",
-      "rows": 2840,
+      "status": "superseded_partial",
+      "rows": 1240,
       "outcomes": {
-        "excluded_by_existing_correctness": 35,
-        "not_selected_after_screen": 15,
-        "success": 2790
+        "not_selected_after_screen": 10,
+        "success": 1230
       },
       "algorithms": [
         "Morton",
@@ -9979,39 +9185,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "radius_scaling/scaling-four-20261011-static/screen/state.json",
-      "status": "complete",
-      "rows": 980,
+      "status": "superseded_partial",
+      "rows": 420,
       "outcomes": {
-        "excluded_by_existing_correctness": 35,
-        "success": 930,
-        "error": 15
+        "success": 410,
+        "error": 10
       },
       "algorithms": [
         "Morton",
@@ -10020,28 +9209,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -10803,63 +9976,16 @@
     {
       "source": "current",
       "path": "static/additional-static-20261022/correctness/state.json",
-      "status": "complete",
-      "rows": 28,
+      "status": "superseded_partial",
+      "rows": 9,
       "outcomes": {
-        "success": 27,
-        "unsupported_input": 1
+        "success": 9
       },
       "algorithms": [
         "lsi_linear",
         "lsi_quadratic",
         "lsi_rstar",
         "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "static/additional-static-20261022/final/state.json",
-      "status": "complete",
-      "rows": 3000,
-      "outcomes": {
-        "success": 2700,
-        "unsupported_input": 300
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z"
-      ]
-    },
-    {
-      "source": "current",
-      "path": "static/additional-static-20261022/screen/state.json",
-      "status": "complete",
-      "rows": 1000,
-      "outcomes": {
-        "success": 879,
-        "unsupported_input": 100,
-        "timeout": 21
-      },
-      "algorithms": [
-        "lsi_linear",
-        "lsi_quadratic",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
         "phtree",
         "psi_kd",
         "psi_orth",
@@ -10870,12 +9996,11 @@
     {
       "source": "current",
       "path": "static/all-nondynamic-20261009-static/final/state.json",
-      "status": "complete",
-      "rows": 3264,
+      "status": "superseded_partial",
+      "rows": 1424,
       "outcomes": {
-        "excluded_by_existing_correctness": 40,
         "not_selected_after_screen": 8,
-        "success": 3216
+        "success": 1416
       },
       "algorithms": [
         "Morton",
@@ -10884,38 +10009,21 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "static/all-nondynamic-20261009-static/screen/state.json",
-      "status": "complete",
-      "rows": 1120,
+      "status": "superseded_partial",
+      "rows": 480,
       "outcomes": {
-        "excluded_by_existing_correctness": 40,
-        "success": 1072,
+        "success": 472,
         "error": 8
       },
       "algorithms": [
@@ -10925,28 +10033,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -11522,12 +10614,11 @@
     {
       "source": "current",
       "path": "static/original-all-2d-20261015/correctness/state.json",
-      "status": "complete",
-      "rows": 60,
+      "status": "superseded_partial",
+      "rows": 40,
       "outcomes": {
-        "success": 42,
-        "incorrect": 12,
-        "timeout": 4,
+        "success": 34,
+        "incorrect": 4,
         "unsupported_input": 2
       },
       "algorithms": [
@@ -11541,39 +10632,26 @@
         "cgal_kd",
         "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
         "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
         "stann_fr",
-        "thst_quad",
         "thst_rtree"
       ]
     },
     {
       "source": "current",
       "path": "static/original-all-2d-20261015/final/state.json",
-      "status": "complete",
-      "rows": 9000,
+      "status": "superseded_partial",
+      "rows": 4200,
       "outcomes": {
-        "answer_count_mismatch": 5688,
-        "success": 2133,
-        "error": 234,
-        "timeout": 345,
-        "unsupported_input": 600
+        "answer_count_mismatch": 3288,
+        "success": 267,
+        "unsupported_input": 600,
+        "timeout": 45
       },
       "algorithms": [
         "Morton",
@@ -11583,42 +10661,25 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "static/original-all-2d-20261015/screen/state.json",
-      "status": "complete",
-      "rows": 3000,
+      "status": "superseded_partial",
+      "rows": 1400,
       "outcomes": {
-        "answer_count_mismatch": 1892,
-        "success": 706,
-        "error": 78,
-        "timeout": 124,
-        "unsupported_input": 200
+        "answer_count_mismatch": 1093,
+        "success": 84,
+        "unsupported_input": 200,
+        "timeout": 23
       },
       "algorithms": [
         "Morton",
@@ -11628,29 +10689,13 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_RUST_EXACT",
         "esa_sprk_RUST_EXACT_NOSIMD",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -11716,10 +10761,10 @@
     {
       "source": "current",
       "path": "static/reporting-adapted-static-20261023/correctness/state.json",
-      "status": "complete",
-      "rows": 12,
+      "status": "superseded_partial",
+      "rows": 8,
       "outcomes": {
-        "success": 12
+        "success": 8
       },
       "algorithms": [
         "chan_sss",
@@ -11731,30 +10776,26 @@
     {
       "source": "current",
       "path": "static/reporting-adapted-static-20261023/final/state.json",
-      "status": "complete",
-      "rows": 1200,
+      "status": "superseded_partial",
+      "rows": 600,
       "outcomes": {
-        "success": 1200
+        "success": 600
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
     {
       "source": "current",
       "path": "static/reporting-adapted-static-20261023/screen/state.json",
-      "status": "complete",
-      "rows": 400,
+      "status": "superseded_partial",
+      "rows": 200,
       "outcomes": {
-        "success": 400
+        "success": 200
       },
       "algorithms": [
         "chan_sss",
-        "pam",
-        "pgm_multidimensional",
         "stann_fr"
       ]
     },
@@ -11836,11 +10877,11 @@
     {
       "source": "historical",
       "path": "2D_ESA_geographical/2d-refresh-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -11850,39 +10891,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/2d-refresh-20261007/final/state.json",
-      "status": "complete",
-      "rows": 2436,
+      "status": "superseded_partial",
+      "rows": 1092,
       "outcomes": {
-        "success": 2232,
-        "not_selected_after_screen": 36,
-        "excluded_by_correctness": 168
+        "success": 1008,
+        "excluded_by_correctness": 84
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -11892,40 +10916,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/2d-refresh-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 812,
+      "status": "superseded_partial",
+      "rows": 364,
       "outcomes": {
-        "success": 744,
-        "crash": 4,
-        "timeout": 8,
-        "excluded_by_correctness": 56
+        "success": 336,
+        "excluded_by_correctness": 28
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -11935,167 +10941,100 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/esa2d-morton-simd-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 30,
+      "status": "superseded_partial",
+      "rows": 14,
       "outcomes": {
-        "success": 28,
-        "incorrect": 2
+        "success": 13,
+        "incorrect": 1
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/esa2d-morton-simd-20261007/final/state.json",
-      "status": "complete",
-      "rows": 2520,
+      "status": "superseded_partial",
+      "rows": 1176,
       "outcomes": {
-        "success": 2316,
-        "not_selected_after_screen": 36,
-        "excluded_by_correctness": 168
+        "success": 1092,
+        "excluded_by_correctness": 84
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/esa2d-morton-simd-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 840,
+      "status": "superseded_partial",
+      "rows": 392,
       "outcomes": {
-        "success": 772,
-        "crash": 4,
-        "timeout": 8,
-        "excluded_by_correctness": 56
+        "success": 364,
+        "excluded_by_correctness": 28
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/publication-2d-only-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12105,39 +11044,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/publication-2d-only-20261007/final/state.json",
-      "status": "complete",
-      "rows": 2436,
+      "status": "superseded_partial",
+      "rows": 1092,
       "outcomes": {
-        "success": 2232,
-        "not_selected_after_screen": 36,
-        "excluded_by_correctness": 168
+        "success": 1008,
+        "excluded_by_correctness": 84
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12147,40 +11069,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/publication-2d-only-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 812,
+      "status": "superseded_partial",
+      "rows": 364,
       "outcomes": {
-        "success": 744,
-        "crash": 4,
-        "timeout": 8,
-        "excluded_by_correctness": 56
+        "success": 336,
+        "excluded_by_correctness": 28
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12190,38 +11094,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/publication-all-static-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12231,38 +11119,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_geographical/single-core-2d-20261008/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12272,38 +11144,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/2d-refresh-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12313,39 +11169,23 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/2d-refresh-20261007/final/state.json",
-      "status": "complete",
-      "rows": 1305,
+      "status": "superseded_partial",
+      "rows": 585,
       "outcomes": {
-        "success": 1164,
-        "not_selected_after_screen": 51,
-        "excluded_by_correctness": 90
+        "success": 531,
+        "not_selected_after_screen": 9,
+        "excluded_by_correctness": 45
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12355,40 +11195,23 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/2d-refresh-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 435,
+      "status": "superseded_partial",
+      "rows": 195,
       "outcomes": {
-        "success": 388,
-        "crash": 4,
-        "timeout": 13,
-        "excluded_by_correctness": 30
+        "success": 177,
+        "timeout": 3,
+        "excluded_by_correctness": 15
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12398,167 +11221,102 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/esa2d-morton-simd-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 30,
+      "status": "superseded_partial",
+      "rows": 14,
       "outcomes": {
-        "success": 28,
-        "incorrect": 2
+        "success": 13,
+        "incorrect": 1
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/esa2d-morton-simd-20261007/final/state.json",
-      "status": "complete",
-      "rows": 1350,
+      "status": "superseded_partial",
+      "rows": 630,
       "outcomes": {
-        "success": 1209,
-        "not_selected_after_screen": 51,
-        "excluded_by_correctness": 90
+        "success": 576,
+        "not_selected_after_screen": 9,
+        "excluded_by_correctness": 45
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/esa2d-morton-simd-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 450,
+      "status": "superseded_partial",
+      "rows": 210,
       "outcomes": {
-        "success": 403,
-        "crash": 4,
-        "timeout": 13,
-        "excluded_by_correctness": 30
+        "success": 192,
+        "timeout": 3,
+        "excluded_by_correctness": 15
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/publication-2d-only-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12568,39 +11326,23 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/publication-2d-only-20261007/final/state.json",
-      "status": "complete",
-      "rows": 1305,
+      "status": "superseded_partial",
+      "rows": 585,
       "outcomes": {
-        "success": 1164,
-        "not_selected_after_screen": 51,
-        "excluded_by_correctness": 90
+        "success": 531,
+        "not_selected_after_screen": 9,
+        "excluded_by_correctness": 45
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12610,40 +11352,23 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/publication-2d-only-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 435,
+      "status": "superseded_partial",
+      "rows": 195,
       "outcomes": {
-        "success": 388,
-        "crash": 4,
-        "timeout": 13,
-        "excluded_by_correctness": 30
+        "success": 177,
+        "timeout": 3,
+        "excluded_by_correctness": 15
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12653,38 +11378,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/publication-all-static-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12694,38 +11403,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_graph_embeddings/single-core-2d-20261008/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12735,38 +11428,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/2d-refresh-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12776,39 +11453,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/2d-refresh-20261007/final/state.json",
-      "status": "complete",
-      "rows": 609,
+      "status": "superseded_partial",
+      "rows": 273,
       "outcomes": {
-        "success": 540,
-        "not_selected_after_screen": 27,
-        "excluded_by_correctness": 42
+        "success": 252,
+        "excluded_by_correctness": 21
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12818,40 +11478,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/2d-refresh-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 203,
+      "status": "superseded_partial",
+      "rows": 91,
       "outcomes": {
-        "success": 180,
-        "memory": 1,
-        "timeout": 8,
-        "excluded_by_correctness": 14
+        "success": 84,
+        "excluded_by_correctness": 7
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -12861,167 +11503,100 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/esa2d-morton-simd-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 30,
+      "status": "superseded_partial",
+      "rows": 14,
       "outcomes": {
-        "success": 28,
-        "incorrect": 2
+        "success": 13,
+        "incorrect": 1
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/esa2d-morton-simd-20261007/final/state.json",
-      "status": "complete",
-      "rows": 630,
+      "status": "superseded_partial",
+      "rows": 294,
       "outcomes": {
-        "success": 561,
-        "not_selected_after_screen": 27,
-        "excluded_by_correctness": 42
+        "success": 273,
+        "excluded_by_correctness": 21
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/esa2d-morton-simd-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 210,
+      "status": "superseded_partial",
+      "rows": 98,
       "outcomes": {
-        "success": 187,
-        "memory": 1,
-        "timeout": 8,
-        "excluded_by_correctness": 14
+        "success": 91,
+        "excluded_by_correctness": 7
       },
       "algorithms": [
         "ann_fr",
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
         "ehcds:best",
         "ehcds_simd:best",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "hcds:best",
         "hcds_simd:best",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/publication-2d-only-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -13031,39 +11606,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/publication-2d-only-20261007/final/state.json",
-      "status": "complete",
-      "rows": 609,
+      "status": "superseded_partial",
+      "rows": 273,
       "outcomes": {
-        "success": 540,
-        "not_selected_after_screen": 27,
-        "excluded_by_correctness": 42
+        "success": 252,
+        "excluded_by_correctness": 21
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -13073,40 +11631,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/publication-2d-only-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 203,
+      "status": "superseded_partial",
+      "rows": 91,
       "outcomes": {
-        "success": 180,
-        "memory": 1,
-        "timeout": 8,
-        "excluded_by_correctness": 14
+        "success": 84,
+        "excluded_by_correctness": 7
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -13116,38 +11656,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/publication-all-static-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -13157,38 +11681,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "2D_ESA_uniform_points/single-core-2d-20261008/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 27,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -13198,28 +11706,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -13264,12 +11756,12 @@
     {
       "source": "historical",
       "path": "ESA_clustering/publication-all-static-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 100,
+      "status": "superseded_partial",
+      "rows": 96,
       "outcomes": {
-        "success": 78,
+        "success": 77,
         "unsupported_dimension": 13,
-        "incorrect": 9
+        "incorrect": 6
       },
       "algorithms": [
         "ann_fr",
@@ -13297,12 +11789,12 @@
     {
       "source": "historical",
       "path": "ESA_clustering/publication-remaining-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 100,
+      "status": "superseded_partial",
+      "rows": 96,
       "outcomes": {
-        "success": 78,
+        "success": 77,
         "unsupported_dimension": 13,
-        "incorrect": 9
+        "incorrect": 6
       },
       "algorithms": [
         "ann_fr",
@@ -13330,12 +11822,12 @@
     {
       "source": "historical",
       "path": "ESA_clustering/publication-remaining-20261007/final/state.json",
-      "status": "complete",
-      "rows": 1500,
+      "status": "superseded_partial",
+      "rows": 1440,
       "outcomes": {
         "success": 1050,
         "unsupported_dimension": 195,
-        "excluded_by_correctness": 180,
+        "excluded_by_correctness": 120,
         "disabled_by_user": 75
       },
       "algorithms": [
@@ -13364,12 +11856,12 @@
     {
       "source": "historical",
       "path": "ESA_clustering/publication-remaining-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 500,
+      "status": "superseded_partial",
+      "rows": 480,
       "outcomes": {
         "success": 375,
         "unsupported_dimension": 65,
-        "excluded_by_correctness": 60
+        "excluded_by_correctness": 40
       },
       "algorithms": [
         "ann_fr",
@@ -13397,10 +11889,10 @@
     {
       "source": "historical",
       "path": "ESA_geographical/publication-all-static-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 9,
       "outcomes": {
-        "success": 19,
+        "success": 8,
         "incorrect": 1
       },
       "algorithms": [
@@ -13409,30 +11901,19 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "historical",
       "path": "ESA_geographical/publication-remaining-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 20,
+      "status": "superseded_partial",
+      "rows": 9,
       "outcomes": {
-        "success": 19,
+        "success": 8,
         "incorrect": 1
       },
       "algorithms": [
@@ -13441,30 +11922,19 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "historical",
       "path": "ESA_geographical/publication-remaining-20261007/final/state.json",
-      "status": "complete",
-      "rows": 1680,
+      "status": "superseded_partial",
+      "rows": 756,
       "outcomes": {
-        "success": 1512,
+        "success": 588,
         "excluded_by_correctness": 84,
         "disabled_by_user": 84
       },
@@ -13474,30 +11944,19 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
     {
       "source": "historical",
       "path": "ESA_geographical/publication-remaining-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 560,
+      "status": "superseded_partial",
+      "rows": 252,
       "outcomes": {
-        "success": 512,
+        "success": 204,
         "excluded_by_correctness": 28,
         "timeout": 20
       },
@@ -13507,20 +11966,9 @@
         "boost_quad",
         "boost_star",
         "brute_force",
-        "cgal_kd",
         "chan_sss_ddim_MANUALLY_ADAPTED",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_snn_rust",
         "esa_sprk",
-        "esa_vptree",
         "stann_fr_ddim_MANUALLY_ADAPTED"
       ]
     },
@@ -13565,10 +12013,10 @@
     {
       "source": "historical",
       "path": "ESA_graph_embeddings/publication-remaining-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 300,
+      "status": "superseded_partial",
+      "rows": 289,
       "outcomes": {
-        "success": 264,
+        "success": 253,
         "incorrect": 35,
         "memory": 1
       },
@@ -13598,12 +12046,12 @@
     {
       "source": "historical",
       "path": "ESA_graph_embeddings/publication-remaining-20261007/final/state.json",
-      "status": "complete",
-      "rows": 13500,
+      "status": "superseded_partial",
+      "rows": 13005,
       "outcomes": {
-        "success": 10242,
+        "success": 9837,
         "not_selected_after_screen": 558,
-        "excluded_by_correctness": 2025,
+        "excluded_by_correctness": 1935,
         "disabled_by_user": 675
       },
       "algorithms": [
@@ -13632,12 +12080,12 @@
     {
       "source": "historical",
       "path": "ESA_graph_embeddings/publication-remaining-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 4500,
+      "status": "superseded_partial",
+      "rows": 4335,
       "outcomes": {
-        "success": 3414,
+        "success": 3279,
         "timeout": 326,
-        "excluded_by_correctness": 675,
+        "excluded_by_correctness": 645,
         "cancelled_by_user": 1,
         "disabled_by_user": 84
       },
@@ -13703,12 +12151,12 @@
     {
       "source": "historical",
       "path": "ESA_high_dimensional/publication-remaining-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 100,
+      "status": "superseded_partial",
+      "rows": 95,
       "outcomes": {
         "unsupported_dimension": 65,
-        "success": 12,
-        "timeout": 14,
+        "success": 9,
+        "timeout": 12,
         "memory": 4,
         "disabled_by_user": 5
       },
@@ -13723,7 +12171,6 @@
         "esa_grid",
         "esa_kiddo",
         "esa_nabo",
-        "esa_nanoflann",
         "esa_neighbourhood",
         "esa_orthtree",
         "esa_sklearn_ball",
@@ -13738,11 +12185,11 @@
     {
       "source": "historical",
       "path": "ESA_high_dimensional/publication-remaining-20261007/final/state.json",
-      "status": "complete",
-      "rows": 1800,
+      "status": "superseded_partial",
+      "rows": 1710,
       "outcomes": {
         "unsupported_dimension": 1170,
-        "excluded_by_correctness": 540,
+        "excluded_by_correctness": 450,
         "disabled_by_user": 90
       },
       "algorithms": [
@@ -13756,7 +12203,6 @@
         "esa_grid",
         "esa_kiddo",
         "esa_nabo",
-        "esa_nanoflann",
         "esa_neighbourhood",
         "esa_orthtree",
         "esa_sklearn_ball",
@@ -13771,11 +12217,11 @@
     {
       "source": "historical",
       "path": "ESA_high_dimensional/publication-remaining-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 600,
+      "status": "superseded_partial",
+      "rows": 570,
       "outcomes": {
         "unsupported_dimension": 390,
-        "excluded_by_correctness": 180,
+        "excluded_by_correctness": 150,
         "disabled_by_user": 30
       },
       "algorithms": [
@@ -13789,7 +12235,6 @@
         "esa_grid",
         "esa_kiddo",
         "esa_nabo",
-        "esa_nanoflann",
         "esa_neighbourhood",
         "esa_orthtree",
         "esa_sklearn_ball",
@@ -13843,12 +12288,12 @@
     {
       "source": "historical",
       "path": "ESA_uniform_points/publication-remaining-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 60,
+      "status": "superseded_partial",
+      "rows": 47,
       "outcomes": {
-        "success": 54,
+        "success": 43,
         "error": 1,
-        "incorrect": 4,
+        "incorrect": 2,
         "memory": 1
       },
       "algorithms": [
@@ -13877,12 +12322,12 @@
     {
       "source": "historical",
       "path": "ESA_uniform_points/publication-remaining-20261007/final/state.json",
-      "status": "complete",
-      "rows": 1260,
+      "status": "superseded_partial",
+      "rows": 987,
       "outcomes": {
-        "success": 867,
+        "success": 678,
         "not_selected_after_screen": 141,
-        "excluded_by_correctness": 189,
+        "excluded_by_correctness": 105,
         "disabled_by_user": 63
       },
       "algorithms": [
@@ -13911,12 +12356,12 @@
     {
       "source": "historical",
       "path": "ESA_uniform_points/publication-remaining-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 420,
+      "status": "superseded_partial",
+      "rows": 329,
       "outcomes": {
-        "success": 292,
+        "success": 229,
         "timeout": 65,
-        "excluded_by_correctness": 63
+        "excluded_by_correctness": 35
       },
       "algorithms": [
         "ann_fr",
@@ -13944,12 +12389,11 @@
     {
       "source": "historical",
       "path": "GeographyLarge/2d-refresh-20261007/correctness/state.json",
-      "status": "complete",
-      "rows": 29,
+      "status": "superseded_partial",
+      "rows": 13,
       "outcomes": {
-        "success": 25,
-        "timeout": 2,
-        "incorrect": 2
+        "success": 12,
+        "incorrect": 1
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -13959,39 +12403,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "GeographyLarge/2d-refresh-20261007/final/state.json",
-      "status": "complete",
-      "rows": 8700,
+      "status": "superseded_partial",
+      "rows": 3900,
       "outcomes": {
-        "success": 7380,
-        "excluded_by_correctness": 1200,
-        "not_selected_after_screen": 120
+        "success": 3600,
+        "excluded_by_correctness": 300
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -14001,39 +12428,22 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
       "source": "historical",
       "path": "GeographyLarge/2d-refresh-20261007/screen/state.json",
-      "status": "complete",
-      "rows": 2900,
+      "status": "superseded_partial",
+      "rows": 1300,
       "outcomes": {
-        "success": 2460,
-        "excluded_by_correctness": 400,
-        "memory": 40
+        "success": 1200,
+        "excluded_by_correctness": 100
       },
       "algorithms": [
         "MoronSIMDearly",
@@ -14043,28 +12453,12 @@
         "boost_lin",
         "boost_quad",
         "boost_star",
-        "cgal_kd",
-        "cgal_rt",
         "chan_sss",
-        "esa_grid",
-        "esa_kiddo",
-        "esa_nabo",
-        "esa_nanoflann",
-        "esa_neighbourhood",
-        "esa_orthtree",
-        "esa_sklearn_ball",
-        "esa_sklearn_kd",
-        "esa_snn",
         "esa_sprk_CHEATING_IDS_ONLY",
         "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS",
-        "esa_vptree",
         "naive",
-        "pam",
-        "pargeo",
         "pkd",
-        "stann_fr",
-        "thst_quad",
-        "thst_rtree"
+        "stann_fr"
       ]
     },
     {
@@ -16663,10 +15057,12 @@
     "An active run is a partial snapshot, not a completed campaign.",
     "State rows and job artifacts overlap; do not count both.",
     "Input binaries, software builds, private documents and caches are excluded.",
-    "Local home paths, host/user names and private IP addresses are redacted."
+    "Local home paths, host/user names and private IP addresses are redacted.",
+    "Superseded disk measurements removed at user request. Edited records have content_sha256 and superseded_rows_deleted; original_sha256 remains the pre-redaction, pre-pruning source identity."
   ],
   "snapshot_finished_utc": "2026-11-03T08:46:52.944667+00:00",
-  "total_files": 743947,
-  "total_phase_rows": 333418,
-  "supplement_captured_utc": "2026-11-03T08:51:46.587507+00:00"
+  "total_files": 701770,
+  "total_phase_rows": 242243,
+  "supplement_captured_utc": "2026-11-03T08:51:46.587507+00:00",
+  "superseded_results_pruned_unix": 1795451501.7254426
 }

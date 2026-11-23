@@ -9,7 +9,8 @@ current snapshot when a newer completed or timed-out replacement exists.
 Earlier source/bundle hashes remain historical identities; pruned contents
 have new content/bundle hashes and explicit pruning metadata.
 
-- [22 November 2026](2026-11-22/README.md): refreshed current and historical results from Archie, including Indexicon, adapter reruns and the latest queue progress.
+- [3 November 2026](2026-11-03/README.md): historical capture with superseded observations removed where replacements exist.
+- [22 November 2026](2026-11-22/README.md): refreshed current and historical results from Archie, with superseded observations removed where replacements exist.
 
 Each snapshot contains an `index.json` and gzip-compressed JSONL bundles. Each line is an object with `path`, `original_sha256`, `original_bytes` and `content`. The path is relative to its named source. Content is the recorded UTF-8 text, with local home paths, host/user names and private IP addresses redacted. Original hashes describe the bytes before redaction; bundle hashes describe the published compressed files.
 

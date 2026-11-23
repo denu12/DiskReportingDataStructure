@@ -1,0 +1,4404 @@
+{
+  "verified_bundles": 308,
+  "verified_records": 701770,
+  "compressed_bytes": 85011186,
+  "capture_started_utc": "2026-11-03T08:45:49.607436+00:00",
+  "capture_finished_utc": "2026-11-03T08:46:52.944667+00:00",
+  "failures": [],
+  "sensitive_paths": [],
+  "jsonl_artifacts": [],
+  "queue_statuses": [
+    {
+      "source": "current",
+      "path": "_execution-additional-d-dim-20261022/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_clustering"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_clustering"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_clustering"
+        }
+      ],
+      "campaign": "ESA_clustering"
+    },
+    {
+      "source": "current",
+      "path": "_execution-additional-small-20261022/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_geographical"
+        }
+      ],
+      "campaign": "2D_ESA_geographical"
+    },
+    {
+      "source": "current",
+      "path": "_execution-additional-static-20261022/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "static"
+        },
+        {
+          "phase": "final",
+          "campaign": "GeographyLarge"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-additional-static-3d-20261022/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-ddim-all-three-sprk-20261012-v2/status.json",
+      "status": "paused",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_clustering"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_clustering"
+        }
+      ],
+      "campaign": "ESA_graph_embeddings"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-20261009-static/status.json",
+      "status": "needs_attention",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-audited-20261009-small/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_geographical"
+        }
+      ],
+      "campaign": "2D_ESA_geographical"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-audited-20261009-static/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        },
+        {
+          "phase": "final",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "static"
+        },
+        {
+          "phase": "final",
+          "campaign": "GeographyLarge"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-audited-20261009-static-3d/status.json",
+      "status": "stopped",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Scaling3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-cheating-20261009-small/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_geographical"
+        }
+      ],
+      "campaign": "2D_ESA_geographical"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-cheating-20261009-static/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        },
+        {
+          "phase": "final",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "static"
+        },
+        {
+          "phase": "final",
+          "campaign": "GeographyLarge"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-cheating-20261009-static-3d/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-v2-20261009-small/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_geographical"
+        }
+      ],
+      "campaign": "2D_ESA_geographical"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-v2-20261009-static/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        },
+        {
+          "phase": "final",
+          "campaign": "scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "static"
+        },
+        {
+          "phase": "final",
+          "campaign": "GeographyLarge"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-boost-sprk-v2-20261009-static-3d/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "Scaling3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-sprk-ddim-pending-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_clustering"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_clustering"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_clustering"
+        }
+      ],
+      "campaign": "ESA_clustering"
+    },
+    {
+      "source": "current",
+      "path": "_execution-morton-sprk-static-3d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-original-all-2d-20261015/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "static"
+        },
+        {
+          "phase": "final",
+          "campaign": "GeographyLarge"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-original-all-3d-20261015/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-postgresql-clean-d-dim-20261030/status.json",
+      "status": "running",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_clustering"
+        }
+      ],
+      "campaign": "ESA_graph_embeddings"
+    },
+    {
+      "source": "current",
+      "path": "_execution-postgresql-clean-small-20261030/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_geographical"
+        }
+      ],
+      "campaign": "2D_ESA_geographical"
+    },
+    {
+      "source": "current",
+      "path": "_execution-postgresql-clean-static-20261030/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "static"
+        },
+        {
+          "phase": "final",
+          "campaign": "GeographyLarge"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-postgresql-clean-static-3d-20261030/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-postgresql-static-20261022/status.json",
+      "status": "stopped",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        }
+      ],
+      "campaign": "input_scaling"
+    },
+    {
+      "source": "current",
+      "path": "_execution-postgresql-static-3d-20261022/status.json",
+      "status": "stopped",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling_3d"
+        }
+      ],
+      "campaign": "radius_scaling_3d"
+    },
+    {
+      "source": "current",
+      "path": "_execution-reporting-adapted-d-dim-20261023/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_clustering"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_clustering"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_high_dimensional"
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_clustering"
+        }
+      ],
+      "campaign": "ESA_clustering"
+    },
+    {
+      "source": "current",
+      "path": "_execution-reporting-adapted-small-20261023/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "screen",
+          "campaign": "2D_ESA_geographical"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_graph_embeddings"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_uniform_points"
+        },
+        {
+          "phase": "final",
+          "campaign": "2D_ESA_geographical"
+        }
+      ],
+      "campaign": "2D_ESA_geographical"
+    },
+    {
+      "source": "current",
+      "path": "_execution-reporting-adapted-static-20261023/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "static"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "screen",
+          "campaign": "static"
+        },
+        {
+          "phase": "screen",
+          "campaign": "GeographyLarge"
+        },
+        {
+          "phase": "plan",
+          "campaign": null
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling"
+        },
+        {
+          "phase": "final",
+          "campaign": "static"
+        },
+        {
+          "phase": "final",
+          "campaign": "GeographyLarge"
+        }
+      ],
+      "campaign": "GeographyLarge"
+    },
+    {
+      "source": "current",
+      "path": "_execution-reporting-adapted-static-3d-20261023/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "screen",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "screen",
+          "campaign": "Static3D"
+        },
+        {
+          "phase": "final",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "final",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_execution-retained-all-static-3d-20261014/status.json",
+      "status": "stopped",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "input_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "radius_scaling_3d"
+        },
+        {
+          "phase": "correctness",
+          "campaign": "Static3D"
+        }
+      ],
+      "campaign": "input_scaling_3d"
+    },
+    {
+      "source": "current",
+      "path": "_morton-3d-upgrade-20261015/heldout-status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-3d-upgrade-20261015/status.json",
+      "status": "native_training_complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-blocks-explore-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-blocks-heldout-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-one-change-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-avx512-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-avx512-heldout-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-avx512b-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-heldout-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-masks-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-opt-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-opt2-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-plus-squares-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-simd-avx512-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-split-heldout-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-split-improve-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_morton-split-jump-20261014/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_queue-additional-all-20261022/status.json",
+      "status": "complete",
+      "completed": [
+        "static",
+        "static-3d",
+        "small",
+        "d-dim"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-all-nondynamic-20261009/status.json",
+      "status": "stopped",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "scaling",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "error": 11,
+            "excluded_by_existing_correctness": 40,
+            "success": 1069
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "error": 8,
+            "excluded_by_existing_correctness": 40,
+            "success": 1072
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 100,
+            "success": 2700
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "scaling",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 40,
+            "success": 3207,
+            "not_selected_after_screen": 11
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 40,
+            "success": 3216,
+            "not_selected_after_screen": 8
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 100,
+            "success": 8100
+          }
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "error": 3,
+            "excluded_by_existing_correctness": 15,
+            "success": 402
+          }
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "error": 1,
+            "excluded_by_existing_correctness": 7,
+            "success": 188
+          }
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 28,
+            "success": 756
+          }
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 15,
+            "success": 1206,
+            "not_selected_after_screen": 3
+          }
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 7,
+            "success": 564,
+            "not_selected_after_screen": 1
+          }
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 28,
+            "success": 2268
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "Scaling3D",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 840
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "Static3D",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 811,
+            "error": 29
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "Scaling3D",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "success": 2520
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "Static3D",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "not_selected_after_screen": 29,
+            "success": 2433
+          }
+        },
+        {
+          "theater": "d-dim",
+          "campaign": "ESA_graph_embeddings",
+          "phase": "screen",
+          "status": "budget_exhausted",
+          "outcomes": {
+            "error": 192,
+            "unsupported_dimension": 195,
+            "success": 3500
+          }
+        }
+      ],
+      "campaign": "ESA_graph_embeddings"
+    },
+    {
+      "source": "current",
+      "path": "_queue-coverage-completion-20261030/status.json",
+      "status": "waiting"
+    },
+    {
+      "source": "current",
+      "path": "_queue-ddim-all-three-sprk-20261012/status.json",
+      "status": "needs_attention",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "ESA_graph_embeddings",
+          "status": "complete",
+          "outcomes": {
+            "success": 646,
+            "unsupported_dimension": 26
+          },
+          "eligibility": {
+            "esa_snn": "passed",
+            "morton_d_dim": "passed",
+            "esa_nanoflann": "passed",
+            "esa_snn_rust": "passed",
+            "esa_kiddo": "passed",
+            "ann_fr": "passed",
+            "esa_grid": "passed",
+            "esa_nabo": "passed",
+            "boost_quad": "passed",
+            "esa_vptree": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_orthtree": "passed",
+            "cgal_kd": "passed",
+            "esa_sklearn_ball": "passed",
+            "chan_sss_ddim_MANUALLY_ADAPTED": "passed",
+            "esa_sprk": "passed",
+            "brute_force": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "stann_fr_ddim_MANUALLY_ADAPTED": "passed",
+            "esa_neighbourhood": "passed",
+            "boost_lin": "passed",
+            "esa_sklearn_kd": "passed",
+            "boost_star": "passed",
+            "Morton3D": "passed"
+          }
+        }
+      ],
+      "campaign": "ESA_uniform_points"
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-auto-simd-pair-2d-20261015/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "Morton": "passed",
+            "MortonAutoSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "Morton": "passed",
+            "MortonAutoSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 6,
+          "eligibility": {
+            "Morton": "passed",
+            "MortonAutoSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonAutoSIMD": "passed",
+            "Morton": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 70,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 80,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 200,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 360,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 210,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 240,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 600,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonAutoSIMD": "passed",
+            "Morton": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonAutoSIMD": "passed",
+            "Morton": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonAutoSIMD": "passed",
+            "Morton": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 30,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 14,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 56,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 90,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 42,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 168,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-blocks-pair-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonBlocks": "passed",
+            "MortonBlocksSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonBlocks": "passed",
+            "MortonBlocksSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 6,
+          "eligibility": {
+            "MortonBlocks": "passed",
+            "MortonBlocksSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonBlocksSIMD": "passed",
+            "MortonBlocks": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 70,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 80,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 200,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 360,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 210,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 240,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 600,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonBlocksSIMD": "passed",
+            "MortonBlocks": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonBlocksSIMD": "passed",
+            "MortonBlocks": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonBlocksSIMD": "passed",
+            "MortonBlocks": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 30,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 14,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 56,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 90,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 42,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 168,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-boost-sprk-20261009/status.json",
+      "status": "needs_attention",
+      "completed": [
+        {
+          "theater": "static",
+          "status": "needs_attention",
+          "needs_attention": false
+        }
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-boost-sprk-audited-20261009/status.json",
+      "status": "stopped",
+      "completed": [
+        {
+          "theater": "static",
+          "status": "complete",
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "status": "complete",
+          "needs_attention": false
+        }
+      ],
+      "campaign": "Static3D"
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-boost-sprk-cheating-20261009/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "status": "complete",
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "status": "complete",
+          "needs_attention": false
+        },
+        {
+          "theater": "static-3d",
+          "status": "complete",
+          "needs_attention": false
+        }
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-boost-sprk-v2-20261009/status.json",
+      "status": "stopped",
+      "completed": [
+        {
+          "theater": "static",
+          "status": "complete",
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "status": "complete",
+          "needs_attention": false
+        },
+        {
+          "theater": "static-3d",
+          "status": "complete",
+          "needs_attention": false
+        }
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-ddim-fast-20261012/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "phase": "correctness",
+          "campaign": "ESA_graph_embeddings",
+          "status": "complete",
+          "outcomes": {
+            "success": 28
+          },
+          "rows": 28
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_uniform_points",
+          "status": "complete",
+          "outcomes": {
+            "unsupported_dimension": 2,
+            "success": 2
+          },
+          "rows": 4
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_high_dimensional",
+          "status": "complete",
+          "outcomes": {
+            "unsupported_dimension": 10
+          },
+          "rows": 10
+        },
+        {
+          "phase": "correctness",
+          "campaign": "ESA_clustering",
+          "status": "complete",
+          "outcomes": {
+            "success": 8,
+            "unsupported_dimension": 2
+          },
+          "rows": 10
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_graph_embeddings",
+          "status": "complete",
+          "outcomes": {
+            "success": 210
+          },
+          "rows": 210
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_uniform_points",
+          "status": "complete",
+          "outcomes": {
+            "unsupported_dimension": 7,
+            "success": 7
+          },
+          "rows": 14
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_high_dimensional",
+          "status": "complete",
+          "outcomes": {
+            "unsupported_dimension": 30
+          },
+          "rows": 30
+        },
+        {
+          "phase": "screen",
+          "campaign": "ESA_clustering",
+          "status": "complete",
+          "outcomes": {
+            "success": 20,
+            "unsupported_dimension": 5
+          },
+          "rows": 25
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_graph_embeddings",
+          "status": "complete",
+          "outcomes": {
+            "success": 630
+          },
+          "rows": 630
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_uniform_points",
+          "status": "complete",
+          "outcomes": {
+            "success": 21,
+            "unsupported_dimension": 21
+          },
+          "rows": 42
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_high_dimensional",
+          "status": "complete",
+          "outcomes": {
+            "unsupported_dimension": 90
+          },
+          "rows": 90
+        },
+        {
+          "phase": "final",
+          "campaign": "ESA_clustering",
+          "status": "complete",
+          "outcomes": {
+            "unsupported_dimension": 15,
+            "success": 60
+          },
+          "rows": 75
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-plus-avx512-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 3,
+          "eligibility": {
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 60,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 35,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 40,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 100,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 180,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 105,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 300,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 15,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 7,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 28,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 45,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 21,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 84,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-simd-avx512-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 3,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 60,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 35,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 40,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 100,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 180,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 105,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 300,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 15,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 7,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 28,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 45,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 21,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 84,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-simd-batch-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 3,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 60,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 35,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 40,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 100,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 180,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 105,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 300,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSIMD": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 15,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 7,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 28,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 45,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 21,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 84,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-split-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 3,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 60,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 35,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 40,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 100,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 180,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 105,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 300,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 15,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 7,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 28,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 45,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 21,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 84,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-split-2d-v2-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 3,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 60,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 35,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 40,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 100,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 180,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 105,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 300,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 15,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 7,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 28,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 45,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 21,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 84,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-split-pair-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonSplit": "passed",
+            "MortonLookupSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonSplit": "passed",
+            "MortonLookupSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 6,
+          "eligibility": {
+            "MortonSplit": "passed",
+            "MortonLookupSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonLookupSplit": "passed",
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 70,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 80,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 200,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 360,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 210,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 240,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 600,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonLookupSplit": "passed",
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonLookupSplit": "passed",
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "MortonLookupSplit": "passed",
+            "MortonSplit": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 30,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 14,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 56,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 90,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 42,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 168,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-sprk-eight-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 16,
+          "eligibility": {
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS": "passed",
+            "Morton": "passed",
+            "MortonSIMD": "passed",
+            "MortonPlusRust": "passed",
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 16,
+          "eligibility": {
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS": "passed",
+            "Morton": "passed",
+            "MortonSIMD": "passed",
+            "MortonPlusRust": "passed",
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 24,
+          "eligibility": {
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS": "passed",
+            "Morton": "passed",
+            "MortonSIMD": "passed",
+            "MortonPlusRust": "passed",
+            "MortonPlusCPP": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 16,
+          "eligibility": {
+            "Morton": "passed",
+            "MortonSIMD": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "MortonPlusCPP": "passed",
+            "MortonPlusRust": "passed",
+            "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 480,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 280,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 320,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 800,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 1440,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 840,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 960,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 2400,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 16,
+          "eligibility": {
+            "Morton": "passed",
+            "MortonSIMD": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "MortonPlusCPP": "passed",
+            "MortonPlusRust": "passed",
+            "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 16,
+          "eligibility": {
+            "Morton": "passed",
+            "MortonSIMD": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "MortonPlusCPP": "passed",
+            "MortonPlusRust": "passed",
+            "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 16,
+          "eligibility": {
+            "Morton": "passed",
+            "MortonSIMD": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_FAST_EXACT": "passed",
+            "MortonPlusCPP": "passed",
+            "MortonPlusRust": "passed",
+            "esa_sprk_MANUALLY_ADAPTED_INTEGER_POINTS": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 56,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 224,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 360,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 168,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 672,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-morton-table-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonTable": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonTable": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 3,
+          "eligibility": {
+            "MortonTable": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonTable": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 60,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 35,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 40,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 100,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 180,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 105,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 300,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonTable": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonTable": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 2,
+          "eligibility": {
+            "MortonTable": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 15,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 7,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 28,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 45,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 21,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 84,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-native-output-2d-3d-20261015/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_queue-postgresql-20261022/status.json",
+      "status": "postponed",
+      "completed": []
+    },
+    {
+      "source": "current",
+      "path": "_queue-postgresql-clean-20261030/status.json",
+      "status": "running",
+      "completed": [
+        "static",
+        "static-3d",
+        "small"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-reporting-adapted-20261023/status.json",
+      "status": "complete",
+      "completed": [
+        "static",
+        "static-3d",
+        "small",
+        "d-dim"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-scaling-four-20261011/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 60,
+            "success": 1574,
+            "error": 46
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 35,
+            "success": 930,
+            "error": 15
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 60,
+            "not_selected_after_screen": 46,
+            "success": 4722
+          }
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "excluded_by_existing_correctness": 35,
+            "not_selected_after_screen": 15,
+            "success": 2790
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "input_scaling_3d",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 1257,
+            "error": 3
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "radius_scaling_3d",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 675,
+            "error": 60
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "input_scaling_3d",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "not_selected_after_screen": 3,
+            "success": 3771
+          }
+        },
+        {
+          "theater": "static-3d",
+          "campaign": "radius_scaling_3d",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "not_selected_after_screen": 60,
+            "success": 2025
+          }
+        }
+      ],
+      "campaign": "radius_scaling_3d"
+    },
+    {
+      "source": "current",
+      "path": "_queue-sprk-compiler-only-2d-20261014/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_RUST_EXACT": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_RUST_EXACT": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "rows": 6,
+          "eligibility": {
+            "esa_sprk_CHEATING_IDS_ONLY": "passed",
+            "esa_sprk_RUST_EXACT": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "rows": 120,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "rows": 70,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "rows": 80,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "rows": 200,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "rows": 360,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "rows": 210,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "rows": 240,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "rows": 600,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "rows": 4,
+          "eligibility": {
+            "esa_sprk_RUST_EXACT": "passed",
+            "esa_sprk_CHEATING_IDS_ONLY": "passed"
+          },
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "rows": 30,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "rows": 14,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "rows": 56,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "rows": 90,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "rows": 42,
+          "eligibility": {},
+          "needs_attention": false
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "rows": 168,
+          "eligibility": {},
+          "needs_attention": false
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_queue-sprk-fast-2d-20261012/augmentation-status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_queue-sprk-fast-2d-20261012/status.json",
+      "status": "complete",
+      "completed": [
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "correctness",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 2,
+          "matched_existing_MortonSIMD_counts": null
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "correctness",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 2,
+          "matched_existing_MortonSIMD_counts": null
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "correctness",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 3,
+          "matched_existing_MortonSIMD_counts": null
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "correctness",
+          "status": "complete",
+          "outcomes": {
+            "success": 2
+          },
+          "rows": 2,
+          "matched_existing_MortonSIMD_counts": null
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "correctness",
+          "status": "complete",
+          "outcomes": {
+            "success": 2
+          },
+          "rows": 2,
+          "matched_existing_MortonSIMD_counts": null
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "correctness",
+          "status": "complete",
+          "outcomes": {
+            "success": 2
+          },
+          "rows": 2,
+          "matched_existing_MortonSIMD_counts": null
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "correctness",
+          "status": "complete",
+          "outcomes": {
+            "success": 2
+          },
+          "rows": 2,
+          "matched_existing_MortonSIMD_counts": null
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 60,
+          "matched_existing_MortonSIMD_counts": 60
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 35,
+          "matched_existing_MortonSIMD_counts": 35
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 40,
+          "matched_existing_MortonSIMD_counts": 40
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 100
+          },
+          "rows": 100,
+          "matched_existing_MortonSIMD_counts": 100
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 15
+          },
+          "rows": 15,
+          "matched_existing_MortonSIMD_counts": 15
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 7
+          },
+          "rows": 7,
+          "matched_existing_MortonSIMD_counts": 7
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "screen",
+          "status": "complete",
+          "outcomes": {
+            "success": 28
+          },
+          "rows": 28,
+          "matched_existing_MortonSIMD_counts": 28
+        },
+        {
+          "theater": "static",
+          "campaign": "input_scaling",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 180,
+          "matched_existing_MortonSIMD_counts": 180
+        },
+        {
+          "theater": "static",
+          "campaign": "radius_scaling",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 105,
+          "matched_existing_MortonSIMD_counts": 105
+        },
+        {
+          "theater": "static",
+          "campaign": "static",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": null,
+          "rows": 120,
+          "matched_existing_MortonSIMD_counts": 120
+        },
+        {
+          "theater": "static",
+          "campaign": "GeographyLarge",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "success": 300
+          },
+          "rows": 300,
+          "matched_existing_MortonSIMD_counts": 300
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_graph_embeddings",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "success": 45
+          },
+          "rows": 45,
+          "matched_existing_MortonSIMD_counts": 45
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_uniform_points",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "success": 21
+          },
+          "rows": 21,
+          "matched_existing_MortonSIMD_counts": 21
+        },
+        {
+          "theater": "small",
+          "campaign": "2D_ESA_geographical",
+          "phase": "final",
+          "status": "complete",
+          "outcomes": {
+            "success": 84
+          },
+          "rows": 84,
+          "matched_existing_MortonSIMD_counts": 84
+        }
+      ],
+      "campaign": null
+    },
+    {
+      "source": "current",
+      "path": "_sprk-ordinary-difference-20261009/status.json",
+      "status": "stopped"
+    },
+    {
+      "source": "historical",
+      "path": "_execution-2d-refresh-20261007/status.json",
+      "status": "needs_attention",
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_execution-dynamic-reporting-20261007/status.json",
+      "status": "stopped",
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_execution-esa2d-morton-simd-20261007/status.json",
+      "status": "needs_attention",
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_execution-morton-ddim-20261008/status.json",
+      "status": "needs_attention"
+    },
+    {
+      "source": "historical",
+      "path": "_execution-publication-2d-only-20261007/status.json",
+      "status": "needs_attention",
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_execution-publication-all-static-20261007/status.json",
+      "status": "stopped",
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_execution-publication-remaining-20261007/status.json",
+      "status": "needs_attention",
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_execution-reinstated-2d-20261007/status.json",
+      "status": "needs_attention"
+    },
+    {
+      "source": "historical",
+      "path": "_execution-single-core-2d-20261008/status.json",
+      "status": "stopped"
+    },
+    {
+      "source": "historical",
+      "path": "_execution-sprk-reporting-20261007/status.json",
+      "status": "complete",
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_execution-static-3d-all-20261008/status.json",
+      "status": "needs_attention"
+    },
+    {
+      "source": "historical",
+      "path": "_execution-static-3d-sprk-ids-20261008/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "historical",
+      "path": "_execution-static-esa-20261006/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "historical",
+      "path": "_preparation-scaling-v3-20261007/status.json",
+      "status": "ready",
+      "campaign": "scaling"
+    },
+    {
+      "source": "historical",
+      "path": "_preparation-synthetic-v2-20261007/status.json",
+      "status": "ready",
+      "completed": [
+        "static",
+        "scaling"
+      ],
+      "campaign": null
+    },
+    {
+      "source": "historical",
+      "path": "_theater-migration-20261008/status.json",
+      "status": "complete"
+    }
+  ]
+}

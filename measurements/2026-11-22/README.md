@@ -1,8 +1,8 @@
 # Measurements captured on 22 November 2026
 
 After the requested removal of superseded results on 23 November, this snapshot
-contains **756,591 recorded files in 352 bundles**, totaling **83.8 MB compressed**.
-Phase-state summaries contain **290,164 rows**, including historical and
+contains **756,591 recorded files in 352 bundles**, totaling **82.7 MB compressed**.
+Phase-state summaries contain **266,812 rows**, including historical and
 overlapping observations. These counts are not independent successful measurements.
 The original capture contained 808,176 files and 371,319 phase-state rows.
 Pruned records and bundles carry updated hashes and explicit pruning metadata.
