@@ -41,6 +41,14 @@ Kiddo, Nabo, Neighbourhood, VP-tree, Orthtree, Grid and SNN Rust. There are 1,67
 algorithm/workload pairs, reusing 34 already resolved SNN native-output cases.
 Unchanged implementations and provenance-only gaps are not part of this queue.
 
+The separately requested [remaining-case queue](../config/disk-remaining-260-20261123.json)
+waits for that repair to finish. It includes all 195 remaining competitor cases,
+the 14 IDs-only SPRK diagnostic cases, and 51 previously disabled brute-force
+control cases: 260 algorithm/workload pairs total. Only those explicit control
+cases are re-enabled. Existing algorithms and adapters remain unchanged. The
+IDs-only diagnostic remains excluded from exact-contract rankings. The same
+single-core, timeout, correctness-flag and case-error policies below apply.
+
 Execution is single core, one worker, CPU 1. Correctness failures are flagged
 and still timed. Screening has a 60-second limit; finals have a 180-second
 limit. A screening timeout skips all finals; the first final timeout skips

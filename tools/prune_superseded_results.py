@@ -11,7 +11,7 @@ import re
 import shutil
 import time
 
-RANKS = [('_queue-disk-version-repair-',190),('_queue-snn-higherdim-recovery-',180),
+RANKS = [('_queue-disk-remaining-',200),('_queue-disk-version-repair-',190),('_queue-snn-higherdim-recovery-',180),
  ('_queue-higherdim-missing-indexicon-',170),('_queue-measure-inexact-',160),
  ('_queue-ph-psi-',150),('_queue-disk-adapters-parity-',140),('_queue-disk-adapters-2d-',130),
  ('indexicon-l2-',120),('coverage-completion-',90),('original-all-',60),
