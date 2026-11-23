@@ -1,0 +1,18 @@
+{
+  "disk-2d.json.gz": {
+    "sha256": "7771ec9c998165fed5657f48e53e139fc6ea0bb3c484c844edb7eae7a3089fb1",
+    "uncompressed_sha256": "983d3e8f08feb9328675487a7d1a9ba0d3d0f662f74d6d89b3089132b36508d1",
+    "compressed_bytes": 3700939,
+    "case_pairs": 17250
+  },
+  "higherdim-indexicon.jsonl.gz": {
+    "sha256": "96f4a9e4b86ca6e3521b0aac9f98ea91acdf0e3b8eba15a8561c955b9bcd9b8e",
+    "uncompressed_sha256": "522114eb089ad7d63b0934c5497b6e55217e661f776f59d393032e82de411944",
+    "compressed_bytes": 464258
+  },
+  "higherdim-snn.jsonl.gz": {
+    "sha256": "cb7776ab2154dcc987b130566a0c1138bbd1f86b78a35fada41820920506d6a1",
+    "uncompressed_sha256": "5ea34adc8e36272134b54645ebbac90022940bae6786b0a20807bb8a6aff3558",
+    "compressed_bytes": 8382
+  }
+}
