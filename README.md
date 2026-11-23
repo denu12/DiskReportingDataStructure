@@ -26,6 +26,12 @@ are recorded in [publication status](docs/PUBLICATION.md).
 The latest [22 November 2026 snapshot](measurements/2026-11-22/README.md) includes current and historical experiment records, including failures and partial runs. The [3 November snapshot](measurements/2026-11-03/README.md) remains available as an earlier capture. These are raw observations, not a single combined comparison: reporting contracts, source revisions and workloads differ between runs. Read each snapshot's captured queue status rather than treating an older status as current.
 
 Indexicon and the native f64 exact higher-dimensional SPRK bridge are integrated.
+
+See the [23 November result-version review](docs/RESULT-VERSIONS.md) for the
+explicit 2D selection and newer-version-only higher-dimensional repair.
+Historical coverage does not establish coverage of a changed adapter. Build
+native Rust dispatch with `python3 tools/build_native_rust.py`; current routing
+uses an isolated versioned target rather than a historical queue build.
 The [frozen source collection](reproducibility/2026-11-22/README.md) preserves later
 disk adapters and controllers with hashes and dependency references. Use the
 recorded version for each historical run; the current harness has newer failure

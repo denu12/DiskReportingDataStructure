@@ -1,0 +1,2871 @@
+{
+  "schema": 1,
+  "geometry": "disk",
+  "dimension": 2,
+  "case_pairs": 17250,
+  "counts": {
+    "complete": 16566,
+    "timeout_resolved": 684
+  },
+  "selection_sha256": "2a404863304b3e8c1a1fcc089da3ca5ed7b3c14c5d8bf6cf6c3cd916796c3a10",
+  "policy": "Use only the listed run for each case and algorithm. A newer terminal timeout is never replaced with an older successful timing. Versions are frozen campaign profiles, not a claim that every current default adapter is that version.",
+  "profiles": [
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "Morton",
+      "version": "morton-auto-simd-pair-2d-20261015-small",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "MortonPlusCPP",
+      "version": "morton-plus-avx512-2d-20261014-small",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "MortonSIMD",
+      "version": "morton-simd-avx512-2d-20261014-small",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "ann_fr",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "boost_lin",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "boost_quad",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "boost_star",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "cgal_kd",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "cgal_rt",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "chan_sss",
+      "version": "reporting-adapted-small-20261023",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_grid",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_kiddo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_nabo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_nanoflann",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_neighbourhood",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_orthtree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_sklearn_ball",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_sklearn_kd",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_snn",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "sprk-compiler-only-2d-20261014-small",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_sprk_RUST_EXACT",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "sprk-compiler-only-2d-20261014-small",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "esa_vptree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_kdtree_adaptive",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_kdtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_kdtree_round_robin",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_mxcif_quadtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_quadtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_quadtree_pr",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_quadtree_pseudo_median",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_rtree_mbr",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "indexicon_rtree_point",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "lsi_linear",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "lsi_quadratic",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "lsi_rstar",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "lsi_str",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "naive",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "pam",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "pargeo",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "pgm_multidimensional",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "phtree",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "pkd",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "postgres_zrange",
+      "version": "postgresql-clean-small-20261030",
+      "counts": {
+        "timeout_resolved": 16,
+        "complete": 12
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "psi_kd",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "psi_orth",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "psi_spac_h",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "psi_spac_z",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "stann_fr",
+      "version": "reporting-adapted-small-20261023",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "thst_quad",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "timeout_resolved": 8,
+        "complete": 20
+      }
+    },
+    {
+      "campaign": "2D_ESA_geographical",
+      "algorithm": "thst_rtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 28
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "Morton",
+      "version": "morton-auto-simd-pair-2d-20261015-small",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "MortonPlusCPP",
+      "version": "morton-plus-avx512-2d-20261014-small",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "MortonSIMD",
+      "version": "morton-simd-avx512-2d-20261014-small",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "ann_fr",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 14,
+        "timeout_resolved": 1
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "boost_lin",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "boost_quad",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "boost_star",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "cgal_kd",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "cgal_rt",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "chan_sss",
+      "version": "reporting-adapted-small-20261023",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_grid",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_kiddo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_nabo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_nanoflann",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_neighbourhood",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_orthtree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_sklearn_ball",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_sklearn_kd",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_snn",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "sprk-compiler-only-2d-20261014-small",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_sprk_RUST_EXACT",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "sprk-compiler-only-2d-20261014-small",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "esa_vptree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_kdtree_adaptive",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_kdtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_kdtree_round_robin",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_mxcif_quadtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_quadtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_quadtree_pr",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_quadtree_pseudo_median",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_rtree_mbr",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "indexicon_rtree_point",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "lsi_linear",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "lsi_quadratic",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "lsi_rstar",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "lsi_str",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "naive",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "pam",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "pargeo",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "pgm_multidimensional",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "phtree",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "pkd",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "postgres_zrange",
+      "version": "postgresql-clean-small-20261030",
+      "counts": {
+        "timeout_resolved": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "psi_kd",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "psi_orth",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "psi_spac_h",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "psi_spac_z",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "stann_fr",
+      "version": "reporting-adapted-small-20261023",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "thst_quad",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 9,
+        "timeout_resolved": 6
+      }
+    },
+    {
+      "campaign": "2D_ESA_graph_embeddings",
+      "algorithm": "thst_rtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 15
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "Morton",
+      "version": "morton-auto-simd-pair-2d-20261015-small",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "MortonPlusCPP",
+      "version": "morton-plus-avx512-2d-20261014-small",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "MortonSIMD",
+      "version": "morton-simd-avx512-2d-20261014-small",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "ann_fr",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "boost_lin",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "boost_quad",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "boost_star",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "cgal_kd",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "cgal_rt",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "chan_sss",
+      "version": "reporting-adapted-small-20261023",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_grid",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_kiddo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_nabo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_nanoflann",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_neighbourhood",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_orthtree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_sklearn_ball",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_sklearn_kd",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_snn",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "sprk-compiler-only-2d-20261014-small",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_sprk_RUST_EXACT",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "sprk-compiler-only-2d-20261014-small",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "esa_vptree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_kdtree_adaptive",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_kdtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_kdtree_round_robin",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_mxcif_quadtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_quadtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_quadtree_pr",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_quadtree_pseudo_median",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_rtree_mbr",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "indexicon_rtree_point",
+      "version": "indexicon-l2-small-20261105",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "lsi_linear",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "lsi_quadratic",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "lsi_rstar",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "lsi_str",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "naive",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "pam",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "pargeo",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "pgm_multidimensional",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "phtree",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "pkd",
+      "version": "coverage-completion-small-20261030",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "postgres_zrange",
+      "version": "postgresql-clean-small-20261030",
+      "counts": {
+        "timeout_resolved": 3,
+        "complete": 4
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "psi_kd",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "psi_orth",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "psi_spac_h",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "psi_spac_z",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "stann_fr",
+      "version": "reporting-adapted-small-20261023",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "thst_quad",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "timeout_resolved": 4,
+        "complete": 3
+      }
+    },
+    {
+      "campaign": "2D_ESA_uniform_points",
+      "algorithm": "thst_rtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 7
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "Morton",
+      "version": "morton-auto-simd-pair-2d-20261015-static",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "MortonPlusCPP",
+      "version": "morton-plus-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "MortonSIMD",
+      "version": "morton-simd-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "ann_fr",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "boost_lin",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "boost_quad",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "boost_star",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "cgal_kd",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "cgal_rt",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "chan_sss",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_grid",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_kiddo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_nabo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_nanoflann",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_neighbourhood",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_orthtree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_sklearn_ball",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_sklearn_kd",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_snn",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_sprk_RUST_EXACT",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "esa_vptree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_kdtree_adaptive",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_kdtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_kdtree_round_robin",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_mxcif_quadtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_quadtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_quadtree_pr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_quadtree_pseudo_median",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_rtree_mbr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "indexicon_rtree_point",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "lsi_linear",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "lsi_quadratic",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "lsi_rstar",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "lsi_str",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "naive",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "pam",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "pargeo",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "pgm_multidimensional",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "phtree",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "pkd",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "postgres_zrange",
+      "version": "postgresql-clean-static-20261030",
+      "counts": {
+        "timeout_resolved": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "psi_kd",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "psi_orth",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "psi_spac_h",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "psi_spac_z",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "stann_fr",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "thst_quad",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "timeout_resolved": 100
+      }
+    },
+    {
+      "campaign": "GeographyLarge",
+      "algorithm": "thst_rtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "Morton",
+      "version": "morton-auto-simd-pair-2d-20261015-static",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "MortonPlusCPP",
+      "version": "morton-plus-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "MortonSIMD",
+      "version": "morton-simd-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "ann_fr",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "boost_lin",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "boost_quad",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "boost_star",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "cgal_kd",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "cgal_rt",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 45,
+        "timeout_resolved": 15
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "chan_sss",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_grid",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_kiddo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_nabo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_nanoflann",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_neighbourhood",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_orthtree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_sklearn_ball",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_sklearn_kd",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_snn",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_sprk_RUST_EXACT",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "esa_vptree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_kdtree_adaptive",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_kdtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_kdtree_round_robin",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_mxcif_quadtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_quadtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_quadtree_pr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_quadtree_pseudo_median",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_rtree_mbr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "indexicon_rtree_point",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "lsi_linear",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "lsi_quadratic",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "lsi_rstar",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "lsi_str",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "naive",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "pam",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "pargeo",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "pgm_multidimensional",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "phtree",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "pkd",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "postgres_zrange",
+      "version": "postgresql-clean-static-20261030",
+      "counts": {
+        "complete": 5,
+        "timeout_resolved": 55
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "psi_kd",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "psi_orth",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "psi_spac_h",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "psi_spac_z",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "stann_fr",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "thst_quad",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 5,
+        "timeout_resolved": 55
+      }
+    },
+    {
+      "campaign": "input_scaling",
+      "algorithm": "thst_rtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 54,
+        "timeout_resolved": 6
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "Morton",
+      "version": "morton-auto-simd-pair-2d-20261015-static",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "MortonPlusCPP",
+      "version": "morton-plus-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "MortonSIMD",
+      "version": "morton-simd-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "ann_fr",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 25,
+        "timeout_resolved": 10
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "boost_lin",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "boost_quad",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "boost_star",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "cgal_kd",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "cgal_rt",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "chan_sss",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_grid",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_kiddo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_nabo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_nanoflann",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_neighbourhood",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_orthtree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_sklearn_ball",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_sklearn_kd",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_snn",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_sprk_RUST_EXACT",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "esa_vptree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_kdtree_adaptive",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_kdtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_kdtree_round_robin",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_mxcif_quadtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_quadtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_quadtree_pr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_quadtree_pseudo_median",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_rtree_mbr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "indexicon_rtree_point",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "lsi_linear",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "lsi_quadratic",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "lsi_rstar",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "lsi_str",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "naive",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "pam",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "pargeo",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "pgm_multidimensional",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "phtree",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "pkd",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 30,
+        "timeout_resolved": 5
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "postgres_zrange",
+      "version": "postgresql-clean-static-20261030",
+      "counts": {
+        "timeout_resolved": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "psi_kd",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "psi_orth",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "psi_spac_h",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "psi_spac_z",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "stann_fr",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "thst_quad",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "timeout_resolved": 35
+      }
+    },
+    {
+      "campaign": "radius_scaling",
+      "algorithm": "thst_rtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 35
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "Morton",
+      "version": "morton-auto-simd-pair-2d-20261015-static",
+      "counts": {
+        "complete": 40
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "Morton",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "MortonPlusCPP",
+      "version": "morton-plus-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 40
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "MortonPlusCPP",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "MortonSIMD",
+      "version": "morton-simd-avx512-2d-20261014-static",
+      "counts": {
+        "complete": 40
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "MortonSIMD",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "ann_fr",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 89,
+        "timeout_resolved": 11
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "boost_lin",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "boost_quad",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "boost_star",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "cgal_kd",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "cgal_rt",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "chan_sss",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_grid",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_kiddo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_nabo",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_nanoflann",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_neighbourhood",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_orthtree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_sklearn_ball",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_sklearn_kd",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_snn",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_sprk_CHEATING_IDS_ONLY",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 40
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_sprk_RUST_EXACT",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 60
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_sprk_RUST_EXACT_NOSIMD",
+      "version": "sprk-compiler-only-2d-20261014-static",
+      "counts": {
+        "complete": 40
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "esa_vptree",
+      "version": "_queue-measure-inexact-and-ddim-20261120",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_kdtree_adaptive",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_kdtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_kdtree_round_robin",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_mxcif_quadtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_quadtree_longest_axis",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_quadtree_pr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_quadtree_pseudo_median",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_rtree_mbr",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "indexicon_rtree_point",
+      "version": "indexicon-l2-static-20261105",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "lsi_linear",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "lsi_quadratic",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "lsi_rstar",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "lsi_str",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "naive",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "pam",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "pargeo",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "pgm_multidimensional",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "phtree",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "pkd",
+      "version": "original-all-2d-20261015",
+      "counts": {
+        "complete": 96,
+        "timeout_resolved": 4
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "postgres_zrange",
+      "version": "postgresql-clean-static-20261030",
+      "counts": {
+        "timeout_resolved": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "psi_kd",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "psi_orth",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "psi_spac_h",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "psi_spac_z",
+      "version": "_queue-ph-psi-2d-3d-20261115",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "stann_fr",
+      "version": "reporting-adapted-static-20261023",
+      "counts": {
+        "complete": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "thst_quad",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "timeout_resolved": 100
+      }
+    },
+    {
+      "campaign": "static",
+      "algorithm": "thst_rtree",
+      "version": "_queue-disk-adapters-parity-20261115",
+      "counts": {
+        "complete": 100
+      }
+    }
+  ],
+  "published_selection": "measurements/selections/2026-11-23/disk-2d.json.gz",
+  "published_selection_sha256": "7771ec9c998165fed5657f48e53e139fc6ea0bb3c484c844edb7eae7a3089fb1",
+  "published_uncompressed_sha256": "983d3e8f08feb9328675487a7d1a9ba0d3d0f662f74d6d89b3089132b36508d1"
+}

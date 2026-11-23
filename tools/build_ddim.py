@@ -38,3 +38,4 @@ with ThreadPoolExecutor(max_workers=2) as pool:
 if any(v['returncode'] for v in report.values()):raise SystemExit(1)
 subprocess.run([os.environ.get('PYTHON','python3'),str(root/'tools/build_indexicon.py')],check=True)
 subprocess.run([os.environ.get('PYTHON','python3'),str(root/'tools/build_sprk_ddim.py')],check=True)
+subprocess.run([os.environ.get('PYTHON','python3'),str(root/'tools/build_native_rust.py')],check=True)

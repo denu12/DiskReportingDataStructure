@@ -8,6 +8,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+NATIVE_RUST = ROOT/'build/native-rust-20261123/target/release/original-range-check'
 RUST = {'esa_kiddo','esa_nabo','esa_neighbourhood','esa_vptree','esa_orthtree','esa_grid','esa_snn_rust'}
 PYTHON = {'esa_sklearn_kd','esa_sklearn_ball','esa_snn','brute_force'}
 UNSUPPORTED = set()
@@ -30,7 +31,7 @@ def dependency_files(algorithm):
     if algorithm in BACKENDS and BACKENDS[algorithm]=='spatialindex':
         return [ROOT/'build/dimensional/check_spatialindex',ROOT/'build/libspatialindex/src/libspatialindex.so']
     if algorithm in UNSUPPORTED:return [ROOT/'tools/original_runner.py']
-    if algorithm in RUST:return [ROOT/'build/original-rust/release/original-range-check']
+    if algorithm in RUST:return [NATIVE_RUST]
     if algorithm in PYTHON:return [ROOT/'src/runner/dimensional/python_check.py']
     if algorithm in FOREIGN:return [ROOT/'build/dimensional'/('check_'+FOREIGN[algorithm])]
     return []
@@ -65,7 +66,7 @@ def main():
         if algorithm in POSTGRES:
             command = [sys.executable, str(ROOT/'src/runner/dimensional/postgres_check.py')]
         elif algorithm in RUST:
-            command = [str(ROOT/'build/original-rust/release/original-range-check')]
+            command = [str(NATIVE_RUST)]
         elif algorithm in PYTHON:
             command = [sys.executable, str(ROOT/'src/runner/dimensional/python_check.py')]
         else:

@@ -1,8 +1,16 @@
 # Measurements captured on 22 November 2026
 
-This snapshot contains **808,176 recorded files in 352 bundles**, totaling **93.1 MB compressed**. Phase-state summaries contain **371,319 rows**, including historical and overlapping observations. These counts are not independent successful measurements.
+After the requested removal of superseded results on 23 November, this snapshot
+contains **756,591 recorded files in 352 bundles**, totaling **83.8 MB compressed**.
+Phase-state summaries contain **290,164 rows**, including historical and
+overlapping observations. These counts are not independent successful measurements.
+The original capture contained 808,176 files and 371,319 phase-state rows.
+Pruned records and bundles carry updated hashes and explicit pruning metadata.
 
-Capture interval: **18:52:56–19:04:44 UTC**. The sources are Archie's current `results/` and relocated `historical_data/results/`. The earlier [3 November snapshot](../2026-11-03/README.md) remains available, including its additional archived validation and tuning sources.
+Capture interval: **18:52:56–19:04:44 UTC**. The sources are Archie's current
+`results/` and relocated `historical_data/results/`. The
+[23 November selection](../selections/2026-11-23/README.md) supplies completed
+newer replacements, including the rest of the native-output 2D measurements.
 
 The capture includes the completed Indexicon 2D/3D campaigns, disk adapter reruns, the newer MortonPlus/SPRK higher-dimensional runs, and the latest native-output measurement queue. Incorrect, timed-out, unsupported, interrupted and infrastructure-failed outcomes remain in their original runs.
 

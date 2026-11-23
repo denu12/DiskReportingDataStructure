@@ -1,7 +1,7 @@
 {
   "verified_bundles": 352,
-  "verified_records": 808176,
-  "compressed_bytes": 93058039,
+  "verified_records": 756591,
+  "compressed_bytes": 83802224,
   "capture_started_utc": "2026-11-22T18:52:56.078810+00:00",
   "capture_finished_utc": "2026-11-22T19:04:44.983328+00:00",
   "failures": [],
@@ -59,143 +59,69 @@
     {
       "source": "current",
       "path": "_queue-disk-adapters-2d-20261114/2D_ESA_geographical/jobs.jsonl",
-      "rows": 565,
+      "rows": 0,
       "invalid_lines": 0,
-      "outcomes": {
-        "correctness:success": 5,
-        "screen:success": 140,
-        "final:success": 420
-      },
-      "algorithms": [
-        "cgal_kd",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree"
-      ]
+      "outcomes": {},
+      "algorithms": []
     },
     {
       "source": "current",
       "path": "_queue-disk-adapters-2d-20261114/2D_ESA_graph_embeddings/jobs.jsonl",
-      "rows": 305,
+      "rows": 0,
       "invalid_lines": 0,
-      "outcomes": {
-        "correctness:success": 5,
-        "screen:success": 75,
-        "final:success": 225
-      },
-      "algorithms": [
-        "cgal_kd",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree"
-      ]
+      "outcomes": {},
+      "algorithms": []
     },
     {
       "source": "current",
       "path": "_queue-disk-adapters-2d-20261114/2D_ESA_uniform_points/jobs.jsonl",
-      "rows": 145,
+      "rows": 0,
       "invalid_lines": 0,
-      "outcomes": {
-        "correctness:success": 5,
-        "screen:success": 34,
-        "screen:timeout": 1,
-        "final:success": 105
-      },
-      "algorithms": [
-        "cgal_kd",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree"
-      ]
+      "outcomes": {},
+      "algorithms": []
     },
     {
       "source": "current",
       "path": "_queue-disk-adapters-2d-20261114/GeographyLarge/jobs.jsonl",
-      "rows": 2005,
+      "rows": 0,
       "invalid_lines": 0,
-      "outcomes": {
-        "correctness:success": 5,
-        "screen:success": 500,
-        "final:success": 1500
-      },
-      "algorithms": [
-        "cgal_kd",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree"
-      ]
+      "outcomes": {},
+      "algorithms": []
     },
     {
       "source": "current",
       "path": "_queue-disk-adapters-2d-20261114/input_scaling/jobs.jsonl",
-      "rows": 1205,
+      "rows": 0,
       "invalid_lines": 0,
-      "outcomes": {
-        "correctness:success": 5,
-        "screen:success": 270,
-        "screen:timeout": 30,
-        "final:success": 900
-      },
-      "algorithms": [
-        "cgal_kd",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree"
-      ]
+      "outcomes": {},
+      "algorithms": []
     },
     {
       "source": "current",
       "path": "_queue-disk-adapters-2d-20261114/radius_scaling/jobs.jsonl",
-      "rows": 705,
+      "rows": 0,
       "invalid_lines": 0,
-      "outcomes": {
-        "correctness:success": 5,
-        "screen:success": 160,
-        "screen:timeout": 15,
-        "final:success": 525
-      },
-      "algorithms": [
-        "cgal_kd",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree"
-      ]
+      "outcomes": {},
+      "algorithms": []
     },
     {
       "source": "current",
       "path": "_queue-disk-adapters-2d-20261114/static/jobs.jsonl",
-      "rows": 2005,
+      "rows": 0,
       "invalid_lines": 0,
-      "outcomes": {
-        "correctness:success": 5,
-        "screen:success": 498,
-        "screen:timeout": 2,
-        "final:success": 1500
-      },
-      "algorithms": [
-        "cgal_kd",
-        "lsi_rstar",
-        "lsi_str",
-        "pgm_multidimensional",
-        "phtree"
-      ]
+      "outcomes": {},
+      "algorithms": []
     },
     {
       "source": "current",
       "path": "_queue-disk-adapters-parity-20261115/2D_ESA_geographical/jobs.jsonl",
-      "rows": 2712,
+      "rows": 2147,
       "invalid_lines": 0,
       "outcomes": {
-        "correctness:success": 24,
-        "screen:success": 664,
+        "correctness:success": 19,
+        "screen:success": 524,
         "screen:timeout": 8,
-        "final:success": 1992,
+        "final:success": 1572,
         "final:timeout": 8,
         "final:skipped_after_timeout": 16
       },
@@ -215,11 +141,6 @@
         "pam",
         "pargeo",
         "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z",
         "thst_quad",
         "thst_rtree"
       ]
@@ -227,13 +148,13 @@
     {
       "source": "current",
       "path": "_queue-disk-adapters-parity-20261115/2D_ESA_graph_embeddings/jobs.jsonl",
-      "rows": 1464,
+      "rows": 1159,
       "invalid_lines": 0,
       "outcomes": {
-        "correctness:success": 24,
-        "screen:success": 354,
+        "correctness:success": 19,
+        "screen:success": 279,
         "screen:timeout": 6,
-        "final:success": 1062,
+        "final:success": 837,
         "final:timeout": 6,
         "final:skipped_after_timeout": 12
       },
@@ -253,11 +174,6 @@
         "pam",
         "pargeo",
         "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z",
         "thst_quad",
         "thst_rtree"
       ]
@@ -265,13 +181,13 @@
     {
       "source": "current",
       "path": "_queue-disk-adapters-parity-20261115/2D_ESA_uniform_points/jobs.jsonl",
-      "rows": 696,
+      "rows": 551,
       "invalid_lines": 0,
       "outcomes": {
-        "correctness:success": 24,
-        "screen:success": 162,
+        "correctness:success": 19,
+        "screen:success": 127,
         "screen:timeout": 6,
-        "final:success": 492,
+        "final:success": 387,
         "final:timeout": 4,
         "final:skipped_after_timeout": 8
       },
@@ -291,11 +207,6 @@
         "pam",
         "pargeo",
         "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z",
         "thst_quad",
         "thst_rtree"
       ]
@@ -303,15 +214,15 @@
     {
       "source": "current",
       "path": "_queue-disk-adapters-parity-20261115/GeographyLarge/jobs.jsonl",
-      "rows": 9625,
+      "rows": 7620,
       "invalid_lines": 0,
       "outcomes": {
-        "correctness:success": 23,
+        "correctness:success": 18,
         "correctness:timeout": 1,
         "correctness_retry:success": 1,
-        "screen:success": 2300,
+        "screen:success": 1800,
         "screen:timeout": 100,
-        "final:success": 6900,
+        "final:success": 5400,
         "final:timeout": 100,
         "final:skipped_after_timeout": 200
       },
@@ -331,11 +242,6 @@
         "pam",
         "pargeo",
         "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z",
         "thst_quad",
         "thst_rtree"
       ]
@@ -343,13 +249,13 @@
     {
       "source": "current",
       "path": "_queue-disk-adapters-parity-20261115/input_scaling/jobs.jsonl",
-      "rows": 5784,
+      "rows": 4579,
       "invalid_lines": 0,
       "outcomes": {
-        "correctness:success": 24,
-        "screen:success": 1292,
+        "correctness:success": 19,
+        "screen:success": 992,
         "screen:timeout": 148,
-        "final:success": 4092,
+        "final:success": 3192,
         "final:timeout": 71,
         "final:skipped_after_timeout": 142,
         "final:error": 15
@@ -370,11 +276,6 @@
         "pam",
         "pargeo",
         "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z",
         "thst_quad",
         "thst_rtree"
       ]
@@ -382,15 +283,15 @@
     {
       "source": "current",
       "path": "_queue-disk-adapters-parity-20261115/radius_scaling/jobs.jsonl",
-      "rows": 3385,
+      "rows": 2680,
       "invalid_lines": 0,
       "outcomes": {
-        "correctness:success": 23,
+        "correctness:success": 18,
         "correctness:timeout": 1,
         "correctness_retry:success": 1,
-        "screen:success": 785,
-        "screen:timeout": 55,
-        "final:success": 2415,
+        "screen:timeout": 50,
+        "screen:success": 615,
+        "final:success": 1890,
         "final:timeout": 35,
         "final:skipped_after_timeout": 70
       },
@@ -410,11 +311,6 @@
         "pam",
         "pargeo",
         "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z",
         "thst_quad",
         "thst_rtree"
       ]
@@ -422,15 +318,15 @@
     {
       "source": "current",
       "path": "_queue-disk-adapters-parity-20261115/static/jobs.jsonl",
-      "rows": 9625,
+      "rows": 7620,
       "invalid_lines": 0,
       "outcomes": {
-        "correctness:success": 23,
+        "correctness:success": 18,
         "correctness:timeout": 1,
         "correctness_retry:success": 1,
-        "screen:success": 2300,
+        "screen:success": 1800,
         "screen:timeout": 100,
-        "final:success": 6900,
+        "final:success": 5400,
         "final:timeout": 100,
         "final:skipped_after_timeout": 200
       },
@@ -450,11 +346,6 @@
         "pam",
         "pargeo",
         "pgm_multidimensional",
-        "phtree",
-        "psi_kd",
-        "psi_orth",
-        "psi_spac_h",
-        "psi_spac_z",
         "thst_quad",
         "thst_rtree"
       ]
