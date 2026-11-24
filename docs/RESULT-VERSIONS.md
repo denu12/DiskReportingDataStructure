@@ -49,6 +49,22 @@ cases are re-enabled. Existing algorithms and adapters remain unchanged. The
 IDs-only diagnostic remains excluded from exact-contract rankings. The same
 single-core, timeout, correctness-flag and case-error policies below apply.
 
+On 24 November the user additionally requested all missing final repetitions
+previously suppressed by a timeout. The
+[timeout-repeat follow-up](../config/timeout-repeat-followup-20261124.json) waits
+for the 260-case queue and refreshes its case inventory afterward, considering
+both disk and square. Its initial inventory was 2,523 final repetitions across
+953 disk cases; square had no unattempted repetitions caused by timeout.
+Already attempted repetitions, including recorded timeouts, are not rerun.
+
+This follow-up explicitly overrides timeout suppression: each queued final
+repetition runs independently with a 180-second limit, even if an earlier
+repetition times out. Slots suppressed after a screening timeout are included.
+No algorithm changes are made. Original source-run labels and backend hashes
+remain attached; unlike adapter versions must not be pooled as repetitions.
+The initial inventory has a worst-case duration of 126.2 hours if every attempt
+reaches its limit; the final count is determined after the prerequisite ends.
+
 Execution is single core, one worker, CPU 1. Correctness failures are flagged
 and still timed. Screening has a 60-second limit; finals have a 180-second
 limit. A screening timeout skips all finals; the first final timeout skips

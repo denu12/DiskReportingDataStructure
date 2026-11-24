@@ -1,0 +1,18 @@
+{
+  "created_unix": 1795502724.3870962,
+  "status": "queued",
+  "cpu": 1,
+  "workers": 1,
+  "after_service": "drr-disk-remaining-260-20261123.service",
+  "scope": "Both repos, selected supported versions only; only final slots unattempted because of a timeout",
+  "final_timeout_seconds": 180,
+  "timeout_suppression": false,
+  "skip_after_timeout": false,
+  "repeat_policy": "Every queued final repetition is independent, including after a timeout or error",
+  "modify_algorithms": false,
+  "preview_repetitions": 2523,
+  "preview_cases": 953,
+  "preview_is_provisional": true,
+  "final_plan_built_after_prerequisite_finishes": true,
+  "max_preview_runtime_seconds": 454140
+}
