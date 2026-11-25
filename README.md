@@ -32,6 +32,9 @@ explicit 2D selection and newer-version-only higher-dimensional repair.
 Historical coverage does not establish coverage of a changed adapter. Build
 native Rust dispatch with `python3 tools/build_native_rust.py`; current routing
 uses an isolated versioned target rather than a historical queue build.
+Superseded adapter sources were removed on 25 November. The current native
+Rust source is [here](src/runner/native-rust/README.md); PH/PSI use the retained
+`ph-psi` profile. See the [source cleanup record](config/source-cleanup-20261125.json).
 The [frozen source collection](reproducibility/2026-11-22/README.md) preserves later
 disk adapters and controllers with hashes and dependency references. Use the
 recorded version for each historical run; the current harness has newer failure

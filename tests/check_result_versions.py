@@ -4,12 +4,15 @@ import json
 from pathlib import Path
 import tempfile
 import sys
+import tomllib
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 import prune_superseded_results as prune
 import versioned_results as versioned
 import build_native_rust as native
+from backends import command
+from original_runner import RUST
 
 
 with tempfile.TemporaryDirectory() as directory:
@@ -43,11 +46,19 @@ with tempfile.TemporaryDirectory() as directory:
     log.write_text(json.dumps(dict(rows[0],phase='screen',status='error')))
     assert not prune.replacements(None,[queue])
 
-    source=ROOT/'reproducibility/2026-11-22/original-native/src/runner/original-rust/main.rs'
+    source=ROOT/'src/runner/native-rust/main.rs'
     identity=native.prepare(source,root/'driver',ROOT)
     assert identity['dimensions']==tuple(range(2,17))+(32,)
     assert identity['algorithm_changes'] is False
+    assert identity['generic_run_sha256']=='a619b7794bfd4708fac13f0ee9846b1df23c873d1e0ecf0033a90856ce3a228d'
     before=source.read_text();after=(root/'driver/main.rs').read_text()
     assert before[before.index('fn run<'):before.index('fn main()')]==after[after.index('fn run<'):after.index('fn main()')]
 
-print('Passed replacement safety, timeout/error policy, and unchanged native search checks')
+for algorithm in RUST:
+    route=command(algorithm)
+    assert route[1]==str(ROOT/'tools/original_runner.py'),(algorithm,route)
+manifest=ROOT/'src/runner/dimensional/rust/Cargo.toml'
+targets=tomllib.loads(manifest.read_text())['bin']
+assert {x['name'] for x in targets}=={'ddim-sprk-ids-check','sprk-adapted-3d-check'}
+for target in targets:assert (manifest.parent/target['path']).is_file(),target
+print('Passed replacement safety, timeout/error policy, unchanged native search, routing and retained-target checks')

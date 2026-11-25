@@ -1,7 +1,7 @@
 # Frozen Archie source collection
 
 This collection preserves source used by the later disk experiments. It contains
-the 2D disk adapters, parity adapters, PH/PSI 2D/3D follow-up, Indexicon workspace
+the selected parity adapters, PH/PSI 2D/3D follow-up, Indexicon workspace
 drivers, native-output modules and the November 20/22 queue controllers.
 It excludes input datasets, executables, build caches and measurements.
 
@@ -38,8 +38,16 @@ in the build directory. ParGeo uses the square project's build-only Parlay API
 compatibility qualification, leaving the captured dependency tree untouched.
 
 The PH/PSI source also builds `indexicon_kd_3d`, `pgm_3d`, `lsi_3d` and
-`cgal_kd_3d`. The earlier `2d` profile remains available for the November 14
-implementations. Required development packages and headers must be installed;
+`cgal_kd_3d`. The superseded November 14 `2d` profile and pre-fix controller
+backups were deleted at the user's request on 25 November. The current native
+Rust dispatcher lives in [the canonical source directory](../../src/runner/native-rust/README.md);
+its captured predecessor and duplicate old driver were removed. Upstream native
+modules remain here because the current dispatcher needs them.
+The parity profile's superseded PH/PSI branches and patched-library copy were
+also removed. Build those entries with the current `ph-psi` profile instead.
+The retained parity PGM and libspatialindex implementation bodies are unchanged;
+their hashes are recorded in `config/source-cleanup-20261125.json` at the root.
+Required development packages and headers must be installed;
 the helper does not download dependencies or silently replace missing libraries.
 
 ## Captured controllers and old layouts

@@ -21,7 +21,6 @@ CAMPAIGNS = (
 )
 ALGORITHMS = {
     "pgm_multidimensional": "pgm_multidimensional",
-    "phtree": "phtree",
     "lsi_str": "spatialindex",
     "lsi_rstar": "spatialindex",
     "cgal_kd": "cgal_kd",
@@ -30,10 +29,6 @@ ALGORITHMS = {
     "lsi_quadratic": "spatialindex",
     "pam": "pam",
     "pargeo": "pargeo",
-    "psi_kd": "psi",
-    "psi_orth": "psi",
-    "psi_spac_h": "psi",
-    "psi_spac_z": "psi",
     "thst_quad": "thst",
     "thst_rtree": "thst",
     "indexicon_kdtree_adaptive": "indexicon_kdtree",

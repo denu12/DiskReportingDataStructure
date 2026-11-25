@@ -30,47 +30,7 @@ template<class Points> bool verify_points(const Data& d,std::size_t q,const Poin
 }
 const char* membership_contract="original_box_api_with_integer_ball_filter";
 
-#if defined(ADDITIONAL_PHTREE)
-#include "phtree/phtree_multimap.h"
-const char* output_contract="point_ids_only";
-const char* output_representation="native_phtree_values";
-struct PhDiskFilter : improbable::phtree::FilterNoOp {
-    Disk2D disk;
-    explicit PhDiskFilter(Disk2D query) : disk(query) {}
-    template<class Key, class Bucket>
-    bool IsEntryValid(const Key& key, const Bucket&) const {
-        return disk.contains(key[0],key[1]);
-    }
-    template<class Key>
-    bool IsNodeValid(const Key& prefix, int ignored_bits) const {
-        if (ignored_bits >= 32) return true;
-        const auto mask = (std::uint64_t(1) << ignored_bits) - 1;
-        return disk.intersects({std::uint32_t(prefix[0] & ~mask),std::uint32_t(prefix[1] & ~mask)},
-                               {std::uint32_t(prefix[0] | mask),std::uint32_t(prefix[1] | mask)});
-    }
-};
-template<unsigned D> Query make_index(Data& d,const std::string&) {
-    using Tree=improbable::phtree::PhTreeMultiMap<D,std::size_t>;
-    using P=improbable::phtree::PhPoint<D>;
-    auto tree=std::make_shared<Tree>();
-    for(std::size_t i=0;i<d.points.size();++i) { P p;std::copy(d.points[i].begin(),d.points[i].end(),p.begin());tree->emplace(p,i); }
-    auto hits=std::make_shared<std::vector<std::size_t>>();
-    return {[&,tree,hits](std::size_t q) {
-        if constexpr(D==2) {
-            const Disk2D disk(d.centers[q], d.radii[q]);
-            auto [lo,hi]=disk.bounds();
-            hits->clear();
-            tree->for_each({{lo[0],lo[1]},{hi[0],hi[1]}},
-                [&](const auto&, std::size_t id){hits->push_back(id);}, PhDiskFilter(disk));
-            return;
-        }
-        hits->clear();auto [lower,upper]=query_box(d,q);P lo,hi;
-        std::copy(lower.begin(),lower.end(),lo.begin());std::copy(upper.begin(),upper.end(),hi.begin());
-        for(auto it=tree->begin_query({lo,hi});it!=tree->end();++it)
-            if(d.contains(*it,q))hits->push_back(*it);
-    },[hits]{return hits->size();},[&,hits](std::size_t q){return verify_ids(d,q,*hits);}};
-}
-#elif defined(ADDITIONAL_PGM)
+#if defined(ADDITIONAL_PGM)
 #include "pgm/pgm_index_variants.hpp"
 const char* output_contract="point_ids_only";
 const char* output_representation="pgm_iterator_original_ids";
@@ -105,75 +65,6 @@ template<unsigned D> Query make_index(Data& d,const std::string&) {
             if(disk.contains(entry.point[0],entry.point[1]))hits->push_back(entry.id);
         }
     },[hits]{return hits->size();},[&,hits](std::size_t q){return verify_ids(d,q,*hits);}};
-}
-#elif defined(ADDITIONAL_PSI)
-template<class Traits, class P, class Shape>
-bool psi_disk_point(const P& p, const Shape& query) {
-    if constexpr(std::is_same_v<Shape,Disk2D>) return query.contains(p[0],p[1]);
-    else return Traits::within_box(p,query);
-}
-template<class P> CoordinatePair psi_limit(const P& p) {
-    return {std::uint32_t(std::clamp<std::int64_t>(p[0],0,UINT32_MAX)),
-            std::uint32_t(std::clamp<std::int64_t>(p[1],0,UINT32_MAX))};
-}
-template<class Traits, class Box, class Shape>
-bool psi_disk_intersects(const Box& box, const Shape& query) {
-    if constexpr(std::is_same_v<Shape,Disk2D>) return query.intersects(psi_limit(box.first),psi_limit(box.second));
-    else return Traits::box_intersect_box(box,query);
-}
-template<class Traits, class Box, class Shape>
-bool psi_disk_covers(const Box& box, const Shape& query) {
-    if constexpr(std::is_same_v<Shape,Disk2D>) return query.covers(psi_limit(box.first),psi_limit(box.second));
-    else return Traits::within_box(box,query);
-}
-template<class Traits, class Shape>
-bool psi_disk_empty(const Shape& query) {
-    if constexpr(std::is_same_v<Shape,Disk2D>) return false;
-    else return Traits::box_is_empty(query);
-}
-#include "psi/kd_tree.h"
-#include "psi/orth_tree.h"
-#include "psi/p_tree.h"
-#include "psi/dependence/splitter.h"
-const char* output_contract="integer_points";
-const char* output_representation="native_psi_augmented_points";
-struct PsiId {
-    using id_type=std::size_t;using curve_code_type=std::uint64_t;
-    curve_code_type code=0;id_type id=0;
-    void set_member(curve_code_type value){code=value;}
-    bool operator<(const PsiId& b)const{return code==b.code?id<b.id:code<b.code;}
-    bool operator==(const PsiId& b)const{return id==b.id;}
-    friend std::ostream& operator<<(std::ostream& out,const PsiId& p){return out<<p.id;}
-};
-template<unsigned D,class Tree> Query psi_index(Data& d) {
-    using P=psi::aug_point<std::int64_t,D,PsiId>;
-    auto points=std::make_shared<parlay::sequence<P>>(d.points.size());
-    for(std::size_t i=0;i<d.points.size();++i) {for(unsigned a=0;a<D;++a)(*points)[i][a]=d.points[i][a];(*points)[i].aug.id=i;}
-    auto tree=std::make_shared<Tree>();tree->build(parlay::make_slice(*points));
-    auto candidates=std::make_shared<parlay::sequence<P>>(d.points.size());
-    auto hits=std::make_shared<std::size_t>();
-    return {[&,tree,points,candidates,hits](std::size_t q) {
-        *hits=0;
-        if(points->empty())return;
-        const Disk2D disk(d.centers[q],d.radii[q]);
-        auto [count,logger]=tree->range_query(disk,parlay::make_slice(*candidates));
-        *hits=count;
-        asm volatile("" : : "r"(candidates->data()), "r"(*hits) : "memory");
-    },[hits]{return *hits;},[&,hits,candidates](std::size_t q){
-        return verify_points(d,q,parlay::make_slice(candidates->begin(),candidates->begin()+*hits));
-    }};
-}
-template<unsigned D> Query make_index(Data& d,const std::string& algorithm) {
-    using P=psi::aug_point<std::int64_t,D,PsiId>;using B=psi::point_traits<P>;
-    using K=psi::orthogonal_split_rule<psi::max_stretch_dim<P>,psi::object_median<P>>;
-    using O=psi::orthogonal_split_rule<psi::rotate_dim<P>,psi::spatial_median<P>>;
-    using Z=psi::spatial_filling_curve<psi::morton_curve<P>>;
-    using H=psi::spatial_filling_curve<psi::hilbert_curve<P>>;
-    if(algorithm=="psi_kd")return psi_index<D,psi::kd_tree<psi::tree_traits<P,K>>>(d);
-    if constexpr(D<=8) if(algorithm=="psi_orth")return psi_index<D,psi::orth_tree<psi::orth_tree_traits<P,O,psi::box_leaf_aug<B>,psi::box_interior_aug<B>>>>(d);
-    if constexpr(D<=3) if(algorithm=="psi_spac_z")return psi_index<D,psi::p_tree<psi::tree_traits<P,Z>>>(d);
-    if constexpr(D<=3) if(algorithm=="psi_spac_h")return psi_index<D,psi::p_tree<psi::tree_traits<P,H>>>(d);
-    throw std::runtime_error("Unknown PSI algorithm");
 }
 #elif defined(ADDITIONAL_SPATIALINDEX)
 #include <spatialindex/SpatialIndex.h>
@@ -229,27 +120,9 @@ Query create(Data& d,const std::string& algorithm) {
     },[visitor]{return visitor->hits.size();},[&,visitor](std::size_t q){return verify_ids(d,q,visitor->hits);}};
 }
 #endif
-#if !defined(ADDITIONAL_SPATIALINDEX)
+#if defined(ADDITIONAL_PGM)
 Query create(Data& d,const std::string& algorithm) {
     if(d.d==2)return make_index<2>(d,algorithm);
-#if defined(ADDITIONAL_PHTREE)
-    if(d.d==3)return make_index<3>(d,algorithm);
-#if defined(ADDITIONAL_PHTREE) || defined(ADDITIONAL_PSI) || defined(ADDITIONAL_PGM)
-    switch(d.d) {
-#define DIMENSION(N) case N: return make_index<N>(d,algorithm);
-    DIMENSION(4) DIMENSION(5) DIMENSION(6) DIMENSION(7) DIMENSION(8)
-    DIMENSION(9) DIMENSION(10) DIMENSION(11) DIMENSION(12) DIMENSION(13)
-    DIMENSION(14) DIMENSION(15) DIMENSION(16) DIMENSION(32)
-#if !defined(ADDITIONAL_PGM)
-    DIMENSION(34)
-#endif
-#if defined(ADDITIONAL_PSI)
-    DIMENSION(96) DIMENSION(100) DIMENSION(128)
-#endif
-#undef DIMENSION
-    }
-#endif
-#endif
     throw std::runtime_error("Unsupported dimension for additional backend");
 }
 #endif

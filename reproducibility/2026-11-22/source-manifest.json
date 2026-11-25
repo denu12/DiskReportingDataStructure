@@ -18,52 +18,20 @@
       "original_bytes": 1119
     },
     {
-      "path": "_queue-disk-adapters-2d-20261114/additional_indexes.h",
-      "original_sha256": "985a1737eaf9ade12bac35a2ac0170c01cadb64e31e21e2361a71e5463ce72c6",
-      "published_sha256": "985a1737eaf9ade12bac35a2ac0170c01cadb64e31e21e2361a71e5463ce72c6",
-      "original_bytes": 11090
-    },
-    {
-      "path": "_queue-disk-adapters-2d-20261114/build.sh",
-      "original_sha256": "6e5acb62a84238a1df4b7835ad6fa026e4f9e5a91e55021c2c9989fdfe8ac9c7",
-      "published_sha256": "6e5acb62a84238a1df4b7835ad6fa026e4f9e5a91e55021c2c9989fdfe8ac9c7",
-      "original_bytes": 1011
-    },
-    {
-      "path": "_queue-disk-adapters-2d-20261114/cgal_disk_2d.h",
-      "original_sha256": "86f7a0b64d934ea539de098033f5469cf3080e72fed0b0e4af641c7107ae9ab7",
-      "published_sha256": "86f7a0b64d934ea539de098033f5469cf3080e72fed0b0e4af641c7107ae9ab7",
-      "original_bytes": 2925
-    },
-    {
-      "path": "_queue-disk-adapters-2d-20261114/disk_geometry_2d.h",
-      "original_sha256": "8bf1baed5d03b1a87573302f412d12e721efcfec0a5e18fc89519c55a0f0daa2",
-      "published_sha256": "8bf1baed5d03b1a87573302f412d12e721efcfec0a5e18fc89519c55a0f0daa2",
-      "original_bytes": 1745
-    },
-    {
-      "path": "_queue-disk-adapters-2d-20261114/foreign_check.cpp",
-      "original_sha256": "dec371d0ad09e258616c8f2ecc9dd8ee059c30b7fdc001368449a51be264ede9",
-      "published_sha256": "dec371d0ad09e258616c8f2ecc9dd8ee059c30b7fdc001368449a51be264ede9",
-      "original_bytes": 15324
-    },
-    {
-      "path": "_queue-disk-adapters-2d-20261114/run.py",
-      "original_sha256": "4ac11f56716873a87adb17412df3f554e8d792c6134a15f99be8b84747dd27f9",
-      "published_sha256": "4ac11f56716873a87adb17412df3f554e8d792c6134a15f99be8b84747dd27f9",
-      "original_bytes": 9454
-    },
-    {
       "path": "_queue-disk-adapters-parity-20261115/additional_indexes.h",
       "original_sha256": "8c418e3d58a3820675d241602c1e2c3ac0d4fad5ee066fff69cc4f97c8daca28",
-      "published_sha256": "8c418e3d58a3820675d241602c1e2c3ac0d4fad5ee066fff69cc4f97c8daca28",
-      "original_bytes": 12900
+      "published_sha256": "8093f83f361d3cfc6ce956650151e398dea91e92f49b385e834f66935a13eba4",
+      "original_bytes": 12900,
+      "published_bytes": 6386,
+      "cleanup_note": "Superseded PH/PSI branches and targets removed; retained PGM/spatialindex implementation bodies unchanged"
     },
     {
       "path": "_queue-disk-adapters-parity-20261115/build.sh",
       "original_sha256": "4ccb71681c2e462a3bf52006f73385bd6e51e9d48f46542a5e6a0c2cd9263b21",
-      "published_sha256": "4ccb71681c2e462a3bf52006f73385bd6e51e9d48f46542a5e6a0c2cd9263b21",
-      "original_bytes": 2331
+      "published_sha256": "9237542bea977d81ebce01026eb653762c4c4618e64343b0a63e2f1c7001bff9",
+      "original_bytes": 2331,
+      "published_bytes": 1926,
+      "cleanup_note": "Superseded PH/PSI branches and targets removed; retained PGM/spatialindex implementation bodies unchanged"
     },
     {
       "path": "_queue-disk-adapters-parity-20261115/cgal_disk_2d.h",
@@ -126,430 +94,12 @@
       "original_bytes": 3131
     },
     {
-      "path": "_queue-disk-adapters-parity-20261115/prepare_psi.py",
-      "original_sha256": "fd504a5414b9e851b1328eaaf79dd1b7c5628ed8ea02b4c777687ebfd4c2994e",
-      "published_sha256": "fd504a5414b9e851b1328eaaf79dd1b7c5628ed8ea02b4c777687ebfd4c2994e",
-      "original_bytes": 3576
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree.h",
-      "original_sha256": "744872086c61c120f3119c41adfe9667b481900e5e3cb167bd7224a4894b7b1d",
-      "published_sha256": "744872086c61c120f3119c41adfe9667b481900e5e3cb167bd7224a4894b7b1d",
-      "original_bytes": 17940
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/box_cut.hpp",
-      "original_sha256": "bffb7fbf8075a2ca2609391c3323b378db19dd93697fc76db7f5eb4fa8cb0920",
-      "published_sha256": "bffb7fbf8075a2ca2609391c3323b378db19dd93697fc76db7f5eb4fa8cb0920",
-      "original_bytes": 1206
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/delete_tree.hpp",
-      "original_sha256": "25ff87b883363c0c0b0343390d9dc2c5c2807b368c46437e86e5ad0d9ea68b16",
-      "published_sha256": "25ff87b883363c0c0b0343390d9dc2c5c2807b368c46437e86e5ad0d9ea68b16",
-      "original_bytes": 2479
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/dimensionality.hpp",
-      "original_sha256": "3b8b80a6b44e8bd47c9ad72270b4b5d776204998b56dab781842a558c04e7d30",
-      "published_sha256": "3b8b80a6b44e8bd47c9ad72270b4b5d776204998b56dab781842a558c04e7d30",
-      "original_bytes": 1348
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/inner_tree.hpp",
-      "original_sha256": "8309b2595580e3244b10cde6215321bb191113ca35c4e002cb358b0cf2d416d4",
-      "published_sha256": "8309b2595580e3244b10cde6215321bb191113ca35c4e002cb358b0cf2d416d4",
-      "original_bytes": 19370
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/knn_query.hpp",
-      "original_sha256": "b99afa8eace61515d7c6cab9b070c90aca639ca95c0f7f429997f9ac520c5849",
-      "published_sha256": "b99afa8eace61515d7c6cab9b070c90aca639ca95c0f7f429997f9ac520c5849",
-      "original_bytes": 16223
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/points_op.hpp",
-      "original_sha256": "63d7d4b4439e1fe43c72ca945f828009c8a3fe0e871d04367c9c33eda018705d",
-      "published_sha256": "63d7d4b4439e1fe43c72ca945f828009c8a3fe0e871d04367c9c33eda018705d",
-      "original_bytes": 5646
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/range_query.hpp",
-      "original_sha256": "215d71dc5cd8938d91d21b420581344a00bf4bc3af9269259f68284264596963",
-      "published_sha256": "215d71dc5cd8938d91d21b420581344a00bf4bc3af9269259f68284264596963",
-      "original_bytes": 9846
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/build_inner_tree.hpp",
-      "original_sha256": "00de4dd68972e5d10ba384157d8d137611a39e3b3f385400be51543e0eca0592",
-      "published_sha256": "00de4dd68972e5d10ba384157d8d137611a39e3b3f385400be51543e0eca0592",
-      "original_bytes": 2030
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/flatten.hpp",
-      "original_sha256": "b773b9faf2859620315817cf9e50fba58461c49488c016c486491c66d38aef3e",
-      "published_sha256": "b773b9faf2859620315817cf9e50fba58461c49488c016c486491c66d38aef3e",
-      "original_bytes": 4160
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/leaf_op.hpp",
-      "original_sha256": "5ef85e8e3c96c069bb79354373cc25f60bda23e5da263e118bc7b946ecf15a13",
-      "published_sha256": "5ef85e8e3c96c069bb79354373cc25f60bda23e5da263e118bc7b946ecf15a13",
-      "original_bytes": 4963
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/node_op.hpp",
-      "original_sha256": "2774cd47ac73bc7e237ea9983dd2751af7bd3d12dd0f72090782171be184710e",
-      "published_sha256": "2774cd47ac73bc7e237ea9983dd2751af7bd3d12dd0f72090782171be184710e",
-      "original_bytes": 2110
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/rebuild.hpp",
-      "original_sha256": "a2813fe12662a18adb45b1a568ba86ddb2fe78112cdbb1fecb2efd0797741668",
-      "published_sha256": "a2813fe12662a18adb45b1a568ba86ddb2fe78112cdbb1fecb2efd0797741668",
-      "original_bytes": 6332
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/validation.hpp",
-      "original_sha256": "9d19b731bc30cfdf0240eaf1678386ca4c8422e74650f6d32b7bf8498660d58c",
-      "published_sha256": "9d19b731bc30cfdf0240eaf1678386ca4c8422e74650f6d32b7bf8498660d58c",
-      "original_bytes": 11530
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/augmentation.h",
-      "original_sha256": "53dbacf86629d4a31832382dab0a93eb47c2ad6d1ee414b4354371df0a90a974",
-      "published_sha256": "53dbacf86629d4a31832382dab0a93eb47c2ad6d1ee414b4354371df0a90a974",
-      "original_bytes": 3426
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/basic_point.h",
-      "original_sha256": "312150d4a3346d698f37c1ed072a387136fbd53d2e5580f02a6d6d780d2f9587",
-      "published_sha256": "312150d4a3346d698f37c1ed072a387136fbd53d2e5580f02a6d6d780d2f9587",
-      "original_bytes": 6133
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/comparator.h",
-      "original_sha256": "4ed6fcfca23046f618c7315eb6184cf573f8f529b6d9c12b612d3c6b852a94f0",
-      "published_sha256": "4ed6fcfca23046f618c7315eb6184cf573f8f529b6d9c12b612d3c6b852a94f0",
-      "original_bytes": 1730
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/concepts.h",
-      "original_sha256": "08696797d0c96ffa1d73f63d771d45b9710f14ede7fa05c2442020d0c68be5c5",
-      "published_sha256": "08696797d0c96ffa1d73f63d771d45b9710f14ede7fa05c2442020d0c68be5c5",
-      "original_bytes": 5235
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/augmented_map.h",
-      "original_sha256": "d8b3441a1b7b37664d1d4d1e61d73c75f35d59ca67d21602e81374306357f5cf",
-      "published_sha256": "d8b3441a1b7b37664d1d4d1e61d73c75f35d59ca67d21602e81374306357f5cf",
-      "original_bytes": 13949
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/augmented_node.h",
-      "original_sha256": "be09b92bdf84a48ce4e24fad6d6aed478e321e8358dd78c9efb8973f7097b2ac",
-      "published_sha256": "be09b92bdf84a48ce4e24fad6d6aed478e321e8358dd78c9efb8973f7097b2ac",
-      "original_bytes": 11070
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/augmented_ops.h",
-      "original_sha256": "4f991cf0ee05c3cc7b02c161edb168742f6cce3317f3a70483588ccbac96ae16",
-      "published_sha256": "4f991cf0ee05c3cc7b02c161edb168742f6cce3317f3a70483588ccbac96ae16",
-      "original_bytes": 18137
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/balance_utils.h",
-      "original_sha256": "fcbb9fa9ba481cd5d069ad27a4846024054d322d713ba61eeb412e8f51bc1f62",
-      "published_sha256": "fcbb9fa9ba481cd5d069ad27a4846024054d322d713ba61eeb412e8f51bc1f62",
-      "original_bytes": 11071
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/basic_node.h",
-      "original_sha256": "dc3b5403b9c6f830ab1577eabc6b8cfdae68ecb4e6698e9eb8e28806c5f96a42",
-      "published_sha256": "dc3b5403b9c6f830ab1577eabc6b8cfdae68ecb4e6698e9eb8e28806c5f96a42",
-      "original_bytes": 11903
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/basic_node_helpers.h",
-      "original_sha256": "d89803960ad18629adc92b0b8d9fe9a29cb7807673206d4f56d3202e415f5eec",
-      "published_sha256": "d89803960ad18629adc92b0b8d9fe9a29cb7807673206d4f56d3202e415f5eec",
-      "original_bytes": 6195
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/build.h",
-      "original_sha256": "288838ba3b77d02b26c416c7354c1ba8ed34a1ae3911d0d1d9da5122d257f6fa",
-      "published_sha256": "288838ba3b77d02b26c416c7354c1ba8ed34a1ae3911d0d1d9da5122d257f6fa",
-      "original_bytes": 6218
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/byte_encode.h",
-      "original_sha256": "b98899de89b3b3b207499fb257011f171a252bff703ae5214d3344c94583f2bb",
-      "published_sha256": "b98899de89b3b3b207499fb257011f171a252bff703ae5214d3344c94583f2bb",
-      "original_bytes": 983
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/compression.h",
-      "original_sha256": "ab69e4e93622586cb885b892d01cc1852c79dce4908c1fd1b08a32d87f9a6614",
-      "published_sha256": "ab69e4e93622586cb885b892d01cc1852c79dce4908c1fd1b08a32d87f9a6614",
-      "original_bytes": 10562
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/cpam.h",
-      "original_sha256": "d0dd3e323d5a64a86be4b301d889b9e792624843477863baa1b4ee0aa7e3bb09",
-      "published_sha256": "d0dd3e323d5a64a86be4b301d889b9e792624843477863baa1b4ee0aa7e3bb09",
-      "original_bytes": 371
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/cpam_sample_sort.h",
-      "original_sha256": "2dc772fca5b4789946613f099ab277690089150f271405135dc1893d70c4b2aa",
-      "published_sha256": "2dc772fca5b4789946613f099ab277690089150f271405135dc1893d70c4b2aa",
-      "original_bytes": 9053
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/gc.h",
-      "original_sha256": "b4dfb7a73f72ad4fe0888305fc6327045bcc1b6515c1278e0234f4ff50f3d503",
-      "published_sha256": "b4dfb7a73f72ad4fe0888305fc6327045bcc1b6515c1278e0234f4ff50f3d503",
-      "original_bytes": 5998
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/get_time.h",
-      "original_sha256": "af4af40bc66b5dc91da46556dd817634e9f0101d53fed2187a75b3e74803c3eb",
-      "published_sha256": "af4af40bc66b5dc91da46556dd817634e9f0101d53fed2187a75b3e74803c3eb",
-      "original_bytes": 1693
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/map.h",
-      "original_sha256": "fcdd89705f64cfd2af147dd1f87f59ba69f1d370d3d6ffca87aae611b0ff4a04",
-      "published_sha256": "fcdd89705f64cfd2af147dd1f87f59ba69f1d370d3d6ffca87aae611b0ff4a04",
-      "original_bytes": 31451
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/map_ops.h",
-      "original_sha256": "99075fd61d0a8eaf13903abfd50bae01d89fef51bb6996ccf1fdfab9d28f143e",
-      "published_sha256": "99075fd61d0a8eaf13903abfd50bae01d89fef51bb6996ccf1fdfab9d28f143e",
-      "original_bytes": 66500
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/parse_command_line.h",
-      "original_sha256": "9ba16d17defd404cd48ffe3a945c4fb2ee59ff3707317ee5686f72ae906f557d",
-      "published_sha256": "9ba16d17defd404cd48ffe3a945c4fb2ee59ff3707317ee5686f72ae906f557d",
-      "original_bytes": 3835
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/sequence_ops.h",
-      "original_sha256": "32f08befd3211aa9f2b9e64a5692b956f36f6582acedbf170d5bc5b63aeca312",
-      "published_sha256": "32f08befd3211aa9f2b9e64a5692b956f36f6582acedbf170d5bc5b63aeca312",
-      "original_bytes": 25479
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/utils.h",
-      "original_sha256": "bcf1a3d2037bf48f13ec536c9ceb173035b524c3c95e52b4c4237ed725acdfe1",
-      "published_sha256": "bcf1a3d2037bf48f13ec536c9ceb173035b524c3c95e52b4c4237ed725acdfe1",
-      "original_bytes": 4683
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/weight_balanced_tree.h",
-      "original_sha256": "1a72a2546d59de2ae130b63ef80f6b0c7dfbedfe176dbf61d4491c9d77269894",
-      "published_sha256": "1a72a2546d59de2ae130b63ef80f6b0c7dfbedfe176dbf61d4491c9d77269894",
-      "original_bytes": 4530
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/loggers.h",
-      "original_sha256": "066d738ef430e8babeb615038696b3f308dc772e1b6a48d7925b68a3be881691",
-      "published_sha256": "066d738ef430e8babeb615038696b3f308dc772e1b6a48d7925b68a3be881691",
-      "original_bytes": 526
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/search_container.h",
-      "original_sha256": "98e8488e2ef763e221b0a6bca534f4ce0a90b9292a4e13dc820253bb8d3e4776",
-      "published_sha256": "98e8488e2ef763e221b0a6bca534f4ce0a90b9292a4e13dc820253bb8d3e4776",
-      "original_bytes": 2996
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/space_filling_curve/hilbert.h",
-      "original_sha256": "71e4d1132997f9c78d594761565fc13ae6cda267ca2522562f0af2576e7045f2",
-      "published_sha256": "71e4d1132997f9c78d594761565fc13ae6cda267ca2522562f0af2576e7045f2",
-      "original_bytes": 6102
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/space_filling_curve/hilbert.hpp",
-      "original_sha256": "ba6a97aac50ba70a5bda3c9b2e7cb45e2230e3d9bb3b910809c23680a9e21bbf",
-      "published_sha256": "ba6a97aac50ba70a5bda3c9b2e7cb45e2230e3d9bb3b910809c23680a9e21bbf",
-      "original_bytes": 46637
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/space_filling_curve/hilbert_high_dim.h",
-      "original_sha256": "2c9f210f7c5424460e77ee3d96727dc29b86daeaa1605cb4fa92af101266d9c8",
-      "published_sha256": "2c9f210f7c5424460e77ee3d96727dc29b86daeaa1605cb4fa92af101266d9c8",
-      "original_bytes": 7827
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/splitter.h",
-      "original_sha256": "a42903fc2ec6198aa9d2406d9ab6d0f4605520af70ad30949ac40e957cbeac33",
-      "published_sha256": "a42903fc2ec6198aa9d2406d9ab6d0f4605520af70ad30949ac40e957cbeac33",
-      "original_bytes": 20737
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/tree_node.h",
-      "original_sha256": "0d6038229cb7f807ce56d8a81b2ba0d324fb9a2054b2a3aed332af34c4e3832d",
-      "published_sha256": "0d6038229cb7f807ce56d8a81b2ba0d324fb9a2054b2a3aed332af34c4e3832d",
-      "original_bytes": 10171
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree.h",
-      "original_sha256": "9809404d89695a7e8a1e81bfb5cbb9b86d4370ac2b4cea69a648797467ea5d97",
-      "published_sha256": "9809404d89695a7e8a1e81bfb5cbb9b86d4370ac2b4cea69a648797467ea5d97",
-      "original_bytes": 5791
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_batch_delete.hpp",
-      "original_sha256": "1cd9fa3ac537bc90240c4b8f998bba489e49066bb705699a4ac8f977db86513f",
-      "published_sha256": "1cd9fa3ac537bc90240c4b8f998bba489e49066bb705699a4ac8f977db86513f",
-      "original_bytes": 8971
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_batch_diff.hpp",
-      "original_sha256": "b5632a60a13bf64bb02ccf6a5481434a42158d093e25061c445b25d5be79b11e",
-      "published_sha256": "b5632a60a13bf64bb02ccf6a5481434a42158d093e25061c445b25d5be79b11e",
-      "original_bytes": 5353
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_batch_insert.hpp",
-      "original_sha256": "9cf8fc72d3f5c09e29c95858341b46d7e20079abf291104fbe0dbc315f8550c3",
-      "published_sha256": "9cf8fc72d3f5c09e29c95858341b46d7e20079abf291104fbe0dbc315f8550c3",
-      "original_bytes": 5269
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_build_tree.hpp",
-      "original_sha256": "81a224e3a42f89a052a01497f04e5354f7bcc606dbd90e643a73e5b6f52de949",
-      "published_sha256": "81a224e3a42f89a052a01497f04e5354f7bcc606dbd90e643a73e5b6f52de949",
-      "original_bytes": 6826
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_inter_node.hpp",
-      "original_sha256": "b5ee94d24ad0c2bf7ba65b44a4b0f318bddd3a44feb17f484f0104b74f62a256",
-      "published_sha256": "b5ee94d24ad0c2bf7ba65b44a4b0f318bddd3a44feb17f484f0104b74f62a256",
-      "original_bytes": 1913
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_override.hpp",
-      "original_sha256": "d940694e5b460ff118b63f28b25e013ffffb9465f4ae5764a0cd58ca237e215a",
-      "published_sha256": "d940694e5b460ff118b63f28b25e013ffffb9465f4ae5764a0cd58ca237e215a",
-      "original_bytes": 2290
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree.h",
-      "original_sha256": "4f5122a0d739e04b22517f5d7b6c6d64c68ca987084361d0777b95e842630603",
-      "published_sha256": "4f5122a0d739e04b22517f5d7b6c6d64c68ca987084361d0777b95e842630603",
-      "original_bytes": 7153
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_batch_delete.hpp",
-      "original_sha256": "f99d05a3de4e416dbcd3ba7806c2f3769c673bd140cfcb8a6e52b9185d5c86ce",
-      "published_sha256": "f99d05a3de4e416dbcd3ba7806c2f3769c673bd140cfcb8a6e52b9185d5c86ce",
-      "original_bytes": 6285
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_batch_diff.hpp",
-      "original_sha256": "9689d7f7a529cbef94af2c3958c8ed1aa78d986b7ee3505c29469145b65b1700",
-      "published_sha256": "9689d7f7a529cbef94af2c3958c8ed1aa78d986b7ee3505c29469145b65b1700",
-      "original_bytes": 3897
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_batch_insert.hpp",
-      "original_sha256": "4c12ca97aa85c207b70ffe6330fa7bc15794530d6a47dd608fed9fa133c0bf8c",
-      "published_sha256": "4c12ca97aa85c207b70ffe6330fa7bc15794530d6a47dd608fed9fa133c0bf8c",
-      "original_bytes": 4950
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_build_tree.hpp",
-      "original_sha256": "12173ccb559f3c2f5a534627b1449d2517870255ccd373a23325f0768820ebe9",
-      "published_sha256": "12173ccb559f3c2f5a534627b1449d2517870255ccd373a23325f0768820ebe9",
-      "original_bytes": 7083
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_inter_node.hpp",
-      "original_sha256": "fe951cbf83d9350c6de20c78636d51c3bb61c9bca20e87083ba5c3c3eab2dc9e",
-      "published_sha256": "fe951cbf83d9350c6de20c78636d51c3bb61c9bca20e87083ba5c3c3eab2dc9e",
-      "original_bytes": 8406
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_override.hpp",
-      "original_sha256": "48af767b73745b25ddd9bec677a564f9394c38ca5f01084f88297ee804b34458",
-      "published_sha256": "48af767b73745b25ddd9bec677a564f9394c38ca5f01084f88297ee804b34458",
-      "original_bytes": 2385
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree.h",
-      "original_sha256": "a87c8805fbab5e893ea99d4bb6b5eb6daa8af4701cf4407e642c9aacbefed5a3",
-      "published_sha256": "a87c8805fbab5e893ea99d4bb6b5eb6daa8af4701cf4407e642c9aacbefed5a3",
-      "original_bytes": 7222
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_batch_delete.hpp",
-      "original_sha256": "3d46c85de1821abb1d3a3c7cdefa3563a02369163341f7af5536de22dd3a1e4e",
-      "published_sha256": "3d46c85de1821abb1d3a3c7cdefa3563a02369163341f7af5536de22dd3a1e4e",
-      "original_bytes": 793
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_batch_diff.hpp",
-      "original_sha256": "9f27f5733419ff3071654b403fcbb82bf696cc150e48ec9853b6a6bc3538fd9b",
-      "published_sha256": "9f27f5733419ff3071654b403fcbb82bf696cc150e48ec9853b6a6bc3538fd9b",
-      "original_bytes": 726
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_batch_insert.hpp",
-      "original_sha256": "bb19e4aa8c834e5f5c4ba9400f49c4b4a4fe8bf3d48d0e060b97e22f763d8e0f",
-      "published_sha256": "bb19e4aa8c834e5f5c4ba9400f49c4b4a4fe8bf3d48d0e060b97e22f763d8e0f",
-      "original_bytes": 795
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_build_tree.hpp",
-      "original_sha256": "c598e7170bab3057b1c1bd926aad58df63066ae32e5c9c976dfecc87e48900ff",
-      "published_sha256": "c598e7170bab3057b1c1bd926aad58df63066ae32e5c9c976dfecc87e48900ff",
-      "original_bytes": 683
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_inter_node.hpp",
-      "original_sha256": "c6ced245cc6ee59166e7c8c32128719bb4674586a572a0f78861049bd61cadb0",
-      "published_sha256": "c6ced245cc6ee59166e7c8c32128719bb4674586a572a0f78861049bd61cadb0",
-      "original_bytes": 245
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_override.hpp",
-      "original_sha256": "7bb356545beb3799c3f3ca4c38f6d8436277430aa96d3609c52ea6f2f4e36e58",
-      "published_sha256": "7bb356545beb3799c3f3ca4c38f6d8436277430aa96d3609c52ea6f2f4e36e58",
-      "original_bytes": 1960
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/tree_traits.h",
-      "original_sha256": "787227649ec37e23067b0b0dd85e1a9a1f47922f97a0d65480c35fa7d0134721",
-      "published_sha256": "787227649ec37e23067b0b0dd85e1a9a1f47922f97a0d65480c35fa7d0134721",
-      "original_bytes": 7362
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/psi-patched/psi/tree_traits_impl/box_op.hpp",
-      "original_sha256": "85c7dfd891fc6ecacd2e8f1d4d5e65659d84b8e4b0b18ccb0fe45200f6e70562",
-      "published_sha256": "85c7dfd891fc6ecacd2e8f1d4d5e65659d84b8e4b0b18ccb0fe45200f6e70562",
-      "original_bytes": 10807
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/run-before-correctness-policy.py",
-      "original_sha256": "c4eea8b8383ab6644651065b00b5ed9cbf53315729d14f317178f165aa648907",
-      "published_sha256": "c4eea8b8383ab6644651065b00b5ed9cbf53315729d14f317178f165aa648907",
-      "original_bytes": 14436
-    },
-    {
-      "path": "_queue-disk-adapters-parity-20261115/run-before-timeout-policy.py",
-      "original_sha256": "45752cf2c534ca1b66af87b6138afc973c0aeaaa3f785ed3aa8d2dc6c46391ab",
-      "published_sha256": "45752cf2c534ca1b66af87b6138afc973c0aeaaa3f785ed3aa8d2dc6c46391ab",
-      "original_bytes": 12095
-    },
-    {
       "path": "_queue-disk-adapters-parity-20261115/run.py",
       "original_sha256": "0f6a5d4760525536f77b8d64e3f7bf211be7c4689471326713e4d15b06162ffd",
-      "published_sha256": "0f6a5d4760525536f77b8d64e3f7bf211be7c4689471326713e4d15b06162ffd",
-      "original_bytes": 15205
+      "published_sha256": "f87281bda31162cc89e06bafad493adaf1e448136210e8b396e309241d5be3f4",
+      "original_bytes": 15205,
+      "published_bytes": 15087,
+      "cleanup_note": "Superseded PH/PSI branches and targets removed; retained PGM/spatialindex implementation bodies unchanged"
     },
     {
       "path": "_queue-higherdim-missing-indexicon-20261122/run_queue.py",
@@ -1248,18 +798,6 @@
       "original_bytes": 10807
     },
     {
-      "path": "_queue-ph-psi-2d-3d-20261115/run-before-correctness-policy.py",
-      "original_sha256": "f8f7c2ea7f7f11b59ea9976bfb24e561fd6b3e7800ccef05e3f5ae79ceba9bd8",
-      "published_sha256": "f8f7c2ea7f7f11b59ea9976bfb24e561fd6b3e7800ccef05e3f5ae79ceba9bd8",
-      "original_bytes": 13324
-    },
-    {
-      "path": "_queue-ph-psi-2d-3d-20261115/run-before-timeout-policy.py",
-      "original_sha256": "45ee77e24867386989cda3100492b59a4028f40275d36d6aa8e38536b8b6b4f7",
-      "published_sha256": "45ee77e24867386989cda3100492b59a4028f40275d36d6aa8e38536b8b6b4f7",
-      "original_bytes": 12423
-    },
-    {
       "path": "_queue-ph-psi-2d-3d-20261115/run_ph_psi.py",
       "original_sha256": "3152e227d7a36f64a14b2c18ca6be1df1868bca6355a4c1e4712b71e78463326",
       "published_sha256": "3152e227d7a36f64a14b2c18ca6be1df1868bca6355a4c1e4712b71e78463326",
@@ -1270,24 +808,6 @@
       "original_sha256": "5fa6c0779ff81ffffa2714b6fe20c34e763d66b8313594d61c9a61ee651cc621",
       "published_sha256": "5fa6c0779ff81ffffa2714b6fe20c34e763d66b8313594d61c9a61ee651cc621",
       "original_bytes": 15017
-    },
-    {
-      "path": "original-native/src/runner/original-rust/Cargo.lock",
-      "original_sha256": "f2abb27618e1a3651ae2bc4d85c513d5c63ba9096c26c2c883545c73f1c489f7",
-      "published_sha256": "f2abb27618e1a3651ae2bc4d85c513d5c63ba9096c26c2c883545c73f1c489f7",
-      "original_bytes": 32978
-    },
-    {
-      "path": "original-native/src/runner/original-rust/Cargo.toml",
-      "original_sha256": "150d3bc970e9cc950bd48a74e956c7313e1a6193b748f55aac7d56846c5eccd7",
-      "published_sha256": "150d3bc970e9cc950bd48a74e956c7313e1a6193b748f55aac7d56846c5eccd7",
-      "original_bytes": 303
-    },
-    {
-      "path": "original-native/src/runner/original-rust/main.rs",
-      "original_sha256": "7a0b3ae2ac74e31f34d72b0e197ad08f11581e44b6f0ca3fd97625f3161fef0d",
-      "published_sha256": "7a0b3ae2ac74e31f34d72b0e197ad08f11581e44b6f0ca3fd97625f3161fef0d",
-      "original_bytes": 3908
     },
     {
       "path": "original-native/src/third_party/esa2026-workloads/LICENSE",
@@ -1553,5 +1073,88 @@
       "published_sha256": "c064b3178d2cacbabb5b779096c4f89ad2baa4f1821f7fe021554c87fdcd5abd",
       "original_bytes": 4207
     }
+  ],
+  "superseded_source_files_removed_20261125": [
+    "_queue-disk-adapters-2d-20261114/additional_indexes.h",
+    "_queue-disk-adapters-2d-20261114/build.sh",
+    "_queue-disk-adapters-2d-20261114/cgal_disk_2d.h",
+    "_queue-disk-adapters-2d-20261114/disk_geometry_2d.h",
+    "_queue-disk-adapters-2d-20261114/foreign_check.cpp",
+    "_queue-disk-adapters-2d-20261114/run.py",
+    "_queue-disk-adapters-parity-20261115/run-before-correctness-policy.py",
+    "_queue-disk-adapters-parity-20261115/run-before-timeout-policy.py",
+    "_queue-ph-psi-2d-3d-20261115/run-before-correctness-policy.py",
+    "_queue-ph-psi-2d-3d-20261115/run-before-timeout-policy.py",
+    "original-native/src/runner/original-rust/Cargo.lock",
+    "original-native/src/runner/original-rust/Cargo.toml",
+    "original-native/src/runner/original-rust/main.rs",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/tree_traits.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/box_cut.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/delete_tree.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/dimensionality.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/inner_tree.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/knn_query.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/points_op.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/range_query.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/validation.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/augmentation.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/basic_point.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/comparator.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/concepts.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/loggers.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/search_container.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/splitter.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/tree_node.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_batch_delete.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_batch_diff.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_batch_insert.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_build_tree.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_inter_node.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/kd_tree_impl/kd_override.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_batch_delete.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_batch_diff.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_batch_insert.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_build_tree.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_inter_node.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/orth_tree_impl/orth_override.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_batch_delete.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_batch_diff.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_batch_insert.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_build_tree.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_inter_node.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/p_tree_impl/p_override.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/tree_traits_impl/box_op.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/build_inner_tree.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/flatten.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/leaf_op.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/node_op.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/base_tree_impl/tree_op/rebuild.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/augmented_map.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/augmented_node.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/augmented_ops.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/balance_utils.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/basic_node.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/basic_node_helpers.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/build.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/byte_encode.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/compression.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/cpam.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/cpam_sample_sort.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/gc.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/get_time.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/map.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/map_ops.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/parse_command_line.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/sequence_ops.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/utils.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/cpam/weight_balanced_tree.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/space_filling_curve/hilbert.h",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/space_filling_curve/hilbert.hpp",
+    "_queue-disk-adapters-parity-20261115/psi-patched/psi/dependence/space_filling_curve/hilbert_high_dim.h",
+    "_queue-disk-adapters-parity-20261115/prepare_psi.py"
   ]
 }

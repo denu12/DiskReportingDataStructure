@@ -78,3 +78,15 @@ awaiting their replacement are retained until that condition is met. Use
 it previews changes unless `--apply` is passed. Inputs and unrelated results
 are retained. Rewritten published bundles record their pruning and receive new
 bundle/content hashes. Git history is not rewritten.
+
+On 25 November the user also requested deletion of superseded adapter source.
+The November 14 profile, pre-fix controller backups, retired Rust coordinate
+drivers and duplicate 2D/3D-only bootstrap sources were removed. The current
+native dispatcher is canonical at `src/runner/native-rust`; its generic search
+function is unchanged. Build targets, routing and source manifests no longer
+refer to the removed drivers. Selected parity/PH-PSI profiles, shared SPRK
+code and source needed by active queues are retained.
+The older PH/PSI branches inside the parity header and their patched-library
+copy were also removed; the current PH/PSI profile remains intact. The retained
+PGM and libspatialindex function bodies and native Rust search function are
+unchanged, with hashes in the source cleanup record.

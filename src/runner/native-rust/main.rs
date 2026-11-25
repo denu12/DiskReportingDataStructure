@@ -1,13 +1,13 @@
 #![allow(dead_code)]
-#[path="../../third_party/esa2026-workloads/src/dvec.rs"] pub mod dvec;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/dvec.rs"] pub mod dvec;
 #[path="../../third_party/esa2026/src/query.rs"] pub mod query;
-#[path="../../third_party/esa2026-workloads/src/kiddo.rs"] pub mod kiddo;
-#[path="../../third_party/esa2026-workloads/src/nabo.rs"] pub mod nabo;
-#[path="../../third_party/esa2026-workloads/src/neighbourhood.rs"] pub mod neighbourhood;
-#[path="../../third_party/esa2026-workloads/src/vptree.rs"] pub mod vptree;
-#[path="../../third_party/esa2026-workloads/src/orthtree.rs"] pub mod orthtree;
-#[path="../../third_party/esa2026-workloads/src/grid.rs"] pub mod grid;
-#[path="../../third_party/esa2026-workloads/src/snn.rs"] pub mod snn;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/kiddo.rs"] pub mod kiddo;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/nabo.rs"] pub mod nabo;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/neighbourhood.rs"] pub mod neighbourhood;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/vptree.rs"] pub mod vptree;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/orthtree.rs"] pub mod orthtree;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/grid.rs"] pub mod grid;
+#[path="../../../reproducibility/2026-11-22/original-native/src/third_party/esa2026-workloads/src/snn.rs"] pub mod snn;
 pub use query::Query;
 pub type NodeId=usize;
 pub mod graph {pub struct Graph;impl Graph {pub fn is_connected(&self,_a:usize,_b:usize)->bool{false}pub fn neighbors(&self,_i:usize)->&[usize]{&[]}pub fn weight(&self,_i:usize)->f64{1.0}}}
@@ -45,4 +45,4 @@ fn run<const D:usize>(f:&mut impl Read,kind:&str,bench:bool){
  if bench{query_seconds=batch.elapsed().as_secs_f64();}
  println!("{{\"status\":\"success\",\"queries\":{},\"answers\":{},\"build_seconds\":{},\"query_seconds\":{},\"output_contract\":\"point_ids_only\",\"membership_contract\":\"original_f32_api\"}}",q,answers,build_seconds,query_seconds);
 }
-fn main(){let args:Vec<_>=std::env::args().collect();let mut f=std::fs::File::open(&args[1]).unwrap();let d=u32_read(&mut f);let bench=args.iter().any(|a|a=="--bench");match d{2=>run::<2>(&mut f,&args[2],bench),3=>run::<3>(&mut f,&args[2],bench),_=>panic!("Original campaign build supports 2D and 3D")}}
+fn main(){let args:Vec<_>=std::env::args().collect();let mut f=std::fs::File::open(&args[1]).unwrap();let d=u32_read(&mut f);let bench=args.iter().any(|a|a=="--bench");match d{2=>run::<2>(&mut f,&args[2],bench),3=>run::<3>(&mut f,&args[2],bench),4=>run::<4>(&mut f,&args[2],bench),5=>run::<5>(&mut f,&args[2],bench),6=>run::<6>(&mut f,&args[2],bench),7=>run::<7>(&mut f,&args[2],bench),8=>run::<8>(&mut f,&args[2],bench),9=>run::<9>(&mut f,&args[2],bench),10=>run::<10>(&mut f,&args[2],bench),11=>run::<11>(&mut f,&args[2],bench),12=>run::<12>(&mut f,&args[2],bench),13=>run::<13>(&mut f,&args[2],bench),14=>run::<14>(&mut f,&args[2],bench),15=>run::<15>(&mut f,&args[2],bench),16=>run::<16>(&mut f,&args[2],bench),32=>run::<32>(&mut f,&args[2],bench),_=>panic!("Unsupported native driver dimension")}}

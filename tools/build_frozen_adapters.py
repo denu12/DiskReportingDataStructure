@@ -6,8 +6,7 @@ import subprocess
 import sys
 
 ROOT=Path(__file__).resolve().parents[1]
-PROFILES={'2d':'_queue-disk-adapters-2d-20261114',
-          'parity':'_queue-disk-adapters-parity-20261115',
+PROFILES={'parity':'_queue-disk-adapters-parity-20261115',
           'ph-psi':'_queue-ph-psi-2d-3d-20261115'}
 
 
@@ -18,8 +17,8 @@ def main():
     parser.add_argument('--third-party',type=Path,default=ROOT/'src/third_party')
     parser.add_argument('--square',type=Path,help='Square repository supplying captured rectangle headers and THST')
     args=parser.parse_args()
-    if args.profile=='2d' and set(args.algorithms)-{'phtree','pgm_multidimensional','spatialindex','cgal_kd'}:
-        parser.error('The November 14 profile contains phtree, pgm_multidimensional, spatialindex and cgal_kd only')
+    if args.profile=='parity' and set(args.algorithms)&{'phtree','psi'}:
+        parser.error('Superseded PH/PSI parity adapters were removed; use --profile ph-psi')
     source=ROOT/'reproducibility/2026-11-22'/PROFILES[args.profile]
     out=ROOT/'build/frozen-adapters'/args.profile;out.mkdir(parents=True,exist_ok=True)
     third=args.third_party.resolve()
@@ -51,8 +50,8 @@ def main():
             flags=['-DFOLLOWUP_'+macro];file=source/'ph_psi_followup.cpp'
         else:
             file=source/'foreign_check.cpp'
-            if algorithm in ('phtree','pgm_multidimensional','psi','spatialindex'):
-                macro={'phtree':'PHTREE','pgm_multidimensional':'PGM','psi':'PSI','spatialindex':'SPATIALINDEX'}[algorithm]
+            if algorithm in ('pgm_multidimensional','spatialindex'):
+                macro={'pgm_multidimensional':'PGM','spatialindex':'SPATIALINDEX'}[algorithm]
                 flags=['-DBACKEND_ADDITIONAL','-DADDITIONAL_'+macro]
             elif algorithm in ('cgal_kd','cgal_rt','pam','pargeo','thst'):
                 macro={'cgal_kd':'EXACT_CGAL_2D','cgal_rt':'CGAL_RANGE','pam':'STREAM_PAM','pargeo':'EXACT_PARGEO','thst':'THST'}[algorithm]

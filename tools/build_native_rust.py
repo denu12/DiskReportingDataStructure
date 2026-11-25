@@ -47,7 +47,7 @@ def prepare(source, destination, workspace):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source', type=Path, default=ROOT / 'reproducibility/2026-11-22/original-native/src/runner/original-rust/main.rs')
+    parser.add_argument('--source', type=Path, default=ROOT / 'src/runner/native-rust/main.rs')
     parser.add_argument('--workspace', type=Path, default=ROOT)
     parser.add_argument('--prepare-only', action='store_true')
     args = parser.parse_args()
