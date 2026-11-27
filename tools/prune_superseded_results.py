@@ -1,4 +1,4 @@
-"""Delete superseded disk observations only after a usable newer result exists."""
+"""Delete superseded observations only after a usable newer result exists."""
 import argparse
 from collections import Counter
 import csv
@@ -17,6 +17,7 @@ RANKS = [('_queue-disk-remaining-',200),('_queue-disk-version-repair-',190),('_q
  ('indexicon-l2-',120),('coverage-completion-',90),('original-all-',60),
  ('publication-remaining-',40),('ddim-all-three-sprk-',65),('additional-',80),
  ('reporting-adapted-',85)]
+GEOMETRY = 'disk'
 
 
 def rank(run):
@@ -27,7 +28,10 @@ def rank(run):
 def replacements(selection, queues):
     selected={}
     if selection:
-        for p in json.loads(selection.read_text())['pairs']:
+        document=json.loads(selection.read_text())
+        if document.get('geometry',GEOMETRY)!=GEOMETRY:
+            raise ValueError('Replacement selection belongs to another geometry')
+        for p in document['pairs']:
             if rank(p['run'])>=140 and p['outcome'] in ('complete','timeout_resolved'):
                 selected[p['campaign'],p['algorithm'],p['case']]=p['run']
     for queue in queues:
@@ -36,8 +40,10 @@ def replacements(selection, queues):
         for file in files:
             for line in file.open():
                 row=json.loads(line)
-                if row.get('geometry','disk')!='disk' or row['phase']=='correctness':continue
-                history.setdefault((row.get('campaign',file.parent.name),row['algorithm'],row['case']),[]).append(row)
+                if row.get('geometry',GEOMETRY)!=GEOMETRY or row['phase']=='correctness':continue
+                algorithm=row['algorithm']
+                if GEOMETRY=='square':algorithm={'pgm_multidimensional':'pgm'}.get(algorithm,algorithm)
+                history.setdefault((row.get('campaign',file.parent.name),algorithm,row['case']),[]).append(row)
         for key,rows in history.items():
             good=[r for r in rows if r['phase']=='final' and r['status'] in ('success','incorrect','answer_count_mismatch') and isinstance((r.get('result') or r).get('query_seconds'),(int,float))]
             if len({r.get('repetition') for r in good})>=3 or any('timeout' in r['status'] for r in rows):
@@ -46,9 +52,10 @@ def replacements(selection, queues):
 
 
 def obsolete(row,campaign,run,selected):
-    newer=selected.get((row.get('campaign',campaign),row.get('algorithm'),row.get('case')))
-    if not newer:newer=selected.get(('*',row.get('algorithm'),row.get('case')))
-    return newer and 0<rank(run)<rank(newer) and row.get('geometry','disk')=='disk'
+    algorithm=row.get('algorithm')
+    if GEOMETRY=='square':algorithm={'pgm_multidimensional':'pgm'}.get(algorithm,algorithm)
+    newer=selected.get((row.get('campaign',campaign),algorithm,row.get('case')))
+    return newer and 0<rank(run)<rank(newer) and row.get('geometry',GEOMETRY)==GEOMETRY
 
 
 def filter_content(content,campaign,run,selected,path):
@@ -122,14 +129,8 @@ def live(base,selected,apply):
 
 def snapshot(base,selected,apply):
     index=json.loads((base/'index.json').read_text());stats=Counter();phases=[]
-    # Archived flat exports may omit their campaign directory. Match only
-    # unambiguous algorithm/case identities, and only in older captured sources.
-    fallback={};campaigns={}
-    for (campaign,algorithm,case),run in selected.items():
-        key='*',algorithm,case
-        campaigns.setdefault(key,set()).add(campaign)
-        if key not in fallback or rank(run)>rank(fallback[key]):fallback[key]=run
-    selected={**selected,**{k:v for k,v in fallback.items() if len(campaigns[k])==1}}
+    # Case labels can be reused in different dimensions. Only exact campaign,
+    # algorithm and case identities authorize deleting an older observation.
     for bundle in index['bundles']:
         path=base/bundle['path']
         with gzip.open(path,'rt') as f:records=[json.loads(line) for line in f]
@@ -138,7 +139,7 @@ def snapshot(base,selected,apply):
             parts=Path(record['path']).parts
             if len(parts)<2:continue
             campaign,run=parts[:2]
-            if campaign.startswith('_queue-'):
+            if campaign.startswith(('_queue-','square-full-','square-rectangle-followup-')):
                 run=campaign;campaign=parts[1]
             if not rank(run):
                 if bundle['path'].split('/')[0] not in ('historical','earlier-export','archived-validation'):continue
@@ -180,6 +181,7 @@ def snapshot(base,selected,apply):
 
 
 def main():
+    global GEOMETRY
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--selection',type=Path)
     parser.add_argument('--queue',type=Path,action='append',default=[])
@@ -188,7 +190,9 @@ def main():
     parser.add_argument('--apply',action='store_true')
     parser.add_argument('--report',type=Path)
     parser.add_argument('--replacement-index',type=Path)
+    parser.add_argument('--geometry',choices=['disk','square'],default='disk',help='Geometry of snapshot observations being pruned')
     args=parser.parse_args()
+    GEOMETRY=args.geometry
     selected=replacements(args.selection,args.queue)
     if args.replacement_index:
         for row in json.loads(args.replacement_index.read_text()):selected[tuple(row['key'])]=row['run']

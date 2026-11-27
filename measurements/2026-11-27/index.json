@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "snapshot_started_utc": "2026-11-27T08:55:59.054778+00:00",
+  "bundles": [
+    {
+      "path": "current/_metadata.jsonl.gz",
+      "sha256": "c03dc85bd05c802cf5a95c67803612b94dc0f0c2a945e4541cd1b1ca8078eec1",
+      "files": 36,
+      "source_bytes": 15633040,
+      "compressed_bytes": 1667977,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/2D_ESA_geographical.jsonl.gz",
+      "sha256": "7828e16e3ae299658f0935effb3a94f1b37d029a46cad9c5e129b667ddfd1f50",
+      "files": 1,
+      "source_bytes": 535283,
+      "compressed_bytes": 48037,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/2D_ESA_graph_embeddings.jsonl.gz",
+      "sha256": "4eee1836100f8a682aa28b7b90591e8b350db34be065ac65a8ae8438808809eb",
+      "files": 1,
+      "source_bytes": 294684,
+      "compressed_bytes": 26737,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/2D_ESA_uniform_points.jsonl.gz",
+      "sha256": "992742999b360f0379cc3cad9fe975bbb8db76918597955d8cea87d0997ea23c",
+      "files": 1,
+      "source_bytes": 138390,
+      "compressed_bytes": 12364,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/ESA_clustering.jsonl.gz",
+      "sha256": "f6a44419662a980b8d3b6d258c7108db909de23ed6657c51aecb4880af8ec0da",
+      "files": 1,
+      "source_bytes": 88401,
+      "compressed_bytes": 7031,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/ESA_graph_embeddings.jsonl.gz",
+      "sha256": "8f83a4e0dacf8a61546902dc8795367f8b9300b3cb7ab6b037d1938def521be2",
+      "files": 1,
+      "source_bytes": 788484,
+      "compressed_bytes": 70431,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/ESA_high_dimensional.jsonl.gz",
+      "sha256": "cc8f6f8b3a1264573339df565decdaa8147ae5c5e05532455aa526af197c0f70",
+      "files": 1,
+      "source_bytes": 76582,
+      "compressed_bytes": 4824,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/ESA_uniform_points.jsonl.gz",
+      "sha256": "95fecb44a7bf63cbf7d51a47cf833b2b5501d08cb783481a9a221cbe844ea24d",
+      "files": 1,
+      "source_bytes": 46843,
+      "compressed_bytes": 3851,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/GeographyLarge.jsonl.gz",
+      "sha256": "35e76cb6aec3ea7881f0fc710a4554aa3c0e9672b1f2efdef77f525455c6e4e8",
+      "files": 1,
+      "source_bytes": 1964116,
+      "compressed_bytes": 177742,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/Static3D.jsonl.gz",
+      "sha256": "7e9cc013a46ed4d27a8d71f4a618af3467633ba6495080126c6859c097d9dbce",
+      "files": 1,
+      "source_bytes": 1983048,
+      "compressed_bytes": 183637,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/input_scaling.jsonl.gz",
+      "sha256": "35b93215a9684cb87e21de34849bb910f97702f43e89c5bc93ad891c5a00c0a1",
+      "files": 1,
+      "source_bytes": 1203105,
+      "compressed_bytes": 108966,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/input_scaling_3d.jsonl.gz",
+      "sha256": "3eb899863ee5897055b972b4043d995a4fbce9023b1eb2658c3d4c2effc6eb11",
+      "files": 1,
+      "source_bytes": 1204122,
+      "compressed_bytes": 110712,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/radius_scaling.jsonl.gz",
+      "sha256": "6654216079b499900fede76b5288470b09401dbb672884e80e0d4a25f12c4091",
+      "files": 1,
+      "source_bytes": 718132,
+      "compressed_bytes": 62815,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/radius_scaling_3d.jsonl.gz",
+      "sha256": "d1b0b2135db06285b3741be810344f7118cf9fe8fec7beed5bc171f2dc42388b",
+      "files": 1,
+      "source_bytes": 717924,
+      "compressed_bytes": 63350,
+      "unreadable": []
+    },
+    {
+      "path": "current/_queue-measure-inexact-and-ddim-20261120/static.jsonl.gz",
+      "sha256": "c69231f598cdd9ae479f107947f5d91a467af213d5bbed0ee87e9cfe3e16e014",
+      "files": 1,
+      "source_bytes": 1980787,
+      "compressed_bytes": 180677,
+      "unreadable": []
+    }
+  ],
+  "phases": [],
+  "notes": [
+    "Historical and invalid outcomes are retained, not endorsed.",
+    "An active run is a partial snapshot, not a completed campaign.",
+    "State rows and job artifacts overlap; do not count both.",
+    "Input binaries, software builds, private documents and caches are excluded.",
+    "Local home paths, host/user names and private IP addresses are redacted.",
+    "Targeted incremental capture: result logs and manifests only. No inputs, builds, source backups or retired plan versions were copied. Running timeout-repeat queue is partial.",
+    "Superseded disk measurements removed at user request. Edited records have content_sha256 and superseded_rows_deleted; original_sha256 remains the pre-redaction, pre-pruning source identity.",
+    "Targeted incremental capture: result logs and manifests only. No inputs, builds, source backups or retired plan versions were copied. Running timeout-repeat queue is partial.",
+    "Superseded disk measurements removed at user request. Edited records have content_sha256 and superseded_rows_deleted; original_sha256 remains the pre-redaction, pre-pruning source identity."
+  ],
+  "snapshot_finished_utc": "2026-11-27T08:56:03.214446+00:00",
+  "total_files": 50,
+  "total_phase_rows": 0,
+  "source_capture_started_utc": "2026-11-27T08:54:59.791062+00:00",
+  "source_capture_finished_utc": "2026-11-27T08:55:00.275467+00:00",
+  "superseded_results_pruned_unix": 1795770424.6334193,
+  "audit_artifacts": [
+    {
+      "path": "cleanup-replacements.json.gz",
+      "sha256": "f1ec42947f1da52ca8aa00f61876f3238117d65b8172b075ed6d174c155fd3b1"
+    },
+    {
+      "path": "restored-3d-verification.json",
+      "sha256": "e9dce795888cc139e22495817ffcd24d7590daa4e4de3b15dcad264d1de65ef1"
+    }
+  ]
+}

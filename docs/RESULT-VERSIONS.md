@@ -86,6 +86,11 @@ native dispatcher is canonical at `src/runner/native-rust`; its generic search
 function is unchanged. Build targets, routing and source manifests no longer
 refer to the removed drivers. Selected parity/PH-PSI profiles, shared SPRK
 code and source needed by active queues are retained.
+Result cleanup requires an exact campaign, algorithm and case match. The
+27 November publication fixes an older cross-campaign fallback, restores
+unsuperseded observations from original archives, and verifies preservation of
+the unaffected 3D rows. Square snapshots use their own geometry and normalize
+only the recorded PGM identifier; 2D and 3D case labels remain distinct scopes.
 The older PH/PSI branches inside the parity header and their patched-library
 copy were also removed; the current PH/PSI profile remains intact. The retained
 PGM and libspatialindex function bodies and native Rust search function are

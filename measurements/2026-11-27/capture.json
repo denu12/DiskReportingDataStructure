@@ -1,0 +1,142 @@
+{
+  "started_utc": "2026-11-27T08:54:59.791062+00:00",
+  "files": {
+    "disk": {
+      "files": 50,
+      "bytes": 27372941
+    }
+  },
+  "trimmed_partial_jsonl_tails": [],
+  "queues": {
+    "disk/_queue-measure-inexact-and-ddim-20261120": {
+      "status": "complete",
+      "completed": [
+        "ESA_clustering",
+        "ESA_graph_embeddings",
+        "ESA_high_dimensional",
+        "ESA_uniform_points",
+        "input_scaling",
+        "radius_scaling",
+        "static",
+        "GeographyLarge",
+        "input_scaling_3d",
+        "radius_scaling_3d",
+        "Static3D",
+        "2D_ESA_graph_embeddings",
+        "2D_ESA_uniform_points",
+        "2D_ESA_geographical"
+      ],
+      "counts": {
+        "correctness": 162,
+        "correctness_success": 138,
+        "correctness_unsupported_dimension": 7,
+        "screen": 6498,
+        "screen_success": 6420,
+        "screen_unsupported_dimension": 42,
+        "final": 19494,
+        "final_unsupported_dimension": 126,
+        "final_success": 19335,
+        "screen_timeout": 36,
+        "final_timeout": 11,
+        "final_skipped_after_timeout": 22,
+        "correctness_incorrect": 17
+      },
+      "cpu": 1,
+      "workers": 1,
+      "measure_failed_correctness": true,
+      "updated_unix": 1795376120.7454212
+    },
+    "disk/_queue-higherdim-missing-indexicon-20261122": {
+      "status": "complete_with_errors",
+      "cpu": 1,
+      "workers": 1,
+      "counts": {
+        "correctness_error": 6,
+        "correctness_success": 111,
+        "screen_success": 1229,
+        "screen_timeout": 211,
+        "screen_error": 34,
+        "final_success": 3687,
+        "final_skipped_after_timeout": 633,
+        "final_skipped_after_error": 102
+      },
+      "updated_unix": 1795413226.5929935,
+      "after_service": "drr-measure-inexact-resume-20261121.service",
+      "total_pairs": 1474
+    },
+    "disk/_queue-snn-higherdim-recovery-20261123": {
+      "status": "complete",
+      "cpu": 1,
+      "workers": 1,
+      "counts": {
+        "correctness_incorrect": 3,
+        "correctness_success": 3,
+        "screen_success": 33,
+        "screen_timeout": 1,
+        "final_success": 99,
+        "final_skipped_after_timeout": 3
+      },
+      "updated_unix": 1795432552.5070639,
+      "after_service": "drr-higherdim-missing-indexicon-20261122.service",
+      "total_pairs": 34
+    },
+    "disk/_queue-disk-version-repair-20261123": {
+      "status": "complete_with_errors",
+      "cpu": 1,
+      "workers": 1,
+      "counts": {
+        "correctness_success": 64,
+        "correctness_incorrect": 39,
+        "correctness_error": 1,
+        "screen_success": 1600,
+        "screen_timeout": 63,
+        "screen_error": 11,
+        "final_success": 4800,
+        "final_skipped_after_error": 33,
+        "final_skipped_after_timeout": 189
+      },
+      "updated_unix": 1795479293.8740654,
+      "after_service": "drr-snn-higherdim-recovery-20261123.service",
+      "total_pairs": 1674
+    },
+    "disk/_queue-disk-remaining-260-20261123": {
+      "status": "complete_with_errors",
+      "cpu": 1,
+      "workers": 1,
+      "counts": {
+        "correctness_success": 43,
+        "correctness_error": 1,
+        "screen_error": 35,
+        "screen_success": 74,
+        "screen_timeout": 151,
+        "final_skipped_after_timeout": 453,
+        "final_success": 219,
+        "final_error": 1,
+        "final_skipped_after_error": 107
+      },
+      "updated_unix": 1795511903.9035032,
+      "after_service": "drr-disk-version-repair-20261123.service",
+      "total_pairs": 260
+    },
+    "disk/_queue-timeout-repeats-20261124": {
+      "status": "final",
+      "cpu": 1,
+      "workers": 1,
+      "counts": {
+        "timeout": 1240,
+        "success": 329,
+        "error": 17
+      },
+      "updated_unix": 1795769634.7217767,
+      "after_service": "drr-disk-remaining-260-20261123.service",
+      "job": 1587,
+      "total_jobs": 2847,
+      "repo": "disk",
+      "campaign": "ESA_graph_embeddings",
+      "algorithm": "brute_force",
+      "case": "embedding_result_4232@610_dim-4",
+      "repetition": 2
+    }
+  },
+  "finished_utc": "2026-11-27T08:55:00.275467+00:00"
+}

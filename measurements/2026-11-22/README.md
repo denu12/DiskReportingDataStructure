@@ -1,16 +1,15 @@
 # Measurements captured on 22 November 2026
 
-After the requested removal of superseded results on 23 November, this snapshot
-contains **756,591 recorded files in 352 bundles**, totaling **82.7 MB compressed**.
-Phase-state summaries contain **266,812 rows**, including historical and
-overlapping observations. These counts are not independent successful measurements.
-The original capture contained 808,176 files and 371,319 phase-state rows.
-Pruned records and bundles carry updated hashes and explicit pruning metadata.
+Updated on 27 November after campaign-scoped cleanup: **756,591 retained files
+in 352 bundles (81.65 MB compressed)**. Phase-state rows: 245,169. The historical capture description below records the original capture.
+Superseded observations were removed only for exact campaign/algorithm/case
+matches. Unsuperseded 3D data was restored from the original archive. Updated
+hashes and counts are in index.json and verification.json. Newer replacements
+are in the [27 November snapshot](../2026-11-27/README.md).
 
-Capture interval: **18:52:56–19:04:44 UTC**. The sources are Archie's current
-`results/` and relocated `historical_data/results/`. The
-[23 November selection](../selections/2026-11-23/README.md) supplies completed
-newer replacements, including the rest of the native-output 2D measurements.
+The original capture contained **808,176 recorded files in 352 bundles**, totaling **93.1 MB compressed**. Original phase-state summaries contained **371,319 rows**, including historical and overlapping observations. These counts are not independent successful measurements.
+
+Capture interval: **18:52:56–19:04:44 UTC**. The sources are Archie's current `results/` and relocated `historical_data/results/`. The earlier [3 November snapshot](../2026-11-03/README.md) remains available, including its additional archived validation and tuning sources.
 
 The capture includes the completed Indexicon 2D/3D campaigns, disk adapter reruns, the newer MortonPlus/SPRK higher-dimensional runs, and the latest native-output measurement queue. Incorrect, timed-out, unsupported, interrupted and infrastructure-failed outcomes remain in their original runs.
 

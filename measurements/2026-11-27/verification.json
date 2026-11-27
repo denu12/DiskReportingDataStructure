@@ -1,0 +1,533 @@
+{
+  "verified_bundles": 15,
+  "verified_records": 50,
+  "compressed_bytes": 2729151,
+  "capture_started_utc": "2026-11-27T08:55:59.054778+00:00",
+  "capture_finished_utc": "2026-11-27T08:56:03.214446+00:00",
+  "failures": [],
+  "sensitive_paths": [],
+  "jsonl_artifacts": [
+    {
+      "source": "current",
+      "path": "_queue-disk-remaining-260-20261123/jobs.jsonl",
+      "rows": 1084,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 43,
+        "correctness:error": 1,
+        "screen:error": 35,
+        "screen:success": 74,
+        "screen:timeout": 151,
+        "final:skipped_after_timeout": 453,
+        "final:success": 219,
+        "final:error": 1,
+        "final:skipped_after_error": 107
+      },
+      "algorithms": [
+        "ann_fr",
+        "brute_force",
+        "cgal_kd",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_sprk_CHEATING_IDS_ONLY",
+        "lsi_str",
+        "psi_kd",
+        "psi_orth"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-disk-version-repair-20261123/jobs.jsonl",
+      "rows": 6800,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 64,
+        "correctness:incorrect": 39,
+        "correctness:error": 1,
+        "screen:success": 1600,
+        "screen:timeout": 63,
+        "screen:error": 11,
+        "final:success": 4800,
+        "final:skipped_after_error": 33,
+        "final:skipped_after_timeout": 189
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-higherdim-missing-indexicon-20261122/jobs.jsonl",
+      "rows": 5871,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 111,
+        "screen:success": 1229,
+        "screen:timeout": 211,
+        "final:success": 3687,
+        "final:skipped_after_timeout": 633
+      },
+      "algorithms": [
+        "esa_nanoflann",
+        "indexicon_kdtree_adaptive",
+        "indexicon_kdtree_longest_axis",
+        "indexicon_kdtree_round_robin",
+        "indexicon_octree",
+        "indexicon_rtree_mbr",
+        "indexicon_rtree_point"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-snn-higherdim-recovery-20261123/jobs.jsonl",
+      "rows": 142,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:incorrect": 3,
+        "correctness:success": 3,
+        "screen:success": 33,
+        "screen:timeout": 1,
+        "final:success": 99,
+        "final:skipped_after_timeout": 3
+      },
+      "algorithms": [
+        "esa_snn_rust"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-timeout-repeats-20261124/jobs.jsonl",
+      "rows": 1586,
+      "invalid_lines": 0,
+      "outcomes": {
+        "final:timeout": 1240,
+        "final:success": 329,
+        "final:error": 17
+      },
+      "algorithms": [
+        "ann_fr",
+        "boost_lin",
+        "boost_quad",
+        "boost_star",
+        "brute_force",
+        "cgal_kd",
+        "cgal_rt",
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_sprk_CHEATING_IDS_ONLY",
+        "esa_sprk_RUST_EXACT_DDIM",
+        "esa_vptree",
+        "indexicon_kdtree_adaptive",
+        "indexicon_kdtree_longest_axis",
+        "indexicon_kdtree_round_robin",
+        "indexicon_rtree_mbr",
+        "indexicon_rtree_point",
+        "lsi_rstar",
+        "lsi_str",
+        "psi_kd",
+        "thst_quad",
+        "thst_rtree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/2D_ESA_geographical/jobs.jsonl",
+      "rows": 1243,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 10,
+        "correctness:incorrect": 1,
+        "screen:success": 308,
+        "final:success": 924
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/2D_ESA_graph_embeddings/jobs.jsonl",
+      "rows": 671,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 9,
+        "correctness:incorrect": 2,
+        "screen:success": 165,
+        "final:success": 495
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/2D_ESA_uniform_points/jobs.jsonl",
+      "rows": 319,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 10,
+        "correctness:incorrect": 1,
+        "screen:success": 77,
+        "final:success": 231
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/ESA_clustering/jobs.jsonl",
+      "rows": 210,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 9,
+        "correctness:unsupported_dimension": 1,
+        "screen:success": 45,
+        "screen:unsupported_dimension": 5,
+        "final:unsupported_dimension": 15,
+        "final:success": 135
+      },
+      "algorithms": [
+        "MortonPlusDDim",
+        "esa_sprk_RUST_EXACT_DDIM"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/ESA_graph_embeddings/jobs.jsonl",
+      "rows": 1708,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 28,
+        "screen:success": 420,
+        "final:success": 1260
+      },
+      "algorithms": [
+        "MortonPlusDDim",
+        "esa_sprk_RUST_EXACT_DDIM"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/ESA_high_dimensional/jobs.jsonl",
+      "rows": 250,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:unsupported_dimension": 5,
+        "correctness:success": 5,
+        "screen:unsupported_dimension": 30,
+        "screen:timeout": 20,
+        "screen:success": 10,
+        "final:unsupported_dimension": 90,
+        "final:success": 60,
+        "final:timeout": 10,
+        "final:skipped_after_timeout": 20
+      },
+      "algorithms": [
+        "MortonPlusDDim",
+        "esa_sprk_RUST_EXACT_DDIM"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/ESA_uniform_points/jobs.jsonl",
+      "rows": 116,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 3,
+        "correctness:unsupported_dimension": 1,
+        "screen:success": 19,
+        "screen:timeout": 2,
+        "screen:unsupported_dimension": 7,
+        "final:success": 60,
+        "final:unsupported_dimension": 21,
+        "final:timeout": 1,
+        "final:skipped_after_timeout": 2
+      },
+      "algorithms": [
+        "MortonPlusDDim",
+        "esa_sprk_RUST_EXACT_DDIM"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/GeographyLarge/jobs.jsonl",
+      "rows": 4411,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 10,
+        "correctness:incorrect": 1,
+        "screen:success": 1100,
+        "final:success": 3300
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/Static3D/jobs.jsonl",
+      "rows": 4411,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:incorrect": 3,
+        "correctness:success": 8,
+        "screen:success": 1098,
+        "screen:timeout": 2,
+        "final:success": 3300
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/input_scaling/jobs.jsonl",
+      "rows": 2651,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 10,
+        "correctness:incorrect": 1,
+        "screen:success": 660,
+        "final:success": 1980
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/input_scaling_3d/jobs.jsonl",
+      "rows": 2651,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:incorrect": 3,
+        "correctness:success": 8,
+        "screen:success": 660,
+        "final:success": 1980
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/radius_scaling/jobs.jsonl",
+      "rows": 1551,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 10,
+        "correctness:incorrect": 1,
+        "screen:success": 380,
+        "screen:timeout": 5,
+        "final:success": 1155
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/radius_scaling_3d/jobs.jsonl",
+      "rows": 1551,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:incorrect": 3,
+        "correctness:success": 8,
+        "screen:success": 379,
+        "screen:timeout": 6,
+        "final:success": 1155
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/static/jobs.jsonl",
+      "rows": 4411,
+      "invalid_lines": 0,
+      "outcomes": {
+        "correctness:success": 10,
+        "correctness:incorrect": 1,
+        "screen:success": 1099,
+        "screen:timeout": 1,
+        "final:success": 3300
+      },
+      "algorithms": [
+        "esa_grid",
+        "esa_kiddo",
+        "esa_nabo",
+        "esa_nanoflann",
+        "esa_neighbourhood",
+        "esa_orthtree",
+        "esa_sklearn_ball",
+        "esa_sklearn_kd",
+        "esa_snn",
+        "esa_snn_rust",
+        "esa_vptree"
+      ]
+    }
+  ],
+  "queue_statuses": [
+    {
+      "source": "current",
+      "path": "_queue-disk-remaining-260-20261123/status.json",
+      "status": "complete_with_errors"
+    },
+    {
+      "source": "current",
+      "path": "_queue-disk-version-repair-20261123/status.json",
+      "status": "complete_with_errors"
+    },
+    {
+      "source": "current",
+      "path": "_queue-higherdim-missing-indexicon-20261122/status.json",
+      "status": "complete_with_errors"
+    },
+    {
+      "source": "current",
+      "path": "_queue-measure-inexact-and-ddim-20261120/status.json",
+      "status": "complete",
+      "completed": [
+        "ESA_clustering",
+        "ESA_graph_embeddings",
+        "ESA_high_dimensional",
+        "ESA_uniform_points",
+        "input_scaling",
+        "radius_scaling",
+        "static",
+        "GeographyLarge",
+        "input_scaling_3d",
+        "radius_scaling_3d",
+        "Static3D",
+        "2D_ESA_graph_embeddings",
+        "2D_ESA_uniform_points",
+        "2D_ESA_geographical"
+      ]
+    },
+    {
+      "source": "current",
+      "path": "_queue-snn-higherdim-recovery-20261123/status.json",
+      "status": "complete"
+    },
+    {
+      "source": "current",
+      "path": "_queue-timeout-repeats-20261124/status.json",
+      "status": "final",
+      "campaign": "ESA_graph_embeddings",
+      "job": 1587,
+      "total_jobs": 2847
+    },
+    {
+      "source": "current",
+      "path": "_source-cleanup-20261125/overlap-rerun-status.json",
+      "status": "waiting_for_timeout_repeat_queue"
+    }
+  ]
+}

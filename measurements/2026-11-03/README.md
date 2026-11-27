@@ -1,12 +1,13 @@
 # Measurements captured on 3 November 2026
 
-After the requested removal of superseded results on 23 November, the snapshot
-contains **701,770 recorded files** in **308 bundles**, totaling **85.0 MB**
-compressed. Phase summaries contain 242,243 rows, including overlapping records;
-this is not a count of independent successful measurements. The original capture
-contained 743,947 files and 333,418 phase rows. Rewritten bundles have updated
-hashes and explicit pruning metadata. The
-[23 November selection](../selections/2026-11-23/README.md) contains newer replacements.
+Updated on 27 November after campaign-scoped cleanup: **701,770 retained files
+in 308 bundles (84.08 MB compressed)**. Phase-state rows: 222,857. The historical capture description below records the original capture.
+Superseded observations were removed only for exact campaign/algorithm/case
+matches. Unsuperseded 3D data was restored from the original archive. Updated
+hashes and counts are in index.json and verification.json. Newer replacements
+are in the [27 November snapshot](../2026-11-27/README.md).
+
+The original capture contained **743,947 recorded files** in **308 bundles**, totaling **93.5 MB** compressed. Original phase summaries contained 333,418 rows, including historical and overlapping records; this is not a count of independent successful measurements.
 
 The primary Archie export was captured between **08:45:49 and 08:46:52 UTC**. Local historical export, tuning and validation records were added separately; the index records their capture time. See [index.json](index.json) for counts, SHA-256 hashes and phase summaries, and the [format description](../README.md) for reading bundles.
 

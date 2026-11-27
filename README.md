@@ -23,7 +23,7 @@ are recorded in [publication status](docs/PUBLICATION.md).
 
 ## Recorded measurements
 
-The latest [22 November 2026 snapshot](measurements/2026-11-22/README.md) includes current and historical experiment records, including failures and partial runs. The [3 November snapshot](measurements/2026-11-03/README.md) remains available as an earlier capture. These are raw observations, not a single combined comparison: reporting contracts, source revisions and workloads differ between runs. Read each snapshot's captured queue status rather than treating an older status as current.
+The latest [27 November 2026 snapshot](measurements/2026-11-27/README.md) includes completed repair queues and a partial capture of the running timeout-repeat campaign. It complements the retained [22 November](measurements/2026-11-22/README.md) and [3 November](measurements/2026-11-03/README.md) observations. Reporting contracts, source revisions and workloads differ between runs; preserve their versions and avoid counting overlapping captures as independent measurements.
 
 Indexicon and the native f64 exact higher-dimensional SPRK bridge are integrated.
 

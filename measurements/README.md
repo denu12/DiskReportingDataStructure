@@ -1,5 +1,7 @@
 # Recorded measurements
 
+- [27 November 2026](2026-11-27/README.md): completed repair/follow-up results and a partial capture of the running timeout-repeat campaign. This incremental capture complements the older snapshots.
+
 Dated snapshots preserve observations available at publication time. They include successful jobs, failures, partial runs, logs and provenance. Input datasets, binaries, private drafts and correspondence are excluded.
 
 The [23 November reviewed selection](selections/2026-11-23/README.md) supplies

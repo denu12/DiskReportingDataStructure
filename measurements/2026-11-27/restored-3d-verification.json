@@ -1,0 +1,7 @@
+{
+  "verified_state_artifacts": 139,
+  "unsuperseded_3d_rows_preserved": 50479,
+  "missing_rows": 0,
+  "source_commit": "cf956130ee9151003017a714d0e5d397edbb3a8e",
+  "matching": "Exact campaign, algorithm and case; never match across dimensions by case label alone"
+}
